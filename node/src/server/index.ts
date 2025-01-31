@@ -1,13 +1,11 @@
 //e.g server.js
+import { ip } from 'address'
 import express from 'express'
-import ViteExpress from 'vite-express'
-import _ from 'lodash'
-import { Server as SocketServer } from 'socket.io'
-import { Client as OscClient, Server as OscServer } from 'node-osc'
 import maxApi from 'max-api'
 import fs from 'node:fs'
 import path from 'node:path'
-import address, { ip } from 'address'
+import { Server as SocketServer } from 'socket.io'
+import ViteExpress from 'vite-express'
 
 const app = express()
 
