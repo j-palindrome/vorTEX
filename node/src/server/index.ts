@@ -7,7 +7,7 @@ import { Client as OscClient, Server as OscServer } from 'node-osc'
 import maxApi from 'max-api'
 import fs from 'node:fs'
 import path from 'node:path'
-import { ip } from 'address'
+import address, { ip } from 'address'
 
 const app = express()
 

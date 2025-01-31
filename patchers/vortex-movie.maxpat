@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 6,
-			"revision" : 2,
+			"revision" : 4,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1212.0, 651.0 ],
+		"rect" : [ 34.0, 115.0, 703.0, 751.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
@@ -137,15 +137,15 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"linecount" : 3,
+					"linecount" : 6,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 335.0, 100.0, 150.0, 40.0 ],
+					"patching_rect" : [ 335.0, 100.0, 150.0, 74.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 3,
-					"presentation_rect" : [ 30.0, 38.0, 150.0, 40.0 ],
-					"text" : "/Users/jreinier/Documents/1_now/vortex/media/1'43-1080.mov"
+					"presentation_linecount" : 6,
+					"presentation_rect" : [ 30.0, 38.0, 150.0, 74.0 ],
+					"text" : "/Users/jreinier/Library/CloudStorage/GoogleDrive-jtreinier@gmail.com/My Drive/1_now/vortex/media/genuary22.mov"
 				}
 
 			}
@@ -240,9 +240,9 @@
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 4,
-					"outlettype" : [ "signal", "signal", "jit_gl_texture", "" ],
-					"patching_rect" : [ 44.0, 177.0, 392.0, 20.0 ],
+					"numoutlets" : 3,
+					"outlettype" : [ "", "", "" ],
+					"patching_rect" : [ 75.0, 180.0, 392.0, 20.0 ],
 					"text" : "jit.movie~ @drawto VORTEX @loop 2 @autostart 1 @output_texture 1"
 				}
 
