@@ -25,18 +25,18 @@ const updateSettings = (newSettings) => {
     JSON.stringify(settings)
   );
 };
+const ipAdd = ip();
+maxApi.outlet(
+  "/message",
+  `Go to http://${ipAdd}:7001 from an iPad signed into same WiFi to access UI.`
+);
+maxApi.outlet("/message/ip", `http://${ipAdd}:7001`);
+maxApi.outlet(
+  "/message/name",
+  `name`,
+  `presets_${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.json`
+);
 io.on("connection", (socket) => {
-  const ipAdd = ip();
-  maxApi.outlet(
-    "/message",
-    `Go to http://${ipAdd}:7001 from an iPad signed into same WiFi to access UI.`
-  );
-  maxApi.outlet("/message/ip", `http://${ipAdd}:7001`);
-  maxApi.outlet(
-    "/message/name",
-    `name`,
-    `presets_${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.json`
-  );
   socket.on("set", (route, property, value) => {
     if (value instanceof Array) {
       maxApi.outlet(route, property, ...value);
