@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 467.0, 115.0, 939.0, 751.0 ],
+		"rect" : [ 489.0, 115.0, 917.0, 751.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -18,13 +18,25 @@
 		"subpatcher_template" : "Joshua",
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-14",
+					"id" : "obj-31",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 224.347818732261658, 1469.0, 248.0, 18.0 ],
+					"text" : "TODO: redo geometry with jit.geom system"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-27",
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "jit_geometry", "" ],
-					"patching_rect" : [ 963.0, 695.0, 100.0, 20.0 ],
-					"text" : "jit.geom.waves"
+					"outlettype" : [ "jit_matrix", "" ],
+					"patching_rect" : [ 613.0, 1225.0, 100.0, 31.0 ],
+					"text" : "jit.geom.topoints"
 				}
 
 			}
@@ -66,12 +78,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-2",
-					"linecount" : 3,
+					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 8,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 229.478254854679108, 1141.0, 556.521720886230469, 42.0 ],
+					"patching_rect" : [ 225.217383921146393, 1140.0, 640.0, 31.0 ],
 					"text" : "jit.gl.material @lighting_enable 1 @drawto VORTEX @color 1 1 1 1 @mat_specular 0. 0. 0. 0. @gl_color 1. 1. 1. 1. @mat_ambient 0 0 0 0. @aux_color 1. 1. 1. 0. @mat_emission 0. 0. 0. 0. @mat_diffuse 1. 1. 1. 0."
 				}
 
@@ -288,7 +300,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 449.565202653408051, 650.43476128578186, 59.0, 20.0 ],
+					"patching_rect" : [ 420.0, 645.0, 59.0, 20.0 ],
 					"text" : "r RENDER"
 				}
 
@@ -1671,7 +1683,7 @@
 
 							}
  ],
-						"originid" : "pat-236",
+						"originid" : "pat-1033",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -1772,7 +1784,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 524.34780889749527, 851.30431991815567, 314.0, 18.0 ],
+					"patching_rect" : [ 514.0, 839.260847330093384, 314.0, 18.0 ],
 					"text" : "argb => rgba whenever you convert texture to matrix"
 				}
 
@@ -1832,7 +1844,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 446.08694189786911, 742.608671307563782, 182.0, 29.0 ],
+					"patching_rect" : [ 436.0, 731.260847330093384, 182.0, 29.0 ],
 					"text" : "Fine for CPU - only sent out on change of parameters"
 				}
 
@@ -2121,7 +2133,7 @@
 
 											}
  ],
-										"originid" : "pat-240",
+										"originid" : "pat-1037",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2420,7 +2432,7 @@
 
 							}
  ],
-						"originid" : "pat-238",
+						"originid" : "pat-1035",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2621,7 +2633,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 231.0, 150.0, 132.0, 31.0 ],
-									"text" : "jit_matrix u979002595"
+									"text" : "jit_matrix u454005402"
 								}
 
 							}
@@ -2964,7 +2976,7 @@
 
 							}
  ],
-						"originid" : "pat-242",
+						"originid" : "pat-1039",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3023,7 +3035,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 430.434768497943878, 799.999973773956299, 62.0, 20.0 ],
+					"patching_rect" : [ 420.0, 788.260847330093384, 62.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"fontname" : "PT Mono",
 						"fontsize" : 10.0,
@@ -3620,7 +3632,7 @@
 
 											}
  ],
-										"originid" : "pat-246"
+										"originid" : "pat-1043"
 									}
 ,
 									"patching_rect" : [ 10.0, 1715.0, 164.0, 20.0 ],
@@ -3795,7 +3807,7 @@
 
 											}
  ],
-										"originid" : "pat-248",
+										"originid" : "pat-1045",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -3978,7 +3990,7 @@
 
 											}
  ],
-										"originid" : "pat-250",
+										"originid" : "pat-1047",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4149,7 +4161,7 @@
 
 											}
  ],
-										"originid" : "pat-252",
+										"originid" : "pat-1049",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4585,7 +4597,7 @@
 
 											}
  ],
-										"originid" : "pat-254",
+										"originid" : "pat-1051",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5321,7 +5333,7 @@
 
 							}
  ],
-						"originid" : "pat-244",
+						"originid" : "pat-1041",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -5380,7 +5392,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 430.434768497943878, 850.434754729270935, 92.0, 20.0 ],
+					"patching_rect" : [ 420.0, 839.260847330093384, 92.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"fontname" : "PT Mono",
 						"fontsize" : 10.0,
@@ -5399,7 +5411,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 5,
 					"outlettype" : [ "jit_matrix", "jit_matrix", "jit_matrix", "jit_matrix", "" ],
-					"patching_rect" : [ 449.565202653408051, 688.695629596710205, 260.0, 20.0 ],
+					"patching_rect" : [ 420.0, 678.260847330093384, 260.0, 20.0 ],
 					"text" : "jit.unpack 4 @offset 0 3 6 9 @jump 3 3 3 3"
 				}
 
@@ -5974,7 +5986,7 @@
 
 			}
  ],
-		"originid" : "pat-212",
+		"originid" : "pat-1009",
 		"styles" : [ 			{
 				"name" : "Joshua",
 				"default" : 				{
