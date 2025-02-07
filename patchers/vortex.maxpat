@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 652.0, 751.0 ],
+		"rect" : [ 34.0, 115.0, 962.0, 751.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -3892,7 +3892,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 141.0, 652.0, 725.0 ],
+						"rect" : [ 34.0, 141.0, 962.0, 725.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
@@ -3922,6 +3922,44 @@
 						"showontab" : 2,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-100",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 705.0, 495.0, 144.0, 20.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 30.0, 90.0, 144.0, 20.0 ],
+									"text" : "Reload SpaceMouse"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-38",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 704.492751240730286, 525.0, 24.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 30.0, 111.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-28",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 686.0, 362.5, 50.0, 22.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-141",
 									"maxclass" : "newobj",
@@ -3954,7 +3992,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 607.0, 1785.0, 151.0, 65.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.0:7001/documentation"
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001/documentation"
 								}
 
 							}
@@ -3966,7 +4004,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 630.0, 1603.0, 24.0, 24.0 ],
+									"patching_rect" : [ 607.0, 1605.0, 24.0, 24.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 150.0, 51.5, 24.0, 24.0 ]
 								}
@@ -3978,7 +4016,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 630.0, 1575.0, 109.0, 20.0 ],
+									"patching_rect" : [ 607.0, 1575.0, 109.0, 20.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 150.0, 26.0, 109.0, 20.0 ],
 									"text" : "documentation"
@@ -4031,8 +4069,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 885.0, 1665.0, 180.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.0:7001"
+									"patching_rect" : [ 810.0, 1650.0, 184.0, 50.0 ],
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001"
 								}
 
 							}
@@ -4073,8 +4111,8 @@
 									"patching_rect" : [ 885.0, 1515.0, 333.0, 34.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 4,
-									"presentation_rect" : [ 30.0, 86.0, 200.0, 63.0 ],
-									"text" : "Go to http://192.168.1.0:7001 from an iPad signed into same WiFi to access UI."
+									"presentation_rect" : [ 30.0, 225.0, 200.0, 63.0 ],
+									"text" : "Go to http://192.168.1.76:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -4286,7 +4324,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 867.0, 1440.0, 89.0, 22.0 ],
+									"patching_rect" : [ 867.333333333333371, 1425.0, 89.0, 22.0 ],
 									"text" : "s noise-type"
 								}
 
@@ -4321,7 +4359,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 782.0, 1380.0, 96.0, 22.0 ],
+									"patching_rect" : [ 782.0, 1365.0, 96.0, 22.0 ],
 									"text" : "s file1-source"
 								}
 
@@ -4419,7 +4457,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 826.0, 1410.0, 96.0, 22.0 ],
+									"patching_rect" : [ 824.666666666666629, 1395.0, 96.0, 22.0 ],
 									"text" : "s file2-source"
 								}
 
@@ -4470,7 +4508,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 520.0, 930.0, 150.0, 22.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 175.0, 96.0, 22.0 ],
+									"presentation_rect" : [ 317.0, 195.0, 96.0, 22.0 ],
 									"text" : "restart server"
 								}
 
@@ -4650,7 +4688,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 540.0, 855.0, 48.0, 22.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 139.0, 48.0, 22.0 ],
+									"presentation_rect" : [ 255.0, 195.0, 48.0, 22.0 ],
 									"text" : "install"
 								}
 
@@ -4665,7 +4703,7 @@
 									"patching_rect" : [ 210.0, 870.0, 203.0, 175.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 12,
-									"presentation_rect" : [ 30.0, 176.0, 209.905659675598145, 175.0 ],
+									"presentation_rect" : [ 30.0, 315.0, 209.905659675598145, 175.0 ],
 									"text" : "1. Press \"Install\" if running for the first time (takes 20-30 secs)\n\nPACKAGES REQUIRED:\n- bach\n- sigmund\n- zha.descriptors\n- odot\n\npress H to hide/show cursor\npress A to fix/free cursor"
 								}
 
@@ -5008,6 +5046,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6200,6 +6240,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-282", 0 ],
 									"source" : [ "obj-35", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-48", 0 ],
+									"source" : [ "obj-38", 0 ]
 								}
 
 							}
