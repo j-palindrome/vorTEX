@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 885.0, 751.0 ],
+		"rect" : [ 34.0, 115.0, 652.0, 751.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -71,7 +71,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 465.0, 467.0, 134.0, 20.0 ],
-					"text" : "visible 1, floating 1"
+					"text" : "visible 1, floating 0"
 				}
 
 			}
@@ -3892,7 +3892,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 167.0, 885.0, 699.0 ],
+						"rect" : [ 34.0, 141.0, 652.0, 725.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
@@ -3954,7 +3954,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 607.0, 1785.0, 151.0, 65.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.76:7001/documentation"
+									"text" : ";\rmax launchbrowser http://192.168.1.0:7001/documentation"
 								}
 
 							}
@@ -4006,7 +4006,7 @@
 									"patching_rect" : [ 810.0, 1575.0, 100.0, 20.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 30.0, 26.0, 100.0, 20.0 ],
-									"text" : "open browser"
+									"text" : "open controls"
 								}
 
 							}
@@ -4032,7 +4032,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 885.0, 1665.0, 180.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.76:7001"
+									"text" : ";\rmax launchbrowser http://192.168.1.0:7001"
 								}
 
 							}
@@ -4046,7 +4046,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 810.0, 1603.0, 24.0, 24.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 30.0, 54.0, 24.0, 24.0 ]
+									"presentation_rect" : [ 30.0, 51.5, 24.0, 24.0 ]
 								}
 
 							}
@@ -4074,7 +4074,7 @@
 									"presentation" : 1,
 									"presentation_linecount" : 4,
 									"presentation_rect" : [ 30.0, 86.0, 200.0, 63.0 ],
-									"text" : "Go to http://192.168.1.76:7001 from an iPad signed into same WiFi to access UI."
+									"text" : "Go to http://192.168.1.0:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}

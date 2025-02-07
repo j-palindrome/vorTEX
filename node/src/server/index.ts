@@ -1,12 +1,12 @@
-//e.g server.js
 import { ip } from 'address'
+//e.g server.js
+
 import express from 'express'
 import maxApi from 'max-api'
 import fs from 'node:fs'
 import path from 'node:path'
 import { Server as SocketServer } from 'socket.io'
 import ViteExpress from 'vite-express'
-import { BrowserRouter } from 'react-router'
 
 const app = express()
 
@@ -37,11 +37,12 @@ const updateSettings = (newSettings: Partial<typeof settings>) => {
 }
 
 io.on('connection', socket => {
+  const ipAdd = ip()
   maxApi.outlet(
     '/message',
-    `Go to http://${ip()}:7001 from an iPad signed into same WiFi to access UI.`
+    `Go to http://${ipAdd}:7001 from an iPad signed into same WiFi to access UI.`
   )
-  maxApi.outlet('/message/ip', `http://${ip()}:7001`)
+  maxApi.outlet('/message/ip', `http://${ipAdd}:7001`)
   maxApi.outlet(
     '/message/name',
     `name`,
