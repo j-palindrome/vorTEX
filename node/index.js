@@ -47,16 +47,18 @@ io.on("connection", (socket) => {
       maxApi.outlet(route, property, value);
     }
   });
-  const presets = fs.readFileSync(path.resolve(process.cwd(), "presets.json")).toString();
+  const presetsPath = path.resolve(process.cwd(), "presets.json");
+  if (!fs.existsSync(presetsPath)) {
+    fs.writeFileSync(presetsPath, "{}");
+  }
+  let presets = fs.readFileSync(presetsPath).toString();
   socket.on("loadPresets", (callback) => {
     callback(presets);
   });
   socket.on("savePresets", (presets2) => {
-    fs.writeFile(
+    fs.promises.writeFile(
       path.resolve(process.cwd(), "presets.json"),
-      JSON.stringify(presets2),
-      () => {
-      }
+      JSON.stringify(presets2)
     );
   });
   const readFiles = () => {

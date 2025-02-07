@@ -60,19 +60,20 @@ io.on('connection', socket => {
     }
   })
 
-  const presets = fs
-    .readFileSync(path.resolve(process.cwd(), 'presets.json'))
-    .toString()
+  const presetsPath = path.resolve(process.cwd(), 'presets.json')
+  if (!fs.existsSync(presetsPath)) {
+    fs.writeFileSync(presetsPath, '{}')
+  }
+  let presets = fs.readFileSync(presetsPath).toString()
 
   socket.on('loadPresets', callback => {
     callback(presets)
   })
 
   socket.on('savePresets', presets => {
-    fs.writeFile(
+    fs.promises.writeFile(
       path.resolve(process.cwd(), 'presets.json'),
-      JSON.stringify(presets),
-      () => {}
+      JSON.stringify(presets)
     )
   })
 
