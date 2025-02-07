@@ -41,6 +41,101 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-30",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 480.0, 495.0, 62.0, 20.0 ],
+					"text" : "visible 0"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-22",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 465.0, 467.0, 134.0, 20.0 ],
+					"text" : "visible 1, floating 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "newobj",
+					"numinlets" : 3,
+					"numoutlets" : 3,
+					"outlettype" : [ "bang", "bang", "" ],
+					"patching_rect" : [ 482.0, 420.0, 100.0, 20.0 ],
+					"text" : "sel 0 1"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "toggle",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"parameter_enable" : 0,
+					"patching_rect" : [ 482.0, 375.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"fontface" : 0,
+					"fontname" : "PT Mono",
+					"fontsize" : 10.0,
+					"id" : "obj-11",
+					"maxclass" : "jit.fpsgui",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 480.0, 885.0, 80.0, 33.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 405.0, 885.0, 56.0, 20.0 ],
+					"text" : "s RENDER"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"args" : [ "VORTEX" ],
+					"bgmode" : 0,
+					"border" : 0,
+					"clickthrough" : 0,
+					"enablehscroll" : 0,
+					"enablevscroll" : 0,
+					"id" : "obj-8",
+					"lockeddragscroll" : 0,
+					"lockedsize" : 0,
+					"maxclass" : "bpatcher",
+					"name" : "j.world.maxpat",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"offset" : [ 0.0, 0.0 ],
+					"outlettype" : [ "bang" ],
+					"patching_rect" : [ 405.0, 525.0, 405.0, 315.0 ],
+					"viewvisibility" : 1
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-36",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -1805,7 +1900,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 1125.0, 675.0, 122.0, 20.0 ],
+					"patching_rect" : [ 1125.0, 660.0, 122.0, 20.0 ],
 					"text" : "route getscene_dict"
 				}
 
@@ -1839,7 +1934,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 795.0, 780.0, 195.0, 165.0 ],
+					"patching_rect" : [ 870.0, 720.0, 195.0, 165.0 ],
 					"sync" : 1
 				}
 
@@ -3658,20 +3753,6 @@
 			}
 , 			{
 				"box" : 				{
-					"fontface" : 0,
-					"fontname" : "PT Mono",
-					"fontsize" : 10.0,
-					"id" : "obj-30",
-					"maxclass" : "jit.fpsgui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 212.0, 495.0, 80.0, 33.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-26",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -3684,74 +3765,14 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-180",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 555.0, 165.0, 80.0, 20.0 ],
-					"text" : "script write"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-177",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 555.0, 195.0, 74.0, 20.0 ],
-					"save" : [ "#N", "thispatcher", ";", "#Q", "end", ";" ],
-					"text" : "thispatcher"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-176",
-					"maxclass" : "newobj",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
-					"patching_rect" : [ 555.0, 135.0, 134.0, 20.0 ],
-					"text" : "metro 60000 @active 1"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-7",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 240.0, 265.0, 38.0, 18.0 ],
+					"patching_rect" : [ 405.0, 415.0, 38.0, 18.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 165.0, 45.0, 38.0, 18.0 ],
 					"text" : "WORLD"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-5",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 198.5, 465.0, 56.0, 20.0 ],
-					"text" : "s RENDER"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-15",
-					"maxclass" : "message",
-					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 212.0, 375.0, 140.0, 20.0 ],
-					"text" : "sendnode getscene_dict"
 				}
 
 			}
@@ -3762,7 +3783,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 240.0, 285.0, 68.0, 20.0 ],
+					"patching_rect" : [ 405.0, 435.0, 68.0, 20.0 ],
 					"text" : "loadmess 1"
 				}
 
@@ -3775,7 +3796,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
 					"parameter_enable" : 1,
-					"patching_rect" : [ 240.0, 315.0, 24.0, 24.0 ],
+					"patching_rect" : [ 405.0, 465.0, 24.0, 24.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 165.0, 65.0, 24.0, 24.0 ],
 					"saved_attribute_attributes" : 					{
@@ -3801,7 +3822,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 165.0, 315.0, 44.0, 20.0 ],
+					"patching_rect" : [ 330.0, 465.0, 44.0, 20.0 ],
 					"text" : "fps $1"
 				}
 
@@ -3813,7 +3834,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 165.0, 285.0, 38.0, 20.0 ],
+					"patching_rect" : [ 330.0, 435.0, 38.0, 20.0 ],
 					"text" : "r fps"
 				}
 
@@ -3825,20 +3846,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 315.0, 122.0, 20.0 ],
+					"patching_rect" : [ 180.0, 465.0, 122.0, 20.0 ],
 					"text" : "prepend erase_color"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "jit_matrix", "bang", "" ],
-					"patching_rect" : [ 15.0, 420.0, 440.0, 20.0 ],
-					"text" : "jit.world VORTEX @floating 0 @size 1280 720 @fsaa 1 @erase_color 0 0 0 1"
 				}
 
 			}
@@ -3849,7 +3858,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 15.0, 285.0, 62.0, 20.0 ],
+					"patching_rect" : [ 180.0, 435.0, 62.0, 20.0 ],
 					"text" : "r bg_rgba"
 				}
 
@@ -3902,6 +3911,134 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-141",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 607.0, 1710.0, 185.0, 22.0 ],
+									"text" : "combine s /documentation"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-137",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 607.0, 1740.0, 206.0, 22.0 ],
+									"text" : "prepend \\; max launchbrowser"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-136",
+									"linecount" : 4,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 607.0, 1785.0, 151.0, 65.0 ],
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001/documentation"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-134",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 630.0, 1603.0, 24.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 645.0, 1603.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-132",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 630.0, 1575.0, 109.0, 20.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 150.0, 26.0, 109.0, 20.0 ],
+									"text" : "documentation"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-131",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 975.0, 1590.0, 206.0, 22.0 ],
+									"text" : "prepend \\; max launchbrowser"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-121",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 810.0, 1575.0, 100.0, 20.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 30.0, 26.0, 100.0, 20.0 ],
+									"text" : "open browser"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-99",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 956.492751240730286, 1329.0, 100.0, 22.0 ],
+									"text" : "route /ip"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-78",
+									"linecount" : 3,
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 885.0, 1665.0, 180.0, 50.0 ],
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-70",
+									"maxclass" : "button",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"parameter_enable" : 0,
+									"patching_rect" : [ 810.0, 1603.0, 24.0, 24.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 30.0, 54.0, 24.0, 24.0 ]
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-31",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -3922,9 +4059,9 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 885.0, 1515.0, 333.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 3,
-									"presentation_rect" : [ 404.0, 120.0, 200.0, 48.0 ],
-									"text" : "Go to 192.168.1.235:7001 from an iPad signed into same WiFi to access UI."
+									"presentation_linecount" : 4,
+									"presentation_rect" : [ 30.0, 86.0, 200.0, 63.0 ],
+									"text" : "Go to http://192.168.1.76:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -4070,7 +4207,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1825.757573485374451, 959.696972370147705, 111.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 437.0, 88.0, 130.0, 20.0 ],
+									"presentation_rect" : [ 487.0, 88.0, 130.0, 20.0 ],
 									"text" : "EXPORT PRESETS"
 								}
 
@@ -4085,7 +4222,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 1800.0, 958.18182098865509, 24.0, 24.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 411.0, 85.0, 24.0, 24.0 ]
+									"presentation_rect" : [ 461.0, 85.0, 24.0, 24.0 ]
 								}
 
 							}
@@ -4099,7 +4236,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 1620.0, 946.5, 111.0, 53.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 407.0, 19.0, 120.0, 60.0 ],
+									"presentation_rect" : [ 457.0, 19.0, 120.0, 60.0 ],
 									"rounded" : 0.0,
 									"types" : "JSON"
 								}
@@ -4125,7 +4262,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1628.0, 963.0, 84.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 419.0, 40.0, 95.0, 20.0 ],
+									"presentation_rect" : [ 469.0, 40.0, 95.0, 20.0 ],
 									"text" : "Presets File"
 								}
 
@@ -4185,18 +4322,6 @@
 									"outlettype" : [ "", "FullPacket" ],
 									"patching_rect" : [ 782.0, 1290.0, 100.0, 22.0 ],
 									"text" : "o.route /video"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-38",
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 974.492751240730286, 1260.0, 51.0, 22.0 ],
-									"text" : "reload"
 								}
 
 							}
@@ -4305,7 +4430,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1302.0, 1095.0, 170.0, 22.0 ],
+									"patching_rect" : [ 1296.0, 1140.0, 170.0, 22.0 ],
 									"text" : "prepend setMediaFolder"
 								}
 
@@ -4455,7 +4580,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1452.0, 954.0, 114.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 280.0, 86.0, 114.0, 20.0 ],
+									"presentation_rect" : [ 330.0, 86.0, 114.0, 20.0 ],
 									"text" : "RELOAD MEDIA"
 								}
 
@@ -4470,7 +4595,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 1428.0, 954.0, 24.0, 24.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 86.0, 24.0, 24.0 ]
+									"presentation_rect" : [ 305.0, 86.0, 24.0, 24.0 ]
 								}
 
 							}
@@ -4482,7 +4607,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1307.0, 965.0, 95.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 270.0, 41.0, 95.0, 20.0 ],
+									"presentation_rect" : [ 320.0, 41.0, 95.0, 20.0 ],
 									"text" : "Media Folder"
 								}
 
@@ -4497,7 +4622,7 @@
 									"outlettype" : [ "", "" ],
 									"patching_rect" : [ 1296.0, 945.75, 114.0, 53.25 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 21.0, 120.0, 60.0 ],
+									"presentation_rect" : [ 305.0, 21.0, 120.0, 60.0 ],
 									"rounded" : 0.0,
 									"types" : "fold"
 								}
@@ -4527,7 +4652,7 @@
 									"patching_rect" : [ 210.0, 870.0, 203.0, 175.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 12,
-									"presentation_rect" : [ 30.0, 15.0, 209.905659675598145, 175.0 ],
+									"presentation_rect" : [ 30.0, 176.0, 209.905659675598145, 175.0 ],
 									"text" : "1. Press \"Install\" if running for the first time (takes 20-30 secs)\n\nPACKAGES REQUIRED:\n- bach\n- sigmund\n- zha.descriptors\n- odot\n\npress H to hide/show cursor\npress A to fix/free cursor"
 								}
 
@@ -4568,30 +4693,6 @@
 									"outlettype" : [ "float" ],
 									"patching_rect" : [ 807.0, 780.0, 35.0, 22.0 ],
 									"text" : "* -1."
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-28",
-									"maxclass" : "button",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 974.492751240730286, 1209.0, 24.0, 24.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-7",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 974.492751240730286, 1170.0, 189.0, 22.0 ],
-									"text" : "route \"Server is listening...\""
 								}
 
 							}
@@ -4894,8 +4995,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -5626,7 +5725,7 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-30",
-									"items" : [ "Abel", ",", "Ableton Sans Bold", ",", "Ableton Sans Light", ",", "Ableton Sans Medium", ",", "Academico", ",", "Academico Italic", ",", "Academico Bold", ",", "Academico Bold Italic", ",", "Academy Engraved LET Plain", ",", "Al Bayan Plain", ",", "Al Bayan Bold", ",", "Al Nile", ",", "Al Nile Bold", ",", "Al Tarikh", ",", "American Typewriter", ",", "American Typewriter Light", ",", "American Typewriter Semibold", ",", "American Typewriter Bold", ",", "American Typewriter Condensed", ",", "American Typewriter Condensed Light", ",", "American Typewriter Condensed Bold", ",", "Andale Mono", ",", "Apple Braille Outline 6 Dot", ",", "Apple Braille Outline 8 Dot", ",", "Apple Braille Pinpoint 6 Dot", ",", "Apple Braille Pinpoint 8 Dot", ",", "Apple Braille", ",", "Apple Chancery Chancery", ",", "Apple Color Emoji", ",", "Apple SD Gothic Neo", ",", "Apple SD Gothic Neo Thin", ",", "Apple SD Gothic Neo UltraLight", ",", "Apple SD Gothic Neo Light", ",", "Apple SD Gothic Neo Medium", ",", "Apple SD Gothic Neo SemiBold", ",", "Apple SD Gothic Neo Bold", ",", "Apple SD Gothic Neo ExtraBold", ",", "Apple SD Gothic Neo Heavy", ",", "Apple Symbols", ",", "AppleGothic", ",", "AppleMyungjo", ",", "Arial", ",", "Arial Italic", ",", "Arial Bold", ",", "Arial Bold Italic", ",", "Arial Black", ",", "Arial Hebrew", ",", "Arial Hebrew Light", ",", "Arial Hebrew Bold", ",", "Arial Hebrew Scholar", ",", "Arial Hebrew Scholar Light", ",", "Arial Hebrew Scholar Bold", ",", "Arial Narrow", ",", "Arial Narrow Italic", ",", "Arial Narrow Bold", ",", "Arial Narrow Bold Italic", ",", "Arial Rounded MT Bold", ",", "Arial Unicode MS", ",", "Asap", ",", "Asap", ",", "Asap Italic", ",", "Asap Italic", ",", "Asap Thin", ",", "Asap Thin Italic", ",", "Asap ExtraLight", ",", "Asap ExtraLight Italic", ",", "Asap ExtraLight", ",", "Asap Thin", ",", "Asap ExtraLight Italic", ",", "Asap Thin Italic", ",", "Asap Light", ",", "Asap Light", ",", "Asap Light Italic", ",", "Asap Light Italic", ",", "Asap Medium", ",", "Asap Medium", ",", "Asap Medium Italic", ",", "Asap Medium Italic", ",", "Asap SemiBold", ",", "Asap SemiBold", ",", "Asap SemiBold Italic", ",", "Asap SemiBold Italic", ",", "Asap Bold", ",", "Asap Bold", ",", "Asap Bold Italic", ",", "Asap Bold Italic", ",", "Asap ExtraBold", ",", "Asap ExtraBold", ",", "Asap ExtraBold Italic", ",", "Asap ExtraBold Italic", ",", "Asap Black", ",", "Asap Black", ",", "Asap Black Italic", ",", "Asap Black Italic", ",", "Asap Condensed", ",", "Asap Condensed Italic", ",", "Asap Condensed ExtraLight", ",", "Asap Condensed Thin", ",", "Asap Condensed ExtraLight Italic", ",", "Asap Condensed Thin Italic", ",", "Asap Condensed Light", ",", "Asap Condensed Light Italic", ",", "Asap Condensed Medium", ",", "Asap Condensed Medium Italic", ",", "Asap Condensed SemiBold", ",", "Asap Condensed SemiBold Italic", ",", "Asap Condensed Bold", ",", "Asap Condensed Bold Italic", ",", "Asap Condensed ExtraBold", ",", "Asap Condensed ExtraBold Italic", ",", "Asap Condensed Black", ",", "Asap Condensed Black Italic", ",", "Asap Expanded", ",", "Asap Expanded Italic", ",", "Asap Expanded ExtraLight", ",", "Asap Expanded Thin", ",", "Asap Expanded ExtraLight Italic", ",", "Asap Expanded Thin Italic", ",", "Asap Expanded Light", ",", "Asap Expanded Light Italic", ",", "Asap Expanded Medium", ",", "Asap Expanded Medium Italic", ",", "Asap Expanded SemiBold", ",", "Asap Expanded SemiBold Italic", ",", "Asap Expanded Bold", ",", "Asap Expanded Bold Italic", ",", "Asap Expanded ExtraBold", ",", "Asap Expanded ExtraBold Italic", ",", "Asap Expanded Black", ",", "Asap Expanded Black Italic", ",", "Asap SemiCondensed", ",", "Asap SemiCondensed Italic", ",", "Asap SemiCondensed ExtraLight", ",", "Asap SemiCondensed Thin", ",", "Asap SemiCondensed ExtraLight Italic", ",", "Asap SemiCondensed Thin Italic", ",", "Asap SemiCondensed Light", ",", "Asap SemiCondensed Light Italic", ",", "Asap SemiCondensed Medium", ",", "Asap SemiCondensed Medium Italic", ",", "Asap SemiCondensed SemiBold", ",", "Asap SemiCondensed SemiBold Italic", ",", "Asap SemiCondensed Bold", ",", "Asap SemiCondensed Bold Italic", ",", "Asap SemiCondensed ExtraBold", ",", "Asap SemiCondensed ExtraBold Italic", ",", "Asap SemiCondensed Black", ",", "Asap SemiCondensed Black Italic", ",", "Asap SemiExpanded", ",", "Asap SemiExpanded Italic", ",", "Asap SemiExpanded ExtraLight", ",", "Asap SemiExpanded Thin", ",", "Asap SemiExpanded ExtraLight Italic", ",", "Asap SemiExpanded Thin Italic", ",", "Asap SemiExpanded Light", ",", "Asap SemiExpanded Light Italic", ",", "Asap SemiExpanded Medium", ",", "Asap SemiExpanded Medium Italic", ",", "Asap SemiExpanded SemiBold", ",", "Asap SemiExpanded SemiBold Italic", ",", "Asap SemiExpanded Bold", ",", "Asap SemiExpanded Bold Italic", ",", "Asap SemiExpanded ExtraBold", ",", "Asap SemiExpanded ExtraBold Italic", ",", "Asap SemiExpanded Black", ",", "Asap SemiExpanded Black Italic", ",", "Avenir Book", ",", "Avenir Roman", ",", "Avenir Book Oblique", ",", "Avenir Oblique", ",", "Avenir Light", ",", "Avenir Light Oblique", ",", "Avenir Medium", ",", "Avenir Medium Oblique", ",", "Avenir Heavy", ",", "Avenir Heavy Oblique", ",", "Avenir Black", ",", "Avenir Black Oblique", ",", "Avenir Next", ",", "Avenir Next Italic", ",", "Avenir Next Ultra Light", ",", "Avenir Next Ultra Light Italic", ",", "Avenir Next Medium", ",", "Avenir Next Medium Italic", ",", "Avenir Next Demi Bold", ",", "Avenir Next Demi Bold Italic", ",", "Avenir Next Bold", ",", "Avenir Next Bold Italic", ",", "Avenir Next Heavy", ",", "Avenir Next Heavy Italic", ",", "Avenir Next Condensed", ",", "Avenir Next Condensed Italic", ",", "Avenir Next Condensed Ultra Light", ",", "Avenir Next Condensed Ultra Light Italic", ",", "Avenir Next Condensed Medium", ",", "Avenir Next Condensed Medium Italic", ",", "Avenir Next Condensed Demi Bold", ",", "Avenir Next Condensed Demi Bold Italic", ",", "Avenir Next Condensed Bold", ",", "Avenir Next Condensed Bold Italic", ",", "Avenir Next Condensed Heavy", ",", "Avenir Next Condensed Heavy Italic", ",", "Ayuthaya", ",", "Bacasime Antique", ",", "Baghdad", ",", "Bangla MN", ",", "Bangla MN Bold", ",", "Bangla Sangam MN", ",", "Bangla Sangam MN Bold", ",", "Bantayog", ",", "Bantayog Semilight", ",", "Bantayog Light", ",", "Baskerville", ",", "Baskerville Italic", ",", "Baskerville SemiBold", ",", "Baskerville SemiBold Italic", ",", "Baskerville Bold", ",", "Baskerville Bold Italic", ",", "Beirut", ",", "Big Caslon Medium", ",", "Bodoni 72 Book", ",", "Bodoni 72 Book Italic", ",", "Bodoni 72 Bold", ",", "Bodoni 72 Oldstyle Book", ",", "Bodoni 72 Oldstyle Book Italic", ",", "Bodoni 72 Oldstyle Bold", ",", "Bodoni 72 Smallcaps Book", ",", "Bodoni Ornaments", ",", "Bradley Hand Bold", ",", "Bravura", ",", "Bravura Text", ",", "Brush Script MT Italic", ",", "Canela", ",", "Canela Regular Italic", ",", "Canela Bold", ",", "Canela Bold Italic", ",", "Canela Text", ",", "Canela Text Regular Italic", ",", "Canela Text Medium", ",", "Canela Text Medium Italic", ",", "Canela Text Bold", ",", "Canela Text Bold Italic", ",", "Chalkboard", ",", "Chalkboard Bold", ",", "Chalkboard SE", ",", "Chalkboard SE Light", ",", "Chalkboard SE Bold", ",", "Chalkduster", ",", "Charter Roman", ",", "Charter Italic", ",", "Charter Bold", ",", "Charter Bold Italic", ",", "Charter Black", ",", "Charter Black Italic", ",", "Cochin", ",", "Cochin Italic", ",", "Cochin Bold", ",", "Cochin Bold Italic", ",", "Comic Sans MS", ",", "Comic Sans MS Bold", ",", "Copperplate", ",", "Copperplate Light", ",", "Copperplate Bold", ",", "Cormorant Garamond", ",", "Cormorant Garamond Italic", ",", "Cormorant Garamond Light", ",", "Cormorant Garamond Light Italic", ",", "Cormorant Garamond Medium", ",", "Cormorant Garamond Medium Italic", ",", "Cormorant Garamond SemiBold", ",", "Cormorant Garamond SemiBold Italic", ",", "Cormorant Garamond Bold", ",", "Cormorant Garamond Bold Italic", ",", "Cormorant Infant", ",", "Cormorant Infant Italic", ",", "Cormorant Infant Light", ",", "Cormorant Infant Light Italic", ",", "Cormorant Infant Medium", ",", "Cormorant Infant Medium Italic", ",", "Cormorant Infant SemiBold", ",", "Cormorant Infant SemiBold Italic", ",", "Cormorant Infant Bold", ",", "Cormorant Infant Bold Italic", ",", "Corsiva Hebrew", ",", "Corsiva Hebrew Bold", ",", "Courier New", ",", "Courier New Italic", ",", "Courier New Bold", ",", "Courier New Bold Italic", ",", "Crimson Roman", ",", "Crimson Italic", ",", "Crimson Semibold", ",", "Crimson SemiboldItalic", ",", "Crimson Bold", ",", "Crimson BoldItalic", ",", "Crimson Text", ",", "Crimson Text Italic", ",", "Crimson Text SemiBold", ",", "Crimson Text SemiBold Italic", ",", "Crimson Text Bold", ",", "Crimson Text Bold Italic", ",", "Damascus", ",", "Damascus Light", ",", "Damascus Medium", ",", "Damascus Semi Bold", ",", "Damascus Bold", ",", "DecoType Naskh", ",", "Devanagari MT", ",", "Devanagari MT Bold", ",", "Devanagari Sangam MN", ",", "Devanagari Sangam MN Bold", ",", "Didot", ",", "Didot Italic", ",", "Didot Bold", ",", "DIN Alternate Bold", ",", "DIN Condensed Bold", ",", "Diwan Kufi", ",", "Diwan Thuluth", ",", "Dosis", ",", "Dosis Light", ",", "Euphemia UCAS", ",", "Euphemia UCAS Italic", ",", "Euphemia UCAS Bold", ",", "Farah", ",", "Farisi", ",", "Fira Code", ",", "Fira Code Light", ",", "Fira Code Retina", ",", "Fira Code Medium", ",", "Fira Code SemiBold", ",", "Fira Code Bold", ",", "Futura Medium", ",", "Futura Medium Italic", ",", "Futura Bold", ",", "Futura Condensed Medium", ",", "Futura Condensed ExtraBold", ",", "Galvji", ",", "Galvji Oblique", ",", "Galvji Bold", ",", "Galvji Bold Oblique", ",", "GB18030 Bitmap", ",", "Geeza Pro", ",", "Geeza Pro Bold", ",", "Geneva", ",", "Georgia", ",", "Georgia Italic", ",", "Georgia Bold", ",", "Georgia Bold Italic", ",", "Gill Sans", ",", "Gill Sans Italic", ",", "Gill Sans Light", ",", "Gill Sans Light Italic", ",", "Gill Sans SemiBold", ",", "Gill Sans SemiBold Italic", ",", "Gill Sans Bold", ",", "Gill Sans Bold Italic", ",", "Gill Sans UltraBold", ",", "Gotham Bold", ",", "Gotham Bold Italic", ",", "Gotham Thin", ",", "Gotham Thin Italic", ",", "Gotham Extra Light", ",", "Gotham Extra Light Italic", ",", "Gotham Light", ",", "Gotham Light Italic", ",", "Gotham Book", ",", "Gotham Book Italic", ",", "Gotham Medium", ",", "Gotham Medium Italic", ",", "Gotham Black", ",", "Gotham Black Italic", ",", "Gotham Ultra", ",", "Gotham Ultra Italic", ",", "Gotham Condensed Bold", ",", "Gotham Condensed Bold Italic", ",", "Gotham Condensed Thin", ",", "Gotham Condensed Thin Italic", ",", "Gotham Condensed Extra Light", ",", "Gotham Condensed Extra Light Italic", ",", "Gotham Condensed Light", ",", "Gotham Condensed Light Italic", ",", "Gotham Condensed Book", ",", "Gotham Condensed Book Italic", ",", "Gotham Condensed Medium", ",", "Gotham Condensed Medium Italic", ",", "Gotham Condensed Black", ",", "Gotham Condensed Black Italic", ",", "Gotham Condensed Extra Black", ",", "Gotham Condensed Extra Black Italic", ",", "Gotham Condensed Ultra", ",", "Gotham Condensed Ultra Italic", ",", "Gotham Narrow Bold", ",", "Gotham Narrow Bold Italic", ",", "Gotham Narrow Thin", ",", "Gotham Narrow Thin Italic", ",", "Gotham Narrow Extra Light", ",", "Gotham Narrow Extra Light Italic", ",", "Gotham Narrow Light", ",", "Gotham Narrow Light Italic", ",", "Gotham Narrow Book", ",", "Gotham Narrow Book Italic", ",", "Gotham Narrow Medium", ",", "Gotham Narrow Medium Italic", ",", "Gotham Narrow Black", ",", "Gotham Narrow Black Italic", ",", "Gotham Narrow Ultra", ",", "Gotham Narrow Ultra Italic", ",", "Gotham XNarrow Bold", ",", "Gotham XNarrow Bold Italic", ",", "Gotham XNarrow Thin", ",", "Gotham XNarrow Thin Italic", ",", "Gotham XNarrow Extra Light", ",", "Gotham XNarrow Extra Light Italic", ",", "Gotham XNarrow Light", ",", "Gotham XNarrow Light Italic", ",", "Gotham XNarrow Book", ",", "Gotham XNarrow Book Italic", ",", "Gotham XNarrow Medium", ",", "Gotham XNarrow Medium Italic", ",", "Gotham XNarrow Black", ",", "Gotham XNarrow Black Italic", ",", "Gotham XNarrow Ultra", ",", "Gotham XNarrow Ultra Italic", ",", "Grantha Sangam MN", ",", "Grantha Sangam MN Bold", ",", "Gujarati MT", ",", "Gujarati MT Bold", ",", "Gujarati Sangam MN", ",", "Gujarati Sangam MN Bold", ",", "Gurmukhi MN", ",", "Gurmukhi MN Bold", ",", "Gurmukhi MT", ",", "Gurmukhi Sangam MN", ",", "Gurmukhi Sangam MN Bold", ",", "Heiti SC Light", ",", "Heiti SC Medium", ",", "Heiti TC Light", ",", "Heiti TC Medium", ",", "Helvetica", ",", "Helvetica Oblique", ",", "Helvetica Light", ",", "Helvetica Light Oblique", ",", "Helvetica Bold", ",", "Helvetica Bold Oblique", ",", "Helvetica Neue", ",", "Helvetica Neue Italic", ",", "Helvetica Neue UltraLight", ",", "Helvetica Neue UltraLight Italic", ",", "Helvetica Neue Thin", ",", "Helvetica Neue Thin Italic", ",", "Helvetica Neue Light", ",", "Helvetica Neue Light Italic", ",", "Helvetica Neue Medium", ",", "Helvetica Neue Medium Italic", ",", "Helvetica Neue Bold", ",", "Helvetica Neue Bold Italic", ",", "Helvetica Neue Condensed Bold", ",", "Helvetica Neue Condensed Black", ",", "Herculanum", ",", "Hiragino Maru Gothic ProN W4", ",", "Hiragino Mincho ProN W3", ",", "Hiragino Mincho ProN W6", ",", "Hiragino Sans W0", ",", "Hiragino Sans W1", ",", "Hiragino Sans W2", ",", "Hiragino Sans W3", ",", "Hiragino Sans W4", ",", "Hiragino Sans W5", ",", "Hiragino Sans W6", ",", "Hiragino Sans W7", ",", "Hiragino Sans W8", ",", "Hiragino Sans W9", ",", "Hiragino Sans GB W3", ",", "Hiragino Sans GB W6", ",", "Hoefler Text", ",", "Hoefler Text Ornaments", ",", "Hoefler Text Italic", ",", "Hoefler Text Black", ",", "Hoefler Text Black Italic", ",", "Impact", ",", "InaiMathi", ",", "InaiMathi Bold", ",", "Inter", ",", "Inter", ",", "Inter Italic", ",", "Inter Thin", ",", "Inter Thin Italic", ",", "Inter ExtraLight", ",", "Inter ExtraLight Italic", ",", "Inter ExtraLight", ",", "Inter Thin", ",", "Inter Light", ",", "Inter Light", ",", "Inter Light Italic", ",", "Inter Medium", ",", "Inter Medium", ",", "Inter Medium Italic", ",", "Inter SemiBold", ",", "Inter SemiBold", ",", "Inter SemiBold Italic", ",", "Inter Bold", ",", "Inter Bold", ",", "Inter Bold Italic", ",", "Inter ExtraBold", ",", "Inter ExtraBold", ",", "Inter ExtraBold Italic", ",", "Inter Black", ",", "Inter Black", ",", "Inter Black Italic", ",", "ITF Devanagari Book", ",", "ITF Devanagari Light", ",", "ITF Devanagari Medium", ",", "ITF Devanagari Demi", ",", "ITF Devanagari Bold", ",", "ITF Devanagari Marathi Book", ",", "ITF Devanagari Marathi Light", ",", "ITF Devanagari Marathi Medium", ",", "ITF Devanagari Marathi Demi", ",", "ITF Devanagari Marathi Bold", ",", "Josefin Sans Thin", ",", "Joshuese", ",", "Kailasa", ",", "Kailasa Bold", ",", "Kanit", ",", "Kanit Italic", ",", "Kanit Thin", ",", "Kanit Thin Italic", ",", "Kanit ExtraLight", ",", "Kanit ExtraLight Italic", ",", "Kanit Light", ",", "Kanit Light Italic", ",", "Kanit Medium", ",", "Kanit Medium Italic", ",", "Kanit SemiBold", ",", "Kanit SemiBold Italic", ",", "Kanit Bold", ",", "Kanit Bold Italic", ",", "Kanit ExtraBold", ",", "Kanit ExtraBold Italic", ",", "Kanit Black", ",", "Kanit Black Italic", ",", "Kannada MN", ",", "Kannada MN Bold", ",", "Kannada Sangam MN", ",", "Kannada Sangam MN Bold", ",", "Kefa", ",", "Kefa Bold", ",", "Khmer MN", ",", "Khmer MN Bold", ",", "Khmer Sangam MN", ",", "Kohinoor Bangla", ",", "Kohinoor Bangla Light", ",", "Kohinoor Bangla Medium", ",", "Kohinoor Bangla Semibold", ",", "Kohinoor Bangla Bold", ",", "Kohinoor Devanagari", ",", "Kohinoor Devanagari Light", ",", "Kohinoor Devanagari Medium", ",", "Kohinoor Devanagari Semibold", ",", "Kohinoor Devanagari Bold", ",", "Kohinoor Gujarati", ",", "Kohinoor Gujarati Light", ",", "Kohinoor Gujarati Medium", ",", "Kohinoor Gujarati Semibold", ",", "Kohinoor Gujarati Bold", ",", "Kohinoor Telugu", ",", "Kohinoor Telugu Light", ",", "Kohinoor Telugu Medium", ",", "Kohinoor Telugu Semibold", ",", "Kohinoor Telugu Bold", ",", "Kokonor", ",", "Krungthep", ",", "KufiStandardGK", ",", "Lao MN", ",", "Lao MN Bold", ",", "Lao Sangam MN", ",", "Lato", ",", "Lato", ",", "Lato Italic", ",", "Lato Italic", ",", "Lato Hairline", ",", "Lato Hairline Italic", ",", "Lato Thin", ",", "Lato Thin Italic", ",", "Lato Hairline", ",", "Lato Hairline Italic", ",", "Lato Thin", ",", "Lato Thin Italic", ",", "Lato Light", ",", "Lato Light", ",", "Lato Light Italic", ",", "Lato Light Italic", ",", "Lato Medium", ",", "Lato Medium", ",", "Lato Medium Italic", ",", "Lato Medium Italic", ",", "Lato Semibold", ",", "Lato Semibold", ",", "Lato Semibold Italic", ",", "Lato Semibold Italic", ",", "Lato Bold", ",", "Lato Bold", ",", "Lato Bold Italic", ",", "Lato Bold Italic", ",", "Lato Heavy", ",", "Lato Heavy", ",", "Lato Heavy Italic", ",", "Lato Heavy Italic", ",", "Lato Black", ",", "Lato Black", ",", "Lato Black Italic", ",", "Lato Black Italic", ",", "Libre Bodoni", ",", "Libre Bodoni Italic", ",", "Libre Bodoni Bold", ",", "Libre Bodoni Bold Italic", ",", "Lora", ",", "Lora Italic", ",", "Lora Medium", ",", "Lora Medium Italic", ",", "Lora SemiBold", ",", "Lora SemiBold Italic", ",", "Lora Bold", ",", "Lora Bold Italic", ",", "Lucida Grande", ",", "Lucida Grande Bold", ",", "Luminari", ",", "Malayalam MN", ",", "Malayalam MN Bold", ",", "Malayalam Sangam MN", ",", "Malayalam Sangam MN Bold", ",", "Marker Felt Thin", ",", "Marker Felt Wide", ",", "Menlo", ",", "Menlo Italic", ",", "Menlo Bold", ",", "Menlo Bold Italic", ",", "Mercury Display Bold", ",", "Mercury Display Bold Italic", ",", "Mercury Display Roman", ",", "Mercury Display Italic", ",", "Mercury Display Semibold", ",", "Mercury Display Semibold Italic", ",", "Mercury Text G1 Bold", ",", "Mercury Text G1 Bold Italic", ",", "Mercury Text G1 Roman", ",", "Mercury Text G1 Italic", ",", "Mercury Text G1 Semibold", ",", "Mercury Text G1 Semibold Italic", ",", "Mercury Text G2 Bold", ",", "Mercury Text G2 Bold Italic", ",", "Mercury Text G2 Roman", ",", "Mercury Text G2 Italic", ",", "Mercury Text G2 Semibold", ",", "Mercury Text G2 Semibold Italic", ",", "Mercury Text G3 Bold", ",", "Mercury Text G3 Bold Italic", ",", "Mercury Text G3 Roman", ",", "Mercury Text G3 Italic", ",", "Mercury Text G3 Semibold", ",", "Mercury Text G3 Semibold Italic", ",", "Mercury Text G4 Bold", ",", "Mercury Text G4 Bold Italic", ",", "Mercury Text G4 Roman", ",", "Mercury Text G4 Italic", ",", "Mercury Text G4 Semibold", ",", "Mercury Text G4 Semibold Italic", ",", "Microsoft Sans Serif", ",", "Mishafi", ",", "Mishafi Gold", ",", "Monaco", ",", "Mshtakan", ",", "Mshtakan Oblique", ",", "Mshtakan Bold", ",", "Mshtakan BoldOblique", ",", "Mukta Mahee", ",", "Mukta Mahee ExtraLight", ",", "Mukta Mahee Light", ",", "Mukta Mahee Medium", ",", "Mukta Mahee SemiBold", ",", "Mukta Mahee Bold", ",", "Mukta Mahee ExtraBold", ",", "Muna", ",", "Muna Bold", ",", "Muna Black", ",", "Myanmar MN", ",", "Myanmar MN Bold", ",", "Myanmar Sangam MN", ",", "Myanmar Sangam MN Bold", ",", "Nadeem", ",", "NanumMyeongjo", ",", "NanumMyeongjo Bold", ",", "NanumMyeongjo ExtraBold", ",", "New Peninim MT", ",", "New Peninim MT Inclined", ",", "New Peninim MT Bold", ",", "New Peninim MT Bold Inclined", ",", "Noteworthy Light", ",", "Noteworthy Bold", ",", "Noto Nastaliq Urdu", ",", "Noto Nastaliq Urdu Bold", ",", "Noto Sans Batak", ",", "Noto Sans JP", ",", "Noto Sans JP Thin", ",", "Noto Sans JP Light", ",", "Noto Sans JP DemiLight", ",", "Noto Sans JP Medium", ",", "Noto Sans JP Bold", ",", "Noto Sans JP Black", ",", "Noto Sans Kannada", ",", "Noto Sans Kannada ExtraLight", ",", "Noto Sans Kannada Thin", ",", "Noto Sans Kannada Light", ",", "Noto Sans Kannada Medium", ",", "Noto Sans Kannada SemiBold", ",", "Noto Sans Kannada Bold", ",", "Noto Sans Kannada ExtraBold", ",", "Noto Sans Kannada Black", ",", "Noto Sans Myanmar", ",", "Noto Sans Myanmar ExtraLight", ",", "Noto Sans Myanmar Thin", ",", "Noto Sans Myanmar Light", ",", "Noto Sans Myanmar Medium", ",", "Noto Sans Myanmar SemiBold", ",", "Noto Sans Myanmar Bold", ",", "Noto Sans Myanmar ExtraBold", ",", "Noto Sans Myanmar Black", ",", "Noto Sans NKo", ",", "Noto Sans Oriya", ",", "Noto Sans Oriya Bold", ",", "Noto Sans Tagalog", ",", "Noto Serif Myanmar", ",", "Noto Serif Myanmar ExtraLight", ",", "Noto Serif Myanmar Thin", ",", "Noto Serif Myanmar Light", ",", "Noto Serif Myanmar Medium", ",", "Noto Serif Myanmar SemiBold", ",", "Noto Serif Myanmar Bold", ",", "Noto Serif Myanmar ExtraBold", ",", "Noto Serif Myanmar Black", ",", "November for bach", ",", "Nunito", ",", "Nunito Italic", ",", "Nunito Italic", ",", "Nunito ExtraLight", ",", "Nunito ExtraLight Italic", ",", "Nunito ExtraLight Italic", ",", "Nunito Light", ",", "Nunito Light Italic", ",", "Nunito Light Italic", ",", "Nunito Medium", ",", "Nunito Medium Italic", ",", "Nunito Medium Italic", ",", "Nunito SemiBold", ",", "Nunito SemiBold Italic", ",", "Nunito SemiBold Italic", ",", "Nunito Bold", ",", "Nunito Bold Italic", ",", "Nunito Bold Italic", ",", "Nunito ExtraBold", ",", "Nunito ExtraBold Italic", ",", "Nunito ExtraBold Italic", ",", "Nunito Black", ",", "Nunito Black Italic", ",", "Nunito Black Italic", ",", "Optima", ",", "Optima Italic", ",", "Optima Bold", ",", "Optima Bold Italic", ",", "Optima ExtraBlack", ",", "Oriya MN", ",", "Oriya MN Bold", ",", "Oriya Sangam MN", ",", "Oriya Sangam MN Bold", ",", "Oxygen", ",", "Oxygen Light", ",", "Oxygen Bold", ",", "Palatino", ",", "Palatino Italic", ",", "Palatino Bold", ",", "Palatino Bold Italic", ",", "Papyrus", ",", "Papyrus Condensed", ",", "Party LET Plain", ",", "Petaluma", ",", "Petaluma Script", ",", "Petaluma Text", ",", "Phosphate Inline", ",", "Phosphate Solid", ",", "PingFang HK", ",", "PingFang HK Ultralight", ",", "PingFang HK Thin", ",", "PingFang HK Light", ",", "PingFang HK Medium", ",", "PingFang HK Semibold", ",", "PingFang SC", ",", "PingFang SC Ultralight", ",", "PingFang SC Thin", ",", "PingFang SC Light", ",", "PingFang SC Medium", ",", "PingFang SC Semibold", ",", "PingFang TC", ",", "PingFang TC Ultralight", ",", "PingFang TC Thin", ",", "PingFang TC Light", ",", "PingFang TC Medium", ",", "PingFang TC Semibold", ",", "Plantagenet Cherokee", ",", "Playfair Display", ",", "Playfair Display Italic", ",", "Playfair Display Medium", ",", "Playfair Display Medium Italic", ",", "Playfair Display SemiBold", ",", "Playfair Display SemiBold Italic", ",", "Playfair Display Bold", ",", "Playfair Display Bold Italic", ",", "Playfair Display ExtraBold", ",", "Playfair Display ExtraBold Italic", ",", "Playfair Display Black", ",", "Playfair Display Black Italic", ",", "Poppins", ",", "Poppins Italic", ",", "Poppins Thin", ",", "Poppins Thin Italic", ",", "Poppins ExtraLight", ",", "Poppins ExtraLight Italic", ",", "Poppins Light", ",", "Poppins Light Italic", ",", "Poppins Medium", ",", "Poppins Medium Italic", ",", "Poppins SemiBold", ",", "Poppins SemiBold Italic", ",", "Poppins Bold", ",", "Poppins Bold Italic", ",", "Poppins ExtraBold", ",", "Poppins ExtraBold Italic", ",", "Poppins Black", ",", "Poppins Black Italic", ",", "Proxima Nova", ",", "Proxima Nova Italic", ",", "Proxima Nova Light", ",", "Proxima Nova Light Italic", ",", "Proxima Nova Medium", ",", "Proxima Nova Medium Italic", ",", "Proxima Nova Semibold", ",", "Proxima Nova Semibold Italic", ",", "Proxima Nova Bold", ",", "Proxima Nova Bold Italic", ",", "Proxima Nova Extrabold", ",", "Proxima Nova Extrabold Italic", ",", "PT Mono", ",", "PT Mono Bold", ",", "PT Sans", ",", "PT Sans Italic", ",", "PT Sans Bold", ",", "PT Sans Bold Italic", ",", "PT Sans Caption", ",", "PT Sans Caption Bold", ",", "PT Sans Narrow", ",", "PT Sans Narrow Bold", ",", "PT Serif", ",", "PT Serif Italic", ",", "PT Serif Bold", ",", "PT Serif Bold Italic", ",", "PT Serif Caption", ",", "PT Serif Caption Italic", ",", "Quattrocento Sans", ",", "Quattrocento Sans Italic", ",", "Quattrocento Sans Bold", ",", "Quattrocento Sans Bold Italic", ",", "Raanana", ",", "Raanana Bold", ",", "Raleway", ",", "Raleway Italic", ",", "Raleway Thin", ",", "Raleway Thin Italic", ",", "Raleway ExtraLight", ",", "Raleway ExtraLight Italic", ",", "Raleway Light", ",", "Raleway Light Italic", ",", "Raleway Medium", ",", "Raleway Medium Italic", ",", "Raleway SemiBold", ",", "Raleway SemiBold Italic", ",", "Raleway Bold", ",", "Raleway Bold Italic", ",", "Raleway ExtraBold", ",", "Raleway ExtraBold Italic", ",", "Raleway Black", ",", "Raleway Black Italic", ",", "Rockwell", ",", "Rockwell Italic", ",", "Rockwell Bold", ",", "Rockwell Bold Italic", ",", "Sana", ",", "Sathu", ",", "Savoye LET Plain", ",", "Shree Devanagari 714", ",", "Shree Devanagari 714 Italic", ",", "Shree Devanagari 714 Bold", ",", "Shree Devanagari 714 Bold Italic", ",", "SignPainter HouseScript", ",", "SignPainter HouseScript Semibold", ",", "Silom", ",", "Sinhala MN", ",", "Sinhala MN Bold", ",", "Sinhala Sangam MN", ",", "Sinhala Sangam MN Bold", ",", "Skia", ",", "Skia Light", ",", "Skia Bold", ",", "Skia Black", ",", "Skia Extended", ",", "Skia Light Extended", ",", "Skia Black Extended", ",", "Skia Condensed", ",", "Skia Light Condensed", ",", "Skia Black Condensed", ",", "Snell Roundhand", ",", "Snell Roundhand Bold", ",", "Snell Roundhand Black", ",", "Songti SC", ",", "Songti SC Light", ",", "Songti SC Bold", ",", "Songti SC Black", ",", "Songti TC", ",", "Songti TC Light", ",", "Songti TC Bold", ",", "Spectral", ",", "Spectral Italic", ",", "Spectral ExtraLight", ",", "Spectral ExtraLight Italic", ",", "Spectral Light", ",", "Spectral Light Italic", ",", "Spectral Medium", ",", "Spectral Medium Italic", ",", "Spectral SemiBold", ",", "Spectral SemiBold Italic", ",", "Spectral Bold", ",", "Spectral Bold Italic", ",", "Spectral ExtraBold", ",", "Spectral ExtraBold Italic", ",", "Splash", ",", "STIX Two Math", ",", "STIX Two Text", ",", "STIX Two Text Italic", ",", "STIX Two Text Medium", ",", "STIX Two Text Medium Italic", ",", "STIX Two Text SemiBold", ",", "STIX Two Text SemiBold Italic", ",", "STIX Two Text Bold", ",", "STIX Two Text Bold Italic", ",", "STSong", ",", "Sukhumvit Set Text", ",", "Sukhumvit Set Light", ",", "Sukhumvit Set Medium", ",", "Sukhumvit Set Semi Bold", ",", "Sukhumvit Set Bold", ",", "Sukhumvit Set Thin", ",", "Symbol", ",", "Tahoma", ",", "Tahoma Bold", ",", "Tajawal", ",", "Tajawal ExtraLight", ",", "Tajawal Light", ",", "Tajawal Medium", ",", "Tajawal Bold", ",", "Tajawal ExtraBold", ",", "Tajawal Black", ",", "Tamil MN", ",", "Tamil MN Bold", ",", "Tamil Sangam MN", ",", "Tamil Sangam MN Bold", ",", "Telugu MN", ",", "Telugu MN Bold", ",", "Telugu Sangam MN", ",", "Telugu Sangam MN Bold", ",", "Thonburi", ",", "Thonburi Light", ",", "Thonburi Bold", ",", "Times New Roman", ",", "Times New Roman Italic", ",", "Times New Roman Bold", ",", "Times New Roman Bold Italic", ",", "TitilliumMaps26L 1 wt", ",", "TitilliumMaps26L 250 wt", ",", "TitilliumMaps26L 750 wt", ",", "Trattatello", ",", "Trebuchet MS", ",", "Trebuchet MS Italic", ",", "Trebuchet MS Bold", ",", "Trebuchet MS Bold Italic", ",", "Univers LT Std 45 Light", ",", "Univers LT Std 45 Light Oblique", ",", "Univers LT Std 55 Roman", ",", "Univers LT Std 55 Oblique", ",", "Univers LT Std 65 Bold", ",", "Univers LT Std 65 Bold Oblique", ",", "Univers LT Std 75 Black", ",", "Univers LT Std 75 Black Oblique", ",", "Univers LT Std 85 Extra Black", ",", "Univers LT Std 85 Extra Black Oblique", ",", "Univers LT Std 53 Extended", ",", "Univers LT Std 53 Extended Oblique", ",", "Univers LT Std 63 Bold Extended", ",", "Univers LT Std 63 Bold Extended Oblique", ",", "Univers LT Std 73 Black Extended", ",", "Univers LT Std 73 Black Extended Oblique", ",", "Univers LT Std 93 Extra Black Extended", ",", "Univers LT Std 93 Extra Black Extended Oblique", ",", "Univers LT Std 47 Light Condensed", ",", "Univers LT Std 47 Light Condensed Oblique", ",", "Univers LT Std 57 Condensed", ",", "Univers LT Std 57 Condensed Oblique", ",", "Univers LT Std 67 Bold Condensed", ",", "Univers LT Std 67 Bold Condensed Oblique", ",", "Univers LT Std 39 Thin Ultra Condensed", ",", "Univers LT Std 49 Light Ultra Condensed", ",", "Univers LT Std 59 Ultra Condensed", ",", "Verdana", ",", "Verdana Italic", ",", "Verdana Bold", ",", "Verdana Bold Italic", ",", "Waseem", ",", "Waseem Light", ",", "Webdings", ",", "Wingdings", ",", "Wingdings 2", ",", "Wingdings 3", ",", "Zapf Dingbats", ",", "Zapfino" ],
+									"items" : [ "Abel", ",", "Ableton Sans Bold", ",", "Ableton Sans Light", ",", "Ableton Sans Medium", ",", "Academico", ",", "Academico Italic", ",", "Academico Bold", ",", "Academico Bold Italic", ",", "Academy Engraved LET Plain", ",", "Al Bayan Plain", ",", "Al Bayan Bold", ",", "Al Nile", ",", "Al Nile Bold", ",", "Al Tarikh", ",", "American Typewriter", ",", "American Typewriter Light", ",", "American Typewriter Semibold", ",", "American Typewriter Bold", ",", "American Typewriter Condensed", ",", "American Typewriter Condensed Light", ",", "American Typewriter Condensed Bold", ",", "Andale Mono", ",", "Apple Braille Outline 6 Dot", ",", "Apple Braille Outline 8 Dot", ",", "Apple Braille Pinpoint 6 Dot", ",", "Apple Braille Pinpoint 8 Dot", ",", "Apple Braille", ",", "Apple Chancery Chancery", ",", "Apple Color Emoji", ",", "Apple SD Gothic Neo", ",", "Apple SD Gothic Neo Thin", ",", "Apple SD Gothic Neo UltraLight", ",", "Apple SD Gothic Neo Light", ",", "Apple SD Gothic Neo Medium", ",", "Apple SD Gothic Neo SemiBold", ",", "Apple SD Gothic Neo Bold", ",", "Apple SD Gothic Neo ExtraBold", ",", "Apple SD Gothic Neo Heavy", ",", "Apple Symbols", ",", "AppleGothic", ",", "AppleMyungjo", ",", "Arial", ",", "Arial Italic", ",", "Arial Bold", ",", "Arial Bold Italic", ",", "Arial Black", ",", "Arial Hebrew", ",", "Arial Hebrew Light", ",", "Arial Hebrew Bold", ",", "Arial Hebrew Scholar", ",", "Arial Hebrew Scholar Light", ",", "Arial Hebrew Scholar Bold", ",", "Arial Narrow", ",", "Arial Narrow Italic", ",", "Arial Narrow Bold", ",", "Arial Narrow Bold Italic", ",", "Arial Rounded MT Bold", ",", "Arial Unicode MS", ",", "Asap", ",", "Asap", ",", "Asap Italic", ",", "Asap Italic", ",", "Asap Thin", ",", "Asap Thin Italic", ",", "Asap ExtraLight", ",", "Asap ExtraLight Italic", ",", "Asap ExtraLight", ",", "Asap Thin", ",", "Asap ExtraLight Italic", ",", "Asap Thin Italic", ",", "Asap Light", ",", "Asap Light", ",", "Asap Light Italic", ",", "Asap Light Italic", ",", "Asap Medium", ",", "Asap Medium", ",", "Asap Medium Italic", ",", "Asap Medium Italic", ",", "Asap SemiBold", ",", "Asap SemiBold", ",", "Asap SemiBold Italic", ",", "Asap SemiBold Italic", ",", "Asap Bold", ",", "Asap Bold", ",", "Asap Bold Italic", ",", "Asap Bold Italic", ",", "Asap ExtraBold", ",", "Asap ExtraBold", ",", "Asap ExtraBold Italic", ",", "Asap ExtraBold Italic", ",", "Asap Black", ",", "Asap Black", ",", "Asap Black Italic", ",", "Asap Black Italic", ",", "Asap Condensed", ",", "Asap Condensed Italic", ",", "Asap Condensed ExtraLight", ",", "Asap Condensed Thin", ",", "Asap Condensed ExtraLight Italic", ",", "Asap Condensed Thin Italic", ",", "Asap Condensed Light", ",", "Asap Condensed Light Italic", ",", "Asap Condensed Medium", ",", "Asap Condensed Medium Italic", ",", "Asap Condensed SemiBold", ",", "Asap Condensed SemiBold Italic", ",", "Asap Condensed Bold", ",", "Asap Condensed Bold Italic", ",", "Asap Condensed ExtraBold", ",", "Asap Condensed ExtraBold Italic", ",", "Asap Condensed Black", ",", "Asap Condensed Black Italic", ",", "Asap Expanded", ",", "Asap Expanded Italic", ",", "Asap Expanded ExtraLight", ",", "Asap Expanded Thin", ",", "Asap Expanded ExtraLight Italic", ",", "Asap Expanded Thin Italic", ",", "Asap Expanded Light", ",", "Asap Expanded Light Italic", ",", "Asap Expanded Medium", ",", "Asap Expanded Medium Italic", ",", "Asap Expanded SemiBold", ",", "Asap Expanded SemiBold Italic", ",", "Asap Expanded Bold", ",", "Asap Expanded Bold Italic", ",", "Asap Expanded ExtraBold", ",", "Asap Expanded ExtraBold Italic", ",", "Asap Expanded Black", ",", "Asap Expanded Black Italic", ",", "Asap SemiCondensed", ",", "Asap SemiCondensed Italic", ",", "Asap SemiCondensed ExtraLight", ",", "Asap SemiCondensed Thin", ",", "Asap SemiCondensed ExtraLight Italic", ",", "Asap SemiCondensed Thin Italic", ",", "Asap SemiCondensed Light", ",", "Asap SemiCondensed Light Italic", ",", "Asap SemiCondensed Medium", ",", "Asap SemiCondensed Medium Italic", ",", "Asap SemiCondensed SemiBold", ",", "Asap SemiCondensed SemiBold Italic", ",", "Asap SemiCondensed Bold", ",", "Asap SemiCondensed Bold Italic", ",", "Asap SemiCondensed ExtraBold", ",", "Asap SemiCondensed ExtraBold Italic", ",", "Asap SemiCondensed Black", ",", "Asap SemiCondensed Black Italic", ",", "Asap SemiExpanded", ",", "Asap SemiExpanded Italic", ",", "Asap SemiExpanded ExtraLight", ",", "Asap SemiExpanded Thin", ",", "Asap SemiExpanded ExtraLight Italic", ",", "Asap SemiExpanded Thin Italic", ",", "Asap SemiExpanded Light", ",", "Asap SemiExpanded Light Italic", ",", "Asap SemiExpanded Medium", ",", "Asap SemiExpanded Medium Italic", ",", "Asap SemiExpanded SemiBold", ",", "Asap SemiExpanded SemiBold Italic", ",", "Asap SemiExpanded Bold", ",", "Asap SemiExpanded Bold Italic", ",", "Asap SemiExpanded ExtraBold", ",", "Asap SemiExpanded ExtraBold Italic", ",", "Asap SemiExpanded Black", ",", "Asap SemiExpanded Black Italic", ",", "Avenir Book", ",", "Avenir Roman", ",", "Avenir Book Oblique", ",", "Avenir Oblique", ",", "Avenir Light", ",", "Avenir Light Oblique", ",", "Avenir Medium", ",", "Avenir Medium Oblique", ",", "Avenir Heavy", ",", "Avenir Heavy Oblique", ",", "Avenir Black", ",", "Avenir Black Oblique", ",", "Avenir Next", ",", "Avenir Next Italic", ",", "Avenir Next Ultra Light", ",", "Avenir Next Ultra Light Italic", ",", "Avenir Next Medium", ",", "Avenir Next Medium Italic", ",", "Avenir Next Demi Bold", ",", "Avenir Next Demi Bold Italic", ",", "Avenir Next Bold", ",", "Avenir Next Bold Italic", ",", "Avenir Next Heavy", ",", "Avenir Next Heavy Italic", ",", "Avenir Next Condensed", ",", "Avenir Next Condensed Italic", ",", "Avenir Next Condensed Ultra Light", ",", "Avenir Next Condensed Ultra Light Italic", ",", "Avenir Next Condensed Medium", ",", "Avenir Next Condensed Medium Italic", ",", "Avenir Next Condensed Demi Bold", ",", "Avenir Next Condensed Demi Bold Italic", ",", "Avenir Next Condensed Bold", ",", "Avenir Next Condensed Bold Italic", ",", "Avenir Next Condensed Heavy", ",", "Avenir Next Condensed Heavy Italic", ",", "Ayuthaya", ",", "Bacasime Antique", ",", "Baghdad", ",", "Bangla MN", ",", "Bangla MN Bold", ",", "Bangla Sangam MN", ",", "Bangla Sangam MN Bold", ",", "Bantayog", ",", "Bantayog Semilight", ",", "Bantayog Light", ",", "Baskerville", ",", "Baskerville Italic", ",", "Baskerville SemiBold", ",", "Baskerville SemiBold Italic", ",", "Baskerville Bold", ",", "Baskerville Bold Italic", ",", "Beirut", ",", "Big Caslon Medium", ",", "Bodoni 72 Book", ",", "Bodoni 72 Book Italic", ",", "Bodoni 72 Bold", ",", "Bodoni 72 Oldstyle Book", ",", "Bodoni 72 Oldstyle Book Italic", ",", "Bodoni 72 Oldstyle Bold", ",", "Bodoni 72 Smallcaps Book", ",", "Bodoni Ornaments", ",", "Bradley Hand Bold", ",", "Bravura", ",", "Bravura Text", ",", "Brush Script MT Italic", ",", "Chalkboard", ",", "Chalkboard Bold", ",", "Chalkboard SE", ",", "Chalkboard SE Light", ",", "Chalkboard SE Bold", ",", "Chalkduster", ",", "Charter Roman", ",", "Charter Italic", ",", "Charter Bold", ",", "Charter Bold Italic", ",", "Charter Black", ",", "Charter Black Italic", ",", "Cochin", ",", "Cochin Italic", ",", "Cochin Bold", ",", "Cochin Bold Italic", ",", "Comic Sans MS", ",", "Comic Sans MS Bold", ",", "Copperplate", ",", "Copperplate Light", ",", "Copperplate Bold", ",", "Cormorant Garamond", ",", "Cormorant Garamond Italic", ",", "Cormorant Garamond Light", ",", "Cormorant Garamond Light Italic", ",", "Cormorant Garamond Medium", ",", "Cormorant Garamond Medium Italic", ",", "Cormorant Garamond SemiBold", ",", "Cormorant Garamond SemiBold Italic", ",", "Cormorant Garamond Bold", ",", "Cormorant Garamond Bold Italic", ",", "Cormorant Infant", ",", "Cormorant Infant Italic", ",", "Cormorant Infant Light", ",", "Cormorant Infant Light Italic", ",", "Cormorant Infant Medium", ",", "Cormorant Infant Medium Italic", ",", "Cormorant Infant SemiBold", ",", "Cormorant Infant SemiBold Italic", ",", "Cormorant Infant Bold", ",", "Cormorant Infant Bold Italic", ",", "Corsiva Hebrew", ",", "Corsiva Hebrew Bold", ",", "Courier New", ",", "Courier New Italic", ",", "Courier New Bold", ",", "Courier New Bold Italic", ",", "Crimson Roman", ",", "Crimson Italic", ",", "Crimson Semibold", ",", "Crimson SemiboldItalic", ",", "Crimson Bold", ",", "Crimson BoldItalic", ",", "Crimson Text", ",", "Crimson Text Italic", ",", "Crimson Text SemiBold", ",", "Crimson Text SemiBold Italic", ",", "Crimson Text Bold", ",", "Crimson Text Bold Italic", ",", "Damascus", ",", "Damascus Light", ",", "Damascus Medium", ",", "Damascus Semi Bold", ",", "Damascus Bold", ",", "DecoType Naskh", ",", "Devanagari MT", ",", "Devanagari MT Bold", ",", "Devanagari Sangam MN", ",", "Devanagari Sangam MN Bold", ",", "Didot", ",", "Didot Italic", ",", "Didot Bold", ",", "DIN Alternate Bold", ",", "DIN Condensed Bold", ",", "Diwan Kufi", ",", "Diwan Thuluth", ",", "Dosis", ",", "Dosis Light", ",", "Euphemia UCAS", ",", "Euphemia UCAS Italic", ",", "Euphemia UCAS Bold", ",", "Farah", ",", "Farisi", ",", "Fira Code", ",", "Fira Code Light", ",", "Fira Code Retina", ",", "Fira Code Medium", ",", "Fira Code SemiBold", ",", "Fira Code Bold", ",", "Futura Medium", ",", "Futura Medium Italic", ",", "Futura Bold", ",", "Futura Condensed Medium", ",", "Futura Condensed ExtraBold", ",", "Galvji", ",", "Galvji Oblique", ",", "Galvji Bold", ",", "Galvji Bold Oblique", ",", "GB18030 Bitmap", ",", "Geeza Pro", ",", "Geeza Pro Bold", ",", "Geneva", ",", "Georgia", ",", "Georgia Italic", ",", "Georgia Bold", ",", "Georgia Bold Italic", ",", "Gill Sans", ",", "Gill Sans Italic", ",", "Gill Sans Light", ",", "Gill Sans Light Italic", ",", "Gill Sans SemiBold", ",", "Gill Sans SemiBold Italic", ",", "Gill Sans Bold", ",", "Gill Sans Bold Italic", ",", "Gill Sans UltraBold", ",", "Gotham Bold", ",", "Gotham Bold Italic", ",", "Gotham Thin", ",", "Gotham Thin Italic", ",", "Gotham Extra Light", ",", "Gotham Extra Light Italic", ",", "Gotham Light", ",", "Gotham Light Italic", ",", "Gotham Book", ",", "Gotham Book Italic", ",", "Gotham Medium", ",", "Gotham Medium Italic", ",", "Gotham Black", ",", "Gotham Black Italic", ",", "Gotham Ultra", ",", "Gotham Ultra Italic", ",", "Gotham Condensed Bold", ",", "Gotham Condensed Bold Italic", ",", "Gotham Condensed Thin", ",", "Gotham Condensed Thin Italic", ",", "Gotham Condensed Extra Light", ",", "Gotham Condensed Extra Light Italic", ",", "Gotham Condensed Light", ",", "Gotham Condensed Light Italic", ",", "Gotham Condensed Book", ",", "Gotham Condensed Book Italic", ",", "Gotham Condensed Medium", ",", "Gotham Condensed Medium Italic", ",", "Gotham Condensed Black", ",", "Gotham Condensed Black Italic", ",", "Gotham Condensed Extra Black", ",", "Gotham Condensed Extra Black Italic", ",", "Gotham Condensed Ultra", ",", "Gotham Condensed Ultra Italic", ",", "Gotham Narrow Bold", ",", "Gotham Narrow Bold Italic", ",", "Gotham Narrow Thin", ",", "Gotham Narrow Thin Italic", ",", "Gotham Narrow Extra Light", ",", "Gotham Narrow Extra Light Italic", ",", "Gotham Narrow Light", ",", "Gotham Narrow Light Italic", ",", "Gotham Narrow Book", ",", "Gotham Narrow Book Italic", ",", "Gotham Narrow Medium", ",", "Gotham Narrow Medium Italic", ",", "Gotham Narrow Black", ",", "Gotham Narrow Black Italic", ",", "Gotham Narrow Ultra", ",", "Gotham Narrow Ultra Italic", ",", "Gotham XNarrow Bold", ",", "Gotham XNarrow Bold Italic", ",", "Gotham XNarrow Thin", ",", "Gotham XNarrow Thin Italic", ",", "Gotham XNarrow Extra Light", ",", "Gotham XNarrow Extra Light Italic", ",", "Gotham XNarrow Light", ",", "Gotham XNarrow Light Italic", ",", "Gotham XNarrow Book", ",", "Gotham XNarrow Book Italic", ",", "Gotham XNarrow Medium", ",", "Gotham XNarrow Medium Italic", ",", "Gotham XNarrow Black", ",", "Gotham XNarrow Black Italic", ",", "Gotham XNarrow Ultra", ",", "Gotham XNarrow Ultra Italic", ",", "Grantha Sangam MN", ",", "Grantha Sangam MN Bold", ",", "Gujarati MT", ",", "Gujarati MT Bold", ",", "Gujarati Sangam MN", ",", "Gujarati Sangam MN Bold", ",", "Gurmukhi MN", ",", "Gurmukhi MN Bold", ",", "Gurmukhi MT", ",", "Gurmukhi Sangam MN", ",", "Gurmukhi Sangam MN Bold", ",", "Heiti SC Light", ",", "Heiti SC Medium", ",", "Heiti TC Light", ",", "Heiti TC Medium", ",", "Helvetica", ",", "Helvetica Oblique", ",", "Helvetica Light", ",", "Helvetica Light Oblique", ",", "Helvetica Bold", ",", "Helvetica Bold Oblique", ",", "Helvetica Neue", ",", "Helvetica Neue Italic", ",", "Helvetica Neue UltraLight", ",", "Helvetica Neue UltraLight Italic", ",", "Helvetica Neue Thin", ",", "Helvetica Neue Thin Italic", ",", "Helvetica Neue Light", ",", "Helvetica Neue Light Italic", ",", "Helvetica Neue Medium", ",", "Helvetica Neue Medium Italic", ",", "Helvetica Neue Bold", ",", "Helvetica Neue Bold Italic", ",", "Helvetica Neue Condensed Bold", ",", "Helvetica Neue Condensed Black", ",", "Herculanum", ",", "Hiragino Maru Gothic ProN W4", ",", "Hiragino Mincho ProN W3", ",", "Hiragino Mincho ProN W6", ",", "Hiragino Sans W0", ",", "Hiragino Sans W1", ",", "Hiragino Sans W2", ",", "Hiragino Sans W3", ",", "Hiragino Sans W4", ",", "Hiragino Sans W5", ",", "Hiragino Sans W6", ",", "Hiragino Sans W7", ",", "Hiragino Sans W8", ",", "Hiragino Sans W9", ",", "Hiragino Sans GB W3", ",", "Hiragino Sans GB W6", ",", "Hoefler Text", ",", "Hoefler Text Ornaments", ",", "Hoefler Text Italic", ",", "Hoefler Text Black", ",", "Hoefler Text Black Italic", ",", "Impact", ",", "InaiMathi", ",", "InaiMathi Bold", ",", "Inter", ",", "Inter", ",", "Inter Italic", ",", "Inter Thin", ",", "Inter Thin Italic", ",", "Inter ExtraLight", ",", "Inter ExtraLight Italic", ",", "Inter ExtraLight", ",", "Inter Thin", ",", "Inter Light", ",", "Inter Light", ",", "Inter Light Italic", ",", "Inter Medium", ",", "Inter Medium", ",", "Inter Medium Italic", ",", "Inter SemiBold", ",", "Inter SemiBold", ",", "Inter SemiBold Italic", ",", "Inter Bold", ",", "Inter Bold", ",", "Inter Bold Italic", ",", "Inter ExtraBold", ",", "Inter ExtraBold", ",", "Inter ExtraBold Italic", ",", "Inter Black", ",", "Inter Black", ",", "Inter Black Italic", ",", "ITF Devanagari Book", ",", "ITF Devanagari Light", ",", "ITF Devanagari Medium", ",", "ITF Devanagari Demi", ",", "ITF Devanagari Bold", ",", "ITF Devanagari Marathi Book", ",", "ITF Devanagari Marathi Light", ",", "ITF Devanagari Marathi Medium", ",", "ITF Devanagari Marathi Demi", ",", "ITF Devanagari Marathi Bold", ",", "Josefin Sans Thin", ",", "Joshuese", ",", "Kailasa", ",", "Kailasa Bold", ",", "Kanit", ",", "Kanit Italic", ",", "Kanit Thin", ",", "Kanit Thin Italic", ",", "Kanit ExtraLight", ",", "Kanit ExtraLight Italic", ",", "Kanit Light", ",", "Kanit Light Italic", ",", "Kanit Medium", ",", "Kanit Medium Italic", ",", "Kanit SemiBold", ",", "Kanit SemiBold Italic", ",", "Kanit Bold", ",", "Kanit Bold Italic", ",", "Kanit ExtraBold", ",", "Kanit ExtraBold Italic", ",", "Kanit Black", ",", "Kanit Black Italic", ",", "Kannada MN", ",", "Kannada MN Bold", ",", "Kannada Sangam MN", ",", "Kannada Sangam MN Bold", ",", "Kefa", ",", "Kefa Bold", ",", "Khmer MN", ",", "Khmer MN Bold", ",", "Khmer Sangam MN", ",", "Kohinoor Bangla", ",", "Kohinoor Bangla Light", ",", "Kohinoor Bangla Medium", ",", "Kohinoor Bangla Semibold", ",", "Kohinoor Bangla Bold", ",", "Kohinoor Devanagari", ",", "Kohinoor Devanagari Light", ",", "Kohinoor Devanagari Medium", ",", "Kohinoor Devanagari Semibold", ",", "Kohinoor Devanagari Bold", ",", "Kohinoor Gujarati", ",", "Kohinoor Gujarati Light", ",", "Kohinoor Gujarati Medium", ",", "Kohinoor Gujarati Semibold", ",", "Kohinoor Gujarati Bold", ",", "Kohinoor Telugu", ",", "Kohinoor Telugu Light", ",", "Kohinoor Telugu Medium", ",", "Kohinoor Telugu Semibold", ",", "Kohinoor Telugu Bold", ",", "Kokonor", ",", "Krungthep", ",", "KufiStandardGK", ",", "Lao MN", ",", "Lao MN Bold", ",", "Lao Sangam MN", ",", "Lato", ",", "Lato", ",", "Lato Italic", ",", "Lato Italic", ",", "Lato Hairline", ",", "Lato Hairline Italic", ",", "Lato Thin", ",", "Lato Thin Italic", ",", "Lato Hairline", ",", "Lato Hairline Italic", ",", "Lato Thin", ",", "Lato Thin Italic", ",", "Lato Light", ",", "Lato Light", ",", "Lato Light Italic", ",", "Lato Light Italic", ",", "Lato Medium", ",", "Lato Medium", ",", "Lato Medium Italic", ",", "Lato Medium Italic", ",", "Lato Semibold", ",", "Lato Semibold", ",", "Lato Semibold Italic", ",", "Lato Semibold Italic", ",", "Lato Bold", ",", "Lato Bold", ",", "Lato Bold Italic", ",", "Lato Bold Italic", ",", "Lato Heavy", ",", "Lato Heavy", ",", "Lato Heavy Italic", ",", "Lato Heavy Italic", ",", "Lato Black", ",", "Lato Black", ",", "Lato Black Italic", ",", "Lato Black Italic", ",", "Libre Bodoni", ",", "Libre Bodoni Italic", ",", "Libre Bodoni Bold", ",", "Libre Bodoni Bold Italic", ",", "Lora", ",", "Lora Italic", ",", "Lora Medium", ",", "Lora Medium Italic", ",", "Lora SemiBold", ",", "Lora SemiBold Italic", ",", "Lora Bold", ",", "Lora Bold Italic", ",", "Lucida Grande", ",", "Lucida Grande Bold", ",", "Luminari", ",", "Malayalam MN", ",", "Malayalam MN Bold", ",", "Malayalam Sangam MN", ",", "Malayalam Sangam MN Bold", ",", "Marker Felt Thin", ",", "Marker Felt Wide", ",", "Menlo", ",", "Menlo Italic", ",", "Menlo Bold", ",", "Menlo Bold Italic", ",", "Mercury Display Bold", ",", "Mercury Display Bold Italic", ",", "Mercury Display Roman", ",", "Mercury Display Italic", ",", "Mercury Display Semibold", ",", "Mercury Display Semibold Italic", ",", "Mercury Text G1 Bold", ",", "Mercury Text G1 Bold Italic", ",", "Mercury Text G1 Roman", ",", "Mercury Text G1 Italic", ",", "Mercury Text G1 Semibold", ",", "Mercury Text G1 Semibold Italic", ",", "Mercury Text G2 Bold", ",", "Mercury Text G2 Bold Italic", ",", "Mercury Text G2 Roman", ",", "Mercury Text G2 Italic", ",", "Mercury Text G2 Semibold", ",", "Mercury Text G2 Semibold Italic", ",", "Mercury Text G3 Bold", ",", "Mercury Text G3 Bold Italic", ",", "Mercury Text G3 Roman", ",", "Mercury Text G3 Italic", ",", "Mercury Text G3 Semibold", ",", "Mercury Text G3 Semibold Italic", ",", "Mercury Text G4 Bold", ",", "Mercury Text G4 Bold Italic", ",", "Mercury Text G4 Roman", ",", "Mercury Text G4 Italic", ",", "Mercury Text G4 Semibold", ",", "Mercury Text G4 Semibold Italic", ",", "Microsoft Sans Serif", ",", "Mishafi", ",", "Mishafi Gold", ",", "Monaco", ",", "Mshtakan", ",", "Mshtakan Oblique", ",", "Mshtakan Bold", ",", "Mshtakan BoldOblique", ",", "Mukta Mahee", ",", "Mukta Mahee ExtraLight", ",", "Mukta Mahee Light", ",", "Mukta Mahee Medium", ",", "Mukta Mahee SemiBold", ",", "Mukta Mahee Bold", ",", "Mukta Mahee ExtraBold", ",", "Muna", ",", "Muna Bold", ",", "Muna Black", ",", "Myanmar MN", ",", "Myanmar MN Bold", ",", "Myanmar Sangam MN", ",", "Myanmar Sangam MN Bold", ",", "Nadeem", ",", "NanumMyeongjo", ",", "NanumMyeongjo Bold", ",", "NanumMyeongjo ExtraBold", ",", "New Peninim MT", ",", "New Peninim MT Inclined", ",", "New Peninim MT Bold", ",", "New Peninim MT Bold Inclined", ",", "Noteworthy Light", ",", "Noteworthy Bold", ",", "Noto Nastaliq Urdu", ",", "Noto Nastaliq Urdu Bold", ",", "Noto Sans Batak", ",", "Noto Sans JP", ",", "Noto Sans JP Thin", ",", "Noto Sans JP Light", ",", "Noto Sans JP DemiLight", ",", "Noto Sans JP Medium", ",", "Noto Sans JP Bold", ",", "Noto Sans JP Black", ",", "Noto Sans Kannada", ",", "Noto Sans Kannada ExtraLight", ",", "Noto Sans Kannada Thin", ",", "Noto Sans Kannada Light", ",", "Noto Sans Kannada Medium", ",", "Noto Sans Kannada SemiBold", ",", "Noto Sans Kannada Bold", ",", "Noto Sans Kannada ExtraBold", ",", "Noto Sans Kannada Black", ",", "Noto Sans Myanmar", ",", "Noto Sans Myanmar ExtraLight", ",", "Noto Sans Myanmar Thin", ",", "Noto Sans Myanmar Light", ",", "Noto Sans Myanmar Medium", ",", "Noto Sans Myanmar SemiBold", ",", "Noto Sans Myanmar Bold", ",", "Noto Sans Myanmar ExtraBold", ",", "Noto Sans Myanmar Black", ",", "Noto Sans NKo", ",", "Noto Sans Oriya", ",", "Noto Sans Oriya Bold", ",", "Noto Sans Tagalog", ",", "Noto Serif Myanmar", ",", "Noto Serif Myanmar ExtraLight", ",", "Noto Serif Myanmar Thin", ",", "Noto Serif Myanmar Light", ",", "Noto Serif Myanmar Medium", ",", "Noto Serif Myanmar SemiBold", ",", "Noto Serif Myanmar Bold", ",", "Noto Serif Myanmar ExtraBold", ",", "Noto Serif Myanmar Black", ",", "November for bach", ",", "Nunito", ",", "Nunito Italic", ",", "Nunito Italic", ",", "Nunito ExtraLight", ",", "Nunito ExtraLight Italic", ",", "Nunito ExtraLight Italic", ",", "Nunito Light", ",", "Nunito Light Italic", ",", "Nunito Light Italic", ",", "Nunito Medium", ",", "Nunito Medium Italic", ",", "Nunito Medium Italic", ",", "Nunito SemiBold", ",", "Nunito SemiBold Italic", ",", "Nunito SemiBold Italic", ",", "Nunito Bold", ",", "Nunito Bold Italic", ",", "Nunito Bold Italic", ",", "Nunito ExtraBold", ",", "Nunito ExtraBold Italic", ",", "Nunito ExtraBold Italic", ",", "Nunito Black", ",", "Nunito Black Italic", ",", "Nunito Black Italic", ",", "Optima", ",", "Optima Italic", ",", "Optima Bold", ",", "Optima Bold Italic", ",", "Optima ExtraBlack", ",", "Oriya MN", ",", "Oriya MN Bold", ",", "Oriya Sangam MN", ",", "Oriya Sangam MN Bold", ",", "Oxygen", ",", "Oxygen Light", ",", "Oxygen Bold", ",", "Palatino", ",", "Palatino Italic", ",", "Palatino Bold", ",", "Palatino Bold Italic", ",", "Papyrus", ",", "Papyrus Condensed", ",", "Party LET Plain", ",", "Petaluma", ",", "Petaluma Script", ",", "Petaluma Text", ",", "Phosphate Inline", ",", "Phosphate Solid", ",", "PingFang HK", ",", "PingFang HK Ultralight", ",", "PingFang HK Thin", ",", "PingFang HK Light", ",", "PingFang HK Medium", ",", "PingFang HK Semibold", ",", "PingFang SC", ",", "PingFang SC Ultralight", ",", "PingFang SC Thin", ",", "PingFang SC Light", ",", "PingFang SC Medium", ",", "PingFang SC Semibold", ",", "PingFang TC", ",", "PingFang TC Ultralight", ",", "PingFang TC Thin", ",", "PingFang TC Light", ",", "PingFang TC Medium", ",", "PingFang TC Semibold", ",", "Plantagenet Cherokee", ",", "Playfair Display", ",", "Playfair Display Italic", ",", "Playfair Display Medium", ",", "Playfair Display Medium Italic", ",", "Playfair Display SemiBold", ",", "Playfair Display SemiBold Italic", ",", "Playfair Display Bold", ",", "Playfair Display Bold Italic", ",", "Playfair Display ExtraBold", ",", "Playfair Display ExtraBold Italic", ",", "Playfair Display Black", ",", "Playfair Display Black Italic", ",", "Poppins", ",", "Poppins Italic", ",", "Poppins Thin", ",", "Poppins Thin Italic", ",", "Poppins ExtraLight", ",", "Poppins ExtraLight Italic", ",", "Poppins Light", ",", "Poppins Light Italic", ",", "Poppins Medium", ",", "Poppins Medium Italic", ",", "Poppins SemiBold", ",", "Poppins SemiBold Italic", ",", "Poppins Bold", ",", "Poppins Bold Italic", ",", "Poppins ExtraBold", ",", "Poppins ExtraBold Italic", ",", "Poppins Black", ",", "Poppins Black Italic", ",", "PT Mono", ",", "PT Mono Bold", ",", "PT Sans", ",", "PT Sans Italic", ",", "PT Sans Bold", ",", "PT Sans Bold Italic", ",", "PT Sans Caption", ",", "PT Sans Caption Bold", ",", "PT Sans Narrow", ",", "PT Sans Narrow Bold", ",", "PT Serif", ",", "PT Serif Italic", ",", "PT Serif Bold", ",", "PT Serif Bold Italic", ",", "PT Serif Caption", ",", "PT Serif Caption Italic", ",", "Quattrocento Sans", ",", "Quattrocento Sans Italic", ",", "Quattrocento Sans Bold", ",", "Quattrocento Sans Bold Italic", ",", "Raanana", ",", "Raanana Bold", ",", "Raleway", ",", "Raleway Italic", ",", "Raleway Thin", ",", "Raleway Thin Italic", ",", "Raleway ExtraLight", ",", "Raleway ExtraLight Italic", ",", "Raleway Light", ",", "Raleway Light Italic", ",", "Raleway Medium", ",", "Raleway Medium Italic", ",", "Raleway SemiBold", ",", "Raleway SemiBold Italic", ",", "Raleway Bold", ",", "Raleway Bold Italic", ",", "Raleway ExtraBold", ",", "Raleway ExtraBold Italic", ",", "Raleway Black", ",", "Raleway Black Italic", ",", "Rockwell", ",", "Rockwell Italic", ",", "Rockwell Bold", ",", "Rockwell Bold Italic", ",", "Sana", ",", "Sathu", ",", "Savoye LET Plain", ",", "Shree Devanagari 714", ",", "Shree Devanagari 714 Italic", ",", "Shree Devanagari 714 Bold", ",", "Shree Devanagari 714 Bold Italic", ",", "SignPainter HouseScript", ",", "SignPainter HouseScript Semibold", ",", "Silom", ",", "Sinhala MN", ",", "Sinhala MN Bold", ",", "Sinhala Sangam MN", ",", "Sinhala Sangam MN Bold", ",", "Skia", ",", "Skia Light", ",", "Skia Bold", ",", "Skia Black", ",", "Skia Extended", ",", "Skia Light Extended", ",", "Skia Black Extended", ",", "Skia Condensed", ",", "Skia Light Condensed", ",", "Skia Black Condensed", ",", "Snell Roundhand", ",", "Snell Roundhand Bold", ",", "Snell Roundhand Black", ",", "Songti SC", ",", "Songti SC Light", ",", "Songti SC Bold", ",", "Songti SC Black", ",", "Songti TC", ",", "Songti TC Light", ",", "Songti TC Bold", ",", "Spectral", ",", "Spectral Italic", ",", "Spectral ExtraLight", ",", "Spectral ExtraLight Italic", ",", "Spectral Light", ",", "Spectral Light Italic", ",", "Spectral Medium", ",", "Spectral Medium Italic", ",", "Spectral SemiBold", ",", "Spectral SemiBold Italic", ",", "Spectral Bold", ",", "Spectral Bold Italic", ",", "Spectral ExtraBold", ",", "Spectral ExtraBold Italic", ",", "Splash", ",", "STIX Two Math", ",", "STIX Two Text", ",", "STIX Two Text Italic", ",", "STIX Two Text Medium", ",", "STIX Two Text Medium Italic", ",", "STIX Two Text SemiBold", ",", "STIX Two Text SemiBold Italic", ",", "STIX Two Text Bold", ",", "STIX Two Text Bold Italic", ",", "STSong", ",", "Sukhumvit Set Text", ",", "Sukhumvit Set Light", ",", "Sukhumvit Set Medium", ",", "Sukhumvit Set Semi Bold", ",", "Sukhumvit Set Bold", ",", "Sukhumvit Set Thin", ",", "Symbol", ",", "Tahoma", ",", "Tahoma Bold", ",", "Tajawal", ",", "Tajawal ExtraLight", ",", "Tajawal Light", ",", "Tajawal Medium", ",", "Tajawal Bold", ",", "Tajawal ExtraBold", ",", "Tajawal Black", ",", "Tamil MN", ",", "Tamil MN Bold", ",", "Tamil Sangam MN", ",", "Tamil Sangam MN Bold", ",", "Telugu MN", ",", "Telugu MN Bold", ",", "Telugu Sangam MN", ",", "Telugu Sangam MN Bold", ",", "Thonburi", ",", "Thonburi Light", ",", "Thonburi Bold", ",", "Times New Roman", ",", "Times New Roman Italic", ",", "Times New Roman Bold", ",", "Times New Roman Bold Italic", ",", "TitilliumMaps26L 1 wt", ",", "TitilliumMaps26L 250 wt", ",", "TitilliumMaps26L 750 wt", ",", "Trattatello", ",", "Trebuchet MS", ",", "Trebuchet MS Italic", ",", "Trebuchet MS Bold", ",", "Trebuchet MS Bold Italic", ",", "Univers LT Std 45 Light", ",", "Univers LT Std 45 Light Oblique", ",", "Univers LT Std 55 Roman", ",", "Univers LT Std 55 Oblique", ",", "Univers LT Std 65 Bold", ",", "Univers LT Std 65 Bold Oblique", ",", "Univers LT Std 75 Black", ",", "Univers LT Std 75 Black Oblique", ",", "Univers LT Std 85 Extra Black", ",", "Univers LT Std 85 Extra Black Oblique", ",", "Univers LT Std 53 Extended", ",", "Univers LT Std 53 Extended Oblique", ",", "Univers LT Std 63 Bold Extended", ",", "Univers LT Std 63 Bold Extended Oblique", ",", "Univers LT Std 73 Black Extended", ",", "Univers LT Std 73 Black Extended Oblique", ",", "Univers LT Std 93 Extra Black Extended", ",", "Univers LT Std 93 Extra Black Extended Oblique", ",", "Univers LT Std 47 Light Condensed", ",", "Univers LT Std 47 Light Condensed Oblique", ",", "Univers LT Std 57 Condensed", ",", "Univers LT Std 57 Condensed Oblique", ",", "Univers LT Std 67 Bold Condensed", ",", "Univers LT Std 67 Bold Condensed Oblique", ",", "Univers LT Std 39 Thin Ultra Condensed", ",", "Univers LT Std 49 Light Ultra Condensed", ",", "Univers LT Std 59 Ultra Condensed", ",", "Verdana", ",", "Verdana Italic", ",", "Verdana Bold", ",", "Verdana Bold Italic", ",", "Waseem", ",", "Waseem Light", ",", "Webdings", ",", "Wingdings", ",", "Wingdings 2", ",", "Wingdings 3", ",", "Zapf Dingbats", ",", "Zapfino" ],
 									"maxclass" : "umenu",
 									"numinlets" : 1,
 									"numoutlets" : 3,
@@ -5637,9 +5736,9 @@
 									"presentation_rect" : [ 942.0, 112.0, 120.0, 22.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_enum" : [ "Abel", "Ableton Sans Bold", "Ableton Sans Light", "Ableton Sans Medium", "Academico", "Academico Italic", "Academico Bold", "Academico Bold Italic", "Academy Engraved LET Plain", "Al Bayan Plain", "Al Bayan Bold", "Al Nile", "Al Nile Bold", "Al Tarikh", "American Typewriter", "American Typewriter Light", "American Typewriter Semibold", "American Typewriter Bold", "American Typewriter Condensed", "American Typewriter Condensed Light", "American Typewriter Condensed Bold", "Andale Mono", "Apple Braille Outline 6 Dot", "Apple Braille Outline 8 Dot", "Apple Braille Pinpoint 6 Dot", "Apple Braille Pinpoint 8 Dot", "Apple Braille", "Apple Chancery Chancery", "Apple Color Emoji", "Apple SD Gothic Neo", "Apple SD Gothic Neo Thin", "Apple SD Gothic Neo UltraLight", "Apple SD Gothic Neo Light", "Apple SD Gothic Neo Medium", "Apple SD Gothic Neo SemiBold", "Apple SD Gothic Neo Bold", "Apple SD Gothic Neo ExtraBold", "Apple SD Gothic Neo Heavy", "Apple Symbols", "AppleGothic", "AppleMyungjo", "Arial", "Arial Italic", "Arial Bold", "Arial Bold Italic", "Arial Black", "Arial Hebrew", "Arial Hebrew Light", "Arial Hebrew Bold", "Arial Hebrew Scholar", "Arial Hebrew Scholar Light", "Arial Hebrew Scholar Bold", "Arial Narrow", "Arial Narrow Italic", "Arial Narrow Bold", "Arial Narrow Bold Italic", "Arial Rounded MT Bold", "Arial Unicode MS", "Asap", "Asap", "Asap Italic", "Asap Italic", "Asap Thin", "Asap Thin Italic", "Asap ExtraLight", "Asap ExtraLight Italic", "Asap ExtraLight", "Asap Thin", "Asap ExtraLight Italic", "Asap Thin Italic", "Asap Light", "Asap Light", "Asap Light Italic", "Asap Light Italic", "Asap Medium", "Asap Medium", "Asap Medium Italic", "Asap Medium Italic", "Asap SemiBold", "Asap SemiBold", "Asap SemiBold Italic", "Asap SemiBold Italic", "Asap Bold", "Asap Bold", "Asap Bold Italic", "Asap Bold Italic", "Asap ExtraBold", "Asap ExtraBold", "Asap ExtraBold Italic", "Asap ExtraBold Italic", "Asap Black", "Asap Black", "Asap Black Italic", "Asap Black Italic", "Asap Condensed", "Asap Condensed Italic", "Asap Condensed ExtraLight", "Asap Condensed Thin", "Asap Condensed ExtraLight Italic", "Asap Condensed Thin Italic", "Asap Condensed Light", "Asap Condensed Light Italic", "Asap Condensed Medium", "Asap Condensed Medium Italic", "Asap Condensed SemiBold", "Asap Condensed SemiBold Italic", "Asap Condensed Bold", "Asap Condensed Bold Italic", "Asap Condensed ExtraBold", "Asap Condensed ExtraBold Italic", "Asap Condensed Black", "Asap Condensed Black Italic", "Asap Expanded", "Asap Expanded Italic", "Asap Expanded ExtraLight", "Asap Expanded Thin", "Asap Expanded ExtraLight Italic", "Asap Expanded Thin Italic", "Asap Expanded Light", "Asap Expanded Light Italic", "Asap Expanded Medium", "Asap Expanded Medium Italic", "Asap Expanded SemiBold", "Asap Expanded SemiBold Italic", "Asap Expanded Bold", "Asap Expanded Bold Italic", "Asap Expanded ExtraBold", "Asap Expanded ExtraBold Italic", "Asap Expanded Black", "Asap Expanded Black Italic", "Asap SemiCondensed", "Asap SemiCondensed Italic", "Asap SemiCondensed ExtraLight", "Asap SemiCondensed Thin", "Asap SemiCondensed ExtraLight Italic", "Asap SemiCondensed Thin Italic", "Asap SemiCondensed Light", "Asap SemiCondensed Light Italic", "Asap SemiCondensed Medium", "Asap SemiCondensed Medium Italic", "Asap SemiCondensed SemiBold", "Asap SemiCondensed SemiBold Italic", "Asap SemiCondensed Bold", "Asap SemiCondensed Bold Italic", "Asap SemiCondensed ExtraBold", "Asap SemiCondensed ExtraBold Italic", "Asap SemiCondensed Black", "Asap SemiCondensed Black Italic", "Asap SemiExpanded", "Asap SemiExpanded Italic", "Asap SemiExpanded ExtraLight", "Asap SemiExpanded Thin", "Asap SemiExpanded ExtraLight Italic", "Asap SemiExpanded Thin Italic", "Asap SemiExpanded Light", "Asap SemiExpanded Light Italic", "Asap SemiExpanded Medium", "Asap SemiExpanded Medium Italic", "Asap SemiExpanded SemiBold", "Asap SemiExpanded SemiBold Italic", "Asap SemiExpanded Bold", "Asap SemiExpanded Bold Italic", "Asap SemiExpanded ExtraBold", "Asap SemiExpanded ExtraBold Italic", "Asap SemiExpanded Black", "Asap SemiExpanded Black Italic", "Avenir Book", "Avenir Roman", "Avenir Book Oblique", "Avenir Oblique", "Avenir Light", "Avenir Light Oblique", "Avenir Medium", "Avenir Medium Oblique", "Avenir Heavy", "Avenir Heavy Oblique", "Avenir Black", "Avenir Black Oblique", "Avenir Next", "Avenir Next Italic", "Avenir Next Ultra Light", "Avenir Next Ultra Light Italic", "Avenir Next Medium", "Avenir Next Medium Italic", "Avenir Next Demi Bold", "Avenir Next Demi Bold Italic", "Avenir Next Bold", "Avenir Next Bold Italic", "Avenir Next Heavy", "Avenir Next Heavy Italic", "Avenir Next Condensed", "Avenir Next Condensed Italic", "Avenir Next Condensed Ultra Light", "Avenir Next Condensed Ultra Light Italic", "Avenir Next Condensed Medium", "Avenir Next Condensed Medium Italic", "Avenir Next Condensed Demi Bold", "Avenir Next Condensed Demi Bold Italic", "Avenir Next Condensed Bold", "Avenir Next Condensed Bold Italic", "Avenir Next Condensed Heavy", "Avenir Next Condensed Heavy Italic", "Ayuthaya", "Bacasime Antique", "Baghdad", "Bangla MN", "Bangla MN Bold", "Bangla Sangam MN", "Bangla Sangam MN Bold", "Bantayog", "Bantayog Semilight", "Bantayog Light", "Baskerville", "Baskerville Italic", "Baskerville SemiBold", "Baskerville SemiBold Italic", "Baskerville Bold", "Baskerville Bold Italic", "Beirut", "Big Caslon Medium", "Bodoni 72 Book", "Bodoni 72 Book Italic", "Bodoni 72 Bold", "Bodoni 72 Oldstyle Book", "Bodoni 72 Oldstyle Book Italic", "Bodoni 72 Oldstyle Bold", "Bodoni 72 Smallcaps Book", "Bodoni Ornaments", "Bradley Hand Bold", "Bravura", "Bravura Text", "Brush Script MT Italic", "Canela", "Canela Regular Italic", "Canela Bold", "Canela Bold Italic", "Canela Text", "Canela Text Regular Italic", "Canela Text Medium", "Canela Text Medium Italic", "Canela Text Bold", "Canela Text Bold Italic", "Chalkboard", "Chalkboard Bold", "Chalkboard SE", "Chalkboard SE Light", "Chalkboard SE Bold", "Chalkduster", "Charter Roman", "Charter Italic", "Charter Bold", "Charter Bold Italic", "Charter Black", "Charter Black Italic", "Cochin", "Cochin Italic", "Cochin Bold", "Cochin Bold Italic", "Comic Sans MS", "Comic Sans MS Bold", "Copperplate", "Copperplate Light", "Copperplate Bold", "Cormorant Garamond", "Cormorant Garamond Italic", "Cormorant Garamond Light", "Cormorant Garamond Light Italic", "Cormorant Garamond Medium", "Cormorant Garamond Medium Italic", "Cormorant Garamond SemiBold", "Cormorant Garamond SemiBold Italic", "Cormorant Garamond Bold", "Cormorant Garamond Bold Italic", "Cormorant Infant", "Cormorant Infant Italic", "Cormorant Infant Light", "Cormorant Infant Light Italic", "Cormorant Infant Medium", "Cormorant Infant Medium Italic", "Cormorant Infant SemiBold", "Cormorant Infant SemiBold Italic", "Cormorant Infant Bold", "Cormorant Infant Bold Italic", "Corsiva Hebrew", "Corsiva Hebrew Bold", "Courier New", "Courier New Italic", "Courier New Bold", "Courier New Bold Italic", "Crimson Roman", "Crimson Italic", "Crimson Semibold", "Crimson SemiboldItalic", "Crimson Bold", "Crimson BoldItalic", "Crimson Text", "Crimson Text Italic", "Crimson Text SemiBold", "Crimson Text SemiBold Italic", "Crimson Text Bold", "Crimson Text Bold Italic", "Damascus", "Damascus Light", "Damascus Medium", "Damascus Semi Bold", "Damascus Bold", "DecoType Naskh", "Devanagari MT", "Devanagari MT Bold", "Devanagari Sangam MN", "Devanagari Sangam MN Bold", "Didot", "Didot Italic", "Didot Bold", "DIN Alternate Bold", "DIN Condensed Bold", "Diwan Kufi", "Diwan Thuluth", "Dosis", "Dosis Light", "Euphemia UCAS", "Euphemia UCAS Italic", "Euphemia UCAS Bold", "Farah", "Farisi", "Fira Code", "Fira Code Light", "Fira Code Retina", "Fira Code Medium", "Fira Code SemiBold", "Fira Code Bold", "Futura Medium", "Futura Medium Italic", "Futura Bold", "Futura Condensed Medium", "Futura Condensed ExtraBold", "Galvji", "Galvji Oblique", "Galvji Bold", "Galvji Bold Oblique", "GB18030 Bitmap", "Geeza Pro", "Geeza Pro Bold", "Geneva", "Georgia", "Georgia Italic", "Georgia Bold", "Georgia Bold Italic", "Gill Sans", "Gill Sans Italic", "Gill Sans Light", "Gill Sans Light Italic", "Gill Sans SemiBold", "Gill Sans SemiBold Italic", "Gill Sans Bold", "Gill Sans Bold Italic", "Gill Sans UltraBold", "Gotham Bold", "Gotham Bold Italic", "Gotham Thin", "Gotham Thin Italic", "Gotham Extra Light", "Gotham Extra Light Italic", "Gotham Light", "Gotham Light Italic", "Gotham Book", "Gotham Book Italic", "Gotham Medium", "Gotham Medium Italic", "Gotham Black", "Gotham Black Italic", "Gotham Ultra", "Gotham Ultra Italic", "Gotham Condensed Bold", "Gotham Condensed Bold Italic", "Gotham Condensed Thin", "Gotham Condensed Thin Italic", "Gotham Condensed Extra Light", "Gotham Condensed Extra Light Italic", "Gotham Condensed Light", "Gotham Condensed Light Italic", "Gotham Condensed Book", "Gotham Condensed Book Italic", "Gotham Condensed Medium", "Gotham Condensed Medium Italic", "Gotham Condensed Black", "Gotham Condensed Black Italic", "Gotham Condensed Extra Black", "Gotham Condensed Extra Black Italic", "Gotham Condensed Ultra", "Gotham Condensed Ultra Italic", "Gotham Narrow Bold", "Gotham Narrow Bold Italic", "Gotham Narrow Thin", "Gotham Narrow Thin Italic", "Gotham Narrow Extra Light", "Gotham Narrow Extra Light Italic", "Gotham Narrow Light", "Gotham Narrow Light Italic", "Gotham Narrow Book", "Gotham Narrow Book Italic", "Gotham Narrow Medium", "Gotham Narrow Medium Italic", "Gotham Narrow Black", "Gotham Narrow Black Italic", "Gotham Narrow Ultra", "Gotham Narrow Ultra Italic", "Gotham XNarrow Bold", "Gotham XNarrow Bold Italic", "Gotham XNarrow Thin", "Gotham XNarrow Thin Italic", "Gotham XNarrow Extra Light", "Gotham XNarrow Extra Light Italic", "Gotham XNarrow Light", "Gotham XNarrow Light Italic", "Gotham XNarrow Book", "Gotham XNarrow Book Italic", "Gotham XNarrow Medium", "Gotham XNarrow Medium Italic", "Gotham XNarrow Black", "Gotham XNarrow Black Italic", "Gotham XNarrow Ultra", "Gotham XNarrow Ultra Italic", "Grantha Sangam MN", "Grantha Sangam MN Bold", "Gujarati MT", "Gujarati MT Bold", "Gujarati Sangam MN", "Gujarati Sangam MN Bold", "Gurmukhi MN", "Gurmukhi MN Bold", "Gurmukhi MT", "Gurmukhi Sangam MN", "Gurmukhi Sangam MN Bold", "Heiti SC Light", "Heiti SC Medium", "Heiti TC Light", "Heiti TC Medium", "Helvetica", "Helvetica Oblique", "Helvetica Light", "Helvetica Light Oblique", "Helvetica Bold", "Helvetica Bold Oblique", "Helvetica Neue", "Helvetica Neue Italic", "Helvetica Neue UltraLight", "Helvetica Neue UltraLight Italic", "Helvetica Neue Thin", "Helvetica Neue Thin Italic", "Helvetica Neue Light", "Helvetica Neue Light Italic", "Helvetica Neue Medium", "Helvetica Neue Medium Italic", "Helvetica Neue Bold", "Helvetica Neue Bold Italic", "Helvetica Neue Condensed Bold", "Helvetica Neue Condensed Black", "Herculanum", "Hiragino Maru Gothic ProN W4", "Hiragino Mincho ProN W3", "Hiragino Mincho ProN W6", "Hiragino Sans W0", "Hiragino Sans W1", "Hiragino Sans W2", "Hiragino Sans W3", "Hiragino Sans W4", "Hiragino Sans W5", "Hiragino Sans W6", "Hiragino Sans W7", "Hiragino Sans W8", "Hiragino Sans W9", "Hiragino Sans GB W3", "Hiragino Sans GB W6", "Hoefler Text", "Hoefler Text Ornaments", "Hoefler Text Italic", "Hoefler Text Black", "Hoefler Text Black Italic", "Impact", "InaiMathi", "InaiMathi Bold", "Inter", "Inter", "Inter Italic", "Inter Thin", "Inter Thin Italic", "Inter ExtraLight", "Inter ExtraLight Italic", "Inter ExtraLight", "Inter Thin", "Inter Light", "Inter Light", "Inter Light Italic", "Inter Medium", "Inter Medium", "Inter Medium Italic", "Inter SemiBold", "Inter SemiBold", "Inter SemiBold Italic", "Inter Bold", "Inter Bold", "Inter Bold Italic", "Inter ExtraBold", "Inter ExtraBold", "Inter ExtraBold Italic", "Inter Black", "Inter Black", "Inter Black Italic", "ITF Devanagari Book", "ITF Devanagari Light", "ITF Devanagari Medium", "ITF Devanagari Demi", "ITF Devanagari Bold", "ITF Devanagari Marathi Book", "ITF Devanagari Marathi Light", "ITF Devanagari Marathi Medium", "ITF Devanagari Marathi Demi", "ITF Devanagari Marathi Bold", "Josefin Sans Thin", "Joshuese", "Kailasa", "Kailasa Bold", "Kanit", "Kanit Italic", "Kanit Thin", "Kanit Thin Italic", "Kanit ExtraLight", "Kanit ExtraLight Italic", "Kanit Light", "Kanit Light Italic", "Kanit Medium", "Kanit Medium Italic", "Kanit SemiBold", "Kanit SemiBold Italic", "Kanit Bold", "Kanit Bold Italic", "Kanit ExtraBold", "Kanit ExtraBold Italic", "Kanit Black", "Kanit Black Italic", "Kannada MN", "Kannada MN Bold", "Kannada Sangam MN", "Kannada Sangam MN Bold", "Kefa", "Kefa Bold", "Khmer MN", "Khmer MN Bold", "Khmer Sangam MN", "Kohinoor Bangla", "Kohinoor Bangla Light", "Kohinoor Bangla Medium", "Kohinoor Bangla Semibold", "Kohinoor Bangla Bold", "Kohinoor Devanagari", "Kohinoor Devanagari Light", "Kohinoor Devanagari Medium", "Kohinoor Devanagari Semibold", "Kohinoor Devanagari Bold", "Kohinoor Gujarati", "Kohinoor Gujarati Light", "Kohinoor Gujarati Medium", "Kohinoor Gujarati Semibold", "Kohinoor Gujarati Bold", "Kohinoor Telugu", "Kohinoor Telugu Light", "Kohinoor Telugu Medium", "Kohinoor Telugu Semibold", "Kohinoor Telugu Bold", "Kokonor", "Krungthep", "KufiStandardGK", "Lao MN", "Lao MN Bold", "Lao Sangam MN", "Lato", "Lato", "Lato Italic", "Lato Italic", "Lato Hairline", "Lato Hairline Italic", "Lato Thin", "Lato Thin Italic", "Lato Hairline", "Lato Hairline Italic", "Lato Thin", "Lato Thin Italic", "Lato Light", "Lato Light", "Lato Light Italic", "Lato Light Italic", "Lato Medium", "Lato Medium", "Lato Medium Italic", "Lato Medium Italic", "Lato Semibold", "Lato Semibold", "Lato Semibold Italic", "Lato Semibold Italic", "Lato Bold", "Lato Bold", "Lato Bold Italic", "Lato Bold Italic", "Lato Heavy", "Lato Heavy", "Lato Heavy Italic", "Lato Heavy Italic", "Lato Black", "Lato Black", "Lato Black Italic", "Lato Black Italic", "Libre Bodoni", "Libre Bodoni Italic", "Libre Bodoni Bold", "Libre Bodoni Bold Italic", "Lora", "Lora Italic", "Lora Medium", "Lora Medium Italic", "Lora SemiBold", "Lora SemiBold Italic", "Lora Bold", "Lora Bold Italic", "Lucida Grande", "Lucida Grande Bold", "Luminari", "Malayalam MN", "Malayalam MN Bold", "Malayalam Sangam MN", "Malayalam Sangam MN Bold", "Marker Felt Thin", "Marker Felt Wide", "Menlo", "Menlo Italic", "Menlo Bold", "Menlo Bold Italic", "Mercury Display Bold", "Mercury Display Bold Italic", "Mercury Display Roman", "Mercury Display Italic", "Mercury Display Semibold", "Mercury Display Semibold Italic", "Mercury Text G1 Bold", "Mercury Text G1 Bold Italic", "Mercury Text G1 Roman", "Mercury Text G1 Italic", "Mercury Text G1 Semibold", "Mercury Text G1 Semibold Italic", "Mercury Text G2 Bold", "Mercury Text G2 Bold Italic", "Mercury Text G2 Roman", "Mercury Text G2 Italic", "Mercury Text G2 Semibold", "Mercury Text G2 Semibold Italic", "Mercury Text G3 Bold", "Mercury Text G3 Bold Italic", "Mercury Text G3 Roman", "Mercury Text G3 Italic", "Mercury Text G3 Semibold", "Mercury Text G3 Semibold Italic", "Mercury Text G4 Bold", "Mercury Text G4 Bold Italic", "Mercury Text G4 Roman", "Mercury Text G4 Italic", "Mercury Text G4 Semibold", "Mercury Text G4 Semibold Italic", "Microsoft Sans Serif", "Mishafi", "Mishafi Gold", "Monaco", "Mshtakan", "Mshtakan Oblique", "Mshtakan Bold", "Mshtakan BoldOblique", "Mukta Mahee", "Mukta Mahee ExtraLight", "Mukta Mahee Light", "Mukta Mahee Medium", "Mukta Mahee SemiBold", "Mukta Mahee Bold", "Mukta Mahee ExtraBold", "Muna", "Muna Bold", "Muna Black", "Myanmar MN", "Myanmar MN Bold", "Myanmar Sangam MN", "Myanmar Sangam MN Bold", "Nadeem", "NanumMyeongjo", "NanumMyeongjo Bold", "NanumMyeongjo ExtraBold", "New Peninim MT", "New Peninim MT Inclined", "New Peninim MT Bold", "New Peninim MT Bold Inclined", "Noteworthy Light", "Noteworthy Bold", "Noto Nastaliq Urdu", "Noto Nastaliq Urdu Bold", "Noto Sans Batak", "Noto Sans JP", "Noto Sans JP Thin", "Noto Sans JP Light", "Noto Sans JP DemiLight", "Noto Sans JP Medium", "Noto Sans JP Bold", "Noto Sans JP Black", "Noto Sans Kannada", "Noto Sans Kannada ExtraLight", "Noto Sans Kannada Thin", "Noto Sans Kannada Light", "Noto Sans Kannada Medium", "Noto Sans Kannada SemiBold", "Noto Sans Kannada Bold", "Noto Sans Kannada ExtraBold", "Noto Sans Kannada Black", "Noto Sans Myanmar", "Noto Sans Myanmar ExtraLight", "Noto Sans Myanmar Thin", "Noto Sans Myanmar Light", "Noto Sans Myanmar Medium", "Noto Sans Myanmar SemiBold", "Noto Sans Myanmar Bold", "Noto Sans Myanmar ExtraBold", "Noto Sans Myanmar Black", "Noto Sans NKo", "Noto Sans Oriya", "Noto Sans Oriya Bold", "Noto Sans Tagalog", "Noto Serif Myanmar", "Noto Serif Myanmar ExtraLight", "Noto Serif Myanmar Thin", "Noto Serif Myanmar Light", "Noto Serif Myanmar Medium", "Noto Serif Myanmar SemiBold", "Noto Serif Myanmar Bold", "Noto Serif Myanmar ExtraBold", "Noto Serif Myanmar Black", "November for bach", "Nunito", "Nunito Italic", "Nunito Italic", "Nunito ExtraLight", "Nunito ExtraLight Italic", "Nunito ExtraLight Italic", "Nunito Light", "Nunito Light Italic", "Nunito Light Italic", "Nunito Medium", "Nunito Medium Italic", "Nunito Medium Italic", "Nunito SemiBold", "Nunito SemiBold Italic", "Nunito SemiBold Italic", "Nunito Bold", "Nunito Bold Italic", "Nunito Bold Italic", "Nunito ExtraBold", "Nunito ExtraBold Italic", "Nunito ExtraBold Italic", "Nunito Black", "Nunito Black Italic", "Nunito Black Italic", "Optima", "Optima Italic", "Optima Bold", "Optima Bold Italic", "Optima ExtraBlack", "Oriya MN", "Oriya MN Bold", "Oriya Sangam MN", "Oriya Sangam MN Bold", "Oxygen", "Oxygen Light", "Oxygen Bold", "Palatino", "Palatino Italic", "Palatino Bold", "Palatino Bold Italic", "Papyrus", "Papyrus Condensed", "Party LET Plain", "Petaluma", "Petaluma Script", "Petaluma Text", "Phosphate Inline", "Phosphate Solid", "PingFang HK", "PingFang HK Ultralight", "PingFang HK Thin", "PingFang HK Light", "PingFang HK Medium", "PingFang HK Semibold", "PingFang SC", "PingFang SC Ultralight", "PingFang SC Thin", "PingFang SC Light", "PingFang SC Medium", "PingFang SC Semibold", "PingFang TC", "PingFang TC Ultralight", "PingFang TC Thin", "PingFang TC Light", "PingFang TC Medium", "PingFang TC Semibold", "Plantagenet Cherokee", "Playfair Display", "Playfair Display Italic", "Playfair Display Medium", "Playfair Display Medium Italic", "Playfair Display SemiBold", "Playfair Display SemiBold Italic", "Playfair Display Bold", "Playfair Display Bold Italic", "Playfair Display ExtraBold", "Playfair Display ExtraBold Italic", "Playfair Display Black", "Playfair Display Black Italic", "Poppins", "Poppins Italic", "Poppins Thin", "Poppins Thin Italic", "Poppins ExtraLight", "Poppins ExtraLight Italic", "Poppins Light", "Poppins Light Italic", "Poppins Medium", "Poppins Medium Italic", "Poppins SemiBold", "Poppins SemiBold Italic", "Poppins Bold", "Poppins Bold Italic", "Poppins ExtraBold", "Poppins ExtraBold Italic", "Poppins Black", "Poppins Black Italic", "Proxima Nova", "Proxima Nova Italic", "Proxima Nova Light", "Proxima Nova Light Italic", "Proxima Nova Medium", "Proxima Nova Medium Italic", "Proxima Nova Semibold", "Proxima Nova Semibold Italic", "Proxima Nova Bold", "Proxima Nova Bold Italic", "Proxima Nova Extrabold", "Proxima Nova Extrabold Italic", "PT Mono", "PT Mono Bold", "PT Sans", "PT Sans Italic", "PT Sans Bold", "PT Sans Bold Italic", "PT Sans Caption", "PT Sans Caption Bold", "PT Sans Narrow", "PT Sans Narrow Bold", "PT Serif", "PT Serif Italic", "PT Serif Bold", "PT Serif Bold Italic", "PT Serif Caption", "PT Serif Caption Italic", "Quattrocento Sans", "Quattrocento Sans Italic", "Quattrocento Sans Bold", "Quattrocento Sans Bold Italic", "Raanana", "Raanana Bold", "Raleway", "Raleway Italic", "Raleway Thin", "Raleway Thin Italic", "Raleway ExtraLight", "Raleway ExtraLight Italic", "Raleway Light", "Raleway Light Italic", "Raleway Medium", "Raleway Medium Italic", "Raleway SemiBold", "Raleway SemiBold Italic", "Raleway Bold", "Raleway Bold Italic", "Raleway ExtraBold", "Raleway ExtraBold Italic", "Raleway Black", "Raleway Black Italic", "Rockwell", "Rockwell Italic", "Rockwell Bold", "Rockwell Bold Italic", "Sana", "Sathu", "Savoye LET Plain", "Shree Devanagari 714", "Shree Devanagari 714 Italic", "Shree Devanagari 714 Bold", "Shree Devanagari 714 Bold Italic", "SignPainter HouseScript", "SignPainter HouseScript Semibold", "Silom", "Sinhala MN", "Sinhala MN Bold", "Sinhala Sangam MN", "Sinhala Sangam MN Bold", "Skia", "Skia Light", "Skia Bold", "Skia Black", "Skia Extended", "Skia Light Extended", "Skia Black Extended", "Skia Condensed", "Skia Light Condensed", "Skia Black Condensed", "Snell Roundhand", "Snell Roundhand Bold", "Snell Roundhand Black", "Songti SC", "Songti SC Light", "Songti SC Bold", "Songti SC Black", "Songti TC", "Songti TC Light", "Songti TC Bold", "Spectral", "Spectral Italic", "Spectral ExtraLight", "Spectral ExtraLight Italic", "Spectral Light", "Spectral Light Italic", "Spectral Medium", "Spectral Medium Italic", "Spectral SemiBold", "Spectral SemiBold Italic", "Spectral Bold", "Spectral Bold Italic", "Spectral ExtraBold", "Spectral ExtraBold Italic", "Splash", "STIX Two Math", "STIX Two Text", "STIX Two Text Italic", "STIX Two Text Medium", "STIX Two Text Medium Italic", "STIX Two Text SemiBold", "STIX Two Text SemiBold Italic", "STIX Two Text Bold", "STIX Two Text Bold Italic", "STSong", "Sukhumvit Set Text", "Sukhumvit Set Light", "Sukhumvit Set Medium", "Sukhumvit Set Semi Bold", "Sukhumvit Set Bold", "Sukhumvit Set Thin", "Symbol", "Tahoma", "Tahoma Bold", "Tajawal", "Tajawal ExtraLight", "Tajawal Light", "Tajawal Medium", "Tajawal Bold", "Tajawal ExtraBold", "Tajawal Black", "Tamil MN", "Tamil MN Bold", "Tamil Sangam MN", "Tamil Sangam MN Bold", "Telugu MN", "Telugu MN Bold", "Telugu Sangam MN", "Telugu Sangam MN Bold", "Thonburi", "Thonburi Light", "Thonburi Bold", "Times New Roman", "Times New Roman Italic", "Times New Roman Bold", "Times New Roman Bold Italic", "TitilliumMaps26L 1 wt", "TitilliumMaps26L 250 wt", "TitilliumMaps26L 750 wt", "Trattatello", "Trebuchet MS", "Trebuchet MS Italic", "Trebuchet MS Bold", "Trebuchet MS Bold Italic", "Univers LT Std 45 Light", "Univers LT Std 45 Light Oblique", "Univers LT Std 55 Roman", "Univers LT Std 55 Oblique", "Univers LT Std 65 Bold", "Univers LT Std 65 Bold Oblique", "Univers LT Std 75 Black", "Univers LT Std 75 Black Oblique", "Univers LT Std 85 Extra Black", "Univers LT Std 85 Extra Black Oblique", "Univers LT Std 53 Extended", "Univers LT Std 53 Extended Oblique", "Univers LT Std 63 Bold Extended", "Univers LT Std 63 Bold Extended Oblique", "Univers LT Std 73 Black Extended", "Univers LT Std 73 Black Extended Oblique", "Univers LT Std 93 Extra Black Extended", "Univers LT Std 93 Extra Black Extended Oblique", "Univers LT Std 47 Light Condensed", "Univers LT Std 47 Light Condensed Oblique", "Univers LT Std 57 Condensed", "Univers LT Std 57 Condensed Oblique", "Univers LT Std 67 Bold Condensed", "Univers LT Std 67 Bold Condensed Oblique", "Univers LT Std 39 Thin Ultra Condensed", "Univers LT Std 49 Light Ultra Condensed", "Univers LT Std 59 Ultra Condensed", "Verdana", "Verdana Italic", "Verdana Bold", "Verdana Bold Italic", "Waseem", "Waseem Light", "Webdings", "Wingdings", "Wingdings 2", "Wingdings 3", "Zapf Dingbats", "Zapfino" ],
+											"parameter_enum" : [ "Abel", "Ableton Sans Bold", "Ableton Sans Light", "Ableton Sans Medium", "Academico", "Academico Italic", "Academico Bold", "Academico Bold Italic", "Academy Engraved LET Plain", "Al Bayan Plain", "Al Bayan Bold", "Al Nile", "Al Nile Bold", "Al Tarikh", "American Typewriter", "American Typewriter Light", "American Typewriter Semibold", "American Typewriter Bold", "American Typewriter Condensed", "American Typewriter Condensed Light", "American Typewriter Condensed Bold", "Andale Mono", "Apple Braille Outline 6 Dot", "Apple Braille Outline 8 Dot", "Apple Braille Pinpoint 6 Dot", "Apple Braille Pinpoint 8 Dot", "Apple Braille", "Apple Chancery Chancery", "Apple Color Emoji", "Apple SD Gothic Neo", "Apple SD Gothic Neo Thin", "Apple SD Gothic Neo UltraLight", "Apple SD Gothic Neo Light", "Apple SD Gothic Neo Medium", "Apple SD Gothic Neo SemiBold", "Apple SD Gothic Neo Bold", "Apple SD Gothic Neo ExtraBold", "Apple SD Gothic Neo Heavy", "Apple Symbols", "AppleGothic", "AppleMyungjo", "Arial", "Arial Italic", "Arial Bold", "Arial Bold Italic", "Arial Black", "Arial Hebrew", "Arial Hebrew Light", "Arial Hebrew Bold", "Arial Hebrew Scholar", "Arial Hebrew Scholar Light", "Arial Hebrew Scholar Bold", "Arial Narrow", "Arial Narrow Italic", "Arial Narrow Bold", "Arial Narrow Bold Italic", "Arial Rounded MT Bold", "Arial Unicode MS", "Asap", "Asap", "Asap Italic", "Asap Italic", "Asap Thin", "Asap Thin Italic", "Asap ExtraLight", "Asap ExtraLight Italic", "Asap ExtraLight", "Asap Thin", "Asap ExtraLight Italic", "Asap Thin Italic", "Asap Light", "Asap Light", "Asap Light Italic", "Asap Light Italic", "Asap Medium", "Asap Medium", "Asap Medium Italic", "Asap Medium Italic", "Asap SemiBold", "Asap SemiBold", "Asap SemiBold Italic", "Asap SemiBold Italic", "Asap Bold", "Asap Bold", "Asap Bold Italic", "Asap Bold Italic", "Asap ExtraBold", "Asap ExtraBold", "Asap ExtraBold Italic", "Asap ExtraBold Italic", "Asap Black", "Asap Black", "Asap Black Italic", "Asap Black Italic", "Asap Condensed", "Asap Condensed Italic", "Asap Condensed ExtraLight", "Asap Condensed Thin", "Asap Condensed ExtraLight Italic", "Asap Condensed Thin Italic", "Asap Condensed Light", "Asap Condensed Light Italic", "Asap Condensed Medium", "Asap Condensed Medium Italic", "Asap Condensed SemiBold", "Asap Condensed SemiBold Italic", "Asap Condensed Bold", "Asap Condensed Bold Italic", "Asap Condensed ExtraBold", "Asap Condensed ExtraBold Italic", "Asap Condensed Black", "Asap Condensed Black Italic", "Asap Expanded", "Asap Expanded Italic", "Asap Expanded ExtraLight", "Asap Expanded Thin", "Asap Expanded ExtraLight Italic", "Asap Expanded Thin Italic", "Asap Expanded Light", "Asap Expanded Light Italic", "Asap Expanded Medium", "Asap Expanded Medium Italic", "Asap Expanded SemiBold", "Asap Expanded SemiBold Italic", "Asap Expanded Bold", "Asap Expanded Bold Italic", "Asap Expanded ExtraBold", "Asap Expanded ExtraBold Italic", "Asap Expanded Black", "Asap Expanded Black Italic", "Asap SemiCondensed", "Asap SemiCondensed Italic", "Asap SemiCondensed ExtraLight", "Asap SemiCondensed Thin", "Asap SemiCondensed ExtraLight Italic", "Asap SemiCondensed Thin Italic", "Asap SemiCondensed Light", "Asap SemiCondensed Light Italic", "Asap SemiCondensed Medium", "Asap SemiCondensed Medium Italic", "Asap SemiCondensed SemiBold", "Asap SemiCondensed SemiBold Italic", "Asap SemiCondensed Bold", "Asap SemiCondensed Bold Italic", "Asap SemiCondensed ExtraBold", "Asap SemiCondensed ExtraBold Italic", "Asap SemiCondensed Black", "Asap SemiCondensed Black Italic", "Asap SemiExpanded", "Asap SemiExpanded Italic", "Asap SemiExpanded ExtraLight", "Asap SemiExpanded Thin", "Asap SemiExpanded ExtraLight Italic", "Asap SemiExpanded Thin Italic", "Asap SemiExpanded Light", "Asap SemiExpanded Light Italic", "Asap SemiExpanded Medium", "Asap SemiExpanded Medium Italic", "Asap SemiExpanded SemiBold", "Asap SemiExpanded SemiBold Italic", "Asap SemiExpanded Bold", "Asap SemiExpanded Bold Italic", "Asap SemiExpanded ExtraBold", "Asap SemiExpanded ExtraBold Italic", "Asap SemiExpanded Black", "Asap SemiExpanded Black Italic", "Avenir Book", "Avenir Roman", "Avenir Book Oblique", "Avenir Oblique", "Avenir Light", "Avenir Light Oblique", "Avenir Medium", "Avenir Medium Oblique", "Avenir Heavy", "Avenir Heavy Oblique", "Avenir Black", "Avenir Black Oblique", "Avenir Next", "Avenir Next Italic", "Avenir Next Ultra Light", "Avenir Next Ultra Light Italic", "Avenir Next Medium", "Avenir Next Medium Italic", "Avenir Next Demi Bold", "Avenir Next Demi Bold Italic", "Avenir Next Bold", "Avenir Next Bold Italic", "Avenir Next Heavy", "Avenir Next Heavy Italic", "Avenir Next Condensed", "Avenir Next Condensed Italic", "Avenir Next Condensed Ultra Light", "Avenir Next Condensed Ultra Light Italic", "Avenir Next Condensed Medium", "Avenir Next Condensed Medium Italic", "Avenir Next Condensed Demi Bold", "Avenir Next Condensed Demi Bold Italic", "Avenir Next Condensed Bold", "Avenir Next Condensed Bold Italic", "Avenir Next Condensed Heavy", "Avenir Next Condensed Heavy Italic", "Ayuthaya", "Bacasime Antique", "Baghdad", "Bangla MN", "Bangla MN Bold", "Bangla Sangam MN", "Bangla Sangam MN Bold", "Bantayog", "Bantayog Semilight", "Bantayog Light", "Baskerville", "Baskerville Italic", "Baskerville SemiBold", "Baskerville SemiBold Italic", "Baskerville Bold", "Baskerville Bold Italic", "Beirut", "Big Caslon Medium", "Bodoni 72 Book", "Bodoni 72 Book Italic", "Bodoni 72 Bold", "Bodoni 72 Oldstyle Book", "Bodoni 72 Oldstyle Book Italic", "Bodoni 72 Oldstyle Bold", "Bodoni 72 Smallcaps Book", "Bodoni Ornaments", "Bradley Hand Bold", "Bravura", "Bravura Text", "Brush Script MT Italic", "Chalkboard", "Chalkboard Bold", "Chalkboard SE", "Chalkboard SE Light", "Chalkboard SE Bold", "Chalkduster", "Charter Roman", "Charter Italic", "Charter Bold", "Charter Bold Italic", "Charter Black", "Charter Black Italic", "Cochin", "Cochin Italic", "Cochin Bold", "Cochin Bold Italic", "Comic Sans MS", "Comic Sans MS Bold", "Copperplate", "Copperplate Light", "Copperplate Bold", "Cormorant Garamond", "Cormorant Garamond Italic", "Cormorant Garamond Light", "Cormorant Garamond Light Italic", "Cormorant Garamond Medium", "Cormorant Garamond Medium Italic", "Cormorant Garamond SemiBold", "Cormorant Garamond SemiBold Italic", "Cormorant Garamond Bold", "Cormorant Garamond Bold Italic", "Cormorant Infant", "Cormorant Infant Italic", "Cormorant Infant Light", "Cormorant Infant Light Italic", "Cormorant Infant Medium", "Cormorant Infant Medium Italic", "Cormorant Infant SemiBold", "Cormorant Infant SemiBold Italic", "Cormorant Infant Bold", "Cormorant Infant Bold Italic", "Corsiva Hebrew", "Corsiva Hebrew Bold", "Courier New", "Courier New Italic", "Courier New Bold", "Courier New Bold Italic", "Crimson Roman", "Crimson Italic", "Crimson Semibold", "Crimson SemiboldItalic", "Crimson Bold", "Crimson BoldItalic", "Crimson Text", "Crimson Text Italic", "Crimson Text SemiBold", "Crimson Text SemiBold Italic", "Crimson Text Bold", "Crimson Text Bold Italic", "Damascus", "Damascus Light", "Damascus Medium", "Damascus Semi Bold", "Damascus Bold", "DecoType Naskh", "Devanagari MT", "Devanagari MT Bold", "Devanagari Sangam MN", "Devanagari Sangam MN Bold", "Didot", "Didot Italic", "Didot Bold", "DIN Alternate Bold", "DIN Condensed Bold", "Diwan Kufi", "Diwan Thuluth", "Dosis", "Dosis Light", "Euphemia UCAS", "Euphemia UCAS Italic", "Euphemia UCAS Bold", "Farah", "Farisi", "Fira Code", "Fira Code Light", "Fira Code Retina", "Fira Code Medium", "Fira Code SemiBold", "Fira Code Bold", "Futura Medium", "Futura Medium Italic", "Futura Bold", "Futura Condensed Medium", "Futura Condensed ExtraBold", "Galvji", "Galvji Oblique", "Galvji Bold", "Galvji Bold Oblique", "GB18030 Bitmap", "Geeza Pro", "Geeza Pro Bold", "Geneva", "Georgia", "Georgia Italic", "Georgia Bold", "Georgia Bold Italic", "Gill Sans", "Gill Sans Italic", "Gill Sans Light", "Gill Sans Light Italic", "Gill Sans SemiBold", "Gill Sans SemiBold Italic", "Gill Sans Bold", "Gill Sans Bold Italic", "Gill Sans UltraBold", "Gotham Bold", "Gotham Bold Italic", "Gotham Thin", "Gotham Thin Italic", "Gotham Extra Light", "Gotham Extra Light Italic", "Gotham Light", "Gotham Light Italic", "Gotham Book", "Gotham Book Italic", "Gotham Medium", "Gotham Medium Italic", "Gotham Black", "Gotham Black Italic", "Gotham Ultra", "Gotham Ultra Italic", "Gotham Condensed Bold", "Gotham Condensed Bold Italic", "Gotham Condensed Thin", "Gotham Condensed Thin Italic", "Gotham Condensed Extra Light", "Gotham Condensed Extra Light Italic", "Gotham Condensed Light", "Gotham Condensed Light Italic", "Gotham Condensed Book", "Gotham Condensed Book Italic", "Gotham Condensed Medium", "Gotham Condensed Medium Italic", "Gotham Condensed Black", "Gotham Condensed Black Italic", "Gotham Condensed Extra Black", "Gotham Condensed Extra Black Italic", "Gotham Condensed Ultra", "Gotham Condensed Ultra Italic", "Gotham Narrow Bold", "Gotham Narrow Bold Italic", "Gotham Narrow Thin", "Gotham Narrow Thin Italic", "Gotham Narrow Extra Light", "Gotham Narrow Extra Light Italic", "Gotham Narrow Light", "Gotham Narrow Light Italic", "Gotham Narrow Book", "Gotham Narrow Book Italic", "Gotham Narrow Medium", "Gotham Narrow Medium Italic", "Gotham Narrow Black", "Gotham Narrow Black Italic", "Gotham Narrow Ultra", "Gotham Narrow Ultra Italic", "Gotham XNarrow Bold", "Gotham XNarrow Bold Italic", "Gotham XNarrow Thin", "Gotham XNarrow Thin Italic", "Gotham XNarrow Extra Light", "Gotham XNarrow Extra Light Italic", "Gotham XNarrow Light", "Gotham XNarrow Light Italic", "Gotham XNarrow Book", "Gotham XNarrow Book Italic", "Gotham XNarrow Medium", "Gotham XNarrow Medium Italic", "Gotham XNarrow Black", "Gotham XNarrow Black Italic", "Gotham XNarrow Ultra", "Gotham XNarrow Ultra Italic", "Grantha Sangam MN", "Grantha Sangam MN Bold", "Gujarati MT", "Gujarati MT Bold", "Gujarati Sangam MN", "Gujarati Sangam MN Bold", "Gurmukhi MN", "Gurmukhi MN Bold", "Gurmukhi MT", "Gurmukhi Sangam MN", "Gurmukhi Sangam MN Bold", "Heiti SC Light", "Heiti SC Medium", "Heiti TC Light", "Heiti TC Medium", "Helvetica", "Helvetica Oblique", "Helvetica Light", "Helvetica Light Oblique", "Helvetica Bold", "Helvetica Bold Oblique", "Helvetica Neue", "Helvetica Neue Italic", "Helvetica Neue UltraLight", "Helvetica Neue UltraLight Italic", "Helvetica Neue Thin", "Helvetica Neue Thin Italic", "Helvetica Neue Light", "Helvetica Neue Light Italic", "Helvetica Neue Medium", "Helvetica Neue Medium Italic", "Helvetica Neue Bold", "Helvetica Neue Bold Italic", "Helvetica Neue Condensed Bold", "Helvetica Neue Condensed Black", "Herculanum", "Hiragino Maru Gothic ProN W4", "Hiragino Mincho ProN W3", "Hiragino Mincho ProN W6", "Hiragino Sans W0", "Hiragino Sans W1", "Hiragino Sans W2", "Hiragino Sans W3", "Hiragino Sans W4", "Hiragino Sans W5", "Hiragino Sans W6", "Hiragino Sans W7", "Hiragino Sans W8", "Hiragino Sans W9", "Hiragino Sans GB W3", "Hiragino Sans GB W6", "Hoefler Text", "Hoefler Text Ornaments", "Hoefler Text Italic", "Hoefler Text Black", "Hoefler Text Black Italic", "Impact", "InaiMathi", "InaiMathi Bold", "Inter", "Inter", "Inter Italic", "Inter Thin", "Inter Thin Italic", "Inter ExtraLight", "Inter ExtraLight Italic", "Inter ExtraLight", "Inter Thin", "Inter Light", "Inter Light", "Inter Light Italic", "Inter Medium", "Inter Medium", "Inter Medium Italic", "Inter SemiBold", "Inter SemiBold", "Inter SemiBold Italic", "Inter Bold", "Inter Bold", "Inter Bold Italic", "Inter ExtraBold", "Inter ExtraBold", "Inter ExtraBold Italic", "Inter Black", "Inter Black", "Inter Black Italic", "ITF Devanagari Book", "ITF Devanagari Light", "ITF Devanagari Medium", "ITF Devanagari Demi", "ITF Devanagari Bold", "ITF Devanagari Marathi Book", "ITF Devanagari Marathi Light", "ITF Devanagari Marathi Medium", "ITF Devanagari Marathi Demi", "ITF Devanagari Marathi Bold", "Josefin Sans Thin", "Joshuese", "Kailasa", "Kailasa Bold", "Kanit", "Kanit Italic", "Kanit Thin", "Kanit Thin Italic", "Kanit ExtraLight", "Kanit ExtraLight Italic", "Kanit Light", "Kanit Light Italic", "Kanit Medium", "Kanit Medium Italic", "Kanit SemiBold", "Kanit SemiBold Italic", "Kanit Bold", "Kanit Bold Italic", "Kanit ExtraBold", "Kanit ExtraBold Italic", "Kanit Black", "Kanit Black Italic", "Kannada MN", "Kannada MN Bold", "Kannada Sangam MN", "Kannada Sangam MN Bold", "Kefa", "Kefa Bold", "Khmer MN", "Khmer MN Bold", "Khmer Sangam MN", "Kohinoor Bangla", "Kohinoor Bangla Light", "Kohinoor Bangla Medium", "Kohinoor Bangla Semibold", "Kohinoor Bangla Bold", "Kohinoor Devanagari", "Kohinoor Devanagari Light", "Kohinoor Devanagari Medium", "Kohinoor Devanagari Semibold", "Kohinoor Devanagari Bold", "Kohinoor Gujarati", "Kohinoor Gujarati Light", "Kohinoor Gujarati Medium", "Kohinoor Gujarati Semibold", "Kohinoor Gujarati Bold", "Kohinoor Telugu", "Kohinoor Telugu Light", "Kohinoor Telugu Medium", "Kohinoor Telugu Semibold", "Kohinoor Telugu Bold", "Kokonor", "Krungthep", "KufiStandardGK", "Lao MN", "Lao MN Bold", "Lao Sangam MN", "Lato", "Lato", "Lato Italic", "Lato Italic", "Lato Hairline", "Lato Hairline Italic", "Lato Thin", "Lato Thin Italic", "Lato Hairline", "Lato Hairline Italic", "Lato Thin", "Lato Thin Italic", "Lato Light", "Lato Light", "Lato Light Italic", "Lato Light Italic", "Lato Medium", "Lato Medium", "Lato Medium Italic", "Lato Medium Italic", "Lato Semibold", "Lato Semibold", "Lato Semibold Italic", "Lato Semibold Italic", "Lato Bold", "Lato Bold", "Lato Bold Italic", "Lato Bold Italic", "Lato Heavy", "Lato Heavy", "Lato Heavy Italic", "Lato Heavy Italic", "Lato Black", "Lato Black", "Lato Black Italic", "Lato Black Italic", "Libre Bodoni", "Libre Bodoni Italic", "Libre Bodoni Bold", "Libre Bodoni Bold Italic", "Lora", "Lora Italic", "Lora Medium", "Lora Medium Italic", "Lora SemiBold", "Lora SemiBold Italic", "Lora Bold", "Lora Bold Italic", "Lucida Grande", "Lucida Grande Bold", "Luminari", "Malayalam MN", "Malayalam MN Bold", "Malayalam Sangam MN", "Malayalam Sangam MN Bold", "Marker Felt Thin", "Marker Felt Wide", "Menlo", "Menlo Italic", "Menlo Bold", "Menlo Bold Italic", "Mercury Display Bold", "Mercury Display Bold Italic", "Mercury Display Roman", "Mercury Display Italic", "Mercury Display Semibold", "Mercury Display Semibold Italic", "Mercury Text G1 Bold", "Mercury Text G1 Bold Italic", "Mercury Text G1 Roman", "Mercury Text G1 Italic", "Mercury Text G1 Semibold", "Mercury Text G1 Semibold Italic", "Mercury Text G2 Bold", "Mercury Text G2 Bold Italic", "Mercury Text G2 Roman", "Mercury Text G2 Italic", "Mercury Text G2 Semibold", "Mercury Text G2 Semibold Italic", "Mercury Text G3 Bold", "Mercury Text G3 Bold Italic", "Mercury Text G3 Roman", "Mercury Text G3 Italic", "Mercury Text G3 Semibold", "Mercury Text G3 Semibold Italic", "Mercury Text G4 Bold", "Mercury Text G4 Bold Italic", "Mercury Text G4 Roman", "Mercury Text G4 Italic", "Mercury Text G4 Semibold", "Mercury Text G4 Semibold Italic", "Microsoft Sans Serif", "Mishafi", "Mishafi Gold", "Monaco", "Mshtakan", "Mshtakan Oblique", "Mshtakan Bold", "Mshtakan BoldOblique", "Mukta Mahee", "Mukta Mahee ExtraLight", "Mukta Mahee Light", "Mukta Mahee Medium", "Mukta Mahee SemiBold", "Mukta Mahee Bold", "Mukta Mahee ExtraBold", "Muna", "Muna Bold", "Muna Black", "Myanmar MN", "Myanmar MN Bold", "Myanmar Sangam MN", "Myanmar Sangam MN Bold", "Nadeem", "NanumMyeongjo", "NanumMyeongjo Bold", "NanumMyeongjo ExtraBold", "New Peninim MT", "New Peninim MT Inclined", "New Peninim MT Bold", "New Peninim MT Bold Inclined", "Noteworthy Light", "Noteworthy Bold", "Noto Nastaliq Urdu", "Noto Nastaliq Urdu Bold", "Noto Sans Batak", "Noto Sans JP", "Noto Sans JP Thin", "Noto Sans JP Light", "Noto Sans JP DemiLight", "Noto Sans JP Medium", "Noto Sans JP Bold", "Noto Sans JP Black", "Noto Sans Kannada", "Noto Sans Kannada ExtraLight", "Noto Sans Kannada Thin", "Noto Sans Kannada Light", "Noto Sans Kannada Medium", "Noto Sans Kannada SemiBold", "Noto Sans Kannada Bold", "Noto Sans Kannada ExtraBold", "Noto Sans Kannada Black", "Noto Sans Myanmar", "Noto Sans Myanmar ExtraLight", "Noto Sans Myanmar Thin", "Noto Sans Myanmar Light", "Noto Sans Myanmar Medium", "Noto Sans Myanmar SemiBold", "Noto Sans Myanmar Bold", "Noto Sans Myanmar ExtraBold", "Noto Sans Myanmar Black", "Noto Sans NKo", "Noto Sans Oriya", "Noto Sans Oriya Bold", "Noto Sans Tagalog", "Noto Serif Myanmar", "Noto Serif Myanmar ExtraLight", "Noto Serif Myanmar Thin", "Noto Serif Myanmar Light", "Noto Serif Myanmar Medium", "Noto Serif Myanmar SemiBold", "Noto Serif Myanmar Bold", "Noto Serif Myanmar ExtraBold", "Noto Serif Myanmar Black", "November for bach", "Nunito", "Nunito Italic", "Nunito Italic", "Nunito ExtraLight", "Nunito ExtraLight Italic", "Nunito ExtraLight Italic", "Nunito Light", "Nunito Light Italic", "Nunito Light Italic", "Nunito Medium", "Nunito Medium Italic", "Nunito Medium Italic", "Nunito SemiBold", "Nunito SemiBold Italic", "Nunito SemiBold Italic", "Nunito Bold", "Nunito Bold Italic", "Nunito Bold Italic", "Nunito ExtraBold", "Nunito ExtraBold Italic", "Nunito ExtraBold Italic", "Nunito Black", "Nunito Black Italic", "Nunito Black Italic", "Optima", "Optima Italic", "Optima Bold", "Optima Bold Italic", "Optima ExtraBlack", "Oriya MN", "Oriya MN Bold", "Oriya Sangam MN", "Oriya Sangam MN Bold", "Oxygen", "Oxygen Light", "Oxygen Bold", "Palatino", "Palatino Italic", "Palatino Bold", "Palatino Bold Italic", "Papyrus", "Papyrus Condensed", "Party LET Plain", "Petaluma", "Petaluma Script", "Petaluma Text", "Phosphate Inline", "Phosphate Solid", "PingFang HK", "PingFang HK Ultralight", "PingFang HK Thin", "PingFang HK Light", "PingFang HK Medium", "PingFang HK Semibold", "PingFang SC", "PingFang SC Ultralight", "PingFang SC Thin", "PingFang SC Light", "PingFang SC Medium", "PingFang SC Semibold", "PingFang TC", "PingFang TC Ultralight", "PingFang TC Thin", "PingFang TC Light", "PingFang TC Medium", "PingFang TC Semibold", "Plantagenet Cherokee", "Playfair Display", "Playfair Display Italic", "Playfair Display Medium", "Playfair Display Medium Italic", "Playfair Display SemiBold", "Playfair Display SemiBold Italic", "Playfair Display Bold", "Playfair Display Bold Italic", "Playfair Display ExtraBold", "Playfair Display ExtraBold Italic", "Playfair Display Black", "Playfair Display Black Italic", "Poppins", "Poppins Italic", "Poppins Thin", "Poppins Thin Italic", "Poppins ExtraLight", "Poppins ExtraLight Italic", "Poppins Light", "Poppins Light Italic", "Poppins Medium", "Poppins Medium Italic", "Poppins SemiBold", "Poppins SemiBold Italic", "Poppins Bold", "Poppins Bold Italic", "Poppins ExtraBold", "Poppins ExtraBold Italic", "Poppins Black", "Poppins Black Italic", "PT Mono", "PT Mono Bold", "PT Sans", "PT Sans Italic", "PT Sans Bold", "PT Sans Bold Italic", "PT Sans Caption", "PT Sans Caption Bold", "PT Sans Narrow", "PT Sans Narrow Bold", "PT Serif", "PT Serif Italic", "PT Serif Bold", "PT Serif Bold Italic", "PT Serif Caption", "PT Serif Caption Italic", "Quattrocento Sans", "Quattrocento Sans Italic", "Quattrocento Sans Bold", "Quattrocento Sans Bold Italic", "Raanana", "Raanana Bold", "Raleway", "Raleway Italic", "Raleway Thin", "Raleway Thin Italic", "Raleway ExtraLight", "Raleway ExtraLight Italic", "Raleway Light", "Raleway Light Italic", "Raleway Medium", "Raleway Medium Italic", "Raleway SemiBold", "Raleway SemiBold Italic", "Raleway Bold", "Raleway Bold Italic", "Raleway ExtraBold", "Raleway ExtraBold Italic", "Raleway Black", "Raleway Black Italic", "Rockwell", "Rockwell Italic", "Rockwell Bold", "Rockwell Bold Italic", "Sana", "Sathu", "Savoye LET Plain", "Shree Devanagari 714", "Shree Devanagari 714 Italic", "Shree Devanagari 714 Bold", "Shree Devanagari 714 Bold Italic", "SignPainter HouseScript", "SignPainter HouseScript Semibold", "Silom", "Sinhala MN", "Sinhala MN Bold", "Sinhala Sangam MN", "Sinhala Sangam MN Bold", "Skia", "Skia Light", "Skia Bold", "Skia Black", "Skia Extended", "Skia Light Extended", "Skia Black Extended", "Skia Condensed", "Skia Light Condensed", "Skia Black Condensed", "Snell Roundhand", "Snell Roundhand Bold", "Snell Roundhand Black", "Songti SC", "Songti SC Light", "Songti SC Bold", "Songti SC Black", "Songti TC", "Songti TC Light", "Songti TC Bold", "Spectral", "Spectral Italic", "Spectral ExtraLight", "Spectral ExtraLight Italic", "Spectral Light", "Spectral Light Italic", "Spectral Medium", "Spectral Medium Italic", "Spectral SemiBold", "Spectral SemiBold Italic", "Spectral Bold", "Spectral Bold Italic", "Spectral ExtraBold", "Spectral ExtraBold Italic", "Splash", "STIX Two Math", "STIX Two Text", "STIX Two Text Italic", "STIX Two Text Medium", "STIX Two Text Medium Italic", "STIX Two Text SemiBold", "STIX Two Text SemiBold Italic", "STIX Two Text Bold", "STIX Two Text Bold Italic", "STSong", "Sukhumvit Set Text", "Sukhumvit Set Light", "Sukhumvit Set Medium", "Sukhumvit Set Semi Bold", "Sukhumvit Set Bold", "Sukhumvit Set Thin", "Symbol", "Tahoma", "Tahoma Bold", "Tajawal", "Tajawal ExtraLight", "Tajawal Light", "Tajawal Medium", "Tajawal Bold", "Tajawal ExtraBold", "Tajawal Black", "Tamil MN", "Tamil MN Bold", "Tamil Sangam MN", "Tamil Sangam MN Bold", "Telugu MN", "Telugu MN Bold", "Telugu Sangam MN", "Telugu Sangam MN Bold", "Thonburi", "Thonburi Light", "Thonburi Bold", "Times New Roman", "Times New Roman Italic", "Times New Roman Bold", "Times New Roman Bold Italic", "TitilliumMaps26L 1 wt", "TitilliumMaps26L 250 wt", "TitilliumMaps26L 750 wt", "Trattatello", "Trebuchet MS", "Trebuchet MS Italic", "Trebuchet MS Bold", "Trebuchet MS Bold Italic", "Univers LT Std 45 Light", "Univers LT Std 45 Light Oblique", "Univers LT Std 55 Roman", "Univers LT Std 55 Oblique", "Univers LT Std 65 Bold", "Univers LT Std 65 Bold Oblique", "Univers LT Std 75 Black", "Univers LT Std 75 Black Oblique", "Univers LT Std 85 Extra Black", "Univers LT Std 85 Extra Black Oblique", "Univers LT Std 53 Extended", "Univers LT Std 53 Extended Oblique", "Univers LT Std 63 Bold Extended", "Univers LT Std 63 Bold Extended Oblique", "Univers LT Std 73 Black Extended", "Univers LT Std 73 Black Extended Oblique", "Univers LT Std 93 Extra Black Extended", "Univers LT Std 93 Extra Black Extended Oblique", "Univers LT Std 47 Light Condensed", "Univers LT Std 47 Light Condensed Oblique", "Univers LT Std 57 Condensed", "Univers LT Std 57 Condensed Oblique", "Univers LT Std 67 Bold Condensed", "Univers LT Std 67 Bold Condensed Oblique", "Univers LT Std 39 Thin Ultra Condensed", "Univers LT Std 49 Light Ultra Condensed", "Univers LT Std 59 Ultra Condensed", "Verdana", "Verdana Italic", "Verdana Bold", "Verdana Bold Italic", "Waseem", "Waseem Light", "Webdings", "Wingdings", "Wingdings 2", "Wingdings 3", "Zapf Dingbats", "Zapfino" ],
 											"parameter_longname" : "umenu[3]",
-											"parameter_mmax" : 1030,
+											"parameter_mmax" : 1008,
 											"parameter_modmode" : 0,
 											"parameter_shortname" : "umenu[3]",
 											"parameter_type" : 2
@@ -5780,7 +5879,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1620.0, 947.0, 111.0, 52.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 404.0, 19.0, 120.0, 60.0 ]
+									"presentation_rect" : [ 454.0, 19.0, 120.0, 60.0 ]
 								}
 
 							}
@@ -5793,7 +5892,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1296.0, 947.0, 111.0, 52.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 21.0, 120.0, 60.0 ]
+									"presentation_rect" : [ 305.0, 21.0, 120.0, 60.0 ]
 								}
 
 							}
@@ -5864,6 +5963,34 @@
 								"patchline" : 								{
 									"destination" : [ "obj-20", 0 ],
 									"source" : [ "obj-12", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-78", 1 ],
+									"source" : [ "obj-131", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-136", 0 ],
+									"source" : [ "obj-134", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-136", 1 ],
+									"source" : [ "obj-137", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-137", 0 ],
+									"source" : [ "obj-141", 0 ]
 								}
 
 							}
@@ -5981,15 +6108,15 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-31", 0 ],
-									"source" : [ "obj-276", 3 ]
+									"destination" : [ "obj-63", 0 ],
+									"source" : [ "obj-276", 1 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-63", 0 ],
-									"source" : [ "obj-276", 1 ]
+									"destination" : [ "obj-99", 0 ],
+									"source" : [ "obj-276", 3 ]
 								}
 
 							}
@@ -6002,22 +6129,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-38", 0 ],
-									"source" : [ "obj-28", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-281", 0 ],
 									"source" : [ "obj-280", 2 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-7", 0 ],
-									"source" : [ "obj-280", 1 ]
 								}
 
 							}
@@ -6272,8 +6385,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-28", 0 ],
-									"source" : [ "obj-7", 0 ]
+									"destination" : [ "obj-78", 0 ],
+									"source" : [ "obj-70", 0 ]
 								}
 
 							}
@@ -6435,6 +6548,29 @@
 								}
 
 							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-131", 0 ],
+									"order" : 0,
+									"source" : [ "obj-99", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-141", 0 ],
+									"order" : 1,
+									"source" : [ "obj-99", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-99", 1 ]
+								}
+
+							}
  ],
 						"styles" : [ 							{
 								"name" : "Univers",
@@ -6486,30 +6622,24 @@
 				}
 
 			}
-, 			{
-				"box" : 				{
-					"attr" : "floating",
-					"id" : "obj-13",
-					"maxclass" : "attrui",
-					"numinlets" : 1,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 15.0, 390.0, 150.0, 20.0 ]
-				}
-
-			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-15", 0 ],
 					"source" : [ "obj-13", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-22", 0 ],
+					"source" : [ "obj-15", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
 					"source" : [ "obj-15", 0 ]
 				}
 
@@ -6530,44 +6660,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-180", 0 ],
-					"source" : [ "obj-176", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-30", 0 ],
-					"order" : 0,
-					"source" : [ "obj-18", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-5", 0 ],
-					"order" : 1,
-					"source" : [ "obj-18", 1 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-177", 0 ],
-					"source" : [ "obj-180", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-8", 0 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-8", 0 ],
 					"source" : [ "obj-20", 0 ]
 				}
 
@@ -6581,7 +6681,14 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-18", 0 ],
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-22", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
 					"source" : [ "obj-23", 0 ]
 				}
 
@@ -6611,6 +6718,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
 					"source" : [ "obj-3", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-30", 0 ]
 				}
 
 			}
@@ -6702,6 +6816,22 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-11", 0 ],
+					"order" : 0,
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-5", 0 ],
+					"order" : 1,
+					"source" : [ "obj-8", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-16", 0 ],
 					"source" : [ "obj-9", 0 ]
 				}
@@ -6778,6 +6908,13 @@
 				"bootpath" : "~/Documents/GitHub/vorTEX/node",
 				"patcherrelativepath" : "../node",
 				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "j.world.maxpat",
+				"bootpath" : "~/Documents/GitHub/j/patchers",
+				"patcherrelativepath" : "../../j/patchers",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
