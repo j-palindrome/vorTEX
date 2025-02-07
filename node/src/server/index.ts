@@ -42,6 +42,11 @@ io.on('connection', socket => {
     `Go to http://${ip()}:7001 from an iPad signed into same WiFi to access UI.`
   )
   maxApi.outlet('/message/ip', `http://${ip()}:7001`)
+  maxApi.outlet(
+    '/message/name',
+    `name`,
+    `presets_${new Date().toISOString().slice(0, 10)}.json`
+  )
 
   socket.on('set', (route: string, property: string, value: any) => {
     if (value instanceof Array) {

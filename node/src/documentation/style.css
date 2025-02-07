@@ -3,15 +3,22 @@
 @tailwind utilities;
 
 @layer base {
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold text-2xl mt-4;
+  .documentation h1,
+  .documentation h2,
+  .documentation h3,
+  .documentation h4,
+  .documentation h5,
+  .documentation h6 {
+    @apply font-bold text-2xl my-4;
   }
-  p {
+  .documentation p {
     @apply mt-4;
+  }
+
+  .documentation ul {
+    @apply pl-4;
+  }
+  .documentation li {
+    @apply list-item list-disc;
   }
 }

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 87.0, 832.0, 776.0 ],
+		"rect" : [ 34.0, 115.0, 885.0, 751.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 10.0,
@@ -40,6 +40,18 @@
 		"showontab" : 1,
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 480.0, 345.0, 100.0, 20.0 ],
+					"text" : "loadmess 1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-30",
 					"maxclass" : "message",
@@ -1068,7 +1080,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 537.0, 345.0, 92.0, 20.0 ],
+					"patching_rect" : [ 537.0, 225.0, 92.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1866,7 +1878,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 690.0, 295.0, 100.0, 20.0 ],
+					"patching_rect" : [ 690.0, 175.0, 100.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -1981,7 +1993,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 540.0, 255.0, 104.0, 18.0 ],
+					"patching_rect" : [ 540.0, 135.0, 104.0, 18.0 ],
 					"text" : "SOUND processing"
 				}
 
@@ -2064,7 +2076,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 610.0, 295.0, 62.0, 20.0 ],
+					"patching_rect" : [ 610.0, 175.0, 62.0, 20.0 ],
 					"text" : "r~ mic-in"
 				}
 
@@ -3208,7 +3220,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 660.0, 345.0, 122.0, 20.0 ],
+					"patching_rect" : [ 660.0, 225.0, 122.0, 20.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -3880,7 +3892,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 113.0, 832.0, 750.0 ],
+						"rect" : [ 34.0, 167.0, 885.0, 699.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
@@ -3956,7 +3968,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 630.0, 1603.0, 24.0, 24.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 645.0, 1603.0, 24.0, 24.0 ]
+									"presentation_rect" : [ 150.0, 51.5, 24.0, 24.0 ]
 								}
 
 							}
@@ -4001,12 +4013,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-99",
+									"linecount" : 2,
 									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 956.492751240730286, 1329.0, 100.0, 22.0 ],
-									"text" : "route /ip"
+									"numinlets" : 3,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "" ],
+									"patching_rect" : [ 956.492751240730286, 1329.0, 100.0, 36.0 ],
+									"text" : "route /ip /name"
 								}
 
 							}
@@ -4181,8 +4194,8 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "bang" ],
-									"patching_rect" : [ 1800.0, 990.0, 80.0, 22.0 ],
-									"text" : "savedialog"
+									"patching_rect" : [ 1800.0, 1020.0, 112.0, 22.0 ],
+									"text" : "savedialog json"
 								}
 
 							}
@@ -4205,7 +4218,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1825.757573485374451, 959.696972370147705, 111.0, 34.0 ],
+									"patching_rect" : [ 1785.0, 915.0, 111.0, 34.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 487.0, 88.0, 130.0, 20.0 ],
 									"text" : "EXPORT PRESETS"
@@ -4438,12 +4451,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-105",
-									"linecount" : 5,
+									"linecount" : 3,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1320.0, 1042.999907374382019, 180.0, 79.0 ],
+									"patching_rect" : [ 1320.0, 1042.999907374382019, 285.0, 50.0 ],
 									"text" : "\"/Users/jreinier/Library/CloudStorage/GoogleDrive-jtreinier@gmail.com/My Drive/1_now/vortex/media/\""
 								}
 
@@ -6567,6 +6580,13 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-31", 0 ],
+									"source" : [ "obj-99", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-85", 0 ],
 									"source" : [ "obj-99", 1 ]
 								}
 
@@ -6624,6 +6644,13 @@
 			}
  ],
 		"lines" : [ 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-10", 0 ]
+				}
+
+			}
+, 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
 					"source" : [ "obj-13", 0 ]
