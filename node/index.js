@@ -1,11 +1,11 @@
 "use strict";
+import { ip } from "address";
 import express from "express";
-import ViteExpress from "vite-express";
-import { Server as SocketServer } from "socket.io";
 import maxApi from "max-api";
 import fs from "node:fs";
 import path from "node:path";
-import { ip } from "address";
+import { Server as SocketServer } from "socket.io";
+import ViteExpress from "vite-express";
 const app = express();
 const server = ViteExpress.listen(
   app,
@@ -28,8 +28,9 @@ const updateSettings = (newSettings) => {
 io.on("connection", (socket) => {
   maxApi.outlet(
     "/message",
-    `Go to ${ip()}:7001 from an iPad signed into same WiFi to access UI.`
+    `Go to http://${ip()}:7001 from an iPad signed into same WiFi to access UI.`
   );
+  maxApi.outlet("/message/ip", `http://${ip()}:7001`);
   socket.on("set", (route, property, value) => {
     if (value instanceof Array) {
       maxApi.outlet(route, property, ...value);

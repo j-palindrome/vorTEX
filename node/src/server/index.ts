@@ -38,8 +38,9 @@ const updateSettings = (newSettings: Partial<typeof settings>) => {
 io.on('connection', socket => {
   maxApi.outlet(
     '/message',
-    `Go to ${ip()}:7001 from an iPad signed into same WiFi to access UI.`
+    `Go to http://${ip()}:7001 from an iPad signed into same WiFi to access UI.`
   )
+  maxApi.outlet('/message/ip', `http://${ip()}:7001`)
 
   socket.on('set', (route: string, property: string, value: any) => {
     if (value instanceof Array) {
