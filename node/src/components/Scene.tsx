@@ -389,17 +389,24 @@ function PresetInput() {
     console.log('new title', currentPreset)
   }, [currentPreset])
 
-  const [copy, setCopy] = useState(false)
-
   return (
     <div className='w-[160px] h-full flex flex-col'>
       <div className='flex space-x-2 mb-2'>
         <button
-          className={`w-full ${copy ? 'bg-yellow-500' : 'bg-gray-600/50'}`}
+          className='w-full bg-gray-600/50'
           onClick={() => {
-            setCopy(!copy)
+            if (!currentPreset) return
+            setters.savePreset(currentPreset, socket)
           }}>
-          copy
+          save
+        </button>
+        <button
+          className='w-full bg-gray-600/50'
+          onClick={() => {
+            if (!currentPreset) return
+            setters.deletePreset(currentPreset, socket)
+          }}>
+          delete
         </button>
       </div>
 
@@ -414,14 +421,7 @@ function PresetInput() {
                 : 'bg-gray-600/50 text-white'
             }`}
             onClick={() => {
-              if (currentPreset) setters.savePreset(currentPreset, socket)
-              if (copy) {
-                setters.savePreset(`${i}`, socket)
-                setCopy(false)
-                setters.loadPreset(`${i}`, socket)
-              } else {
-                setters.loadPreset(`${i}`, socket)
-              }
+              setters.loadPreset(`${i}`, socket)
             }}>
             {i + 1}
           </button>
