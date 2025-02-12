@@ -4,6 +4,7 @@ import reloadMedia from './assets/reload-media.mp4'
 import exportPresets from './assets/export-presets.mp4'
 import importPresets from './assets/import-presets.mp4'
 import presetSlots from './assets/preset-slots.mp4'
+import initialize from './assets/initialize.mp4'
 import Section from './components/Section'
 
 export default function Documentation() {
@@ -14,6 +15,9 @@ export default function Documentation() {
         <p className=''>
           VorTEX is based on a different methods of modifying a mesh.{' '}
         </p>
+        <Section title={'Initialize project'} videoSrc={initialize}>
+          <li>A full walkthrough on downloading and starting the patch</li>
+        </Section>
         <Section title={'Import new changes'} videoSrc={importGithub}>
           <li>Open GitHub Desktop</li>
           <li>Add the VorTEX folder</li>
