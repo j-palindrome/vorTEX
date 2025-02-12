@@ -10,7 +10,7 @@ import {
   setters,
   useAppStore
 } from '../store'
-import _ from 'lodash'
+import _, { cloneDeep } from 'lodash'
 
 const helpInfos = {
   start: 'Click on "help" above a control to view a guide on how to use it.',
@@ -378,6 +378,7 @@ function FileChooser() {
 
 function PresetInput() {
   const [presetTitle, setPresetTitle] = useState('')
+  const [copy, setCopy] = useState(false)
   const allPresets = useAppStore(state => state.presets)
   const currentPreset = useAppStore(state => state.currentPreset)
   console.log('current:', currentPreset)
@@ -391,25 +392,13 @@ function PresetInput() {
 
   return (
     <div className='w-[160px] h-full flex flex-col'>
-      <div className='flex space-x-2 mb-2'>
-        <button
-          className='w-full bg-gray-600/50'
-          onClick={() => {
-            if (!currentPreset) return
-            setters.savePreset(currentPreset, socket)
-          }}>
-          save
-        </button>
-        <button
-          className='w-full bg-gray-600/50'
-          onClick={() => {
-            if (!currentPreset) return
-            setters.deletePreset(currentPreset, socket)
-          }}>
-          delete
-        </button>
-      </div>
-
+      <button
+        onClick={() => setCopy(!copy)}
+        className={`w-full h-12 rounded-lg ${
+          copy ? 'bg-yellow-500 text-black' : 'bg-gray-500 text-white'
+        }`}>
+        copy
+      </button>
       <div className='flex flex-wrap *:aspect-square *:w-6 h-full w-[160px] overflow-auto'>
         {_.range(50).map(i => (
           <button
@@ -421,6 +410,12 @@ function PresetInput() {
                 : 'bg-gray-600/50 text-white'
             }`}
             onClick={() => {
+              if (copy) {
+                setters.modify(state => {
+                  state.presets[`${i}`] = cloneDeep(state.preset)
+                })
+                setCopy(false)
+              }
               setters.loadPreset(`${i}`, socket)
             }}>
             {i + 1}
@@ -437,6 +432,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
   const value = useAppStore(state => state.preset[state.index][name])
   const [_group, control] = name.split('_')
   const description = presetDescription[name]
+
   const typedComponent = () => {
     switch (description.type) {
       case 'trigger':

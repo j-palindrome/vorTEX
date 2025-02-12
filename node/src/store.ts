@@ -89,7 +89,7 @@ type MeshPresets = [MeshPreset, MeshPreset, GlobalPreset]
 export type AppState = {
   preset: MeshPresets
   presets: Record<string, MeshPresets>
-  currentPreset: string | undefined
+  currentPreset: string
   files: string[]
   index: 0 | 1
 }
@@ -191,7 +191,7 @@ export const initialGlobal: GlobalPreset = {
 const initialState: AppState = {
   preset: [initialMesh, initialMesh, initialGlobal],
   presets: {},
-  currentPreset: undefined,
+  currentPreset: '0',
   files: [],
   index: 0
 }
@@ -229,6 +229,7 @@ export const setters = {
     const newPreset = !presets[name]
       ? _.cloneDeep(currentPreset)
       : presets[name]
+    setters.savePreset(getters.get('currentPreset'), socket)
 
     for (let i = 0; i < 2; i++) {
       const thisMesh = currentPreset[i] as MeshPreset
