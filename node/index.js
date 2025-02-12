@@ -13,9 +13,11 @@ const server = ViteExpress.listen(
   () => console.log("Server is listening...")
 );
 const io = new SocketServer(server);
-const settings = JSON.parse(
-  fs.readFileSync(path.resolve(process.cwd(), "settings.json")).toString()
-);
+const settingsPath = path.resolve(process.cwd(), "presets.json");
+if (!fs.existsSync(settingsPath)) {
+  fs.writeFileSync(settingsPath, "{}");
+}
+const settings = JSON.parse(fs.readFileSync(settingsPath).toString());
 const updateSettings = (newSettings) => {
   for (let key of Object.keys(newSettings)) {
     settings[key] = newSettings[key];

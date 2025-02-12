@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 166.0, 115.0, 917.0, 751.0 ],
+		"rect" : [ 295.0, 115.0, 939.0, 723.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -139,7 +139,7 @@
 
 											}
  ],
-										"originid" : "pat-893",
+										"originid" : "pat-74",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -324,7 +324,7 @@
 
 											}
  ],
-										"originid" : "pat-895",
+										"originid" : "pat-76",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -573,7 +573,7 @@
 
 											}
  ],
-										"originid" : "pat-897"
+										"originid" : "pat-78"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -828,7 +828,7 @@
 
 											}
  ],
-										"originid" : "pat-903",
+										"originid" : "pat-84",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1178,7 +1178,7 @@
 
 							}
  ],
-						"originid" : "pat-891",
+						"originid" : "pat-72",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -1672,7 +1672,7 @@
 
 											}
  ],
-										"originid" : "pat-911"
+										"originid" : "pat-92"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -2232,7 +2232,7 @@
 
 							}
  ],
-						"originid" : "pat-909"
+						"originid" : "pat-90"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -2535,7 +2535,7 @@
 
 											}
  ],
-										"originid" : "pat-915",
+										"originid" : "pat-96",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2931,7 +2931,7 @@
 
 							}
  ],
-						"originid" : "pat-913",
+						"originid" : "pat-94",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3359,7 +3359,7 @@
 
 											}
  ],
-										"originid" : "pat-923",
+										"originid" : "pat-104",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -3608,7 +3608,7 @@
 
 											}
  ],
-										"originid" : "pat-925"
+										"originid" : "pat-106"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -3863,7 +3863,7 @@
 
 											}
  ],
-										"originid" : "pat-931",
+										"originid" : "pat-112",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4182,7 +4182,7 @@
 
 							}
  ],
-						"originid" : "pat-921",
+						"originid" : "pat-102",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -4744,7 +4744,7 @@
 
 							}
  ],
-						"originid" : "pat-933"
+						"originid" : "pat-114"
 					}
 ,
 					"patching_rect" : [ 339.0, 285.0, 104.0, 20.0 ],
@@ -4887,7 +4887,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 166.0, 141.0, 917.0, 725.0 ],
+						"rect" : [ 295.0, 141.0, 939.0, 697.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -4967,7 +4967,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 607.0, 1785.0, 278.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.76:7001/documentation"
+									"text" : ";\rmax launchbrowser http://192.168.1.235:7001/documentation"
 								}
 
 							}
@@ -5044,7 +5044,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 810.0, 1650.0, 184.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.76:7001"
+									"text" : ";\rmax launchbrowser http://192.168.1.235:7001"
 								}
 
 							}
@@ -5086,7 +5086,7 @@
 									"presentation" : 1,
 									"presentation_linecount" : 4,
 									"presentation_rect" : [ 30.0, 165.0, 200.0, 63.0 ],
-									"text" : "Go to http://192.168.1.76:7001 from an iPad signed into same WiFi to access UI."
+									"text" : "Go to http://192.168.1.235:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -6023,6 +6023,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6583,7 +6585,7 @@
 
 											}
  ],
-										"originid" : "pat-1053",
+										"originid" : "pat-234",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -7604,7 +7606,7 @@
 
 							}
  ],
-						"originid" : "pat-935",
+						"originid" : "pat-116",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7885,7 +7887,7 @@
 
 			}
  ],
-		"originid" : "pat-889",
+		"originid" : "pat-70",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],

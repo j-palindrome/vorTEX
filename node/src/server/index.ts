@@ -20,11 +20,13 @@ const io = new SocketServer<SocketEvents>(server)
 // Then you can use `io` to listen the `connection` event and get a socket
 // from a client
 
+const settingsPath = path.resolve(process.cwd(), 'presets.json')
+if (!fs.existsSync(settingsPath)) {
+  fs.writeFileSync(settingsPath, '{}')
+}
 const settings: {
   mediaFolder: string
-} = JSON.parse(
-  fs.readFileSync(path.resolve(process.cwd(), 'settings.json')).toString()
-)
+} = JSON.parse(fs.readFileSync(settingsPath).toString())
 
 const updateSettings = (newSettings: Partial<typeof settings>) => {
   for (let key of Object.keys(newSettings)) {
