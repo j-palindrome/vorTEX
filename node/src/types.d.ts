@@ -2,8 +2,8 @@ import { PresetValue } from './store'
 
 declare global {
   type SocketEvents = {
-    loadPresets: (callback: (presets: string) => void) => void
-    savePresets: (presets: Record<string, object>) => void
+    loadPresets: (callback: (presets: Record<string, any>) => void) => void
+    savePresets: (presets: Record<string, any>) => void
     set: (path: string, command: string, value: PresetValue['value']) => void
     setPresets: (presets: string) => void
     get: (path: string, command: string, value: PresetValue['value']) => void

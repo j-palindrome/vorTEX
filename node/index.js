@@ -13,11 +13,20 @@ const server = ViteExpress.listen(
   () => console.log("Server is listening...")
 );
 const io = new SocketServer(server);
-const settingsPath = path.resolve(process.cwd(), "presets.json");
-if (!fs.existsSync(settingsPath)) {
-  fs.writeFileSync(settingsPath, "{}");
-}
-const settings = JSON.parse(fs.readFileSync(settingsPath).toString());
+const readSettings = () => {
+  const settingsPath = path.resolve(process.cwd(), "settings.json");
+  if (!fs.existsSync(settingsPath)) {
+    fs.writeFileSync(settingsPath, "{}");
+  }
+  try {
+    return JSON.parse(fs.readFileSync(settingsPath).toString());
+  } catch (e) {
+    const defaultSettings = {};
+    fs.writeFileSync(settingsPath, JSON.stringify(defaultSettings));
+    return defaultSettings;
+  }
+};
+const settings = readSettings();
 const updateSettings = (newSettings) => {
   for (let key of Object.keys(newSettings)) {
     settings[key] = newSettings[key];
@@ -38,22 +47,83 @@ maxApi.outlet(
   `name`,
   `presets_${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.json`
 );
+let files = [];
+const readFiles = (socket) => {
+  if (!settings.mediaFolder)
+    return;
+  try {
+    files = fs.readdirSync(settings.mediaFolder).filter(
+      (file) => /\.(mov|mp4|m4a|png|jpg|aif|gif|webm|webp|vlc)$/.test(file)
+    ).filter((file) => !file.startsWith("."));
+    if (!socket) {
+      io.fetchSockets().then((sockets) => {
+        sockets.forEach((socket2) => socket2.emit("setFiles", files));
+      });
+    }
+  } catch (err) {
+    maxApi.post(
+      // @ts-ignore
+      err.message,
+      "Media folder not found; please drop the Media folder again."
+    );
+  }
+};
+maxApi.addHandler("setMediaFolder", (folder) => {
+  try {
+    maxApi.post("media folder", folder, folder);
+    updateSettings({ mediaFolder: folder });
+    readFiles();
+  } catch (err) {
+    updateSettings({ mediaFolder: "" });
+    if (err instanceof Error)
+      maxApi.post("ERROR:", err.message);
+  }
+});
+readFiles();
+maxApi.addHandler("setPresetsFile", (file) => {
+  try {
+    maxApi.post("loading presets file", file);
+    const fileContents = fs.readFileSync(file, "utf-8");
+    maxApi.post("contents", fileContents);
+    fs.writeFileSync(path.resolve(process.cwd(), "presets.json"), fileContents);
+    io.fetchSockets().then((sockets) => {
+      sockets.forEach((socket) => socket.emit("setPresets", fileContents));
+    });
+  } catch (err) {
+    console.log("failed");
+  }
+});
 io.on("connection", (socket) => {
+  maxApi.post("fixing presets file");
   socket.on("set", (route, property, value) => {
     if (value instanceof Array) {
       maxApi.outlet(route, property, ...value);
     } else {
-      if ((property === "file1" || property === "file2") && value) {
-        value = path.resolve(settings.mediaFolder, value);
+      if (settings.mediaFolder) {
+        if ((property === "file1" || property === "file2") && value) {
+          value = path.resolve(settings.mediaFolder, value);
+        }
+        maxApi.outlet(route, property, value);
+      } else {
+        maxApi.post("No media folder selected; please drop Media Folder in.");
       }
-      maxApi.outlet(route, property, value);
     }
   });
-  const presetsPath = path.resolve(process.cwd(), "presets.json");
-  if (!fs.existsSync(presetsPath)) {
-    fs.writeFileSync(presetsPath, "{}");
-  }
-  let presets = fs.readFileSync(presetsPath).toString();
+  socket.emit("setFiles", files);
+  const readPresets = () => {
+    const presetsPath = path.resolve(process.cwd(), "presets.json");
+    if (!fs.existsSync(presetsPath)) {
+      fs.writeFileSync(presetsPath, "{}");
+    }
+    try {
+      return JSON.parse(fs.readFileSync(presetsPath).toString());
+    } catch (e) {
+      const defaultPresets = {};
+      fs.writeFileSync(presetsPath, JSON.stringify(defaultPresets));
+      return defaultPresets;
+    }
+  };
+  let presets = readPresets();
   socket.on("loadPresets", (callback) => {
     callback(presets);
   });
@@ -62,54 +132,6 @@ io.on("connection", (socket) => {
       path.resolve(process.cwd(), "presets.json"),
       JSON.stringify(presets2)
     );
-  });
-  const readFiles = () => {
-    if (!settings.mediaFolder)
-      return;
-    try {
-      const files = fs.readdirSync(settings.mediaFolder).filter(
-        (file) => /\.(mov|mp4|m4a|png|jpg|aif|gif|webm|webp|vlc)$/.test(file)
-      );
-      socket.emit("setFiles", files);
-    } catch (err) {
-      maxApi.post(
-        // @ts-ignore
-        err.message,
-        "Media folder not found; please drop the Media folder again."
-      );
-    }
-  };
-  maxApi.addHandler("setMediaFolder", (folder) => {
-    try {
-      maxApi.post("media folder", folder, folder);
-      updateSettings({ mediaFolder: folder });
-      readFiles();
-    } catch (err) {
-      updateSettings({ mediaFolder: "" });
-      if (err instanceof Error)
-        maxApi.post("ERROR:", err.message);
-    }
-  });
-  maxApi.addHandler("setPresetsFile", (file) => {
-    try {
-      maxApi.post("loading presets file", file);
-      const fileContents = fs.readFileSync(file, "utf-8");
-      fs.writeFileSync(
-        path.resolve(process.cwd(), "presets.json"),
-        fileContents
-      );
-      socket.emit("setPresets", fileContents);
-    } catch (err) {
-      console.log("failed");
-    }
-  });
-  readFiles();
-  maxApi.addHandler("savePresetsFile", (file) => {
-    socket.emit("getPresets", (presets2) => {
-      fs.writeFile(file, presets2, () => {
-        maxApi.post("presets saved to external file");
-      });
-    });
   });
   maxApi.addHandler("spaceMouse", (...data) => {
     socket.emit("getSpaceMouse", data.slice(0, 3), data.slice(3, 6));

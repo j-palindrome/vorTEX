@@ -12,7 +12,7 @@ function App() {
     setSocket(socket)
 
     socket.emit('loadPresets', presets => {
-      const newPresets: AppState['presets'] = JSON.parse(presets)
+      const newPresets: AppState['presets'] = presets
       const defaultKeys = Object.keys(initialMesh)
       for (let value of Object.values(newPresets)) {
         for (let mesh of value) {
