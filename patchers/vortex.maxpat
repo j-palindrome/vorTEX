@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 295.0, 115.0, 939.0, 723.0 ],
+		"rect" : [ 217.0, 115.0, 607.0, 751.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -139,7 +139,7 @@
 
 											}
  ],
-										"originid" : "pat-74",
+										"originid" : "pat-306",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -324,7 +324,7 @@
 
 											}
  ],
-										"originid" : "pat-76",
+										"originid" : "pat-308",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -573,7 +573,7 @@
 
 											}
  ],
-										"originid" : "pat-78"
+										"originid" : "pat-310"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -828,7 +828,7 @@
 
 											}
  ],
-										"originid" : "pat-84",
+										"originid" : "pat-316",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1178,7 +1178,7 @@
 
 							}
  ],
-						"originid" : "pat-72",
+						"originid" : "pat-304",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -1672,7 +1672,7 @@
 
 											}
  ],
-										"originid" : "pat-92"
+										"originid" : "pat-324"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -2232,7 +2232,7 @@
 
 							}
  ],
-						"originid" : "pat-90"
+						"originid" : "pat-322"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -2535,7 +2535,7 @@
 
 											}
  ],
-										"originid" : "pat-96",
+										"originid" : "pat-328",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2931,7 +2931,7 @@
 
 							}
  ],
-						"originid" : "pat-94",
+						"originid" : "pat-326",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3359,7 +3359,7 @@
 
 											}
  ],
-										"originid" : "pat-104",
+										"originid" : "pat-336",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -3608,7 +3608,7 @@
 
 											}
  ],
-										"originid" : "pat-106"
+										"originid" : "pat-338"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -3863,7 +3863,7 @@
 
 											}
  ],
-										"originid" : "pat-112",
+										"originid" : "pat-344",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4182,7 +4182,7 @@
 
 							}
  ],
-						"originid" : "pat-102",
+						"originid" : "pat-334",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -4744,7 +4744,7 @@
 
 							}
  ],
-						"originid" : "pat-114"
+						"originid" : "pat-346"
 					}
 ,
 					"patching_rect" : [ 339.0, 285.0, 104.0, 20.0 ],
@@ -4887,7 +4887,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 295.0, 141.0, 939.0, 697.0 ],
+						"rect" : [ 217.0, 141.0, 607.0, 725.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -4967,7 +4967,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 607.0, 1785.0, 278.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.235:7001/documentation"
+									"text" : ";\rmax launchbrowser http://10.0.4.73:7001/documentation"
 								}
 
 							}
@@ -5044,7 +5044,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 810.0, 1650.0, 184.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.235:7001"
+									"text" : ";\rmax launchbrowser http://10.0.4.73:7001"
 								}
 
 							}
@@ -5084,9 +5084,9 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 885.0, 1500.0, 285.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 4,
-									"presentation_rect" : [ 30.0, 165.0, 200.0, 63.0 ],
-									"text" : "Go to http://192.168.1.235:7001 from an iPad signed into same WiFi to access UI."
+									"presentation_linecount" : 3,
+									"presentation_rect" : [ 30.0, 165.0, 200.0, 48.0 ],
+									"text" : "Go to http://10.0.4.73:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -5464,13 +5464,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-105",
-									"linecount" : 3,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1320.0, 1042.999907374382019, 285.0, 50.0 ],
-									"text" : "\"/Users/jreinier/Library/CloudStorage/GoogleDrive-jtreinier@gmail.com/My Drive/1_now/vortex/media/\""
+									"patching_rect" : [ 1320.0, 1042.999907374382019, 285.0, 22.0 ],
+									"text" : "\"/Volumes/Extreme SSD/VorTEX - Media/\""
 								}
 
 							}
@@ -6023,8 +6022,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6585,7 +6582,7 @@
 
 											}
  ],
-										"originid" : "pat-234",
+										"originid" : "pat-466",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -7606,7 +7603,7 @@
 
 							}
  ],
-						"originid" : "pat-116",
+						"originid" : "pat-348",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7887,7 +7884,7 @@
 
 			}
  ],
-		"originid" : "pat-70",
+		"originid" : "pat-302",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
