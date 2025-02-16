@@ -12,6 +12,8 @@ function App() {
     setSocket(socket)
 
     socket.emit('loadPresets', presets => {
+      console.log('loading presets', presets)
+
       const newPresets: AppState['presets'] = presets
       const defaultKeys = Object.keys(initialMesh)
       for (let value of Object.values(newPresets)) {
@@ -23,6 +25,8 @@ function App() {
           }
         }
       }
+      console.log('setting presets', newPresets)
+
       setters.set({
         presets: newPresets
       })

@@ -2,7 +2,7 @@ import { produce } from 'immer'
 import _ from 'lodash'
 import { useRef } from 'react'
 import { Socket } from 'socket.io-client'
-import { createWithEqualityFn } from 'zustand/traditional'
+import { create } from 'zustand'
 
 export type PresetValueDescription<
   K extends 'slider' | 'boolean' | 'string' | 'trigger' | 'list' | 'select'
@@ -196,7 +196,7 @@ const initialState: AppState = {
   index: 0
 }
 
-export const useAppStore = createWithEqualityFn<AppState>(() => initialState)
+export const useAppStore = create<AppState>(() => initialState)
 export const useAppStoreRef = <T>(callback: (state: AppState) => T) => {
   const storeValue: T = useAppStore(callback)
   const storeValueRef = useRef(storeValue)
@@ -277,7 +277,8 @@ export const setters = {
       })
     }
   },
-  set: (newState: Partial<AppState>) => modify(() => newState),
+  set: (newState: Partial<AppState>) =>
+    modify(state => Object.assign(state, newState)),
   modify: (modifier: (oldState: AppState) => void) => modify(modifier)
 }
 

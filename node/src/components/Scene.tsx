@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import { useSocket } from '../context'
 import {
   MeshPreset,
-  PresetValue,
   PresetValueDescription,
   getters,
   initialMesh,
@@ -381,7 +380,6 @@ function PresetInput() {
   const [copy, setCopy] = useState(false)
   const allPresets = useAppStore(state => state.presets)
   const currentPreset = useAppStore(state => state.currentPreset)
-  console.log('current:', currentPreset)
 
   const socket = useSocket()!
 
@@ -392,13 +390,22 @@ function PresetInput() {
 
   return (
     <div className='w-[160px] h-full flex flex-col'>
-      <button
-        onClick={() => setCopy(!copy)}
-        className={`w-full h-12 rounded-lg ${
-          copy ? 'bg-yellow-500 text-black' : 'bg-gray-500 text-white'
-        }`}>
-        copy
-      </button>
+      <div>
+        <button
+          onClick={() => setCopy(!copy)}
+          className={`w-1/2 h-12 rounded-lg ${
+            copy ? 'bg-yellow-500 text-black' : 'bg-gray-500 text-white'
+          }`}>
+          copy
+        </button>
+        <button
+          onClick={() => setters.savePreset(currentPreset, socket)}
+          className={`w-1/2 h-12 rounded-lg ${
+            copy ? 'bg-yellow-500 text-black' : 'bg-gray-500 text-white'
+          }`}>
+          save
+        </button>
+      </div>
       <div className='flex flex-wrap *:aspect-square *:w-6 h-full w-[160px] overflow-auto'>
         {_.range(50).map(i => (
           <button
