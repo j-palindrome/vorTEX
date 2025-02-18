@@ -94,6 +94,14 @@ maxApi.addHandler('setMediaFolder', (folder: string) => {
   }
 })
 
+maxApi.addHandler('spaceMouse', (...data) => {
+  io.fetchSockets().then(sockets => {
+    sockets.forEach(socket =>
+      socket.emit('getSpaceMouse', data.slice(0, 3), data.slice(3, 6))
+    )
+  })
+})
+
 readFiles()
 
 maxApi.addHandler('setPresetsFile', (file: string) => {
@@ -111,7 +119,6 @@ maxApi.addHandler('setPresetsFile', (file: string) => {
 })
 
 io.on('connection', socket => {
-  maxApi.post('fixing presets file')
   socket.on('set', (route: string, property: string, value: any) => {
     if (value instanceof Array) {
       maxApi.outlet(route, property, ...value)
@@ -153,9 +160,5 @@ io.on('connection', socket => {
       path.resolve(process.cwd(), 'presets.json'),
       JSON.stringify(presets)
     )
-  })
-
-  maxApi.addHandler('spaceMouse', (...data) => {
-    socket.emit('getSpaceMouse', data.slice(0, 3), data.slice(3, 6))
   })
 })

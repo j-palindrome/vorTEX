@@ -376,21 +376,15 @@ function FileChooser() {
 }
 
 function PresetInput() {
-  const [presetTitle, setPresetTitle] = useState('')
   const [copy, setCopy] = useState(false)
   const allPresets = useAppStore(state => state.presets)
   const currentPreset = useAppStore(state => state.currentPreset)
 
   const socket = useSocket()!
 
-  useEffect(() => {
-    setPresetTitle(currentPreset ?? '')
-    console.log('new title', currentPreset)
-  }, [currentPreset])
-
   return (
-    <div className='w-[160px] h-full flex flex-col'>
-      <div>
+    <div className='w-[160px] h-full flex flex-col '>
+      <div className='flex space-x-1 px-1'>
         <button
           onClick={() => setCopy(!copy)}
           className={`w-1/2 h-12 rounded-lg ${
