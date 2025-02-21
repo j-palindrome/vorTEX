@@ -251,7 +251,7 @@ export const setters = {
     newPreset: K extends number ? Partial<MeshPreset> : Partial<GlobalPreset>,
     socket: Socket<SocketEvents>,
     // when setting/getting these are useful for preventing infinite loops
-    { commit = true, send: sendToMax = true } = {}
+    { commit = true, send: sendToMax = true, save = false } = {}
   ) => {
     if (sendToMax) {
       for (let key of Object.keys(newPreset)) {
@@ -273,6 +273,10 @@ export const setters = {
             // global
             state.preset[2][key] = value
           }
+        }
+        if (save) {
+          state.presets[state.currentPreset] = state.preset
+          socket.emit('savePresets', getters.get('presets'))
         }
       })
     }

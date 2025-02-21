@@ -55,10 +55,6 @@ export default function Scene() {
   // }
 
   const socket = useSocket()!
-  useEffect(() => {
-    if (!socket) return
-    setters.setPreset(index, initialMesh, socket)
-  }, [socket])
 
   const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos>('start')
   const helpText = helpInfos[helpInfo]
@@ -112,28 +108,32 @@ export default function Scene() {
           <HelpButton help='files' />
           <FileChooser />
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
-              setters.setPreset(index, initialMesh, socket)
+              setters.setPreset(index, initialMesh, socket, { save: true })
             }}>
             RESET
           </button>
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
-              setters.setPreset(index, { mesh_position: [0, 0, 0] }, socket)
+              setters.setPreset(index, { mesh_position: [0, 0, 0] }, socket, {
+                save: true
+              })
             }}>
             position
           </button>
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
-              setters.setPreset(index, { mesh_rotatexyz: [0, 0, 0] }, socket)
+              setters.setPreset(index, { mesh_rotatexyz: [0, 0, 0] }, socket, {
+                save: true
+              })
             }}>
             rotation
           </button>
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
               setters.setPreset(
                 index,
@@ -150,7 +150,7 @@ export default function Scene() {
             color
           </button>
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
               setters.setPreset(
                 index,
@@ -161,13 +161,14 @@ export default function Scene() {
                   'mesh_scale',
                   'other_dim'
                 ]),
-                socket
+                socket,
+                { save: true }
               )
             }}>
             shape
           </button>
           <button
-            className='bg-red-900'
+            className='bg-red-900 px-1'
             onClick={() => {
               setters.setPreset(
                 index,
@@ -182,7 +183,8 @@ export default function Scene() {
                   'nurbs_scale',
                   'nurbs_speed'
                 ]),
-                socket
+                socket,
+                { save: true }
               )
             }}>
             noise
@@ -318,7 +320,8 @@ function FileChooser() {
               {
                 video_file1: ev.target.value
               },
-              socket!
+              socket!,
+              { save: true }
             )
           }}>
           <option value=''>---</option>
@@ -339,7 +342,8 @@ function FileChooser() {
               {
                 video_file2: ev.target.value
               },
-              socket!
+              socket!,
+              { save: true }
             )
           }}>
           <option value=''>---</option>
@@ -360,7 +364,8 @@ function FileChooser() {
               {
                 video_noise: ev.target.value
               },
-              socket!
+              socket!,
+              { save: true }
             )
           }}>
           <option value=''>---</option>
@@ -452,7 +457,9 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         return (
           <button
             onClick={() => {
-              setters.setPreset(index, { [name]: !value }, socket)
+              setters.setPreset(index, { [name]: !value }, socket, {
+                save: true
+              })
             }}
             className={`border border-gray-700 mx-1 ${
               value ? 'bg-gray-700' : ''
@@ -470,7 +477,9 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
                   value === item ? 'bg-yellow-500 text-black' : ''
                 }`}
                 onClick={() =>
-                  setters.setPreset(index, { [name]: item }, socket)
+                  setters.setPreset(index, { [name]: item }, socket, {
+                    save: true
+                  })
                 }
                 key={item}
                 value={item}>
@@ -501,7 +510,8 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
                 setters.setPreset(
                   index,
                   { [name]: Number(ev.target.value) },
-                  socket
+                  socket,
+                  { save: true }
                 )
               }}></input>
           </div>
@@ -556,7 +566,8 @@ function SelectComponent({
           setters.setPreset(
             getters.get('index'),
             { [name]: ev.target.value },
-            socket
+            socket,
+            { save: true }
           )
         }}>
         <option value=''>---</option>
