@@ -26,9 +26,11 @@ function App() {
 
       setters.set({
         presets: newPresets,
-        currentPreset: '0',
-        preset: newPresets['0']
+        currentPreset: '0'
       })
+      setters.setPreset(0, newPresets['0'][0], socket)
+      setters.setPreset(1, newPresets['0'][1], socket)
+      setters.setPreset('global', newPresets['0'][2], socket)
     })
 
     socket.on('setPresets', presets => {
