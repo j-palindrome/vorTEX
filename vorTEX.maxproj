@@ -2,8 +2,8 @@
 	"name" : "vorTEX",
 	"version" : 1,
 	"creationdate" : 3807309942,
-	"modificationdate" : 3821785298,
-	"viewrect" : [ 433.0, 115.0, 1007.0, 751.0 ],
+	"modificationdate" : 3823259713,
+	"viewrect" : [ 0.0, 87.0, 1280.0, 679.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -23,19 +23,15 @@
 
 		}
 ,
-		"code" : 		{
-			"index.js" : 			{
-				"kind" : "javascript",
-				"local" : 1
-			}
-
-		}
-,
 		"externals" : 		{
 
 		}
 ,
 		"other" : 		{
+			"index.js" : 			{
+				"kind" : "file",
+				"local" : 1
+			}
 
 		}
 

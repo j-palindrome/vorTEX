@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 87.0, 522.0, 929.0 ],
+		"rect" : [ 34.0, 87.0, 1612.0, 929.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -25,7 +25,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 3,
 					"outlettype" : [ "jit_matrix", "bang", "" ],
-					"patching_rect" : [ 398.0, 570.0, 352.0, 20.0 ],
+					"patching_rect" : [ 396.0, 555.0, 352.0, 20.0 ],
 					"text" : "jit.world VORTEX @enable 1 @fsaa 1 @erase_color 0 0 0 1"
 				}
 
@@ -49,7 +49,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 480.0, 495.0, 62.0, 20.0 ],
+					"patching_rect" : [ 482.0, 495.0, 62.0, 20.0 ],
 					"text" : "visible 0"
 				}
 
@@ -101,7 +101,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 471.0, 630.0, 80.0, 33.0 ]
+					"patching_rect" : [ 681.0, 594.0, 67.0, 33.0 ]
 				}
 
 			}
@@ -111,7 +111,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 396.0, 630.0, 56.0, 20.0 ],
+					"patching_rect" : [ 396.0, 600.0, 56.0, 20.0 ],
 					"text" : "s RENDER"
 				}
 
@@ -441,7 +441,7 @@
 
 											}
  ],
-										"originid" : "pat-284"
+										"originid" : "pat-78"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1001,7 +1001,7 @@
 
 							}
  ],
-						"originid" : "pat-282"
+						"originid" : "pat-76"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1304,7 +1304,7 @@
 
 											}
  ],
-										"originid" : "pat-288",
+										"originid" : "pat-82",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1700,7 +1700,7 @@
 
 							}
  ],
-						"originid" : "pat-286",
+						"originid" : "pat-80",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2128,7 +2128,7 @@
 
 											}
  ],
-										"originid" : "pat-296",
+										"originid" : "pat-90",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2377,7 +2377,7 @@
 
 											}
  ],
-										"originid" : "pat-298"
+										"originid" : "pat-92"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2632,7 +2632,7 @@
 
 											}
  ],
-										"originid" : "pat-304",
+										"originid" : "pat-98",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2951,7 +2951,7 @@
 
 							}
  ],
-						"originid" : "pat-294",
+						"originid" : "pat-88",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3513,7 +3513,7 @@
 
 							}
  ],
-						"originid" : "pat-306"
+						"originid" : "pat-100"
 					}
 ,
 					"patching_rect" : [ 339.0, 285.0, 104.0, 20.0 ],
@@ -3533,7 +3533,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_gl_texture", "" ],
-					"patching_rect" : [ 15.0, 555.0, 314.0, 31.0 ],
+					"patching_rect" : [ 12.0, 555.0, 333.0, 31.0 ],
 					"text" : "jit.gl.camera VORTEX @position 0. 0. 2. @lookat 0. 0. -1. @far_clip 1000. @fsaa 1"
 				}
 
@@ -3657,7 +3657,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 522.0, 903.0 ],
+						"rect" : [ 34.0, 113.0, 1612.0, 903.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3737,7 +3737,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 607.0, 1785.0, 278.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.183:7001/documentation"
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001/documentation"
 								}
 
 							}
@@ -3814,7 +3814,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 810.0, 1650.0, 184.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.183:7001"
+									"text" : ";\rmax launchbrowser http://192.168.1.76:7001"
 								}
 
 							}
@@ -3856,7 +3856,7 @@
 									"presentation" : 1,
 									"presentation_linecount" : 4,
 									"presentation_rect" : [ 30.0, 165.0, 200.0, 63.0 ],
-									"text" : "Go to http://192.168.1.183:7001 from an iPad signed into same WiFi to access UI."
+									"text" : "Go to http://192.168.1.76:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -4138,7 +4138,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 870.0, 360.0, 150.0, 20.0 ],
+									"patching_rect" : [ 795.0, 360.0, 125.0, 20.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 1080.0, 134.0, 125.0, 20.0 ],
 									"text" : "Mouse sensitivity"
@@ -4179,7 +4179,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 330.0, 285.0, 68.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 630.0, 19.0, 114.0, 20.0 ],
+									"presentation_rect" : [ 630.0, 19.0, 86.0, 20.0 ],
 									"text" : "SOUND ON"
 								}
 
@@ -4250,7 +4250,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 520.0, 930.0, 150.0, 22.0 ],
+									"patching_rect" : [ 568.5, 930.0, 96.0, 22.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 317.0, 135.0, 96.0, 22.0 ],
 									"text" : "restart server"
@@ -4441,14 +4441,14 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-67",
-									"linecount" : 12,
+									"linecount" : 11,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 95.225587368011475, 660.362316966056824, 203.0, 175.0 ],
+									"patching_rect" : [ 95.225587368011475, 660.362316966056824, 220.0, 161.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 12,
-									"presentation_rect" : [ 30.0, 240.0, 209.905659675598145, 175.0 ],
+									"presentation_rect" : [ 30.0, 240.0, 210.0, 175.0 ],
 									"text" : "1. Press \"Install\" if running for the first time (takes 20-30 secs)\n\nPACKAGES REQUIRED:\n- bach\n- sigmund\n- zha.descriptors\n- odot\n\npress H to hide/show cursor\npress A to fix/free cursor"
 								}
 
@@ -4472,7 +4472,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 1185.0, 90.0, 150.0, 63.0 ],
+									"patching_rect" : [ 954.0, 120.0, 150.0, 63.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 2,
 									"presentation_rect" : [ 945.0, 7.0, 254.166675209999084, 34.0 ],
@@ -4792,8 +4792,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -5354,7 +5352,7 @@
 
 											}
  ],
-										"originid" : "pat-426",
+										"originid" : "pat-220",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6375,7 +6373,7 @@
 
 							}
  ],
-						"originid" : "pat-308",
+						"originid" : "pat-102",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -6648,7 +6646,7 @@
 
 			}
  ],
-		"originid" : "pat-276",
+		"originid" : "pat-70",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
@@ -6716,8 +6714,8 @@
 			}
 , 			{
 				"name" : "index.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/node",
-				"patcherrelativepath" : "../node",
+				"bootpath" : "~/Documents/GitHub/vorTEX/compressed/node",
+				"patcherrelativepath" : "../compressed/node",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
@@ -6769,15 +6767,15 @@
 			}
 , 			{
 				"name" : "vortex-mesh-process.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
-				"patcherrelativepath" : ".",
+				"bootpath" : "~/Documents/GitHub/vorTEX/compressed/patchers",
+				"patcherrelativepath" : "../compressed/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vortex-movie.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
-				"patcherrelativepath" : ".",
+				"bootpath" : "~/Documents/GitHub/vorTEX/compressed/patchers",
+				"patcherrelativepath" : "../compressed/patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
