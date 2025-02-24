@@ -110,7 +110,12 @@ export default function Scene() {
           <button
             className='bg-red-900 px-1'
             onClick={() => {
-              setters.setPreset(index, initialMesh, socket, { save: true })
+              setters.setPreset(
+                index,
+                getters.get('presets')[getters.get('currentPreset')][index],
+                socket,
+                { save: true }
+              )
             }}>
             RESET
           </button>
@@ -137,13 +142,16 @@ export default function Scene() {
             onClick={() => {
               setters.setPreset(
                 index,
-                _.pick(initialMesh, [
-                  'color_alpha',
-                  'color_brightness',
-                  'color_contrast',
-                  'color_saturation',
-                  'color_hue'
-                ]),
+                _.pick(
+                  getters.get('presets')[getters.get('currentPreset')][index],
+                  [
+                    'color_alpha',
+                    'color_brightness',
+                    'color_contrast',
+                    'color_saturation',
+                    'color_hue'
+                  ]
+                ),
                 socket
               )
             }}>
@@ -154,13 +162,16 @@ export default function Scene() {
             onClick={() => {
               setters.setPreset(
                 index,
-                _.pick(initialMesh, [
-                  'nurbs_curvature',
-                  'mesh_pointSize',
-                  'mesh_drawMode',
-                  'mesh_scale',
-                  'other_dim'
-                ]),
+                _.pick(
+                  getters.get('presets')[getters.get('currentPreset')][index],
+                  [
+                    'nurbs_curvature',
+                    'mesh_pointSize',
+                    'mesh_drawMode',
+                    'mesh_scale',
+                    'other_dim'
+                  ]
+                ),
                 socket,
                 { save: true }
               )
@@ -172,17 +183,20 @@ export default function Scene() {
             onClick={() => {
               setters.setPreset(
                 index,
-                _.pick(initialMesh, [
-                  'warping_scale',
-                  'warping_smooth',
-                  'warping_sound',
-                  'warping_soundScale',
-                  'warping_speed',
-                  'warping_strength',
-                  'warping_type',
-                  'nurbs_scale',
-                  'nurbs_speed'
-                ]),
+                _.pick(
+                  getters.get('presets')[getters.get('currentPreset')][index],
+                  [
+                    'warping_scale',
+                    'warping_smooth',
+                    'warping_sound',
+                    'warping_soundScale',
+                    'warping_speed',
+                    'warping_strength',
+                    'warping_type',
+                    'nurbs_scale',
+                    'nurbs_speed'
+                  ]
+                ),
                 socket,
                 { save: true }
               )
