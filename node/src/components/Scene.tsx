@@ -29,31 +29,6 @@ const helpInfos = {
 export default function Scene() {
   const index = useAppStore(state => state.index)
 
-  // const setup = async () => {
-  //   const currentDevices = await navigator.hid.getDevices()
-  //   let spaceMouse = currentDevices.find(
-  //     product => product.productName === 'SpaceMouse Compact'
-  //   )
-
-  //   if (!spaceMouse) {
-  //     const devices = await navigator.hid.requestDevice({
-  //       // spaceMouse compact product & vendor
-  //       filters: [{ vendorId: 0x256f, productId: 0xc635 }]
-  //     })
-  //     spaceMouse = devices[0]
-  //   }
-  //   if (!spaceMouse) {
-  //     alert('Failed to connect to SpaceMouse')
-  //     return
-  //   }
-  //   console.log('mouse', spaceMouse)
-
-  //   if (!spaceMouse.opened) await spaceMouse.open()
-  //   spaceMouse.addEventListener('inputreport', ev => {
-  //     console.log(ev)
-  //   })
-  // }
-
   const socket = useSocket()!
 
   const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos>('start')
@@ -84,6 +59,8 @@ export default function Scene() {
     )
   }
 
+  const [controlBoth, setControlBoth] = useState(false)
+
   return (
     <>
       <div className='w-full'>
@@ -94,17 +71,83 @@ export default function Scene() {
             <div className='flex *:w-[40px]'>
               <button
                 className={`${index === 0 ? 'bg-gray-700 rounded-lg' : ''}`}
-                onClick={() => setters.set({ index: 0 })}>
+                onClick={() => {
+                  setters.set({ index: 0 })
+                  socket.emit('set', '/mesh', 'spacemouse', 1)
+                }}>
                 <span className='mix-blend-difference'>1</span>
               </button>
               <button
                 className={`${index === 1 ? 'bg-gray-700 rounded-lg' : ''}`}
-                onClick={() => setters.set({ index: 1 })}>
+                onClick={() => {
+                  setters.set({ index: 1 })
+                  socket.emit('set', '/mesh', 'spacemouse', 2)
+                }}>
                 <span className='mix-blend-difference'>2</span>
               </button>
             </div>
           </div>
+          <button
+            className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
+            onClick={() => {
+              setControlBoth(!controlBoth)
+              socket.emit(
+                'set',
+                '/mesh',
+                'spacemouse',
+                controlBoth ? 3 : getters.get('index') + 1
+              )
+            }}>
+            <span className='mix-blend-difference'>both</span>
+          </button>
+          <input
+            type='number'
+            className='bg-transparent text-white font-mono w-[4em] border border-white rounded text-center'
+            id='fadeTime'
+            defaultValue={1}></input>
+          <button
+            className={`px-1`}
+            onClick={() => {
+              let newValue = 1
+              const fadeTime =
+                Number(document.getElementById('fadeTime')!['value']) ?? 1
+              console.log('fadeTime', fadeTime)
+              const fadeFrame = 1 / (fadeTime * 60)
+
+              const currentPreset = getters.get('preset')
+              const firstOriginal = currentPreset[0].color_alpha
+              const secondOriginal = currentPreset[1].color_alpha
+              const fade = () => {
+                newValue -= fadeFrame
+                const index = getters.get('index')
+
+                if (index === 0 || controlBoth) {
+                  setters.setPreset(
+                    0,
+                    { color_alpha: firstOriginal * newValue },
+                    socket,
+                    { save: false }
+                  )
+                }
+                if (index === 1 || controlBoth) {
+                  setters.setPreset(
+                    1,
+                    { color_alpha: secondOriginal * newValue },
+                    socket,
+                    { save: false }
+                  )
+                }
+                if (newValue > 0) {
+                  requestAnimationFrame(fade)
+                }
+              }
+              fade()
+            }}>
+            <span className='mix-blend-difference'>fade</span>
+          </button>
+
           <MaxValue name='mesh_enable' title='on/off' />
+
           <HelpButton help='files' />
           <FileChooser />
           <button
@@ -510,16 +553,15 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
             </h3>
             <input
               type='range'
-              orient='vertical'
               min={0}
               max={1}
               step={0.01}
               value={value as number}
+              className='h-full w-full accent-blue-200 rounded-lg'
               style={{
-                // @ts-ignore
-                appearance: 'slider-vertical'
+                writingMode: 'vertical-lr',
+                direction: 'rtl'
               }}
-              className='h-full w-[6px] accent-blue-200 rounded-lg'
               onChange={ev => {
                 setters.setPreset(
                   index,

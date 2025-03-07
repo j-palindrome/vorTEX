@@ -8,7 +8,11 @@ declare global {
     setPresets: (presets: string) => void
     get: (path: string, command: string, value: PresetValue['value']) => void
     getPresets: (callback: (presets: string) => void) => void
-    getSpaceMouse: (position: number[], rotation: number[]) => void
+    getSpaceMouse: (
+      index: number,
+      position: number[],
+      rotation: number[]
+    ) => void
     setFiles: (files: string[]) => void
   }
 }

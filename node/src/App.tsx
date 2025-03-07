@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { SocketProvider } from './context'
-import { AppState, getters, initialMesh, setters } from './store'
+import { AppState, getters, initialMesh, setters, useAppStore } from './store'
 import { Socket, io } from 'socket.io-client'
 import Scene from './components/Scene'
 
@@ -10,7 +10,7 @@ function App() {
   useEffect(() => {
     const socket: Socket<SocketEvents, SocketEvents> = io()
     setSocket(socket)
-
+    socket.emit('set', '/mesh', '', 1)
     socket.emit('loadPresets', presets => {
       const newPresets: AppState['presets'] = presets
       const defaultKeys = Object.keys(initialMesh)
@@ -65,20 +65,12 @@ function App() {
       )
     })
 
-    socket.on('getSpaceMouse', (position, rotation) => {
-      const currentMesh = getters.getCurrentMesh()
-      const newPosition = currentMesh.mesh_position.map(
-        (x, i) => x + position[i]
-      )
-
-      const newRotation = currentMesh.mesh_rotatexyz.map(
-        (x, i) => x + rotation[i]
-      )
-
+    socket.on('getSpaceMouse', (index, position, rotation) => {
       setters.setPreset(
-        getters.get('index'),
-        { mesh_position: newPosition, mesh_rotatexyz: newRotation },
-        socket
+        index,
+        { mesh_position: position, mesh_rotatexyz: rotation },
+        socket,
+        { send: false, save: true }
       )
     })
 

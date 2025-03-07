@@ -97,7 +97,7 @@ maxApi.addHandler('setMediaFolder', (folder: string) => {
 maxApi.addHandler('spaceMouse', (...data) => {
   io.fetchSockets().then(sockets => {
     sockets.forEach(socket =>
-      socket.emit('getSpaceMouse', data.slice(0, 3), data.slice(3, 6))
+      socket.emit('getSpaceMouse', data[0], data.slice(1, 4), data.slice(4))
     )
   })
 })
