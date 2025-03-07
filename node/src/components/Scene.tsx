@@ -61,6 +61,15 @@ export default function Scene() {
 
   const [controlBoth, setControlBoth] = useState(false)
 
+  useEffect(() => {
+    socket.emit(
+      'set',
+      '/mesh',
+      'spacemouse',
+      controlBoth ? 3 : getters.get('index') + 1
+    )
+  }, [controlBoth])
+
   return (
     <>
       <div className='w-full'>
@@ -91,12 +100,6 @@ export default function Scene() {
             className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
             onClick={() => {
               setControlBoth(!controlBoth)
-              socket.emit(
-                'set',
-                '/mesh',
-                'spacemouse',
-                controlBoth ? 3 : getters.get('index') + 1
-              )
             }}>
             <span className='mix-blend-difference'>both</span>
           </button>
