@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 32.0, 159.0, 792.0, 734.0 ],
+		"rect" : [ 34.0, 117.0, 869.0, 899.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -29,24 +29,13 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-8",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 271.347818732261658, 1268.826045393943787, 146.0, 18.0 ],
-					"text" : "transform into a shader"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-2",
 					"linecount" : 2,
 					"maxclass" : "newobj",
 					"numinlets" : 8,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 225.217383921146393, 1140.0, 640.0, 31.0 ],
+					"patching_rect" : [ 225.217383921146393, 1260.0, 640.0, 31.0 ],
 					"text" : "jit.gl.material @lighting_enable 1 @drawto VORTEX @color 1 1 1 1 @mat_specular 0. 0. 0. 0. @gl_color 1. 1. 1. 1. @mat_ambient 1 1 1 1 @aux_color 1. 1. 1. 0. @mat_emission 0. 0. 0. 0. @mat_diffuse 1. 1. 1. 0."
 				}
 

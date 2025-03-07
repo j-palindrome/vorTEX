@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 32.0, 159.0, 792.0, 734.0 ],
+		"rect" : [ 300.0, 115.0, 869.0, 899.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -110,7 +110,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 396.0, 600.0, 56.0, 20.0 ],
+					"patching_rect" : [ 562.5, 605.5, 56.0, 20.0 ],
 					"text" : "s RENDER"
 				}
 
@@ -3504,7 +3504,7 @@
 						"originid" : "pat-1330"
 					}
 ,
-					"patching_rect" : [ 339.0, 285.0, 104.0, 20.0 ],
+					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
 					"text" : "p colour_organ_0"
 				}
 
@@ -3639,7 +3639,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 32.0, 185.0, 792.0, 708.0 ],
+						"rect" : [ 300.0, 141.0, 869.0, 873.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3655,7 +3655,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 885.0, 1305.0, 163.0, 22.0 ],
+									"patching_rect" : [ 555.0, 1335.0, 163.0, 22.0 ],
 									"text" : "route spacemouse fade"
 								}
 
@@ -4474,7 +4474,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 450.0, 1305.0, 169.0, 22.0 ],
+									"patching_rect" : [ 480.0, 1395.0, 169.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"style" : "Joshua"
 									}

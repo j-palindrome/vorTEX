@@ -62,6 +62,7 @@ export default function Scene() {
   const [controlBoth, setControlBoth] = useState(false)
 
   useEffect(() => {
+    if (!socket) return
     socket.emit(
       'set',
       '/mesh',
