@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 115.0, 124.0, 1372.0, 651.0 ],
+		"rect" : [ 32.0, 159.0, 792.0, 734.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -47,7 +47,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 225.217383921146393, 1140.0, 640.0, 31.0 ],
-					"text" : "jit.gl.material @lighting_enable 1 @drawto VORTEX @color 1 1 1 1 @mat_specular 0. 0. 0. 0. @gl_color 1. 1. 1. 1. @mat_ambient 0 0 0 0. @aux_color 1. 1. 1. 0. @mat_emission 0. 0. 0. 0. @mat_diffuse 1. 1. 1. 0."
+					"text" : "jit.gl.material @lighting_enable 1 @drawto VORTEX @color 1 1 1 1 @mat_specular 0. 0. 0. 0. @gl_color 1. 1. 1. 1. @mat_ambient 1 1 1 1 @aux_color 1. 1. 1. 0. @mat_emission 0. 0. 0. 0. @mat_diffuse 1. 1. 1. 0."
 				}
 
 			}
@@ -1646,7 +1646,7 @@
 
 							}
  ],
-						"originid" : "pat-728",
+						"originid" : "pat-1432",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2095,7 +2095,7 @@
 
 											}
  ],
-										"originid" : "pat-732",
+										"originid" : "pat-1436",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2394,7 +2394,7 @@
 
 							}
  ],
-						"originid" : "pat-730",
+						"originid" : "pat-1434",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2594,7 +2594,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 231.0, 150.0, 132.0, 31.0 ],
-									"text" : "jit_matrix u147016255"
+									"text" : "jit_matrix u530007266"
 								}
 
 							}
@@ -2937,7 +2937,7 @@
 
 							}
  ],
-						"originid" : "pat-734",
+						"originid" : "pat-1438",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3592,7 +3592,7 @@
 
 											}
  ],
-										"originid" : "pat-738"
+										"originid" : "pat-1442"
 									}
 ,
 									"patching_rect" : [ 10.0, 1715.0, 164.0, 20.0 ],
@@ -3767,7 +3767,7 @@
 
 											}
  ],
-										"originid" : "pat-740",
+										"originid" : "pat-1444",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -3950,7 +3950,7 @@
 
 											}
  ],
-										"originid" : "pat-742",
+										"originid" : "pat-1446",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4121,7 +4121,7 @@
 
 											}
  ],
-										"originid" : "pat-744",
+										"originid" : "pat-1448",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4557,7 +4557,7 @@
 
 											}
  ],
-										"originid" : "pat-746",
+										"originid" : "pat-1450",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5293,7 +5293,7 @@
 
 							}
  ],
-						"originid" : "pat-736",
+						"originid" : "pat-1440",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -5924,7 +5924,7 @@
 
 			}
  ],
-		"originid" : "pat-704",
+		"originid" : "pat-1408",
 		"styles" : [ 			{
 				"name" : "Joshua",
 				"default" : 				{

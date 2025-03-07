@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 115.0, 124.0, 1372.0, 651.0 ],
+		"rect" : [ 32.0, 159.0, 792.0, 734.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -439,7 +439,7 @@
 
 											}
  ],
-										"originid" : "pat-604"
+										"originid" : "pat-1308"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -999,7 +999,7 @@
 
 							}
  ],
-						"originid" : "pat-602"
+						"originid" : "pat-1306"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1298,7 +1298,7 @@
 
 											}
  ],
-										"originid" : "pat-608",
+										"originid" : "pat-1312",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1694,7 +1694,7 @@
 
 							}
  ],
-						"originid" : "pat-606",
+						"originid" : "pat-1310",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2121,7 +2121,7 @@
 
 											}
  ],
-										"originid" : "pat-616",
+										"originid" : "pat-1320",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2370,7 +2370,7 @@
 
 											}
  ],
-										"originid" : "pat-618"
+										"originid" : "pat-1322"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2621,7 +2621,7 @@
 
 											}
  ],
-										"originid" : "pat-624",
+										"originid" : "pat-1328",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2940,7 +2940,7 @@
 
 							}
  ],
-						"originid" : "pat-614",
+						"originid" : "pat-1318",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3501,7 +3501,7 @@
 
 							}
  ],
-						"originid" : "pat-626"
+						"originid" : "pat-1330"
 					}
 ,
 					"patching_rect" : [ 339.0, 285.0, 104.0, 20.0 ],
@@ -3639,7 +3639,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 115.0, 150.0, 1372.0, 625.0 ],
+						"rect" : [ 32.0, 185.0, 792.0, 708.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -4440,7 +4440,7 @@
 
 											}
  ],
-										"originid" : "pat-630",
+										"originid" : "pat-1334",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4480,19 +4480,6 @@
 									}
 ,
 									"text" : "p spaceMouse-positions"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-128",
-									"linecount" : 2,
-									"maxclass" : "message",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 166.0, 1815.0, 379.5, 36.0 ],
-									"text" : "4.972766 -5.404646 -0.628371 -1.644987 -164.164673 -68.833303"
 								}
 
 							}
@@ -5521,8 +5508,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6080,7 +6065,7 @@
 
 											}
  ],
-										"originid" : "pat-748",
+										"originid" : "pat-1452",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -7138,7 +7123,7 @@
 
 							}
  ],
-						"originid" : "pat-628",
+						"originid" : "pat-1332",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7410,7 +7395,7 @@
 
 			}
  ],
-		"originid" : "pat-596",
+		"originid" : "pat-1300",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
