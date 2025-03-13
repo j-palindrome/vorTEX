@@ -8,73 +8,49 @@ export default function Slider({
   className,
   innerClassName,
   onChange,
-  onEnd,
-  values
+  values,
+  sliderStyle,
+  min,
+  max
 }: React.PropsWithChildren & {
   className?: string
   innerClassName?: string
-  onChange: ({ x, y }: { x: number; y: number }, slider: HTMLDivElement) => void
-  onEnd: ({ x, y }: { x: number; y: number }) => void
+  sliderStyle: ({ x, y }: { x: number; y: number }) => React.CSSProperties
+  onChange: ({ x, y }: { x: number; y: number }, end?: boolean) => void
   values: { x: number; y: number }
+  min: number
+  max: number
 }) {
-  //
-  const [clicking, setClicking] = useState(false)
-  const rect = useRef<DOMRect | null>(null)
-  const slider = useRef<HTMLDivElement>(null)
-  const place = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
-
-  const end = () => {
-    if (!clicking) return
-    setClicking(false)
-    onEnd(place.current)
-  }
+  const slider = useRef<HTMLDivElement>(null!)
+  const place = useRef<{ x: number; y: number }>(values)
 
   useEffect(() => {
     if (!slider.current) return
-    onChange(values, slider.current)
+    place.current = values
+    Object.assign(slider.current.style, sliderStyle(place.current))
   }, [values])
 
   const updateMouse = (ev: React.MouseEvent) => {
-    if (clicking && rect.current) {
-      const x = (ev.clientX - rect.current.x) / rect.current.width
-      const y = 1 - (ev.clientY - rect.current.y) / rect.current.height
-      onChange({ x, y }, slider.current!)
-      place.current = { x, y }
-    }
+    const rect = ev.currentTarget.getBoundingClientRect()
+    console.log('rect', rect.height)
+
+    const x = (ev.clientX - rect.x) / rect.width
+    const y = 1 - (ev.clientY - rect.y) / rect.height
+    place.current = { x, y }
+    onChange({ x, y })
+    Object.assign(slider.current.style, sliderStyle({ x, y }))
   }
 
   return (
     <div
-      className={`${className} relative h-full flex overflow-hidden`}
-      onMouseDown={ev => setClicking(true)}
-      onMouseUp={ev => {
-        updateMouse(ev)
-        end()
-      }}
-      onMouseLeave={ev => {
-        updateMouse(ev)
-        end()
-      }}
+      className={`${className} relative h-full w-full flex overflow-hidden`}
       onMouseMove={ev => {
+        if (!ev.buttons) return
         updateMouse(ev)
       }}
-      ref={node => {
-        if (!node) return
-        const gotRect = node.getBoundingClientRect()
-        rect.current = gotRect
-      }}>
-      <div
-        className={`${innerClassName} absolute bottom-0 left-0`}
-        ref={slider}></div>
-      <div
-        className='h-full w-4'
-        onClick={() => setTimeout(() => onEnd({ x: 0, y: 0 }))}></div>
-      <div className='h-full w-full flex justify-center items-center select-none mix-blend-difference'>
-        {children}
-      </div>
-      <div
-        className='h-full w-4'
-        onClick={() => setTimeout(() => onEnd({ x: 1, y: 1 }))}></div>
+      onMouseUp={() => onChange(place.current, true)}
+      onMouseLeave={() => onChange(place.current, true)}>
+      <div className={`${innerClassName} absolute`} ref={slider}></div>
     </div>
   )
 }
