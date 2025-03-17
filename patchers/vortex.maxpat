@@ -3687,12 +3687,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
-									"text" : "spaceMouse 1 0 0 0 0 0 0"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
+									"text" : "spaceMouse 0 0. -0. 0. 0. 0. 0."
 								}
 
 							}
@@ -3733,23 +3734,51 @@
 										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
+													"id" : "obj-32",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 668.5, 374.0, 113.0, 21.0 ],
+													"text" : "vexpr $f1 % 1."
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-31",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 441.5, 245.0, 113.0, 21.0 ],
+													"text" : "vexpr $f1 % 1."
+												}
+
+											}
+, 											{
+												"box" : 												{
 													"id" : "obj-30",
+													"linecount" : 4,
 													"maxclass" : "message",
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 141.0, 689.0, 50.0, 21.0 ]
+													"patching_rect" : [ 141.0, 689.0, 50.0, 58.0 ],
+													"text" : "/mesh position 0. -0. 0."
 												}
 
 											}
 , 											{
 												"box" : 												{
 													"id" : "obj-25",
+													"linecount" : 4,
 													"maxclass" : "message",
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 208.0, 734.0, 50.0, 21.0 ]
+													"patching_rect" : [ 208.0, 734.0, 50.0, 58.0 ],
+													"text" : "/mesh rotatexyz 0. 0. 0."
 												}
 
 											}
@@ -3844,7 +3873,7 @@
 													"numinlets" : 3,
 													"numoutlets" : 3,
 													"outlettype" : [ "", "", "" ],
-													"patching_rect" : [ 445.5, 249.0, 156.0, 21.0 ],
+													"patching_rect" : [ 600.0, 330.0, 156.0, 21.0 ],
 													"text" : "route position rotatexyz"
 												}
 
@@ -3940,8 +3969,8 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 337.5, 510.0, 101.0, 21.0 ],
-													"text" : "vexpr $f1 + $f2"
+													"patching_rect" : [ 337.5, 510.0, 144.0, 21.0 ],
+													"text" : "vexpr ($f1 + $f2) % 1."
 												}
 
 											}
@@ -3964,8 +3993,8 @@
 													"numinlets" : 2,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 120.0, 510.0, 101.0, 21.0 ],
-													"text" : "vexpr $f1 + $f2"
+													"patching_rect" : [ 120.0, 517.0, 144.0, 21.0 ],
+													"text" : "vexpr ($f1 + $f2) % 1."
 												}
 
 											}
@@ -4035,7 +4064,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 373.0, 105.0, 144.0, 32.0 ],
+													"patching_rect" : [ 363.0, 106.0, 144.0, 32.0 ],
 													"text" : "coming in from presets\n"
 												}
 
@@ -4433,6 +4462,20 @@
 											}
 , 											{
 												"patchline" : 												{
+													"destination" : [ "obj-11", 0 ],
+													"source" : [ "obj-31", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-13", 0 ],
+													"source" : [ "obj-32", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
 													"destination" : [ "obj-10", 0 ],
 													"source" : [ "obj-4", 0 ]
 												}
@@ -4440,7 +4483,7 @@
 											}
 , 											{
 												"patchline" : 												{
-													"destination" : [ "obj-11", 0 ],
+													"destination" : [ "obj-31", 0 ],
 													"source" : [ "obj-4", 1 ]
 												}
 
@@ -4454,7 +4497,7 @@
 											}
 , 											{
 												"patchline" : 												{
-													"destination" : [ "obj-13", 0 ],
+													"destination" : [ "obj-32", 0 ],
 													"source" : [ "obj-5", 1 ]
 												}
 
