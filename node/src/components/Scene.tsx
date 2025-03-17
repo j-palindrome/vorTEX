@@ -71,6 +71,15 @@ export default function Scene() {
       controlBoth ? 3 : getters.get('index') + 1
     )
   }, [controlBoth])
+  useEffect(() => {
+    if (!socket) return
+    socket.emit(
+      'set',
+      '/mesh',
+      'spacemouse',
+      controlBoth ? 3 : getters.get('index') + 1
+    )
+  }, [socket])
 
   const fadeTime = useRef(0)
 
@@ -556,7 +565,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
             <Slider
               min={0}
               max={1}
-              className='rounded-lg border'
+              className='w-full h-full rounded-lg border'
               onChange={({ y }) => {
                 if (!socket) return
 

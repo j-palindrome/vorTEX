@@ -44,7 +44,7 @@ export default function Slider({
 
   return (
     <div
-      className={`${className} relative h-full w-full flex overflow-hidden`}
+      className={`${className} relative flex overflow-hidden`}
       onMouseMove={ev => {
         if (!ev.buttons) return
         updateMouse(ev)

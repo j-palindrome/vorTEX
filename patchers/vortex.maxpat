@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 87.0, 1212.0, 679.0 ],
+		"rect" : [ 34.0, 115.0, 941.0, 651.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -439,7 +439,7 @@
 
 											}
  ],
-										"originid" : "pat-78"
+										"originid" : "pat-296"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -999,7 +999,7 @@
 
 							}
  ],
-						"originid" : "pat-76"
+						"originid" : "pat-294"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1298,7 +1298,7 @@
 
 											}
  ],
-										"originid" : "pat-82",
+										"originid" : "pat-300",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1694,7 +1694,7 @@
 
 							}
  ],
-						"originid" : "pat-80",
+						"originid" : "pat-298",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2121,7 +2121,7 @@
 
 											}
  ],
-										"originid" : "pat-90",
+										"originid" : "pat-308",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2370,7 +2370,7 @@
 
 											}
  ],
-										"originid" : "pat-92"
+										"originid" : "pat-310"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2621,7 +2621,7 @@
 
 											}
  ],
-										"originid" : "pat-98",
+										"originid" : "pat-316",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2940,7 +2940,7 @@
 
 							}
  ],
-						"originid" : "pat-88",
+						"originid" : "pat-306",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3501,7 +3501,7 @@
 
 							}
  ],
-						"originid" : "pat-100"
+						"originid" : "pat-318"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3639,7 +3639,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 113.0, 1212.0, 653.0 ],
+						"rect" : [ 34.0, 141.0, 941.0, 625.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3726,11 +3726,34 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 164.0, 117.0, 1372.0, 651.0 ],
+										"rect" : [ 34.0, 115.0, 1372.0, 651.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
 										"style" : "Joshua",
 										"subpatcher_template" : "Joshua",
+										"visible" : 1,
 										"boxes" : [ 											{
+												"box" : 												{
+													"id" : "obj-30",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 141.0, 689.0, 50.0, 21.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-25",
+													"maxclass" : "message",
+													"numinlets" : 2,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 208.0, 734.0, 50.0, 21.0 ]
+												}
+
+											}
+, 											{
 												"box" : 												{
 													"id" : "obj-29",
 													"maxclass" : "newobj",
@@ -4061,7 +4084,7 @@
 													"numoutlets" : 2,
 													"outlettype" : [ "", "bang" ],
 													"parameter_enable" : 0,
-													"patching_rect" : [ 50.0, 135.0, 50.0, 21.0 ]
+													"patching_rect" : [ 50.0, 159.0, 50.0, 21.0 ]
 												}
 
 											}
@@ -4072,8 +4095,8 @@
 													"numinlets" : 2,
 													"numoutlets" : 3,
 													"outlettype" : [ "", "", "" ],
-													"patching_rect" : [ 50.0, 165.0, 100.0, 21.0 ],
-													"text" : "gate 3"
+													"patching_rect" : [ 50.0, 204.0, 100.0, 21.0 ],
+													"text" : "gate 3 1"
 												}
 
 											}
@@ -4316,6 +4339,15 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-23", 0 ],
+													"order" : 1,
+													"source" : [ "obj-19", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-25", 1 ],
+													"order" : 0,
 													"source" : [ "obj-19", 0 ]
 												}
 
@@ -4337,6 +4369,15 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-23", 0 ],
+													"order" : 1,
+													"source" : [ "obj-20", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-30", 1 ],
+													"order" : 0,
 													"source" : [ "obj-20", 0 ]
 												}
 
@@ -4440,7 +4481,7 @@
 
 											}
  ],
-										"originid" : "pat-104",
+										"originid" : "pat-322",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5025,18 +5066,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-39",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "int" ],
-									"patching_rect" : [ 614.0, 965.0, 25.0, 22.0 ],
-									"text" : "t 0"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-106",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
@@ -5172,7 +5201,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 539.0, 930.0, 48.0, 22.0 ],
+									"patching_rect" : [ 568.0, 971.0, 48.0, 22.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 255.0, 135.0, 48.0, 22.0 ],
 									"text" : "install"
@@ -5373,7 +5402,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "float" ],
-									"patching_rect" : [ 683.0, 764.0, 54.0, 22.0 ],
+									"patching_rect" : [ 697.0, 764.0, 45.0, 22.0 ],
 									"text" : "* -1."
 								}
 
@@ -5409,7 +5438,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 697.0, 824.0, 100.0, 22.0 ],
+									"patching_rect" : [ 642.0, 870.0, 100.0, 22.0 ],
 									"text" : "join 3"
 								}
 
@@ -5508,8 +5537,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6067,7 +6094,7 @@
 
 											}
  ],
-										"originid" : "pat-222",
+										"originid" : "pat-440",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6965,15 +6992,6 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-35", 0 ],
-									"order" : 1,
-									"source" : [ "obj-71", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-39", 0 ],
-									"order" : 0,
 									"source" : [ "obj-71", 0 ]
 								}
 
@@ -7125,7 +7143,7 @@
 
 							}
  ],
-						"originid" : "pat-102",
+						"originid" : "pat-320",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7397,7 +7415,7 @@
 
 			}
  ],
-		"originid" : "pat-70",
+		"originid" : "pat-288",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],

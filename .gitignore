@@ -2,4 +2,3 @@ node/node_modules
 node/presets.json
 node/settings.json
 .DS_Store
-**/.DS_Store
