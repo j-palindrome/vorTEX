@@ -2,6 +2,7 @@ import { produce } from 'immer'
 import _ from 'lodash'
 import { useRef } from 'react'
 import { Socket } from 'socket.io-client'
+import { lerp } from 'three/src/math/MathUtils'
 import { create } from 'zustand'
 
 export type PresetValueDescription<
@@ -92,6 +93,7 @@ export type AppState = {
   currentPreset: string
   files: string[]
   index: 0 | 1
+  fadeTime: number
 }
 
 export const presetDescription: {
@@ -193,7 +195,8 @@ const initialState: AppState = {
   presets: {},
   currentPreset: '0',
   files: [],
-  index: 0
+  index: 0,
+  fadeTime: 0
 }
 
 export const useAppStore = create<AppState>(() => initialState)
@@ -231,27 +234,63 @@ export const setters = {
       : presets[name]
     setters.savePreset(getters.get('currentPreset'), socket)
 
-    for (let i = 0; i < 2; i++) {
-      const thisMesh = currentPreset[i] as MeshPreset
-      setters.setPreset(i, { ...thisMesh, ...newPreset[i] }, socket)
+    const thisFadeTime = getters.get('fadeTime')
+    if (thisFadeTime) {
+      const fadeToPreset = (progress: number) => {
+        for (let i = 0; i < 2; i++) {
+          const thisMesh = {} as Partial<MeshPreset>
+
+          for (let key of Object.keys(currentPreset[i])) {
+            if (typeof currentPreset[i][key] === 'number') {
+              thisMesh[key] = lerp(
+                currentPreset[i][key],
+                newPreset[i][key],
+                progress
+              )
+            }
+          }
+          console.log(thisMesh)
+
+          setters.setPreset(i, thisMesh, socket, { save: false })
+        }
+        setters.setPreset(
+          'global',
+          { ...currentPreset[2], ...newPreset[2] },
+          socket,
+          { save: false }
+        )
+        if (progress < 1) {
+          requestAnimationFrame(() => fadeToPreset(progress + 1 / 60))
+        } else {
+          modify(state => {
+            state.currentPreset = name
+          })
+        }
+      }
+      fadeToPreset(0)
+    } else {
+      for (let i = 0; i < 2; i++) {
+        setters.setPreset(i, { ...(newPreset[i] as MeshPreset) }, socket, {
+          save: false
+        })
+      }
+      setters.setPreset(
+        'global',
+        { ...currentPreset[2], ...newPreset[2] },
+        socket,
+        { save: false }
+      )
+      modify(state => {
+        state.currentPreset = name
+      })
     }
-
-    setters.setPreset(
-      'global',
-      { ...currentPreset[2], ...newPreset[2] },
-      socket
-    )
-
-    modify(state => {
-      state.currentPreset = name
-    })
   },
   setPreset: <K extends number | 'global'>(
     index: K,
     newPreset: K extends number ? Partial<MeshPreset> : Partial<GlobalPreset>,
     socket: Socket<SocketEvents>,
     // when setting/getting these are useful for preventing infinite loops
-    { commit = true, send: sendToMax = true, save = false } = {}
+    { send: sendToMax = true, save = false } = {}
   ) => {
     if (sendToMax) {
       for (let key of Object.keys(newPreset)) {
@@ -264,22 +303,20 @@ export const setters = {
       }
     }
 
-    if (commit) {
-      modify(state => {
-        for (let [key, value] of Object.entries(newPreset)) {
-          if (typeof index === 'number') {
-            state.preset[index][key] = value
-          } else if (index === 'global') {
-            // global
-            state.preset[2][key] = value
-          }
+    modify(state => {
+      for (let [key, value] of Object.entries(newPreset)) {
+        if (typeof index === 'number') {
+          state.preset[index][key] = value
+        } else if (index === 'global') {
+          // global
+          state.preset[2][key] = value
         }
-        if (save) {
-          state.presets[state.currentPreset] = state.preset
-          socket.emit('savePresets', getters.get('presets'))
-        }
-      })
-    }
+      }
+      if (save) {
+        state.presets[state.currentPreset] = state.preset
+        socket.emit('savePresets', getters.get('presets'))
+      }
+    })
   },
   set: (newState: Partial<AppState>) =>
     modify(state => Object.assign(state, newState)),

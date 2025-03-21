@@ -1,15 +1,14 @@
+import _, { cloneDeep } from 'lodash'
 import { useEffect, useRef, useState } from 'react'
 import { useSocket } from '../context'
 import {
   MeshPreset,
   PresetValueDescription,
   getters,
-  initialMesh,
   presetDescription,
   setters,
   useAppStore
 } from '../store'
-import _, { cloneDeep } from 'lodash'
 import Slider from './Slider'
 
 const helpInfos = {
@@ -32,34 +31,6 @@ export default function Scene() {
 
   const socket = useSocket()!
 
-  const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos>('start')
-  const helpText = helpInfos[helpInfo]
-
-  const HelpButton = ({ help }: { help: keyof typeof helpInfos }) => {
-    return (
-      <div
-        className={`h-fit w-fit relative ${
-          helpInfo === help ? 'z-30' : 'z-0'
-        }`}>
-        <button
-          className='rounded-full bg-gray-500 h-5 w-5 text-black'
-          onClick={() => setHelpInfo(help)}>
-          ?
-        </button>
-        {helpInfo === help && (
-          <div className='absolute top-0 left-0 bg-gray-900 w-[500px] max-h-[400px] overflow-y-auto p-2 whitespace-pre-wrap'>
-            <button
-              className='rounded-full bg-gray-500 h-5 w-5 text-black'
-              onClick={() => setHelpInfo('start')}>
-              x
-            </button>
-            {helpInfos[help]}
-          </div>
-        )}
-      </div>
-    )
-  }
-
   const [controlBoth, setControlBoth] = useState(false)
 
   useEffect(() => {
@@ -81,12 +52,11 @@ export default function Scene() {
     )
   }, [socket])
 
-  const fadeTime = useRef(0)
+  const fadeTime = useAppStore(state => state.fadeTime)
 
   return (
     <div className='h-full w-full flex flex-col'>
       <div className='flex w-full overflow-x-auto overflow-y-hidden *:m-1 pt-2 m-2 p-2 backdrop-blur rounded-lg'>
-        <HelpButton help='meshes' />
         <div>
           <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
             <div className='flex *:w-[40px]'>
@@ -124,18 +94,18 @@ export default function Scene() {
             sliderStyle={({ x, y }) => ({
               width: `${x * 100}%`
             })}
-            values={{ x: 0, y: 0 }}
+            values={{ x: fadeTime / 10, y: 0 }}
             onChange={({ x, y }) => {
               console.log(x)
 
-              fadeTime.current = x * 10
+              setters.set({ fadeTime: x * 10 })
             }}
           />
           <button
             className={`px-1`}
             onClick={() => {
               let newValue = 1
-              const fadeFrame = 1 / (fadeTime.current * 60)
+              const fadeFrame = 1 / (fadeTime * 60)
 
               const currentPreset = getters.get('preset')
               const firstOriginal = currentPreset[0].color_alpha
@@ -169,8 +139,6 @@ export default function Scene() {
             <span className='mix-blend-difference'>fade</span>
           </button>
         </div>
-
-        <HelpButton help='files' />
         <FileChooser />
         <div className='grid grid-cols-[repeat(3,90px)] grid-rows-2 gap-1'>
           <button
@@ -454,7 +422,7 @@ function PresetInput() {
   const socket = useSocket()!
 
   return (
-    <div className='w-[160px] h-full flex flex-col '>
+    <div className='w-[225px] h-full flex flex-col '>
       <div className='flex space-x-1 px-1'>
         <button
           onClick={() => setCopy(!copy)}
@@ -471,8 +439,8 @@ function PresetInput() {
           save
         </button>
       </div>
-      <div className='flex flex-wrap *:aspect-square *:w-6 h-full w-[160px] overflow-auto'>
-        {_.range(50).map(i => (
+      <div className='flex flex-wrap *:aspect-square *:w-6 h-full w-full overflow-auto'>
+        {_.range(49).map(i => (
           <button
             className={`rounded flex items-center justify-center m-1 ${
               currentPreset === `${i}`
@@ -511,9 +479,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         return (
           <button
             onClick={() => {
-              setters.setPreset(index, { [name]: 'bang' }, socket, {
-                commit: false
-              })
+              setters.setPreset(index, { [name]: 'bang' }, socket)
             }}
             className={`border border-gray-700 mx-1`}>
             {title}
@@ -563,8 +529,6 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
               {title.slice(0, 8) + (title.length > 8 ? '...' : '')}
             </h3>
             <Slider
-              min={0}
-              max={1}
               className='w-full h-full rounded-lg border'
               onChange={({ y }) => {
                 if (!socket) return
