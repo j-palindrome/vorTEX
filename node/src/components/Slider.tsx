@@ -50,10 +50,13 @@ export default function Slider({
         updateMouse(ev)
       }}
       onTouchMove={ev => {
+        ev.preventDefault()
         updateMouse(ev)
       }}
       onMouseUp={() => onChange(place.current, true)}
-      onMouseLeave={() => onChange(place.current, true)}>
+      onMouseLeave={() => onChange(place.current, true)}
+      onTouchStart={e => e.preventDefault()}
+      onTouchEnd={e => e.preventDefault()}>
       <div className={`${innerClassName} absolute`} ref={slider}></div>
     </div>
   )

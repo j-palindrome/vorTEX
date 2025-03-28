@@ -27,6 +27,8 @@ const helpInfos = {
 }
 
 export default function Scene() {
+  const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos | null>(null)
+
   const index = useAppStore(state => state.index)
 
   const socket = useSocket()!
@@ -53,261 +55,290 @@ export default function Scene() {
   }, [socket])
 
   const fadeTime = useAppStore(state => state.fadeTime)
+  const [scrollFix, setScrollFix] = useState(false)
 
   return (
-    <div className='h-full w-full flex flex-col'>
-      <div className='flex w-full overflow-x-auto overflow-y-hidden *:m-1 pt-2 m-2 p-2 backdrop-blur rounded-lg'>
-        <div>
-          <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
-            <div className='flex *:w-[40px]'>
-              <button
-                className={`${index === 0 ? 'bg-gray-700 rounded-lg' : ''}`}
-                onClick={() => {
-                  setters.set({ index: 0 })
-                  socket.emit('set', '/mesh', 'spacemouse', 1)
-                }}>
-                <span className='mix-blend-difference'>1</span>
-              </button>
-              <button
-                className={`${index === 1 ? 'bg-gray-700 rounded-lg' : ''}`}
-                onClick={() => {
-                  setters.set({ index: 1 })
-                  socket.emit('set', '/mesh', 'spacemouse', 2)
-                }}>
-                <span className='mix-blend-difference'>2</span>
-              </button>
-            </div>
-          </div>
-          <MaxValue name='mesh_enable' title='on/off' />
+    <>
+      <div className={`h-full w-screen flex flex-col overflow-hidden`}>
+        <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
           <button
-            className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
             onClick={() => {
-              setControlBoth(!controlBoth)
-            }}>
-            <span className='mix-blend-difference'>both</span>
-          </button>
-        </div>
-        <div>
-          <Slider
-            className='w-[100px] h-[36px] rounded-lg border border-white'
-            innerClassName='left-0 top-0 h-full bg-white'
-            sliderStyle={({ x, y }) => ({
-              width: `${x * 100}%`
-            })}
-            values={{ x: fadeTime / 10, y: 0 }}
-            onChange={({ x, y }) => {
-              console.log(x)
-
-              setters.set({ fadeTime: x * 10 })
-            }}
-          />
-          <button
-            className={`px-1`}
-            onClick={() => {
-              let newValue = 1
-              const fadeFrame = 1 / (fadeTime * 60)
-
-              const currentPreset = getters.get('preset')
-              const firstOriginal = currentPreset[0].color_alpha
-              const secondOriginal = currentPreset[1].color_alpha
-              const fade = () => {
-                newValue -= fadeFrame
-                const index = getters.get('index')
-
-                if (index === 0 || controlBoth) {
-                  setters.setPreset(
-                    0,
-                    { color_alpha: firstOriginal * newValue },
-                    socket,
-                    { save: false }
-                  )
+              if (!scrollFix) {
+                document.body.style.overflow = 'hidden'
+                // document.body.style.height = '100%';
+                // document.getElementById('root')!.style.height = '100%';
+                setScrollFix(true)
+                document
+                  .getElementById('root')
+                  ?.requestFullscreen()
+                  .catch(err => {
+                    console.error(
+                      `Error attempting to enable fullscreen: ${err.message}`
+                    )
+                  })
+                document.documentElement.style.overflow = 'hidden'
+                document.body.style.overflow = 'hidden'
+                document.body.style.overscrollBehavior = 'none'
+                document.ontouchmove = function (event) {
+                  event.preventDefault()
                 }
-                if (index === 1 || controlBoth) {
-                  setters.setPreset(
-                    1,
-                    { color_alpha: secondOriginal * newValue },
-                    socket,
-                    { save: false }
-                  )
-                }
-                if (newValue > 0) {
-                  requestAnimationFrame(fade)
+              } else {
+                document.body.style.overflow = ''
+                setScrollFix(false)
+                if (document.exitFullscreen) {
+                  document.exitFullscreen().catch(err => {
+                    console.error(`Error exiting fullscreen: ${err.message}`)
+                  })
                 }
               }
-              fade()
             }}>
-            <span className='mix-blend-difference'>fade</span>
+            scrollFix
           </button>
-        </div>
-        <FileChooser />
-        <div className='grid grid-cols-[repeat(3,90px)] grid-rows-2 gap-1'>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(
-                index,
-                getters.get('presets')[getters.get('currentPreset')][index],
-                socket,
-                { save: true }
-              )
-            }}>
-            RESET
-          </button>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(index, { mesh_position: [0, 0, 0] }, socket, {
-                save: true
-              })
-            }}>
-            position
-          </button>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(index, { mesh_rotatexyz: [0, 0, 0] }, socket, {
-                save: true
-              })
-            }}>
-            rotation
-          </button>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(
-                index,
-                _.pick(
-                  getters.get('presets')[getters.get('currentPreset')][index],
-                  [
-                    'color_alpha',
-                    'color_brightness',
-                    'color_contrast',
-                    'color_saturation',
-                    'color_hue'
-                  ]
-                ),
-                socket
-              )
-            }}>
-            color
-          </button>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(
-                index,
-                _.pick(
-                  getters.get('presets')[getters.get('currentPreset')][index],
-                  [
-                    'nurbs_curvature',
-                    'mesh_pointSize',
-                    'mesh_drawMode',
-                    'mesh_scale',
-                    'other_dim'
-                  ]
-                ),
-                socket,
-                { save: true }
-              )
-            }}>
-            shape
-          </button>
-          <button
-            className='bg-red-900 px-1'
-            onClick={() => {
-              setters.setPreset(
-                index,
-                _.pick(
-                  getters.get('presets')[getters.get('currentPreset')][index],
-                  [
-                    'warping_scale',
-                    'warping_smooth',
-                    'warping_sound',
-                    'warping_soundScale',
-                    'warping_speed',
-                    'warping_strength',
-                    'warping_type',
-                    'nurbs_scale',
-                    'nurbs_speed'
-                  ]
-                ),
-                socket,
-                { save: true }
-              )
-            }}>
-            noise
-          </button>
-        </div>
-      </div>
-
-      <div className='w-screen h-0 grow flex'>
-        <div className='h-full w-0 grow *:h-1/2 *:flex *:overflow-x-auto *:overflow-y-hidden *:w-full *:*:flex-none'>
-          <div className=''>
-            <MaxValue name='color_alpha' title='a' />
-            <MaxValue name='color_brightness' title='br' />
-            <MaxValue name='color_contrast' title='co' />
-            <MaxValue name='color_saturation' title='sat' />
-            <MaxValue name='color_hue' title='hue' />
-
-            <MaxValue name='other_source' title='source' />
-            <MaxValue name='other_source2' title='source 2' />
-            <MaxValue name='other_sourcefade' title='xfade' />
-
-            <MaxValue name='other_dim' title='dim' />
-            <MaxValue name='nurbs_curvature' title='curve' />
-            <MaxValue name='mesh_pointSize' title='pt-size' />
-            <MaxValue name='sorting_scramble' title='scramble' />
-            <div className='text-center h-full'>
-              <div>
-                <h2>Scramble</h2>
-                <MaxValue name='nurbs_random' title='curve' />
-                <MaxValue name='sorting_trigger' title='points' />
-              </div>
-              <div className='flex space-x-2'>
-                <MaxValue name='mesh_drawMode' title='draw-mode' />
-                <MaxValue name='mesh_scale' title='scale' />
+          <div>
+            <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
+              <div className='flex *:w-[40px]'>
+                <button
+                  className={`${index === 0 ? 'bg-gray-700 rounded-lg' : ''}`}
+                  onClick={() => {
+                    setters.set({ index: 0 })
+                    socket.emit('set', '/mesh', 'spacemouse', 1)
+                  }}>
+                  <span className='mix-blend-difference'>1</span>
+                </button>
+                <button
+                  className={`${index === 1 ? 'bg-gray-700 rounded-lg' : ''}`}
+                  onClick={() => {
+                    setters.set({ index: 1 })
+                    socket.emit('set', '/mesh', 'spacemouse', 2)
+                  }}>
+                  <span className='mix-blend-difference'>2</span>
+                </button>
               </div>
             </div>
+            <MaxValue name='mesh_enable' title='on/off' />
+            <button
+              className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
+              onClick={() => {
+                setControlBoth(!controlBoth)
+              }}>
+              <span className='mix-blend-difference'>both</span>
+            </button>
           </div>
           <div>
+            <Slider
+              className='w-[100px] h-[36px] rounded-lg border border-white'
+              innerClassName='left-0 top-0 h-full bg-white'
+              sliderStyle={({ x, y }) => ({
+                width: `${x * 100}%`
+              })}
+              values={{ x: fadeTime / 10, y: 0 }}
+              onChange={({ x, y }) => {
+                setters.set({ fadeTime: x * 10 })
+              }}
+            />
+            <button
+              className={`px-1`}
+              onClick={() => {
+                let newValue = 1
+                const fadeFrame = 1 / (fadeTime * 60)
+
+                const currentPreset = getters.get('preset')
+                const firstOriginal = currentPreset[0].color_alpha
+                const secondOriginal = currentPreset[1].color_alpha
+                const fade = () => {
+                  newValue -= fadeFrame
+                  const index = getters.get('index')
+
+                  if (index === 0 || controlBoth) {
+                    setters.setPreset(
+                      0,
+                      { color_alpha: firstOriginal * newValue },
+                      socket,
+                      { save: false }
+                    )
+                  }
+                  if (index === 1 || controlBoth) {
+                    setters.setPreset(
+                      1,
+                      { color_alpha: secondOriginal * newValue },
+                      socket,
+                      { save: false }
+                    )
+                  }
+                  if (newValue > 0) {
+                    requestAnimationFrame(fade)
+                  }
+                }
+                fade()
+              }}>
+              <span className='mix-blend-difference'>fade</span>
+            </button>
+          </div>
+          <FileChooser />
+          <div className='grid grid-cols-[repeat(3,90px)] grid-rows-2 gap-1'>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(
+                  index,
+                  getters.get('presets')[getters.get('currentPreset')][index],
+                  socket
+                )
+              }}>
+              RESET
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(index, { mesh_position: [0, 0, 0] }, socket)
+              }}>
+              position
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(index, { mesh_rotatexyz: [0, 0, 0] }, socket)
+              }}>
+              rotation
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(
+                  index,
+                  _.pick(
+                    getters.get('presets')[getters.get('currentPreset')][index],
+                    [
+                      'color_alpha',
+                      'color_brightness',
+                      'color_contrast',
+                      'color_saturation',
+                      'color_hue'
+                    ]
+                  ),
+                  socket
+                )
+              }}>
+              color
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(
+                  index,
+                  _.pick(
+                    getters.get('presets')[getters.get('currentPreset')][index],
+                    [
+                      'nurbs_curvature',
+                      'mesh_pointSize',
+                      'mesh_drawMode',
+                      'mesh_scale',
+                      'other_dim'
+                    ]
+                  ),
+                  socket
+                )
+              }}>
+              shape
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                setters.setPreset(
+                  index,
+                  _.pick(
+                    getters.get('presets')[getters.get('currentPreset')][index],
+                    [
+                      'warping_scale',
+                      'warping_smooth',
+                      'warping_sound',
+                      'warping_soundScale',
+                      'warping_speed',
+                      'warping_strength',
+                      'warping_type',
+                      'nurbs_scale',
+                      'nurbs_speed'
+                    ]
+                  ),
+                  socket
+                )
+              }}>
+              noise
+            </button>
+          </div>
+        </div>
+
+        <div className='w-screen h-0 grow flex overflow-hidden'>
+          <div className='h-full'>
             <PresetInput />
-            <div className='flex h-full justify-center items-end *:mx-1'>
-              <div className='text-center h-full flex flex-col'>
-                <h3 className=''>nurbs</h3>
-                <div className='flex h-full'>
-                  <MaxValue name='nurbs_strength' title='strength' />
-                  <MaxValue name='nurbs_speed' title='speed' />
-                  <MaxValue name='nurbs_scale' title='scale' />
+          </div>
+          <div className='h-full w-0 grow *:h-1/2 *:flex *:overflow-x-auto *:overflow-y-hidden *:w-full *:*:flex-none'>
+            <div className=''>
+              <MaxValue name='color_alpha' title='a' />
+              <MaxValue name='color_brightness' title='br' />
+              <MaxValue name='color_contrast' title='co' />
+              <MaxValue name='color_saturation' title='sat' />
+              <MaxValue name='color_hue' title='hue' />
+
+              <MaxValue name='other_source' title='source' />
+              <MaxValue name='other_source2' title='source 2' />
+              <MaxValue name='other_sourcefade' title='xfade' />
+
+              <MaxValue name='other_dim' title='dim' />
+              <MaxValue name='nurbs_curvature' title='curve' />
+              <MaxValue name='mesh_pointSize' title='pt-size' />
+              <MaxValue name='sorting_scramble' title='scramble' />
+            </div>
+            <div>
+              <div className='text-center h-full'>
+                <div>
+                  <h2>Scramble</h2>
+                  <MaxValue name='nurbs_random' title='curve' />
+                  <MaxValue name='sorting_trigger' title='points' />
+                </div>
+                <div className='flex space-x-2'>
+                  <MaxValue name='mesh_drawMode' title='draw-mode' />
+                  <MaxValue name='mesh_scale' title='scale' />
                 </div>
               </div>
-              <div className='pt-6 h-full'>
-                <div className='h-full border-l border-white/50'></div>
-              </div>
-              <div className='text-center h-full flex flex-col'>
-                <h3 className=''>vertices</h3>
-                <div className='flex h-full'>
-                  <MaxValue name='warping_strength' title='strength' />
-                  <MaxValue name='warping_speed' title='speed' />
-                  <MaxValue name='warping_scale' title='scale' />
-                  <MaxValue name='warping_smooth' title='smooth' />
-                  <MaxValue name='warping_type' title='type' />
+              <div className='flex h-full justify-center items-end *:mx-1'>
+                <div className='text-center h-full flex flex-col'>
+                  <h3 className=''>nurbs</h3>
+                  <div className='flex h-full'>
+                    <MaxValue name='nurbs_strength' title='strength' />
+                    <MaxValue name='nurbs_speed' title='speed' />
+                    <MaxValue name='nurbs_scale' title='scale' />
+                  </div>
                 </div>
-              </div>
-              <div className='pt-6 h-full'>
-                <div className='h-full border-l border-white/50'></div>
-              </div>
-              <div className='text-center h-full flex flex-col'>
-                <h3 className=''>sound</h3>
-                <div className='flex h-full space-x-4'>
-                  <MaxValue name='warping_sound' title='strength' />
-                  <MaxValue name='warping_soundType' title='sound type' />
+                <div className='pt-6 h-full'>
+                  <div className='h-full border-l border-white/50'></div>
+                </div>
+                <div className='text-center h-full flex flex-col'>
+                  <h3 className=''>vertices</h3>
+                  <div className='flex h-full'>
+                    <MaxValue name='warping_strength' title='strength' />
+                    <MaxValue name='warping_speed' title='speed' />
+                    <MaxValue name='warping_scale' title='scale' />
+                    <MaxValue name='warping_smooth' title='smooth' />
+                    <MaxValue name='warping_type' title='type' />
+                  </div>
+                </div>
+                <div className='pt-6 h-full'>
+                  <div className='h-full border-l border-white/50'></div>
+                </div>
+                <div className='text-center h-full flex flex-col'>
+                  <h3 className=''>sound</h3>
+                  <div className='flex h-full space-x-4'>
+                    <MaxValue name='warping_sound' title='strength' />
+                    <MaxValue name='warping_soundType' title='sound type' />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -340,8 +371,8 @@ function FileChooser() {
   return (
     <div className='flex'>
       <div className='w-[200px]'>
-        <div className='w-[200px]'>
-          <h3>file 1</h3>
+        <div className='w-[200px] flex'>
+          <h3 className='whitespace-pre'>file 1</h3>
           <select
             className='w-full'
             value={file1}
@@ -351,8 +382,7 @@ function FileChooser() {
                 {
                   video_file1: ev.target.value
                 },
-                socket!,
-                { save: true }
+                socket!
               )
             }}>
             <option value=''>---</option>
@@ -363,8 +393,8 @@ function FileChooser() {
             ))}
           </select>
         </div>
-        <div className='w-[200px]'>
-          <h3>file 2</h3>
+        <div className='w-[200px] flex'>
+          <h3 className='whitespace-pre'>file 2</h3>
           <select
             className='w-full'
             value={file2}
@@ -374,8 +404,7 @@ function FileChooser() {
                 {
                   video_file2: ev.target.value
                 },
-                socket!,
-                { save: true }
+                socket!
               )
             }}>
             <option value=''>---</option>
@@ -398,8 +427,7 @@ function FileChooser() {
               {
                 video_noise: ev.target.value
               },
-              socket!,
-              { save: true }
+              socket!
             )
           }}>
           <option value=''>---</option>
@@ -422,7 +450,7 @@ function PresetInput() {
   const socket = useSocket()!
 
   return (
-    <div className='w-[225px] h-full flex flex-col '>
+    <div className='w-[170px] h-full flex flex-col '>
       <div className='flex space-x-1 px-1'>
         <button
           onClick={() => setCopy(!copy)}
@@ -489,9 +517,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         return (
           <button
             onClick={() => {
-              setters.setPreset(index, { [name]: !value }, socket, {
-                save: true
-              })
+              setters.setPreset(index, { [name]: !value }, socket)
             }}
             className={`border border-gray-700 mx-1 ${
               value ? 'bg-gray-700' : ''
@@ -510,9 +536,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
                     value === item ? 'bg-yellow-500 text-black' : ''
                   }`}
                   onClick={() =>
-                    setters.setPreset(index, { [name]: item }, socket, {
-                      save: true
-                    })
+                    setters.setPreset(index, { [name]: item }, socket)
                   }
                   key={item}
                   value={item}>
@@ -532,10 +556,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
               className='w-full h-full rounded-lg border'
               onChange={({ y }) => {
                 if (!socket) return
-
-                setters.setPreset(index, { [name]: y }, socket, {
-                  save: true
-                })
+                setters.setPreset(index, { [name]: y }, socket)
               }}
               sliderStyle={({ y }) => ({
                 height: `${y * 100}%`
@@ -595,8 +616,7 @@ function SelectComponent({
           setters.setPreset(
             getters.get('index'),
             { [name]: ev.target.value },
-            socket,
-            { save: true }
+            socket
           )
         }}>
         <option value=''>---</option>

@@ -91,10 +91,39 @@ function App() {
     }
   }, [])
 
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null)
+
+  // useEffect(() => {
+  //   const scrollContainer = document.getElementById('scrollContainer')
+  //   scrollContainerRef.current = scrollContainer as HTMLDivElement
+
+  //   const observer = new IntersectionObserver(
+  //     entries => {
+  //       entries.forEach(entry => {
+  //         if (entry.isIntersecting) {
+
+  //           observer.disconnect()
+  //         }
+  //       })
+  //     },
+  //     { threshold: 1.0 }
+  //   )
+
+  //   if (scrollContainer) {
+  //     observer.observe(scrollContainer)
+  //   }
+
+  //   return () => {
+  //     observer.disconnect()
+  //   }
+  // }, [])
+
   return (
-    <SocketProvider socket={socket}>
-      <Scene />
-    </SocketProvider>
+    <>
+      <SocketProvider socket={socket}>
+        <Scene />
+      </SocketProvider>
+    </>
   )
 }
 

@@ -135,7 +135,10 @@ setInterval(() => {
   fs.writeFileSync(
     path.join(
       presetsFolder,
-      `${new Date().toISOString().slice(0, 19)}_presets.json`
+      `${new Date()
+        .toISOString()
+        .slice(0, 19)
+        .replace(/\//g, '-')}_presets.json`
     ),
     JSON.stringify(presets)
   )
