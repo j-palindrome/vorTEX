@@ -2,8 +2,8 @@
 	"name" : "vorTEX",
 	"version" : 1,
 	"creationdate" : 3807309942,
-	"modificationdate" : 3823596334,
-	"viewrect" : [ 0.0, 87.0, 1673.0, 679.0 ],
+	"modificationdate" : 3826305419,
+	"viewrect" : [ 54.0, 87.0, 1626.0, 874.0 ],
 	"autoorganize" : 1,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -23,25 +23,29 @@
 
 		}
 ,
+		"code" : 		{
+			"brcosa.genjit" : 			{
+				"kind" : "genjit",
+				"local" : 1
+			}
+,
+			"index.js" : 			{
+				"kind" : "javascript",
+				"local" : 1
+			}
+,
+			"xfade.genjit" : 			{
+				"kind" : "genjit",
+				"local" : 1
+			}
+
+		}
+,
 		"externals" : 		{
 
 		}
 ,
 		"other" : 		{
-			"brcosa.genjit" : 			{
-				"kind" : "file",
-				"local" : 1
-			}
-,
-			"index.js" : 			{
-				"kind" : "file",
-				"local" : 1
-			}
-,
-			"xfade.genjit" : 			{
-				"kind" : "file",
-				"local" : 1
-			}
 
 		}
 
@@ -62,5 +66,6 @@
 	"devpath" : ".",
 	"sortmode" : 0,
 	"viewmode" : 0,
-	"includepackages" : 0
+	"includepackages" : 0,
+	"openactions_internal" : "max objectfile jit.geom.tomatrix jit.geometry jit.geom.tomatrix;\n"
 }

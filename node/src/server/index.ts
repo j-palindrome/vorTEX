@@ -20,10 +20,17 @@ const io = new SocketServer<SocketEvents>(server)
 // Then you can use `io` to listen the `connection` event and get a socket
 // from a client
 const settings = {
-  mediaFolder: path.resolve(process.cwd(), '../media'),
-  presetBackupFolder: path.resolve(process.cwd(), '../../presets')
+  mediaFolder: path.join(
+    process.cwd().match(/\/Users\/\w+\//)![0],
+    '/Documents/VorTEX_media'
+  ),
+  presetBackupFolder: path.join(
+    process.cwd().match(/\/Users\/\w+\//)![0],
+    '/Documents/VorTEX_presets'
+  )
 }
 
+maxApi.post('folders', settings.mediaFolder, settings.presetBackupFolder)
 const ipAdd = ip()
 maxApi.outlet(
   '/message',
@@ -47,7 +54,7 @@ const readFiles = (socket?: any) => {
       )
       .filter(file => !file.startsWith('.'))
   } catch (err) {
-    fs.mkdirSync(path.resolve(process.cwd(), '../media'))
+    fs.mkdirSync(path.resolve(process.cwd(), settings.mediaFolder))
     files = []
   }
   if (!socket) {
@@ -128,7 +135,7 @@ io.on('connection', socket => {
 
 // backup every 10 mins
 setInterval(() => {
-  const presetsFolder = path.resolve(process.cwd(), `../../presets`)
+  const presetsFolder = path.resolve(settings.presetBackupFolder)
   if (!fs.existsSync(presetsFolder)) {
     fs.mkdirSync(presetsFolder)
   }

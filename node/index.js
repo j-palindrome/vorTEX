@@ -14,9 +14,16 @@ const server = ViteExpress.listen(
 );
 const io = new SocketServer(server);
 const settings = {
-  mediaFolder: path.resolve(process.cwd(), "../media"),
-  presetBackupFolder: path.resolve(process.cwd(), "../../presets")
+  mediaFolder: path.join(
+    process.cwd().match(/\/Users\/\w+\//)[0],
+    "/Documents/VorTEX/media"
+  ),
+  presetBackupFolder: path.join(
+    process.cwd().match(/\/Users\/\w+\//)[0],
+    "/Documents/VorTEX/presets"
+  )
 };
+maxApi.post("folders", settings.mediaFolder, settings.presetBackupFolder);
 const ipAdd = ip();
 maxApi.outlet(
   "/message",
@@ -37,7 +44,7 @@ const readFiles = (socket) => {
       (file) => /\.(mov|mp4|m4a|png|jpg|aif|gif|webm|webp|vlc)$/.test(file)
     ).filter((file) => !file.startsWith("."));
   } catch (err) {
-    fs.mkdirSync(path.resolve(process.cwd(), "../media"));
+    fs.mkdirSync(path.resolve(process.cwd(), settings.mediaFolder));
     files = [];
   }
   if (!socket) {
@@ -108,7 +115,7 @@ io.on("connection", (socket) => {
   });
 });
 setInterval(() => {
-  const presetsFolder = path.resolve(process.cwd(), `../../presets`);
+  const presetsFolder = path.resolve(settings.presetBackupFolder);
   if (!fs.existsSync(presetsFolder)) {
     fs.mkdirSync(presetsFolder);
   }

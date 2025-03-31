@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1174.0, 901.0 ],
+		"rect" : [ 64.0, 143.0, 1582.0, 818.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -27,7 +27,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 240.0, 345.0, 150.0, 20.0 ]
+					"patching_rect" : [ 316.0, 377.0, 150.0, 20.0 ]
 				}
 
 			}
@@ -452,7 +452,7 @@
 
 											}
  ],
-										"originid" : "pat-78"
+										"originid" : "pat-784"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1012,7 +1012,7 @@
 
 							}
  ],
-						"originid" : "pat-76"
+						"originid" : "pat-782"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1311,7 +1311,7 @@
 
 											}
  ],
-										"originid" : "pat-82",
+										"originid" : "pat-788",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1707,7 +1707,7 @@
 
 							}
  ],
-						"originid" : "pat-80",
+						"originid" : "pat-786",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2018,14 +2018,27 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 115.0, 637.0, 901.0 ],
+						"rect" : [ 64.0, 143.0, 957.0, 818.0 ],
 						"default_fontsize" : 10.0,
 						"default_fontname" : "PT Mono",
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 2,
 						"style" : "Joshua",
 						"subpatcher_template" : "Joshua",
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-22",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 60.0, 60.0, 134.0, 20.0 ],
+									"text" : "zsa.easy_bark~ 1024 8"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-21",
 									"maxclass" : "jit.pwindow",
@@ -2134,7 +2147,7 @@
 
 											}
  ],
-										"originid" : "pat-90",
+										"originid" : "pat-796",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2383,25 +2396,11 @@
 
 											}
  ],
-										"originid" : "pat-92"
+										"originid" : "pat-798"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
 									"text" : "p normalize_for_display"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"fontname" : "Arial",
-									"fontsize" : 12.0,
-									"id" : "obj-13",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 59.999994277954102, 75.0, 135.0, 22.0 ],
-									"text" : "zsa.easy_bark~ 1024 8"
 								}
 
 							}
@@ -2634,7 +2633,7 @@
 
 											}
  ],
-										"originid" : "pat-98",
+										"originid" : "pat-800",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2751,7 +2750,7 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
-									"destination" : [ "obj-13", 0 ],
+									"destination" : [ "obj-22", 0 ],
 									"source" : [ "obj-1", 0 ]
 								}
 
@@ -2774,13 +2773,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-15", 0 ],
 									"source" : [ "obj-11", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-46", 0 ],
-									"source" : [ "obj-13", 0 ]
 								}
 
 							}
@@ -2859,6 +2851,13 @@
 									"destination" : [ "obj-21", 0 ],
 									"order" : 1,
 									"source" : [ "obj-20", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-46", 0 ],
+									"source" : [ "obj-22", 0 ]
 								}
 
 							}
@@ -2953,7 +2952,7 @@
 
 							}
  ],
-						"originid" : "pat-88",
+						"originid" : "pat-794",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3514,7 +3513,7 @@
 
 							}
  ],
-						"originid" : "pat-100"
+						"originid" : "pat-802"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3652,7 +3651,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 141.0, 1174.0, 875.0 ],
+						"rect" : [ 0.0, 26.0, 1582.0, 792.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3830,13 +3829,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
-									"linecount" : 3,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 50.0 ],
-									"text" : "spaceMouse 0 2.0874 1.176 0.0588 0.375451 0.97784 0.1176"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
+									"text" : "spaceMouse 1 0 0 0 0 0 0"
 								}
 
 							}
@@ -3871,11 +3869,10 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 34.0, 115.0, 1174.0, 901.0 ],
+										"rect" : [ 34.0, 115.0, 970.0, 901.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
 										"style" : "Joshua",
 										"subpatcher_template" : "Joshua",
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-53",
@@ -3932,7 +3929,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 50.0, 756.0, 266.0, 21.0 ],
-													"text" : "/mesh position 2.0874 1.176 0.0588"
+													"text" : "/mesh position 0 0 0"
 												}
 
 											}
@@ -3944,7 +3941,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 50.0, 809.0, 266.0, 21.0 ],
-													"text" : "/mesh rotatexyz 0.375451 0.97784 0.1176"
+													"text" : "/mesh rotatexyz 0 0 0"
 												}
 
 											}
@@ -4388,7 +4385,7 @@
 
 											}
  ],
-										"originid" : "pat-104",
+										"originid" : "pat-806",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4867,18 +4864,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-53",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 614.0, 1035.0, 55.0, 22.0 ],
-									"text" : "route 1"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-17",
 									"linecount" : 2,
 									"maxclass" : "comment",
@@ -5331,6 +5316,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -5888,7 +5875,7 @@
 
 											}
  ],
-										"originid" : "pat-222",
+										"originid" : "pat-928",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6687,13 +6674,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-278", 0 ],
-									"source" : [ "obj-53", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-25", 0 ],
 									"source" : [ "obj-54", 2 ]
 								}
@@ -6974,7 +6954,7 @@
 
 							}
  ],
-						"originid" : "pat-102",
+						"originid" : "pat-804",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7253,7 +7233,7 @@
 
 			}
  ],
-		"originid" : "pat-70",
+		"originid" : "pat-776",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
@@ -7437,8 +7417,8 @@
 			}
 , 			{
 				"name" : "zsa.easy_bark~.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
-				"patcherrelativepath" : ".",
+				"bootpath" : "~/Documents/Max 9/Packages/zsa.descriptors/misc",
+				"patcherrelativepath" : "../../../Max 9/Packages/zsa.descriptors/misc",
 				"type" : "JSON",
 				"implicit" : 1
 			}
