@@ -16,11 +16,11 @@ const io = new SocketServer(server);
 const settings = {
   mediaFolder: path.join(
     process.cwd().match(/\/Users\/\w+\//)[0],
-    "/Documents/VorTEX/media"
+    "/Documents/VorTEX_media"
   ),
   presetBackupFolder: path.join(
     process.cwd().match(/\/Users\/\w+\//)[0],
-    "/Documents/VorTEX/presets"
+    "/Documents/VorTEX_presets"
   )
 };
 maxApi.post("folders", settings.mediaFolder, settings.presetBackupFolder);
