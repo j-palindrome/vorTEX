@@ -272,23 +272,31 @@ export default function Scene() {
             <PresetInput />
           </div>
           <div className='h-full w-0 grow *:h-1/2 *:flex *:overflow-x-auto *:overflow-y-hidden *:w-full *:*:flex-none'>
-            <div className=''>
+            <div className='space-x-2'>
               <MaxValue name='color_alpha' title='a' />
               <MaxValue name='color_brightness' title='br' />
               <MaxValue name='color_contrast' title='co' />
               <MaxValue name='color_saturation' title='sat' />
               <MaxValue name='color_hue' title='hue' />
-
-              <MaxValue name='other_source' title='source' />
-              <MaxValue name='other_source2' title='source 2' />
               <MaxValue name='other_sourcefade' title='xfade' />
 
               <MaxValue name='other_dim' title='dim' />
               <MaxValue name='nurbs_curvature' title='curve' />
               <MaxValue name='mesh_pointSize' title='pt-size' />
               <MaxValue name='sorting_scramble' title='scramble' />
+              <MaxValue name='other_source' title='source' />
+              <MaxValue name='other_source2' title='source 2' />
             </div>
-            <div>
+            <div className='space-x-2'>
+              <MaxValue name='nurbs_strength' title='strength' />
+              <MaxValue name='nurbs_speed' title='speed' />
+              <MaxValue name='nurbs_scale' title='scale' />
+              <MaxValue name='warping_strength' title='strength' />
+              <MaxValue name='warping_speed' title='speed' />
+              <MaxValue name='warping_scale' title='scale' />
+              <MaxValue name='warping_smooth' title='smooth' />
+              <MaxValue name='warping_sound' title='strength' />
+
               <div className='text-center h-full'>
                 <div>
                   <h2>Scramble</h2>
@@ -296,41 +304,10 @@ export default function Scene() {
                   <MaxValue name='sorting_trigger' title='scramble' />
                 </div>
                 <div className='flex space-x-2'>
+                  <MaxValue name='warping_type' title='type' />
                   <MaxValue name='mesh_drawMode' title='draw-mode' />
                   <MaxValue name='mesh_scale' title='scale' />
-                </div>
-              </div>
-              <div className='flex h-full justify-center items-end *:mx-1'>
-                <div className='text-center h-full flex flex-col'>
-                  <h3 className=''>nurbs</h3>
-                  <div className='flex h-full'>
-                    <MaxValue name='nurbs_strength' title='strength' />
-                    <MaxValue name='nurbs_speed' title='speed' />
-                    <MaxValue name='nurbs_scale' title='scale' />
-                  </div>
-                </div>
-                <div className='pt-6 h-full'>
-                  <div className='h-full border-l border-white/50'></div>
-                </div>
-                <div className='text-center h-full flex flex-col'>
-                  <h3 className=''>vertices</h3>
-                  <div className='flex h-full'>
-                    <MaxValue name='warping_strength' title='strength' />
-                    <MaxValue name='warping_speed' title='speed' />
-                    <MaxValue name='warping_scale' title='scale' />
-                    <MaxValue name='warping_smooth' title='smooth' />
-                    <MaxValue name='warping_type' title='type' />
-                  </div>
-                </div>
-                <div className='pt-6 h-full'>
-                  <div className='h-full border-l border-white/50'></div>
-                </div>
-                <div className='text-center h-full flex flex-col'>
-                  <h3 className=''>sound</h3>
-                  <div className='flex h-full space-x-4'>
-                    <MaxValue name='warping_sound' title='strength' />
-                    <MaxValue name='warping_soundType' title='sound type' />
-                  </div>
+                  <MaxValue name='warping_soundType' title='sound type' />
                 </div>
               </div>
             </div>
