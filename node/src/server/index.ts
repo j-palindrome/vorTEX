@@ -21,11 +21,11 @@ const io = new SocketServer<SocketEvents>(server)
 // from a client
 const settings = {
   mediaFolder: path.join(
-    process.cwd().match(/\/Users\/\w+\//)![0],
+    process.cwd().match(/\/Users\/[^\/]+\//)![0],
     '/Documents/VorTEX_media'
   ),
   presetBackupFolder: path.join(
-    process.cwd().match(/\/Users\/\w+\//)![0],
+    process.cwd().match(/\/Users\/[^\/]+\//)![0],
     '/Documents/VorTEX_presets'
   )
 }

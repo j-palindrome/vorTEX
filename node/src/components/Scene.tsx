@@ -28,11 +28,8 @@ const helpInfos = {
 
 export default function Scene() {
   const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos | null>(null)
-
   const index = useAppStore(state => state.index)
-
   const socket = useSocket()!
-
   const [controlBoth, setControlBoth] = useState(false)
 
   useEffect(() => {
@@ -59,9 +56,10 @@ export default function Scene() {
 
   return (
     <>
-      <div className={`h-full w-screen flex flex-col overflow-hidden`}>
+      <div className='h-[200px] w-screen'></div>
+      <div className={`h-screen w-screen flex flex-col overflow-hidden`}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
-          <button
+          {/* <button
             onClick={() => {
               if (!scrollFix) {
                 document.body.style.overflow = 'hidden'
@@ -93,7 +91,7 @@ export default function Scene() {
               }
             }}>
             scrollFix
-          </button>
+          </button> */}
           <div>
             <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
               <div className='flex *:w-[40px]'>

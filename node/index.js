@@ -15,11 +15,11 @@ const server = ViteExpress.listen(
 const io = new SocketServer(server);
 const settings = {
   mediaFolder: path.join(
-    process.cwd().match(/\/Users\/\w+\//)[0],
+    process.cwd().match(/\/Users\/[^\/]+\//)[0],
     "/Documents/VorTEX_media"
   ),
   presetBackupFolder: path.join(
-    process.cwd().match(/\/Users\/\w+\//)[0],
+    process.cwd().match(/\/Users\/[^\/]+\//)[0],
     "/Documents/VorTEX_presets"
   )
 };

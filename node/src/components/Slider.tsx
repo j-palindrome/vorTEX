@@ -26,37 +26,43 @@ export default function Slider({
     Object.assign(slider.current.style, sliderStyle(place.current))
   }, [values])
 
-  const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
-    const rect = ev.currentTarget.getBoundingClientRect()
-    console.log('rect', rect.height)
-
-    const x =
-      ((ev['touches'] ? ev.touches[0].clientX : ev.clientX) - rect.x) /
-      rect.width
-    const y =
-      1 -
-      ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
-        rect.height
-    place.current = { x, y }
-    onChange({ x, y })
-    Object.assign(slider.current.style, sliderStyle({ x, y }))
-  }
+  const divRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    if (!divRef.current) return
+    const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
+      const rect = ev.currentTarget.getBoundingClientRect()
+      const x =
+        ((ev['touches'] ? ev.touches[0].clientX : ev.clientX) - rect.x) /
+        rect.width
+      const y =
+        1 -
+        ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
+          rect.height
+      place.current = { x, y }
+      onChange({ x, y })
+      Object.assign(slider.current.style, sliderStyle({ x, y }))
+    }
+    const onMouseMove = ev => {
+      if (!ev.buttons) return
+      updateMouse(ev)
+    }
+    divRef.current.addEventListener('mousemove', onMouseMove, {
+      passive: false
+    })
+    const onTouchMove = ev => {
+      ev.preventDefault()
+      updateMouse(ev)
+    }
+    divRef.current.addEventListener('touchmove', onTouchMove, {
+      passive: false
+    })
+  }, [divRef.current])
 
   return (
     <div
+      ref={divRef}
       className={`${className} relative flex overflow-hidden`}
-      onMouseMove={ev => {
-        if (!ev.buttons) return
-        updateMouse(ev)
-      }}
-      onTouchMove={ev => {
-        ev.preventDefault()
-        updateMouse(ev)
-      }}
-      onMouseUp={() => onChange(place.current, true)}
-      onMouseLeave={() => onChange(place.current, true)}
-      onTouchStart={e => e.preventDefault()}
-      onTouchEnd={e => e.preventDefault()}>
+      onMouseUp={() => onChange(place.current, true)}>
       <div className={`${innerClassName} absolute`} ref={slider}></div>
     </div>
   )
