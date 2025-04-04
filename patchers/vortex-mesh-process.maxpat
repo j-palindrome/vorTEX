@@ -10,24 +10,13 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 117.0, 869.0, 899.0 ],
+		"rect" : [ 42.0, 108.0, 1428.0, 833.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
 		"style" : "Joshua",
 		"subpatcher_template" : "Joshua",
 		"boxes" : [ 			{
-				"box" : 				{
-					"id" : "obj-31",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 224.347818732261658, 1469.0, 248.0, 18.0 ],
-					"text" : "TODO: redo geometry with jit.geom system"
-				}
-
-			}
-, 			{
 				"box" : 				{
 					"id" : "obj-2",
 					"linecount" : 2,
@@ -1635,7 +1624,7 @@
 
 							}
  ],
-						"originid" : "pat-1432",
+						"originid" : "pat-208",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -1691,7 +1680,8 @@
 								"parentstyle" : "",
 								"multi" : 0
 							}
- ]
+ ],
+						"toolbaradditions" : [ "packagemanager" ]
 					}
 ,
 					"patching_rect" : [ 381.739117920398712, 452.173898220062256, 92.0, 20.0 ],
@@ -2084,7 +2074,7 @@
 
 											}
  ],
-										"originid" : "pat-1436",
+										"originid" : "pat-212",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2383,7 +2373,7 @@
 
 							}
  ],
-						"originid" : "pat-1434",
+						"originid" : "pat-210",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2479,7 +2469,20 @@
 						"gridsnaponopen" : 2,
 						"style" : "Joshua",
 						"subpatcher_template" : "Joshua",
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-5",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 405.0, 20.0, 134.0, 20.0 ],
+									"text" : "loadmess trigger bang"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-30",
 									"maxclass" : "newobj",
@@ -2583,7 +2586,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 231.0, 150.0, 132.0, 31.0 ],
-									"text" : "jit_matrix u530007266"
+									"text" : "jit_matrix u810002186"
 								}
 
 							}
@@ -2897,6 +2900,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-3", 0 ],
+									"source" : [ "obj-5", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-15", 0 ],
 									"order" : 1,
 									"source" : [ "obj-6", 0 ]
@@ -2926,7 +2936,7 @@
 
 							}
  ],
-						"originid" : "pat-1438",
+						"originid" : "pat-214",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3581,7 +3591,7 @@
 
 											}
  ],
-										"originid" : "pat-1442"
+										"originid" : "pat-218"
 									}
 ,
 									"patching_rect" : [ 10.0, 1715.0, 164.0, 20.0 ],
@@ -3756,7 +3766,7 @@
 
 											}
  ],
-										"originid" : "pat-1444",
+										"originid" : "pat-220",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -3939,7 +3949,7 @@
 
 											}
  ],
-										"originid" : "pat-1446",
+										"originid" : "pat-222",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4110,7 +4120,7 @@
 
 											}
  ],
-										"originid" : "pat-1448",
+										"originid" : "pat-224",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -4546,7 +4556,7 @@
 
 											}
  ],
-										"originid" : "pat-1450",
+										"originid" : "pat-226",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5282,7 +5292,7 @@
 
 							}
  ],
-						"originid" : "pat-1440",
+						"originid" : "pat-216",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -5913,7 +5923,7 @@
 
 			}
  ],
-		"originid" : "pat-1408",
+		"originid" : "pat-184",
 		"styles" : [ 			{
 				"name" : "Joshua",
 				"default" : 				{
@@ -5964,7 +5974,7 @@
 				"multi" : 0
 			}
  ],
-		"oscsendudpport" : 7000
+		"oscreceiveudpport" : 0
 	}
 
 }

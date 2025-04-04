@@ -113,12 +113,11 @@ export const presetDescription: {
     type: 'string',
     values: [
       'tri_grid',
+      'triangles',
       'points',
       'line_strip',
       'line_loop',
-      'lines',
-      'lines_adjacency',
-      'line_strip_adjacency'
+      'lines'
     ],
     default: 'tri_grid'
   },

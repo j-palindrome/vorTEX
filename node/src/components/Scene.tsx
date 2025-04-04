@@ -292,7 +292,7 @@ export default function Scene() {
                 <div>
                   <h2>Scramble</h2>
                   <MaxValue name='nurbs_random' title='curve' />
-                  <MaxValue name='sorting_trigger' title='points' />
+                  <MaxValue name='sorting_trigger' title='scramble' />
                 </div>
                 <div className='flex space-x-2'>
                   <MaxValue name='mesh_drawMode' title='draw-mode' />
@@ -499,6 +499,16 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
   const [_group, control] = name.split('_')
   const description = presetDescription[name]
 
+  useEffect(() => {
+    if (!socket) return
+    switch (description.type) {
+      case 'trigger':
+        console.log('sending', name, description)
+
+        setters.setPreset(index, { [name]: 'bang' }, socket)
+    }
+  }, [socket])
+
   const typedComponent = () => {
     switch (description.type) {
       case 'trigger':
@@ -507,7 +517,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
             onClick={() => {
               setters.setPreset(index, { [name]: 'bang' }, socket)
             }}
-            className={`border border-gray-700 mx-1`}>
+            className={`border border-gray-700 mx-1 px-1`}>
             {title}
           </button>
         )
@@ -517,7 +527,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
             onClick={() => {
               setters.setPreset(index, { [name]: !value }, socket)
             }}
-            className={`border border-gray-700 mx-1 ${
+            className={`border border-gray-700 mx-1 px-1 ${
               value ? 'bg-gray-700' : ''
             }`}>
             {control}

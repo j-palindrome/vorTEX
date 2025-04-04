@@ -22,7 +22,7 @@ export default function Slider({
 
   useEffect(() => {
     if (!slider.current) return
-    place.current = values
+    place.current = { x: values.x ** 0.5, y: values.y ** 0.5 }
     Object.assign(slider.current.style, sliderStyle(place.current))
   }, [values])
 
@@ -39,7 +39,7 @@ export default function Slider({
         ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
           rect.height
       place.current = { x, y }
-      onChange({ x, y })
+      onChange({ x: x ** 2, y: y ** 2 })
       Object.assign(slider.current.style, sliderStyle({ x, y }))
     }
     const onMouseMove = ev => {
@@ -62,7 +62,22 @@ export default function Slider({
     <div
       ref={divRef}
       className={`${className} relative flex overflow-hidden`}
-      onMouseUp={() => onChange(place.current, true)}>
+      onMouseDown={ev => {
+        const rect = ev.currentTarget.getBoundingClientRect()
+        const x =
+          ((ev['touches'] ? ev.touches[0].clientX : ev.clientX) - rect.x) /
+          rect.width
+        const y =
+          1 -
+          ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
+            rect.height
+        place.current = { x, y }
+        if (ev.currentTarget.getBoundingClientRect().bottom < ev.clientY + 20) {
+          onChange({ y: 0, x: place.current.x })
+        } else {
+          onChange({ x: place.current.x ** 2, y: place.current.y ** 2 }, true)
+        }
+      }}>
       <div className={`${innerClassName} absolute`} ref={slider}></div>
     </div>
   )
