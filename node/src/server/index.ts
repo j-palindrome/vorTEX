@@ -40,7 +40,7 @@ maxApi.outlet('/message/ip', `http://${ipAdd}:7001`)
 maxApi.outlet(
   '/message/name',
   `name`,
-  `presets_${new Date().toISOString().slice(0, 10)}.json`
+  `presets_${new Date().toISOString().slice(0, 10).replace(/\//g, '-')}.json`
 )
 
 let files: string[] = []
