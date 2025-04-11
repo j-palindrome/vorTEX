@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ -1246.0, -9.0, 1212.0, 751.0 ],
+		"rect" : [ -1246.0, -9.0, 751.0, 751.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3033,14 +3033,27 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ -1246.0, -9.0, 1212.0, 751.0 ],
+						"rect" : [ -1246.0, -9.0, 751.0, 751.0 ],
 						"default_fontsize" : 10.0,
 						"default_fontname" : "PT Mono",
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 2,
 						"style" : "Joshua",
 						"subpatcher_template" : "Joshua",
+						"visible" : 1,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-25",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 975.0, 150.0, 128.0, 20.0 ],
+									"text" : "routepass soundShape"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-18",
 									"maxclass" : "newobj",
@@ -4423,11 +4436,11 @@
 								"box" : 								{
 									"id" : "obj-9",
 									"maxclass" : "newobj",
-									"numinlets" : 8,
-									"numoutlets" : 8,
-									"outlettype" : [ "", "", "", "", "", "", "", "" ],
-									"patching_rect" : [ 720.0, 105.0, 338.0, 20.0 ],
-									"text" : "route type strength speed smooth scale sound soundShape"
+									"numinlets" : 7,
+									"numoutlets" : 7,
+									"outlettype" : [ "", "", "", "", "", "", "" ],
+									"patching_rect" : [ 720.0, 105.0, 272.0, 20.0 ],
+									"text" : "route type strength speed smooth scale sound"
 								}
 
 							}
@@ -4784,6 +4797,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-18", 0 ],
 									"source" : [ "obj-23", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-18", 0 ],
+									"source" : [ "obj-25", 0 ]
 								}
 
 							}
@@ -5160,13 +5180,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-18", 0 ],
-									"source" : [ "obj-9", 6 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-21", 0 ],
 									"source" : [ "obj-9", 3 ]
 								}
@@ -5177,6 +5190,13 @@
 									"destination" : [ "obj-22", 0 ],
 									"order" : 0,
 									"source" : [ "obj-9", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-25", 0 ],
+									"source" : [ "obj-9", 6 ]
 								}
 
 							}
