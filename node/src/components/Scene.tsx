@@ -58,7 +58,7 @@ export default function Scene() {
     <>
       <div className='h-[200px] w-screen'></div>
       <div
-        className={`h-[calc(100vh-30px)] w-screen p-2 pb-5 flex flex-col overflow-hidden`}>
+        className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
           {/* <button
             onClick={() => {
