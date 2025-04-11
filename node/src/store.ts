@@ -69,7 +69,7 @@ export type MeshPreset = {
   warping_smooth: PresetValue<'slider'>
   warping_sound: PresetValue<'slider'>
   warping_scale: PresetValue<'slider'>
-  warping_soundType: PresetValue<'string'>
+  warping_soundShape: PresetValue<'slider'>
   warping_soundScale: PresetValue<'slider'>
   mouse_sensitivity: PresetValue<'slider'>
   other_dim: PresetValue<'slider'>
@@ -122,8 +122,8 @@ export const presetDescription: {
     default: 'tri_grid'
   },
   mesh_scale: {
-    type: 'string',
-    values: ['1:1', '4:3', '16:9'],
+    type: 'select',
+    values: () => ['1:1', '4:3', '16:9'],
     default: '16:9'
   },
   color_brightness: { type: 'slider', default: 0.5 },
@@ -146,10 +146,9 @@ export const presetDescription: {
     ],
     default: 'simplex'
   },
-  warping_soundType: {
-    type: 'string',
-    values: ['ripple', 'cell'],
-    default: 'ripple'
+  warping_soundShape: {
+    type: 'slider',
+    default: 0.5
   },
   warping_sound: { type: 'slider', default: 0 },
   warping_speed: { type: 'slider', default: 0 },
@@ -248,7 +247,6 @@ export const setters = {
               )
             }
           }
-          console.log(thisMesh)
 
           setters.setPreset(i, thisMesh, socket, { save: false })
         }
@@ -259,7 +257,9 @@ export const setters = {
           { save: false }
         )
         if (progress < 1) {
-          requestAnimationFrame(() => fadeToPreset(progress + 1 / 60))
+          requestAnimationFrame(() =>
+            fadeToPreset(progress + 1 / 60 / thisFadeTime)
+          )
         } else {
           modify(state => {
             state.currentPreset = name
@@ -293,6 +293,13 @@ export const setters = {
   ) => {
     if (sendToMax) {
       for (let key of Object.keys(newPreset)) {
+        while (key === 'mesh_position' && newPreset['mesh_position'].length < 3)
+          newPreset['mesh_position'].push(0)
+        while (
+          key === 'mesh_rotatexyz' &&
+          newPreset['mesh_rotatexyz'].length < 3
+        )
+          newPreset['mesh_rotatexyz'].push(0)
         socket.emit(
           'set',
           '/' + index + '/' + key.slice(0, key.indexOf('_')),

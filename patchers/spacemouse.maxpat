@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1605.0, 901.0 ],
+		"rect" : [ -1246.0, -9.0, 961.0, 751.0 ],
 		"gridsize" : [ 15.0, 15.0 ],
 		"subpatcher_template" : "Joshua",
 		"boxes" : [ 			{
@@ -68,7 +68,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 120.0, 284.0, 144.0, 22.0 ],
+					"patching_rect" : [ 184.0, 286.0, 144.0, 22.0 ],
 					"text" : "vexpr $f1 + $f2"
 				}
 
@@ -371,8 +371,7 @@
 
 			}
  ],
-		"originid" : "pat-238",
-		"oscsendudpport" : 7000
+		"originid" : "pat-1005"
 	}
 
 }

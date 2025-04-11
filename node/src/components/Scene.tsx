@@ -174,7 +174,10 @@ export default function Scene() {
             </button>
           </div>
           <FileChooser />
-          <div className='grid grid-cols-[repeat(3,90px)] grid-rows-2 gap-1'>
+          <MaxValue name='mesh_scale' title='scale' />
+          <div className='grid grid-cols-[repeat(4,90px)] grid-rows-2 gap-1'>
+            <MaxValue name='nurbs_random' title='curve' />
+
             <button
               className='bg-red-900 px-1'
               onClick={() => {
@@ -200,6 +203,7 @@ export default function Scene() {
               }}>
               rotation
             </button>
+            <MaxValue name='sorting_trigger' title='scramble' />
             <button
               className='bg-red-900 px-1'
               onClick={() => {
@@ -287,27 +291,43 @@ export default function Scene() {
               <MaxValue name='other_source' title='source' />
               <MaxValue name='other_source2' title='source 2' />
             </div>
-            <div className='space-x-2'>
-              <MaxValue name='nurbs_strength' title='strength' />
-              <MaxValue name='nurbs_speed' title='speed' />
-              <MaxValue name='nurbs_scale' title='scale' />
-              <MaxValue name='warping_strength' title='strength' />
-              <MaxValue name='warping_speed' title='speed' />
-              <MaxValue name='warping_scale' title='scale' />
-              <MaxValue name='warping_smooth' title='smooth' />
-              <MaxValue name='warping_sound' title='strength' />
-
-              <div className='text-center h-full'>
-                <div>
-                  <h2>Scramble</h2>
-                  <MaxValue name='nurbs_random' title='curve' />
-                  <MaxValue name='sorting_trigger' title='scramble' />
+            <div className='space-x-2 w-full'>
+              <div className='grid grid-rows-[auto,1fr] grid-cols-3 gap-y-2 space-x-2 h-full'>
+                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+                  <div className='grow border-b border-white py-1'></div>
+                  <div className='w-fit h-[.8em]'>nurbs</div>
+                  <div className='grow border-b border-white py-1'></div>
                 </div>
+                <MaxValue name='nurbs_strength' title='str' />
+                <MaxValue name='nurbs_speed' title='spd' />
+                <MaxValue name='nurbs_scale' title='scl' />
+              </div>
+              <div className='grid grid-rows-[auto,1fr] grid-cols-3 gap-y-2 space-x-2 h-full'>
+                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+                  <div className='grow border-b border-white py-1'></div>
+                  <div className='w-fit h-[.8em]'>vertices</div>
+                  <div className='grow border-b border-white py-1'></div>
+                </div>
+                <MaxValue name='warping_strength' title='str' />
+                <MaxValue name='warping_speed' title='spd' />
+                <MaxValue name='warping_scale' title='scl' />
+              </div>
+              <div className='grid grid-rows-[auto,1fr] grid-cols-2 gap-y-2 space-x-2 h-full'>
+                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+                  <div className='grow border-b border-white py-1'></div>
+                  <div className='w-fit h-[.8em]'>sound</div>
+                  <div className='grow border-b border-white py-1'></div>
+                </div>
+                <MaxValue name='warping_sound' title='str' />
+                <MaxValue name='warping_soundShape' title='k/b' />
+              </div>
+              <MaxValue name='warping_smooth' title='smth' />
+              <div className='h-full w-0 grow'></div>
+
+              <div className='text-center h-full w-fit'>
                 <div className='flex space-x-2'>
                   <MaxValue name='warping_type' title='type' />
                   <MaxValue name='mesh_drawMode' title='draw-mode' />
-                  <MaxValue name='mesh_scale' title='scale' />
-                  <MaxValue name='warping_soundType' title='sound type' />
                 </div>
               </div>
             </div>
@@ -515,7 +535,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         return (
           <div className='space-y-1 h-full'>
             <h3>{title}</h3>
-            <div className='overflow-y-auto h-full'>
+            <div className='overflow-y-auto h-full w-[120px] overflow-hidden'>
               {(description.values as string[])!.map(item => (
                 <button
                   className={`block w-full text-left px-2 ${
@@ -534,7 +554,7 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         )
       case 'slider':
         return (
-          <div className='w-[50px] h-full flex flex-col items-center'>
+          <div className='w-[60px] h-full flex flex-col items-center'>
             <h3 className='w-full text-center text-xs whitespace-nowrap !font-sans'>
               {title.slice(0, 8) + (title.length > 8 ? '...' : '')}
             </h3>

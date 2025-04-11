@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
+import { getters, useAppStore } from '../store'
+import { lerp } from 'three/src/math/MathUtils'
 
 /**
  * onChange returns style which is applied to the slider
@@ -27,6 +29,7 @@ export default function Slider({
   }, [values])
 
   const divRef = useRef<HTMLDivElement>(null)
+  let moved = useRef<false | number>(false)
   useEffect(() => {
     if (!divRef.current) return
     const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
@@ -44,6 +47,9 @@ export default function Slider({
     }
     const onMouseMove = ev => {
       if (!ev.buttons) return
+      console.log('moved start')
+      if (moved.current) window.clearTimeout(moved.current)
+      moved.current = window.setTimeout(() => (moved.current = false), 200)
       updateMouse(ev)
     }
     divRef.current.addEventListener('mousemove', onMouseMove, {
@@ -58,11 +64,15 @@ export default function Slider({
     })
   }, [divRef.current])
 
+  const fadeTime = useAppStore(state => state.fadeTime)
   return (
     <div
       ref={divRef}
       className={`${className} relative flex overflow-hidden`}
-      onMouseDown={ev => {
+      onMouseUp={ev => {
+        if (moved.current) {
+          return
+        }
         const rect = ev.currentTarget.getBoundingClientRect()
         const x =
           ((ev['touches'] ? ev.touches[0].clientX : ev.clientX) - rect.x) /
@@ -71,10 +81,35 @@ export default function Slider({
           1 -
           ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
             rect.height
+
+        const lastY = place.current.y
         place.current = { x, y }
+
         if (ev.currentTarget.getBoundingClientRect().bottom < ev.clientY + 20) {
-          onChange({ y: 0, x: place.current.x })
+          place.current = { x, y: 0 }
+        }
+
+        if (fadeTime > 0) {
+          const transitionTo = (progress: number) => {
+            const thisY = lerp(lastY, y, progress)
+            onChange({ x: place.current.x ** 2, y: thisY ** 2 }, true)
+
+            if (progress < 1) {
+              requestAnimationFrame(() =>
+                transitionTo(progress + 1 / 60 / fadeTime)
+              )
+            }
+          }
+          transitionTo(0)
         } else {
+          place.current = { x, y }
+          if (
+            ev.currentTarget.getBoundingClientRect().bottom <
+            ev.clientY + 20
+          ) {
+            place.current = { x, y: 0 }
+          }
+
           onChange({ x: place.current.x ** 2, y: place.current.y ** 2 }, true)
         }
       }}>
