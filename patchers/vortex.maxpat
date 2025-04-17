@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ -1246.0, -9.0, 1212.0, 751.0 ],
+		"rect" : [ 49.0, 115.0, 850.0, 751.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -475,7 +475,7 @@
 
 											}
  ],
-										"originid" : "pat-1301"
+										"originid" : "pat-1523"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1035,7 +1035,7 @@
 
 							}
  ],
-						"originid" : "pat-1299"
+						"originid" : "pat-1521"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1334,7 +1334,7 @@
 
 											}
  ],
-										"originid" : "pat-1305",
+										"originid" : "pat-1527",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1730,7 +1730,7 @@
 
 							}
  ],
-						"originid" : "pat-1303",
+						"originid" : "pat-1525",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2156,7 +2156,7 @@
 
 											}
  ],
-										"originid" : "pat-1313",
+										"originid" : "pat-1535",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2431,7 +2431,7 @@
 
 											}
  ],
-										"originid" : "pat-1315"
+										"originid" : "pat-1537"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2668,7 +2668,7 @@
 
 											}
  ],
-										"originid" : "pat-1317",
+										"originid" : "pat-1539",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2980,7 +2980,7 @@
 
 							}
  ],
-						"originid" : "pat-1311",
+						"originid" : "pat-1533",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3542,7 +3542,7 @@
 
 							}
  ],
-						"originid" : "pat-1319"
+						"originid" : "pat-1541"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ -1246.0, 43.0, 1212.0, 699.0 ],
+						"rect" : [ 49.0, 141.0, 850.0, 725.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3869,13 +3869,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
-									"text" : "spaceMouse 1 0.213446 -0.281743 -0.361731"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
+									"text" : "spaceMouse 0 0 0 0 0 0 0"
 								}
 
 							}
@@ -3969,7 +3968,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 50.0, 756.0, 266.0, 18.0 ],
-													"text" : "/mesh position -0.186789 -0.1908 -0.981326"
+													"text" : "/mesh position 0 0 0"
 												}
 
 											}
@@ -3981,7 +3980,7 @@
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
 													"patching_rect" : [ 50.0, 809.0, 266.0, 18.0 ],
-													"text" : "/mesh rotatexyz 0.025166 -0.023458 0.057638"
+													"text" : "/mesh rotatexyz 0 0 0"
 												}
 
 											}
@@ -4425,7 +4424,7 @@
 
 											}
  ],
-										"originid" : "pat-1323",
+										"originid" : "pat-1545",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5356,8 +5355,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -5915,7 +5912,7 @@
 
 											}
  ],
-										"originid" : "pat-1449",
+										"originid" : "pat-1671",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6994,7 +6991,7 @@
 
 							}
  ],
-						"originid" : "pat-1321",
+						"originid" : "pat-1543",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7280,7 +7277,7 @@
 
 			}
  ],
-		"originid" : "pat-1293",
+		"originid" : "pat-1515",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],

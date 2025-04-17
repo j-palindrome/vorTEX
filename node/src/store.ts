@@ -294,12 +294,18 @@ export const setters = {
     if (sendToMax) {
       for (let key of Object.keys(newPreset)) {
         while (key === 'mesh_position' && newPreset['mesh_position'].length < 3)
-          newPreset['mesh_position'].push(0)
+          newPreset = {
+            ...newPreset,
+            mesh_position: newPreset['mesh_position'].concat([0])
+          }
         while (
           key === 'mesh_rotatexyz' &&
           newPreset['mesh_rotatexyz'].length < 3
         )
-          newPreset['mesh_rotatexyz'].push(0)
+          newPreset = {
+            ...newPreset,
+            mesh_rotatexyz: newPreset['mesh_position'].concat([0])
+          }
         socket.emit(
           'set',
           '/' + index + '/' + key.slice(0, key.indexOf('_')),

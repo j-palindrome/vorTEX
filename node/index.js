@@ -33,7 +33,7 @@ maxApi.outlet("/message/ip", `http://${ipAdd}:7001`);
 maxApi.outlet(
   "/message/name",
   `name`,
-  `presets_${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.json`
+  `presets_${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10).replace(/\//g, "-")}.json`
 );
 let files = [];
 const readFiles = (socket) => {
