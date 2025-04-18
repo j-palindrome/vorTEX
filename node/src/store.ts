@@ -1,5 +1,5 @@
 import { produce } from 'immer'
-import _ from 'lodash'
+import _, { cloneDeep } from 'lodash'
 import { useRef } from 'react'
 import { Socket } from 'socket.io-client'
 import { lerp } from 'three/src/math/MathUtils'
@@ -85,14 +85,21 @@ export type GlobalPreset = {
   video_noise: string
 }
 
-type MeshPresets = [MeshPreset, MeshPreset, GlobalPreset]
+type MeshPresets = [
+  MeshPreset,
+  MeshPreset,
+  MeshPreset,
+  MeshPreset,
+  MeshPreset,
+  GlobalPreset
+]
 
 export type AppState = {
   preset: MeshPresets
   presets: Record<string, MeshPresets>
   currentPreset: string
   files: string[]
-  index: 0 | 1
+  index: 0 | 1 | 2 | 3 | 4
   fadeTime: number
 }
 
@@ -189,7 +196,14 @@ export const initialGlobal: GlobalPreset = {
 }
 
 const initialState: AppState = {
-  preset: [initialMesh, initialMesh, initialGlobal],
+  preset: [
+    initialMesh,
+    initialMesh,
+    initialMesh,
+    initialMesh,
+    initialMesh,
+    initialGlobal
+  ],
   presets: {},
   currentPreset: '0',
   files: [],
@@ -230,12 +244,13 @@ export const setters = {
     const newPreset = !presets[name]
       ? _.cloneDeep(currentPreset)
       : presets[name]
+
     setters.savePreset(getters.get('currentPreset'), socket)
 
     const thisFadeTime = getters.get('fadeTime')
     if (thisFadeTime) {
       const fadeToPreset = (progress: number) => {
-        for (let i = 0; i < 2; i++) {
+        for (let i = 0; i < 5; i++) {
           const thisMesh = {} as Partial<MeshPreset>
 
           for (let key of Object.keys(currentPreset[i])) {
@@ -252,7 +267,7 @@ export const setters = {
         }
         setters.setPreset(
           'global',
-          { ...currentPreset[2], ...newPreset[2] },
+          { ...currentPreset[5], ...newPreset[5] },
           socket,
           { save: false }
         )
@@ -268,14 +283,14 @@ export const setters = {
       }
       fadeToPreset(0)
     } else {
-      for (let i = 0; i < 2; i++) {
+      for (let i = 0; i < 5; i++) {
         setters.setPreset(i, { ...(newPreset[i] as MeshPreset) }, socket, {
           save: false
         })
       }
       setters.setPreset(
         'global',
-        { ...currentPreset[2], ...newPreset[2] },
+        { ...currentPreset[5], ...newPreset[5] },
         socket,
         { save: false }
       )
@@ -306,6 +321,9 @@ export const setters = {
             ...newPreset,
             mesh_rotatexyz: newPreset['mesh_position'].concat([0])
           }
+        if (key.includes('file') && !newPreset[key]) {
+          continue
+        }
         socket.emit(
           'set',
           '/' + index + '/' + key.slice(0, key.indexOf('_')),
@@ -321,12 +339,12 @@ export const setters = {
           state.preset[index][key] = value
         } else if (index === 'global') {
           // global
-          state.preset[2][key] = value
+          state.preset[5][key] = value
         }
       }
       if (save) {
         state.presets[state.currentPreset] = state.preset
-        socket.emit('savePresets', getters.get('presets'))
+        socket.emit('savePresets', state.presets)
       }
     })
   },

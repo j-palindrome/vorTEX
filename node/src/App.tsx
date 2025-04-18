@@ -1,11 +1,20 @@
 import { useEffect, useRef, useState } from 'react'
 import { SocketProvider } from './context'
-import { AppState, getters, initialMesh, setters, useAppStore } from './store'
+import {
+  AppState,
+  getters,
+  initialGlobal,
+  initialMesh,
+  setters,
+  useAppStore
+} from './store'
 import { Socket, io } from 'socket.io-client'
 import Scene from './components/Scene'
+import { cloneDeep } from 'lodash'
 
 function App() {
   const [socket, setSocket] = useState<Socket<SocketEvents, SocketEvents>>()
+  const loaded = useRef(false)
 
   useEffect(() => {
     const socket: Socket<SocketEvents, SocketEvents> = io()
@@ -14,23 +23,37 @@ function App() {
     socket.emit('loadPresets', presets => {
       const newPresets: AppState['presets'] = presets
       const defaultKeys = Object.keys(initialMesh)
+
       for (let value of Object.values(newPresets)) {
-        for (let mesh of value) {
+        while (value.length < 5) {
+          value.push(cloneDeep(initialMesh))
+        }
+        if (value.length < 6) {
+          value.push(cloneDeep(initialGlobal))
+        }
+        for (let mesh of value.slice(0, 5)) {
           for (let key of defaultKeys) {
             if (mesh[key] === undefined) {
               mesh[key] = initialMesh[key]
             }
           }
         }
+        for (let key of Object.keys(initialGlobal)) {
+          if (value[5][key] === undefined) value[5][key] = initialGlobal[key]
+        }
       }
 
+      setters.setPreset(0, newPresets['0'][0], socket)
+      setters.setPreset(1, newPresets['0'][1], socket)
+      setters.setPreset(2, newPresets['0'][1], socket)
+      setters.setPreset(3, newPresets['0'][3], socket)
+      setters.setPreset(4, newPresets['0'][4], socket)
+      setters.setPreset('global', newPresets['0'][5], socket)
       setters.set({
         presets: newPresets,
         currentPreset: '0'
       })
-      setters.setPreset(0, newPresets['0'][0], socket)
-      setters.setPreset(1, newPresets['0'][1], socket)
-      setters.setPreset('global', newPresets['0'][2], socket)
+      window.setTimeout(() => (loaded.current = true), 500)
     })
 
     socket.on('setPresets', presets => {
@@ -66,6 +89,7 @@ function App() {
     })
 
     socket.on('getSpaceMouse', (index, position, rotation) => {
+      if (!loaded.current) return
       setters.setPreset(
         index,
         { mesh_position: position, mesh_rotatexyz: rotation },
@@ -76,14 +100,6 @@ function App() {
 
     socket.on('setFiles', files => {
       setters.set({ files })
-      setters.setPreset(
-        'global',
-        {
-          video_file1: files[0] ?? undefined,
-          video_file2: files[0] ?? undefined
-        },
-        socket
-      )
     })
 
     return () => {

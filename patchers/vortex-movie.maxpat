@@ -2,51 +2,42 @@
 	"patcher" : 	{
 		"fileversion" : 1,
 		"appversion" : 		{
-			"major" : 8,
-			"minor" : 6,
-			"revision" : 4,
+			"major" : 9,
+			"minor" : 0,
+			"revision" : 5,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 703.0, 751.0 ],
-		"bglocked" : 0,
+		"rect" : [ 42.0, 123.0, 1356.0, 736.0 ],
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
-		"default_fontface" : 0,
 		"default_fontname" : "PT Mono",
-		"gridonopen" : 1,
 		"gridsize" : [ 15.0, 15.0 ],
 		"gridsnaponopen" : 2,
-		"objectsnaponopen" : 1,
-		"statusbarvisible" : 2,
-		"toolbarvisible" : 1,
-		"lefttoolbarpinned" : 0,
-		"toptoolbarpinned" : 0,
-		"righttoolbarpinned" : 0,
-		"bottomtoolbarpinned" : 0,
-		"toolbars_unpinned_last_save" : 0,
-		"tallnewobj" : 0,
-		"boxanimatetime" : 200,
-		"enablehscroll" : 1,
-		"enablevscroll" : 1,
-		"devicewidth" : 0.0,
-		"description" : "",
-		"digest" : "",
-		"tags" : "",
 		"style" : "Joshua",
 		"subpatcher_template" : "Joshua",
-		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-3",
+					"id" : "obj-19",
 					"maxclass" : "button",
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "bang" ],
 					"parameter_enable" : 0,
-					"patching_rect" : [ 240.0, 45.0, 24.0, 24.0 ]
+					"patching_rect" : [ 270.0, 90.0, 24.0, 24.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-15",
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 255.0, 120.0, 50.0, 20.0 ]
 				}
 
 			}
@@ -61,7 +52,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 344.0, 360.0, 80.0, 33.0 ],
+					"patching_rect" : [ 344.0, 525.0, 80.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 180.0, 195.0, 80.0, 33.0 ]
 				}
@@ -74,7 +65,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 240.0, 360.0, 80.0, 60.0 ],
+					"patching_rect" : [ 240.0, 525.0, 80.0, 60.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 30.0, 150.0, 135.0, 105.0 ],
 					"sync" : 1
@@ -88,7 +79,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_gl_texture", "" ],
-					"patching_rect" : [ 292.666666666666629, 315.0, 206.0, 20.0 ],
+					"patching_rect" : [ 292.0, 480.0, 206.0, 20.0 ],
 					"text" : "jit.gl.texture VORTEX @name #1"
 				}
 
@@ -103,7 +94,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 460.666666666666742, 255.0, 80.0, 33.0 ],
+					"patching_rect" : [ 460.0, 420.0, 80.0, 33.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 180.0, 150.0, 80.0, 33.0 ]
 				}
@@ -137,15 +128,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
-					"linecount" : 6,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 335.0, 100.0, 150.0, 74.0 ],
+					"patching_rect" : [ 335.0, 100.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_linecount" : 6,
-					"presentation_rect" : [ 30.0, 38.0, 150.0, 74.0 ],
-					"text" : "/Users/jreinier/Library/CloudStorage/GoogleDrive-jtreinier@gmail.com/My Drive/1_now/vortex/media/genuary22.mov"
+					"presentation_rect" : [ 30.0, 38.0, 150.0, 18.0 ]
 				}
 
 			}
@@ -168,7 +156,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 235.0, 140.0, 40.0 ],
+					"patching_rect" : [ 50.0, 400.0, 140.0, 40.0 ],
 					"presentation" : 1,
 					"presentation_linecount" : 3,
 					"presentation_rect" : [ 195.0, 60.0, 140.0, 40.0 ],
@@ -183,7 +171,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 259.540227890014648, 129.885056972503662, 38.0, 20.0 ],
+					"patching_rect" : [ 210.0, 225.0, 38.0, 20.0 ],
 					"text" : "start"
 				}
 
@@ -195,7 +183,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "multichannelsignal" ],
-					"patching_rect" : [ 335.0, 250.000001072883606, 68.0, 20.0 ],
+					"patching_rect" : [ 335.0, 415.0, 68.0, 20.0 ],
 					"text" : "mc.pack~ 2"
 				}
 
@@ -206,7 +194,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 335.0, 280.0, 98.0, 20.0 ],
+					"patching_rect" : [ 335.0, 445.0, 98.0, 20.0 ],
 					"text" : "mc.s~ video-vol"
 				}
 
@@ -230,7 +218,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 140.0, 120.0, 50.0, 20.0 ],
+					"patching_rect" : [ 140.0, 150.0, 50.0, 20.0 ],
 					"text" : "read $1"
 				}
 
@@ -240,9 +228,9 @@
 					"id" : "obj-7",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
-					"numoutlets" : 3,
-					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 75.0, 180.0, 392.0, 20.0 ],
+					"numoutlets" : 4,
+					"outlettype" : [ "signal", "signal", "jit_gl_texture", "" ],
+					"patching_rect" : [ 75.0, 345.0, 392.0, 20.0 ],
 					"text" : "jit.movie~ @drawto VORTEX @loop 2 @autostart 1 @output_texture 1"
 				}
 
@@ -309,8 +297,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"source" : [ "obj-3", 0 ]
+					"destination" : [ "obj-15", 0 ],
+					"source" : [ "obj-19", 0 ]
 				}
 
 			}
@@ -391,6 +379,7 @@
 
 			}
  ],
+		"originid" : "pat-544",
 		"styles" : [ 			{
 				"name" : "Joshua",
 				"default" : 				{

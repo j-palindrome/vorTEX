@@ -106,6 +106,11 @@ io.on('connection', socket => {
 
   socket.emit('setFiles', files)
 
+  socket.on('getFiles', () => {
+    readFiles(socket)
+    socket.emit('setFiles', files)
+  })
+
   const readPresets = () => {
     const presetsPath = path.resolve(process.cwd(), 'presets.json')
     if (!fs.existsSync(presetsPath)) {
@@ -126,6 +131,8 @@ io.on('connection', socket => {
   })
 
   socket.on('savePresets', presets => {
+    maxApi.post('saving preset:', presets['0'][5])
+
     fs.promises.writeFile(
       path.resolve(process.cwd(), 'presets.json'),
       JSON.stringify(presets)

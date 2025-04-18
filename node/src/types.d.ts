@@ -14,5 +14,6 @@ declare global {
       rotation: number[]
     ) => void
     setFiles: (files: string[]) => void
+    getFiles: () => void
   }
 }

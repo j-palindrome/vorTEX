@@ -32,15 +32,29 @@ export default function Slider({
   let moved = useRef<false | number>(false)
   useEffect(() => {
     if (!divRef.current) return
+
     const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
-      const rect = ev.currentTarget.getBoundingClientRect()
-      const x =
-        ((ev['touches'] ? ev.touches[0].clientX : ev.clientX) - rect.x) /
-        rect.width
-      const y =
-        1 -
-        ((ev['touches'] ? ev.touches[0].clientY : ev.clientY) - rect.y) /
-          rect.height
+      const rect = divRef.current!.getBoundingClientRect()
+      let x: number, y: number
+      console.log('change')
+
+      if (ev instanceof TouchEvent) {
+        const touch = [...ev.touches].find(
+          x =>
+            x.clientX > rect.left &&
+            x.clientX < rect.right &&
+            x.clientY < rect.bottom &&
+            x.clientY > rect.top
+        )
+        if (!touch) return
+        x = (touch.clientX - rect.x) / rect.width
+        y = 1 - (touch.clientY - rect.y) / rect.height
+        console.log(x, y)
+      } else if (ev instanceof MouseEvent) {
+        x = ev.clientX - rect.x / rect.width
+        y = 1 - (ev.clientY - rect.y / rect.height)
+      } else throw new Error()
+
       place.current = { x, y }
       onChange({ x: x ** 2, y: y ** 2 })
       Object.assign(slider.current.style, sliderStyle({ x, y }))
@@ -52,17 +66,13 @@ export default function Slider({
       moved.current = window.setTimeout(() => (moved.current = false), 200)
       updateMouse(ev)
     }
-    divRef.current.addEventListener('mousemove', onMouseMove, {
-      passive: false
-    })
-    const onTouchMove = ev => {
-      ev.preventDefault()
-      updateMouse(ev)
+    divRef.current.addEventListener('mousemove', onMouseMove)
+    divRef.current.addEventListener('touchmove', updateMouse)
+    return () => {
+      divRef.current?.removeEventListener('mousemove', onMouseMove)
+      divRef.current?.removeEventListener('touchmove', updateMouse)
     }
-    divRef.current.addEventListener('touchmove', onTouchMove, {
-      passive: false
-    })
-  }, [divRef.current])
+  }, [divRef])
 
   const fadeTime = useAppStore(state => state.fadeTime)
   return (

@@ -41,6 +41,7 @@ export default function Scene() {
       controlBoth ? 3 : getters.get('index') + 1
     )
   }, [controlBoth])
+
   useEffect(() => {
     if (!socket) return
     socket.emit(
@@ -52,66 +53,42 @@ export default function Scene() {
   }, [socket])
 
   const fadeTime = useAppStore(state => state.fadeTime)
-  const [scrollFix, setScrollFix] = useState(false)
+  // const [scrollFix, setScrollFix] = useState(false)
+
+  const frameRef = useRef<HTMLDivElement>(null!)
+  useEffect(() => {
+    const onTouchMove = ev => {
+      ev.preventDefault()
+    }
+    frameRef.current.addEventListener('touchmove', onTouchMove, {
+      passive: false
+    })
+  })
 
   return (
     <>
       <div className='h-[200px] w-screen'></div>
       <div
-        className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}>
+        className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}
+        ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
-          {/* <button
-            onClick={() => {
-              if (!scrollFix) {
-                document.body.style.overflow = 'hidden'
-                // document.body.style.height = '100%';
-                // document.getElementById('root')!.style.height = '100%';
-                setScrollFix(true)
-                document
-                  .getElementById('root')
-                  ?.requestFullscreen()
-                  .catch(err => {
-                    console.error(
-                      `Error attempting to enable fullscreen: ${err.message}`
-                    )
-                  })
-                document.documentElement.style.overflow = 'hidden'
-                document.body.style.overflow = 'hidden'
-                document.body.style.overscrollBehavior = 'none'
-                document.ontouchmove = function (event) {
-                  event.preventDefault()
-                }
-              } else {
-                document.body.style.overflow = ''
-                setScrollFix(false)
-                if (document.exitFullscreen) {
-                  document.exitFullscreen().catch(err => {
-                    console.error(`Error exiting fullscreen: ${err.message}`)
-                  })
-                }
-              }
-            }}>
-            scrollFix
-          </button> */}
           <div>
             <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
               <div className='flex *:w-[40px]'>
-                <button
-                  className={`${index === 0 ? 'bg-gray-700 rounded-lg' : ''}`}
-                  onClick={() => {
-                    setters.set({ index: 0 })
-                    socket.emit('set', '/mesh', 'spacemouse', 1)
-                  }}>
-                  <span className='mix-blend-difference'>1</span>
-                </button>
-                <button
-                  className={`${index === 1 ? 'bg-gray-700 rounded-lg' : ''}`}
-                  onClick={() => {
-                    setters.set({ index: 1 })
-                    socket.emit('set', '/mesh', 'spacemouse', 2)
-                  }}>
-                  <span className='mix-blend-difference'>2</span>
-                </button>
+                {_.range(5).map(x => {
+                  return (
+                    <button
+                      className={`${
+                        index === x ? 'bg-gray-700 rounded-lg' : ''
+                      }`}
+                      onClick={() => {
+                        setters.set({ index: x })
+                        socket.emit('set', '/mesh', 'spacemouse', 2)
+                      }}>
+                      <span className='mix-blend-difference'>{x}</span>
+                    </button>
+                  )
+                })}
               </div>
             </div>
             <MaxValue name='mesh_enable' title='on/off' />
@@ -124,19 +101,8 @@ export default function Scene() {
             </button>
           </div>
           <div>
-            <Slider
-              className='w-[100px] h-[36px] rounded-lg border border-white'
-              innerClassName='left-0 top-0 h-full bg-white'
-              sliderStyle={({ x, y }) => ({
-                width: `${x * 100}%`
-              })}
-              values={{ x: fadeTime / 10, y: 0 }}
-              onChange={({ x, y }) => {
-                setters.set({ fadeTime: x * 10 })
-              }}
-            />
             <button
-              className={`px-1`}
+              className={`px-1 block`}
               onClick={() => {
                 let newValue = 1
                 const fadeFrame = 1 / (fadeTime * 60)
@@ -170,7 +136,14 @@ export default function Scene() {
                 }
                 fade()
               }}>
-              <span className='mix-blend-difference'>fade</span>
+              <span className='mix-blend-difference'>fadeout</span>
+            </button>
+            <button
+              className='px-1 block'
+              onClick={() => {
+                socket.emit('getFiles')
+              }}>
+              reload
             </button>
           </div>
           <FileChooser />
@@ -277,55 +250,96 @@ export default function Scene() {
           </div>
           <div className='h-full w-0 grow *:h-1/2 *:flex *:overflow-x-auto *:overflow-y-hidden *:w-full *:*:flex-none'>
             <div className='space-x-2'>
-              <MaxValue name='color_alpha' title='a' />
+              <MaxValue name='color_alpha' title='alph' />
               <MaxValue name='color_brightness' title='br' />
               <MaxValue name='color_contrast' title='co' />
               <MaxValue name='color_saturation' title='sat' />
               <MaxValue name='color_hue' title='hue' />
-              <MaxValue name='other_sourcefade' title='xfade' />
 
               <MaxValue name='other_dim' title='dim' />
               <MaxValue name='nurbs_curvature' title='curve' />
-              <MaxValue name='mesh_pointSize' title='pt-size' />
-              <MaxValue name='sorting_scramble' title='scramble' />
+              <MaxValue name='mesh_pointSize' title='pt' />
+              <MaxValue name='sorting_scramble' title='scra' />
+              <MaxValue name='warping_smooth' title='smth' />
               <MaxValue name='other_source' title='source' />
               <MaxValue name='other_source2' title='source 2' />
             </div>
-            <div className='space-x-2 w-full'>
-              <div className='grid grid-rows-[auto,1fr] grid-cols-3 gap-y-2 space-x-2 h-full'>
-                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+            <div className='w-full'>
+              <MaxValue
+                className='mr-2'
+                name='other_sourcefade'
+                title='xfade'
+              />
+              <div className='h-full w-[60px] flex flex-col mr-2'>
+                <div className='text-xs text-center'>fade</div>
+                <Slider
+                  className='h-full w-full rounded-lg border border-white'
+                  innerClassName='left-0 bottom-0 w-full bg-white'
+                  sliderStyle={({ x, y }) => ({
+                    height: `${y * 100}%`
+                  })}
+                  values={{ x: 0, y: fadeTime / 10 }}
+                  onChange={({ x, y }) => {
+                    setters.set({ fadeTime: y * 10 })
+                  }}
+                />
+              </div>
+              <div className='grid grid-rows-[1fr] grid-cols-3 gap-y-2 h-full'>
+                {/* <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
                   <div className='grow border-b border-white py-1'></div>
                   <div className='w-fit h-[.8em]'>nurbs</div>
                   <div className='grow border-b border-white py-1'></div>
-                </div>
-                <MaxValue name='nurbs_strength' title='str' />
-                <MaxValue name='nurbs_speed' title='spd' />
-                <MaxValue name='nurbs_scale' title='scl' />
+                </div> */}
+                <MaxValue
+                  className='mr-2'
+                  name='nurbs_strength'
+                  title='str lg'
+                />
+                <MaxValue className='mr-2' name='nurbs_speed' title='spd lg' />
+                <MaxValue className='' name='nurbs_scale' title='scl lg' />
               </div>
-              <div className='grid grid-rows-[auto,1fr] grid-cols-3 gap-y-2 space-x-2 h-full'>
-                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+              <div className='grid grid-rows-[1fr] grid-cols-3 gap-y-2 h-full'>
+                {/* <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
                   <div className='grow border-b border-white py-1'></div>
                   <div className='w-fit h-[.8em]'>vertices</div>
                   <div className='grow border-b border-white py-1'></div>
-                </div>
-                <MaxValue name='warping_strength' title='str' />
-                <MaxValue name='warping_speed' title='spd' />
-                <MaxValue name='warping_scale' title='scl' />
+                </div> */}
+                <MaxValue
+                  className='mr-2'
+                  name='warping_strength'
+                  title='str sm'
+                />
+                <MaxValue
+                  className='mr-2'
+                  name='warping_speed'
+                  title='spd sm'
+                />
+                <MaxValue
+                  className='mr-2'
+                  name='warping_scale'
+                  title='scl sm'
+                />
               </div>
-              <div className='grid grid-rows-[auto,1fr] grid-cols-2 gap-y-2 space-x-2 h-full'>
-                <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
+              <div className='grid grid-rows-[1fr] grid-cols-2 gap-y-2 h-full'>
+                {/* <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
                   <div className='grow border-b border-white py-1'></div>
                   <div className='w-fit h-[.8em]'>sound</div>
                   <div className='grow border-b border-white py-1'></div>
-                </div>
-                <MaxValue name='warping_sound' title='str' />
-                <MaxValue name='warping_soundShape' title='k/b' />
+                </div> */}
+                <MaxValue
+                  className='mr-2'
+                  name='warping_sound'
+                  title='str-snd'
+                />
+                <MaxValue
+                  className='mr-2'
+                  name='warping_soundShape'
+                  title='k/b'
+                />
               </div>
-              <MaxValue name='warping_smooth' title='smth' />
               <div className='h-full w-0 grow'></div>
-
               <div className='text-center h-full w-fit'>
-                <div className='flex space-x-2'>
+                <div className='flex *:ml-2'>
                   <MaxValue name='warping_type' title='type' />
                   <MaxValue name='mesh_drawMode' title='draw-mode' />
                 </div>
@@ -340,9 +354,9 @@ export default function Scene() {
 
 function FileChooser() {
   const values = useAppStore(state => state.files)
-  const file1 = useAppStore(state => state.preset[2].video_file1)
-  const file2 = useAppStore(state => state.preset[2].video_file2)
-  const noise = useAppStore(state => state.preset[2].video_noise)
+  const file1 = useAppStore(state => state.preset[5].video_file1)
+  const file2 = useAppStore(state => state.preset[5].video_file2)
+  const noise = useAppStore(state => state.preset[5].video_noise)
   const noiseTypes = [
     'noise.perlin',
     'noise.simplex',
@@ -445,9 +459,11 @@ function PresetInput() {
 
   const socket = useSocket()!
 
+  const [index, setIndex] = useState(0)
+
   return (
     <div className='w-[170px] h-full flex flex-col '>
-      <div className='flex space-x-1 px-1'>
+      <div className='flex space-x-1 px-1 mb-2'>
         <button
           onClick={() => setCopy(!copy)}
           className={`w-1/2 h-12 rounded-lg ${
@@ -463,10 +479,23 @@ function PresetInput() {
           save
         </button>
       </div>
-      <div className='flex flex-wrap *:aspect-square *:w-6 h-full w-full overflow-auto'>
-        {_.range(49).map(i => (
+      <div className='flex flex-wrap *:aspect-square *:w-7 *:h-7 h-full w-full overflow-auto'>
+        {_.range(5).map(x => (
           <button
-            className={`rounded flex items-center justify-center m-1 ${
+            className={`rounded flex text-xs items-center justify-center m-0.5 ${
+              index === x
+                ? 'bg-yellow-500 text-white'
+                : 'bg-[rgb(94,96,172)] text-white'
+            }`}
+            onClick={() => {
+              setIndex(x)
+            }}>
+            {x + 1}
+          </button>
+        ))}
+        {_.range(index * 80, (index + 1) * 80).map(i => (
+          <button
+            className={`rounded flex text-xs items-center justify-center m-0.5 ${
               currentPreset === `${i}`
                 ? 'bg-yellow-500 text-black'
                 : allPresets[i]
@@ -490,7 +519,15 @@ function PresetInput() {
   )
 }
 
-function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
+function MaxValue({
+  name,
+  title,
+  className
+}: {
+  name: keyof MeshPreset
+  title: string
+  className?: string
+}) {
   const socket = useSocket()!
   const index = useAppStore(state => state.index)
   const value = useAppStore(state => state.preset[state.index][name])
@@ -554,7 +591,8 @@ function MaxValue({ name, title }: { name: keyof MeshPreset; title: string }) {
         )
       case 'slider':
         return (
-          <div className='w-[60px] h-full flex flex-col items-center'>
+          <div
+            className={`w-[60px] h-full flex flex-col items-center ${className}`}>
             <h3 className='w-full text-center text-xs whitespace-nowrap !font-sans'>
               {title.slice(0, 8) + (title.length > 8 ? '...' : '')}
             </h3>
