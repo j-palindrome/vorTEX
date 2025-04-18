@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 42.0, 175.0, 956.0, 684.0 ],
+						"rect" : [ 42.0, 149.0, 956.0, 710.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3970,6 +3970,7 @@
 										"gridsize" : [ 15.0, 15.0 ],
 										"style" : "Joshua",
 										"subpatcher_template" : "Joshua",
+										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"comment" : "",
@@ -5791,7 +5792,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 911.0, 1215.0, 145.0, 22.0 ],
+									"patching_rect" : [ 911.0, 1200.0, 145.0, 22.0 ],
 									"text" : "route running stdout"
 								}
 

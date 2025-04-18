@@ -49,10 +49,9 @@ export default function Slider({
         if (!touch) return
         x = (touch.clientX - rect.x) / rect.width
         y = 1 - (touch.clientY - rect.y) / rect.height
-        console.log(x, y)
       } else if (ev instanceof MouseEvent) {
-        x = ev.clientX - rect.x / rect.width
-        y = 1 - (ev.clientY - rect.y / rect.height)
+        x = (ev.clientX - rect.x) / rect.width
+        y = 1 - (ev.clientY - rect.y) / rect.height
       } else throw new Error()
 
       place.current = { x, y }
