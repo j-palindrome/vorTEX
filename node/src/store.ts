@@ -110,7 +110,7 @@ export const presetDescription: {
 } = {
   mesh_position: { type: 'list', default: [0, 0, 0] },
   mesh_rotatexyz: { type: 'list', default: [0, 0, 0] },
-  mesh_enable: { type: 'boolean', default: 1 },
+  mesh_enable: { type: 'boolean', default: 0 },
   nurbs_speed: { type: 'slider', default: 0 },
   nurbs_curvature: { type: 'slider', default: 0 },
   nurbs_scale: { type: 'slider', default: 0 },

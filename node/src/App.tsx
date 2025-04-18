@@ -17,6 +17,11 @@ function App() {
   const loaded = useRef(false)
 
   useEffect(() => {
+    // Set zoom level to 100% on page load
+    document.body.style.zoom = '100%'
+  }, [])
+
+  useEffect(() => {
     const socket: Socket<SocketEvents, SocketEvents> = io()
     setSocket(socket)
     socket.emit('set', '/mesh', '', 1)

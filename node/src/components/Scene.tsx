@@ -67,13 +67,15 @@ export default function Scene() {
 
   return (
     <>
-      <div className='h-[200px] w-screen'></div>
+      <div className='h-[200px] w-screen bg-gray-600'>
+        scroll me to hide browser UI
+      </div>
       <div
         className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
           <div>
-            <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center w-[80px]'>
+            <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center'>
               <div className='flex *:w-[40px]'>
                 {_.range(5).map(x => {
                   return (
@@ -125,6 +127,30 @@ export default function Scene() {
                   if (index === 1 || controlBoth) {
                     setters.setPreset(
                       1,
+                      { color_alpha: secondOriginal * newValue },
+                      socket,
+                      { save: false }
+                    )
+                  }
+                  if (index === 2 || controlBoth) {
+                    setters.setPreset(
+                      2,
+                      { color_alpha: secondOriginal * newValue },
+                      socket,
+                      { save: false }
+                    )
+                  }
+                  if (index === 3 || controlBoth) {
+                    setters.setPreset(
+                      3,
+                      { color_alpha: secondOriginal * newValue },
+                      socket,
+                      { save: false }
+                    )
+                  }
+                  if (index === 4 || controlBoth) {
+                    setters.setPreset(
+                      4,
                       { color_alpha: secondOriginal * newValue },
                       socket,
                       { save: false }
@@ -260,7 +286,7 @@ export default function Scene() {
               <MaxValue name='nurbs_curvature' title='curve' />
               <MaxValue name='mesh_pointSize' title='pt' />
               <MaxValue name='sorting_scramble' title='scra' />
-              <MaxValue name='warping_smooth' title='smth' />
+              <MaxValue name='warping_smooth' title='bouba' />
               <MaxValue name='other_source' title='source' />
               <MaxValue name='other_source2' title='source 2' />
             </div>
@@ -329,12 +355,12 @@ export default function Scene() {
                 <MaxValue
                   className='mr-2'
                   name='warping_sound'
-                  title='str-snd'
+                  title='str snd'
                 />
                 <MaxValue
                   className='mr-2'
                   name='warping_soundShape'
-                  title='k/b'
+                  title='kiki'
                 />
               </div>
               <div className='h-full w-0 grow'></div>
