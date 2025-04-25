@@ -93,7 +93,7 @@ maxApi.addHandler('setPresetsFile', (file: string) => {
   }
 })
 
-let presets: Record<string, any>
+let presets: Record<string, any> = {}
 io.on('connection', socket => {
   socket.on('set', (route: string, property: string, value: any) => {
     if (value instanceof Array) {
@@ -150,12 +150,6 @@ setInterval(() => {
   if (!fs.existsSync(presetsFolder)) {
     fs.mkdirSync(presetsFolder)
   }
-  maxApi.post(
-    `${new Date()
-      .toISOString()
-      .slice(0, 19)
-      .replace(/[\/:]/g, '-')}_presets.json`
-  )
 
   fs.writeFileSync(
     path.join(

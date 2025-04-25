@@ -245,7 +245,7 @@ export const setters = {
       ? _.cloneDeep(currentPreset)
       : presets[name]
 
-    setters.savePreset(getters.get('currentPreset'), socket)
+    // setters.savePreset(getters.get('currentPreset'), socket)
 
     const thisFadeTime = getters.get('fadeTime')
     if (thisFadeTime) {
