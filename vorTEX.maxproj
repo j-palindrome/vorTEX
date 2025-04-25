@@ -2,7 +2,7 @@
 	"name" : "vorTEX",
 	"version" : 1,
 	"creationdate" : 3807309942,
-	"modificationdate" : 3828405564,
+	"modificationdate" : 3828433683,
 	"viewrect" : [ 8.0, 123.0, 1664.0, 885.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
@@ -31,11 +31,6 @@
 ,
 			"xfade.genjit" : 			{
 				"kind" : "genjit",
-				"local" : 1
-			}
-,
-			"server.js" : 			{
-				"kind" : "javascript",
 				"local" : 1
 			}
 

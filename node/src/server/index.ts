@@ -3,8 +3,8 @@ import { ip } from 'address'
 
 import express from 'express'
 import maxApi from 'max-api'
-import fs from 'node:fs'
-import path from 'node:path'
+import fs from 'fs'
+import path from 'path'
 import { Server as SocketServer } from 'socket.io'
 // import ViteExpress from 'vite-express'
 
@@ -46,7 +46,7 @@ maxApi.outlet('/message/ip', `http://${ipAdd}:7001`)
 maxApi.outlet(
   '/message/name',
   `name`,
-  `presets_${new Date().toISOString().slice(0, 10).replace(/\//g, '-')}.json`
+  `presets_${new Date().toISOString().slice(0, 10).replace(/[\/:]/g, '-')}.json`
 )
 
 let files: string[] = []
@@ -150,13 +150,20 @@ setInterval(() => {
   if (!fs.existsSync(presetsFolder)) {
     fs.mkdirSync(presetsFolder)
   }
+  maxApi.post(
+    `${new Date()
+      .toISOString()
+      .slice(0, 19)
+      .replace(/[\/:]/g, '-')}_presets.json`
+  )
+
   fs.writeFileSync(
     path.join(
       presetsFolder,
       `${new Date()
         .toISOString()
         .slice(0, 19)
-        .replace(/\//g, '-')}_presets.json`
+        .replace(/[\/:]/g, '-')}_presets.json`
     ),
     JSON.stringify(presets)
   )

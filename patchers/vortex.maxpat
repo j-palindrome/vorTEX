@@ -475,7 +475,7 @@
 
 											}
  ],
-										"originid" : "pat-1987"
+										"originid" : "pat-76"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1035,7 +1035,7 @@
 
 							}
  ],
-						"originid" : "pat-1985"
+						"originid" : "pat-74"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1334,7 +1334,7 @@
 
 											}
  ],
-										"originid" : "pat-1991",
+										"originid" : "pat-80",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1730,7 +1730,7 @@
 
 							}
  ],
-						"originid" : "pat-1989",
+						"originid" : "pat-78",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2156,7 +2156,7 @@
 
 											}
  ],
-										"originid" : "pat-1999",
+										"originid" : "pat-88",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2431,7 +2431,7 @@
 
 											}
  ],
-										"originid" : "pat-2001"
+										"originid" : "pat-90"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2668,7 +2668,7 @@
 
 											}
  ],
-										"originid" : "pat-2003",
+										"originid" : "pat-92",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2980,7 +2980,7 @@
 
 							}
  ],
-						"originid" : "pat-1997",
+						"originid" : "pat-86",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3542,7 +3542,7 @@
 
 							}
  ],
-						"originid" : "pat-2005"
+						"originid" : "pat-94"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3992,12 +3992,13 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
+									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
-									"text" : "spaceMouse 3 0 0 0 0 0 0"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
+									"text" : "spaceMouse 0 0.002777 0.089846 0.02196 0.008983"
 								}
 
 							}
@@ -4835,7 +4836,7 @@
 
 											}
  ],
-										"originid" : "pat-2105",
+										"originid" : "pat-194",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5630,7 +5631,7 @@
 									"outlettype" : [ "bang" ],
 									"patching_rect" : [ 1043.0, 1620.0, 400.0, 220.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 165.0, 390.0, 203.0 ],
+									"presentation_rect" : [ 255.0, 165.0, 450.0, 555.0 ],
 									"viewvisibility" : 1
 								}
 
@@ -5642,7 +5643,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 704.0, 1164.0, 217.0, 22.0 ],
+									"patching_rect" : [ 704.0, 1164.0, 224.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
@@ -5651,11 +5652,12 @@
 										"watch" : 0
 									}
 ,
-									"text" : "node.script server.js @autostart 1",
+									"text" : "node.script server.cjs @autostart 1",
 									"textfile" : 									{
-										"filename" : "server.js",
+										"text" : "",
+										"filename" : "server.cjs.js",
 										"flags" : 0,
-										"embed" : 0,
+										"embed" : 1,
 										"autowatch" : 1
 									}
 
@@ -6205,7 +6207,7 @@
 
 											}
  ],
-										"originid" : "pat-2231",
+										"originid" : "pat-320",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -7282,7 +7284,7 @@
 
 							}
  ],
-						"originid" : "pat-2007",
+						"originid" : "pat-96",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7568,7 +7570,7 @@
 
 			}
  ],
-		"originid" : "pat-1979",
+		"originid" : "pat-68",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
@@ -7685,13 +7687,6 @@
 				"name" : "resize_n4m_monitor_patcher.js",
 				"bootpath" : "~/Documents/GitHub/vorTEX/code",
 				"patcherrelativepath" : "../code",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "server.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/node",
-				"patcherrelativepath" : "../node",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
