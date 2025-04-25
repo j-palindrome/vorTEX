@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 42.0, 124.0, 1596.0, 885.0 ],
+		"rect" : [ 42.0, 123.0, 1596.0, 885.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -475,7 +475,7 @@
 
 											}
  ],
-										"originid" : "pat-404"
+										"originid" : "pat-1987"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1035,7 +1035,7 @@
 
 							}
  ],
-						"originid" : "pat-402"
+						"originid" : "pat-1985"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1334,7 +1334,7 @@
 
 											}
  ],
-										"originid" : "pat-408",
+										"originid" : "pat-1991",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1730,7 +1730,7 @@
 
 							}
  ],
-						"originid" : "pat-406",
+						"originid" : "pat-1989",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2156,7 +2156,7 @@
 
 											}
  ],
-										"originid" : "pat-416",
+										"originid" : "pat-1999",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2431,7 +2431,7 @@
 
 											}
  ],
-										"originid" : "pat-418"
+										"originid" : "pat-2001"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2668,7 +2668,7 @@
 
 											}
  ],
-										"originid" : "pat-420",
+										"originid" : "pat-2003",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2980,7 +2980,7 @@
 
 							}
  ],
-						"originid" : "pat-414",
+						"originid" : "pat-1997",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3542,7 +3542,7 @@
 
 							}
  ],
-						"originid" : "pat-422"
+						"originid" : "pat-2005"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 42.0, 150.0, 1596.0, 859.0 ],
+						"rect" : [ 42.0, 149.0, 1596.0, 859.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3689,6 +3689,53 @@
 						"subpatcher_template" : "Joshua",
 						"showontab" : 2,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-113",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 874.0, 1740.0, 29.5, 22.0 ],
+									"text" : "$2"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-106",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 192.5, 377.0, 62.0, 22.0 ],
+									"text" : "r volume"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-105",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 873.5, 1815.0, 65.0, 22.0 ],
+									"text" : "s volume"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-104",
+									"maxclass" : "newobj",
+									"numinlets" : 6,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 873.5, 1770.0, 116.0, 22.0 ],
+									"text" : "scale 0. 1. -70. 0."
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-100",
 									"maxclass" : "newobj",
@@ -3825,7 +3872,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 759.0, 1710.0, 151.0, 22.0 ],
+									"patching_rect" : [ 569.5, 1545.0, 151.0, 22.0 ],
 									"text" : "vortex-mesh-process 4",
 									"varname" : "vortex-mesh-process[4]"
 								}
@@ -3837,7 +3884,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 735.0, 1680.0, 151.0, 22.0 ],
+									"patching_rect" : [ 545.5, 1515.0, 151.0, 22.0 ],
 									"text" : "vortex-mesh-process 3",
 									"varname" : "vortex-mesh-process[3]"
 								}
@@ -3945,13 +3992,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
-									"linecount" : 4,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 64.0 ],
-									"text" : "spaceMouse 0 0.333326 0.001766 0.060754 0.569375 -0.207739 0.229983"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
+									"text" : "spaceMouse 3 0 0 0 0 0 0"
 								}
 
 							}
@@ -3985,11 +4031,10 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 42.0, 124.0, 1596.0, 885.0 ],
+										"rect" : [ 42.0, 123.0, 1596.0, 885.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
 										"style" : "Joshua",
 										"subpatcher_template" : "Joshua",
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"comment" : "",
@@ -4129,7 +4174,7 @@
 													"numinlets" : 4,
 													"numoutlets" : 4,
 													"outlettype" : [ "", "", "", "" ],
-													"patching_rect" : [ 563.0, 399.0, 137.0, 18.0 ],
+													"patching_rect" : [ 466.0, 399.0, 137.0, 18.0 ],
 													"text" : "spacemouse"
 												}
 
@@ -4153,7 +4198,7 @@
 													"numinlets" : 4,
 													"numoutlets" : 4,
 													"outlettype" : [ "", "", "", "" ],
-													"patching_rect" : [ 276.0, 399.0, 137.0, 18.0 ],
+													"patching_rect" : [ 257.0, 399.0, 137.0, 18.0 ],
 													"text" : "spacemouse"
 												}
 
@@ -4177,7 +4222,7 @@
 													"numinlets" : 1,
 													"numoutlets" : 1,
 													"outlettype" : [ "" ],
-													"patching_rect" : [ 223.0, 311.0, 100.0, 18.0 ],
+													"patching_rect" : [ 235.0, 292.0, 100.0, 18.0 ],
 													"text" : "loadmess 0 0 0"
 												}
 
@@ -4790,7 +4835,7 @@
 
 											}
  ],
-										"originid" : "pat-522",
+										"originid" : "pat-2105",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5166,7 +5211,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 895.0, 2085.0, 89.0, 22.0 ],
+									"patching_rect" : [ 895.0, 1995.0, 89.0, 22.0 ],
 									"text" : "s noise-type"
 								}
 
@@ -5190,7 +5235,7 @@
 									"numinlets" : 4,
 									"numoutlets" : 4,
 									"outlettype" : [ "", "", "", "" ],
-									"patching_rect" : [ 810.0, 1884.0, 147.0, 22.0 ],
+									"patching_rect" : [ 810.0, 1884.0, 137.0, 22.0 ],
 									"text" : "route file1 file2 noise"
 								}
 
@@ -5201,7 +5246,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 810.0, 2025.0, 96.0, 22.0 ],
+									"patching_rect" : [ 810.0, 1935.0, 96.0, 22.0 ],
 									"text" : "s file1-source"
 								}
 
@@ -5211,10 +5256,10 @@
 									"id" : "obj-22",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 2,
-									"outlettype" : [ "", "FullPacket" ],
-									"patching_rect" : [ 810.0, 1845.0, 100.0, 22.0 ],
-									"text" : "o.route /video"
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "FullPacket" ],
+									"patching_rect" : [ 810.0, 1680.0, 146.0, 22.0 ],
+									"text" : "o.route /video /volume"
 								}
 
 							}
@@ -5274,7 +5319,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 852.0, 2055.0, 96.0, 22.0 ],
+									"patching_rect" : [ 852.0, 1965.0, 96.0, 22.0 ],
 									"text" : "s file2-source"
 								}
 
@@ -5367,7 +5412,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 709.0, 1650.0, 158.0, 22.0 ],
+									"patching_rect" : [ 519.5, 1485.0, 158.0, 22.0 ],
 									"text" : "vortex-mesh-process 2",
 									"varname" : "vortex-mesh-process[1]"
 								}
@@ -5536,10 +5581,10 @@
 									"id" : "obj-276",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 9,
-									"outlettype" : [ "", "", "", "", "", "", "", "", "FullPacket" ],
-									"patching_rect" : [ 703.0, 1260.0, 282.0, 22.0 ],
-									"text" : "o.route /0 /1 /2 /3 /4 /global /message /mesh"
+									"numoutlets" : 8,
+									"outlettype" : [ "", "", "", "", "", "", "", "FullPacket" ],
+									"patching_rect" : [ 703.0, 1260.0, 266.0, 22.0 ],
+									"text" : "o.route /0 /1 /2 /3 /global /message /mesh"
 								}
 
 							}
@@ -5597,7 +5642,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 704.0, 1164.0, 226.0, 22.0 ],
+									"patching_rect" : [ 704.0, 1164.0, 217.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
@@ -5606,9 +5651,9 @@
 										"watch" : 0
 									}
 ,
-									"text" : "node.script index.js @autostart 1",
+									"text" : "node.script server.js @autostart 1",
 									"textfile" : 									{
-										"filename" : "index.js",
+										"filename" : "server.js",
 										"flags" : 0,
 										"embed" : 0,
 										"autowatch" : 1
@@ -5672,7 +5717,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 675.0, 1620.0, 158.0, 22.0 ],
+									"patching_rect" : [ 485.5, 1455.0, 158.0, 22.0 ],
 									"text" : "vortex-mesh-process 1",
 									"varname" : "vortex-mesh-process"
 								}
@@ -5801,7 +5846,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "multichannelsignal" ],
-									"patching_rect" : [ 134.0, 345.0, 179.0, 22.0 ],
+									"patching_rect" : [ 134.0, 329.0, 179.0, 22.0 ],
 									"text" : "mc.r~ video-vol @chans 2"
 								}
 
@@ -6160,7 +6205,7 @@
 
 											}
  ],
-										"originid" : "pat-648",
+										"originid" : "pat-2231",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6499,6 +6544,20 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-105", 0 ],
+									"source" : [ "obj-104", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-219", 0 ],
+									"source" : [ "obj-106", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-103", 0 ],
 									"order" : 1,
 									"source" : [ "obj-107", 0 ]
@@ -6517,6 +6576,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-9", 0 ],
 									"source" : [ "obj-109", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-104", 0 ],
+									"source" : [ "obj-113", 0 ]
 								}
 
 							}
@@ -6671,6 +6737,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-113", 0 ],
+									"source" : [ "obj-22", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-56", 0 ],
 									"order" : 0,
 									"source" : [ "obj-22", 0 ]
@@ -6709,7 +6782,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-22", 0 ],
-									"source" : [ "obj-276", 5 ]
+									"source" : [ "obj-276", 4 ]
 								}
 
 							}
@@ -6730,7 +6803,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-57", 0 ],
-									"source" : [ "obj-276", 7 ]
+									"source" : [ "obj-276", 6 ]
 								}
 
 							}
@@ -6744,7 +6817,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-99", 0 ],
-									"source" : [ "obj-276", 6 ]
+									"source" : [ "obj-276", 5 ]
 								}
 
 							}
@@ -7209,7 +7282,7 @@
 
 							}
  ],
-						"originid" : "pat-424",
+						"originid" : "pat-2007",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7495,7 +7568,7 @@
 
 			}
  ],
-		"originid" : "pat-396",
+		"originid" : "pat-1979",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
@@ -7594,13 +7667,6 @@
 				"type" : "iLaX"
 			}
 , 			{
-				"name" : "index.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/node",
-				"patcherrelativepath" : "../node",
-				"type" : "TEXT",
-				"implicit" : 1
-			}
-, 			{
 				"name" : "jit.+.mxo",
 				"type" : "iLaX"
 			}
@@ -7619,6 +7685,13 @@
 				"name" : "resize_n4m_monitor_patcher.js",
 				"bootpath" : "~/Documents/GitHub/vorTEX/code",
 				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "server.js",
+				"bootpath" : "~/Documents/GitHub/vorTEX/node",
+				"patcherrelativepath" : "../node",
 				"type" : "TEXT",
 				"implicit" : 1
 			}

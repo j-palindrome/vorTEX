@@ -86,7 +86,7 @@ export default function Slider({
         const lastY = place.current.y
         place.current = { x, y }
 
-        if (ev.currentTarget.getBoundingClientRect().bottom < ev.clientY + 20) {
+        if (divRef.current!.getBoundingClientRect().bottom < ev.clientY + 30) {
           place.current = { x, y: 0 }
         }
 
@@ -103,14 +103,6 @@ export default function Slider({
           }
           transitionTo(0)
         } else {
-          place.current = { x, y }
-          if (
-            ev.currentTarget.getBoundingClientRect().bottom <
-            ev.clientY + 20
-          ) {
-            place.current = { x, y: 0 }
-          }
-
           onChange({ x: place.current.x ** 2, y: place.current.y ** 2 }, true)
         }
       }}>

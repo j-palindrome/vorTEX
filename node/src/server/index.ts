@@ -6,13 +6,19 @@ import maxApi from 'max-api'
 import fs from 'node:fs'
 import path from 'node:path'
 import { Server as SocketServer } from 'socket.io'
-import ViteExpress from 'vite-express'
+// import ViteExpress from 'vite-express'
 
 const app = express()
 
-const server = ViteExpress.listen(app, 7001, () =>
-  console.log('Server is listening...')
-)
+const server = app.listen(7001, () => console.log('Server is listening...'))
+
+// Serve static files from public folder
+app.use(express.static(path.join(process.cwd(), 'dist')))
+
+// Serve index.html at the root route
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(process.cwd(), 'dist', 'index.html'))
+// })
 
 // And then attach the socket.io server to the HTTP server
 const io = new SocketServer<SocketEvents>(server)

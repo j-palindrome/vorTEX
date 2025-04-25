@@ -83,12 +83,13 @@ export default function Scene() {
                 {_.range(4).map(x => {
                   return (
                     <button
+                      key={x}
                       className={`${
                         index === x ? 'bg-gray-700 rounded-lg' : ''
                       }`}
                       onClick={() => {
                         setters.set({ index: x })
-                        socket.emit('set', '/mesh', 'spacemouse', 2)
+                        socket.emit('set', '/mesh', 'spacemouse', x + 1)
                       }}>
                       <span className='mix-blend-difference'>{x + 1}</span>
                     </button>
@@ -178,8 +179,8 @@ export default function Scene() {
           <FileChooser />
           <MaxValue name='mesh_scale' title='scale' />
           <div className='flex space-x-2'>
-            <MaxValue name='nurbs_random' title='curve' />
-            <MaxValue name='sorting_trigger' title='scramble' />
+            <MaxValue name='nurbs_random' title='lg' />
+            <MaxValue name='sorting_trigger' title='sm' />
             <button
               className='bg-red-900 px-1'
               onClick={() => {
@@ -202,6 +203,16 @@ export default function Scene() {
                 )
               }}>
               CENTER
+            </button>
+            <button
+              className='bg-red-900 px-1'
+              onClick={() => {
+                for (let i = 0; i < 4; i++) {
+                  setters.setPreset(index, { mesh_enable: false }, socket)
+                  socket.emit('set', '/global/volume', '', 0)
+                }
+              }}>
+              CUT
             </button>
           </div>
         </div>
@@ -500,8 +511,6 @@ function MaxValue({
     if (!socket) return
     switch (description.type) {
       case 'trigger':
-        console.log('sending', name, description)
-
         setters.setPreset(index, { [name]: 'bang' }, socket)
     }
   }, [socket])
@@ -514,7 +523,7 @@ function MaxValue({
             onClick={() => {
               setters.setPreset(index, { [name]: 'bang' }, socket)
             }}
-            className={`border border-gray-700 mx-1 px-1`}>
+            className={`min-w-12 border border-gray-700 mx-1 px-1`}>
             {title}
           </button>
         )
@@ -524,7 +533,7 @@ function MaxValue({
             onClick={() => {
               setters.setPreset(index, { [name]: !value }, socket)
             }}
-            className={`border border-gray-700 mx-1 px-1 ${
+            className={`min-w-12 border border-gray-700 mx-1 px-1 ${
               value ? 'bg-gray-700' : ''
             }`}>
             {control}

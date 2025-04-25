@@ -2,9 +2,9 @@
 	"name" : "vorTEX",
 	"version" : 1,
 	"creationdate" : 3807309942,
-	"modificationdate" : 3827201301,
-	"viewrect" : [ -1280.0, -37.0, 819.0, 779.0 ],
-	"autoorganize" : 1,
+	"modificationdate" : 3828405564,
+	"viewrect" : [ 8.0, 123.0, 1664.0, 885.0 ],
+	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
 	"autolocalize" : 0,
@@ -29,13 +29,13 @@
 				"local" : 1
 			}
 ,
-			"index.js" : 			{
-				"kind" : "javascript",
+			"xfade.genjit" : 			{
+				"kind" : "genjit",
 				"local" : 1
 			}
 ,
-			"xfade.genjit" : 			{
-				"kind" : "genjit",
+			"server.js" : 			{
+				"kind" : "javascript",
 				"local" : 1
 			}
 
@@ -56,6 +56,14 @@
 	}
 ,
 	"searchpath" : 	{
+		"0" : 		{
+			"bootpath" : "~/Documents/GitHub/vorTEX/node",
+			"projectrelativepath" : "./node",
+			"label" : "",
+			"recursive" : 1,
+			"enabled" : 1,
+			"includeincollective" : 1
+		}
 
 	}
 ,
