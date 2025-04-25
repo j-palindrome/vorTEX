@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 50.0, 143.0, 1596.0, 829.0 ],
+		"rect" : [ 50.0, 143.0, 1000.0, 829.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 50.0, 169.0, 1596.0, 803.0 ],
+						"rect" : [ 50.0, 169.0, 1000.0, 803.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3689,6 +3689,96 @@
 						"subpatcher_template" : "Joshua",
 						"showontab" : 2,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-82",
+									"maxclass" : "live.text",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 870.198748111724854, 495.0, 104.801251888275146, 30.165606737136841 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 390.0, 52.41719663143158, 104.801251888275146, 30.165606737136841 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_enum" : [ "val1", "val2" ],
+											"parameter_longname" : "live.text",
+											"parameter_mmax" : 1,
+											"parameter_modmode" : 0,
+											"parameter_shortname" : "live.text",
+											"parameter_type" : 2
+										}
+
+									}
+,
+									"text" : "Reload SpaceMouse",
+									"varname" : "live.text"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-81",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 834.0, 696.0, 191.0, 22.0 ],
+									"text" : "set \"SpaceMouse connected\""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-74",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 915.0, 532.14569354057312, 278.0, 22.0 ],
+									"text" : "loadmess set \"SpaceMouse not connected\""
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-71",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 915.0, 570.0, 182.0, 20.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 389.0, 90.0, 182.0, 20.0 ],
+									"text" : "SpaceMouse not connected"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-55",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 780.0, 661.125830411911011, 209.0, 22.0 ],
+									"text" : "\"SpaceMouse Compact\", poll 17"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-41",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 780.0, 630.0, 196.0, 22.0 ],
+									"text" : "route \"SpaceMouse Compact\""
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-113",
 									"maxclass" : "message",
@@ -3839,7 +3929,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 697.0, 637.083331346511841, 40.0, 22.0 ],
+									"patching_rect" : [ 697.0, 615.0, 40.0, 22.0 ],
 									"text" : "hid"
 								}
 
@@ -3887,18 +3977,6 @@
 									"patching_rect" : [ 545.5, 1515.0, 151.0, 22.0 ],
 									"text" : "vortex-mesh-process 3",
 									"varname" : "vortex-mesh-process[3]"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-14",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 3,
-									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 1230.0, 210.0, 40.0, 22.0 ],
-									"text" : "hid"
 								}
 
 							}
@@ -3992,13 +4070,12 @@
 , 							{
 								"box" : 								{
 									"id" : "obj-13",
-									"linecount" : 2,
 									"maxclass" : "message",
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
-									"text" : "spaceMouse 0 0.002777 0.089846 0.02196 0.008983"
+									"patching_rect" : [ 406.0, 1620.0, 184.0, 22.0 ],
+									"text" : "spaceMouse 3 0 0 0 0 0 0"
 								}
 
 							}
@@ -4950,7 +5027,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 635.0, 2415.0, 278.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.54:7001/documentation"
+									"text" : ";\rmax launchbrowser http://undefined:7001/documentation"
 								}
 
 							}
@@ -5027,7 +5104,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 838.0, 2280.0, 184.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://192.168.1.54:7001"
+									"text" : ";\rmax launchbrowser http://undefined:7001"
 								}
 
 							}
@@ -5067,9 +5144,9 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 913.0, 2160.0, 285.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 4,
-									"presentation_rect" : [ 30.0, 165.0, 204.0, 62.0 ],
-									"text" : "Go to http://192.168.1.54:7001 from an iPad signed into same WiFi to access UI."
+									"presentation_linecount" : 3,
+									"presentation_rect" : [ 30.0, 165.0, 204.0, 48.0 ],
+									"text" : "Go to http://undefined:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -5399,7 +5476,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 697.0, 555.833334445953369, 182.0, 20.0 ],
+									"patching_rect" : [ 697.0, 533.14569354057312, 182.0, 20.0 ],
 									"text" : "SPACEMOUSE processing"
 								}
 
@@ -5510,7 +5587,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "bang" ],
-									"patching_rect" : [ 697.0, 585.0, 100.0, 22.0 ],
+									"patching_rect" : [ 697.0, 555.0, 100.0, 22.0 ],
 									"text" : "loadbang"
 								}
 
@@ -5522,8 +5599,8 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 697.0, 606.874999165534973, 209.0, 22.0 ],
-									"text" : "\"SpaceMouse Compact\", poll 17"
+									"patching_rect" : [ 696.688799858093262, 582.781505584716797, 44.0, 22.0 ],
+									"text" : "menu"
 								}
 
 							}
@@ -6891,6 +6968,22 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-55", 0 ],
+									"order" : 1,
+									"source" : [ "obj-41", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-81", 0 ],
+									"order" : 0,
+									"source" : [ "obj-41", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
 									"source" : [ "obj-43", 0 ]
 								}
@@ -6956,6 +7049,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-95", 0 ],
 									"source" : [ "obj-54", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-10", 0 ],
+									"source" : [ "obj-55", 0 ]
 								}
 
 							}
@@ -7084,6 +7184,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-71", 0 ],
+									"source" : [ "obj-74", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-54", 0 ],
 									"source" : [ "obj-75", 0 ]
 								}
@@ -7100,6 +7207,20 @@
 								"patchline" : 								{
 									"destination" : [ "obj-72", 0 ],
 									"source" : [ "obj-79", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-71", 0 ],
+									"source" : [ "obj-81", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-48", 0 ],
+									"source" : [ "obj-82", 0 ]
 								}
 
 							}
@@ -7559,6 +7680,7 @@
 			"obj-2::obj-63::obj-38::obj-56::obj-23" : [ "gswitch2[3]", "gswitch2", 0 ],
 			"obj-2::obj-63::obj-38::obj-6" : [ "crossfade[1]", "Crossfade", 0 ],
 			"obj-2::obj-68" : [ "number[19]", "number[19]", 0 ],
+			"obj-2::obj-82" : [ "live.text", "live.text", 0 ],
 			"parameterbanks" : 			{
 				"0" : 				{
 					"index" : 0,

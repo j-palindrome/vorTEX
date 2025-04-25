@@ -3,17 +3,21 @@ import { ip } from 'address'
 
 import express from 'express'
 import maxApi from 'max-api'
-import fs from 'fs'
-import path from 'path'
+import fs from 'node:fs'
+import path from 'node:path'
 import { Server as SocketServer } from 'socket.io'
-// import ViteExpress from 'vite-express'
+import { remove } from 'lodash'
+import ViteExpress from 'vite-express'
 
+// const server = app.listen(7001, () => console.log('Server is listening...'))
 const app = express()
 
-const server = app.listen(7001, () => console.log('Server is listening...'))
+const server = ViteExpress.listen(app, 7001, () =>
+  console.log('Server is listening...')
+)
 
 // Serve static files from public folder
-app.use(express.static(path.join(process.cwd(), 'dist')))
+// app.use(express.static(path.join(process.cwd(), 'dist')))
 
 // Serve index.html at the root route
 // app.get('/', (req, res) => {
@@ -99,14 +103,10 @@ io.on('connection', socket => {
     if (value instanceof Array) {
       maxApi.outlet(route, property, ...value)
     } else {
-      if (settings.mediaFolder) {
-        if ((property === 'file1' || property === 'file2') && value) {
-          value = path.resolve(settings.mediaFolder, value)
-        }
-        maxApi.outlet(route, property, value)
-      } else {
-        maxApi.post('No media folder selected; please drop Media Folder in.')
+      if ((property === 'file1' || property === 'file2') && value) {
+        value = path.resolve(settings.mediaFolder, value)
       }
+      maxApi.outlet(route, property, value)
     }
   })
 
@@ -123,7 +123,14 @@ io.on('connection', socket => {
       fs.writeFileSync(presetsPath, '{}')
     }
     try {
-      return JSON.parse(fs.readFileSync(presetsPath).toString())
+      const presets = JSON.parse(fs.readFileSync(presetsPath).toString())
+      for (let preset of Object.keys(presets)) {
+        // fix for mesh lengths
+        if (presets[preset].length > 4) {
+          remove(presets[4])
+        }
+      }
+      return presets
     } catch (e) {
       const defaultPresets = {}
       fs.writeFileSync(presetsPath, JSON.stringify(defaultPresets))

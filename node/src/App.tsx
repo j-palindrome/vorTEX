@@ -44,7 +44,7 @@ function App() {
           }
         }
         for (let key of Object.keys(initialGlobal)) {
-          if (value[5][key] === undefined) value[5][key] = initialGlobal[key]
+          if (value[4][key] === undefined) value[4][key] = initialGlobal[key]
         }
       }
 
@@ -52,8 +52,7 @@ function App() {
       setters.setPreset(1, newPresets['0'][1], socket)
       setters.setPreset(2, newPresets['0'][1], socket)
       setters.setPreset(3, newPresets['0'][3], socket)
-      setters.setPreset(4, newPresets['0'][4], socket)
-      setters.setPreset('global', newPresets['0'][5], socket)
+      setters.setPreset('global', newPresets['0'][4], socket)
       setters.set({
         presets: newPresets,
         currentPreset: '0'

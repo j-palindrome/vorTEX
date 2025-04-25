@@ -179,8 +179,11 @@ export default function Scene() {
           <FileChooser />
           <MaxValue name='mesh_scale' title='scale' />
           <div className='flex space-x-2'>
-            <MaxValue name='nurbs_random' title='lg' />
-            <MaxValue name='sorting_trigger' title='sm' />
+            <div className='grid grid-cols-2 auto-rows-auto'>
+              <div className='col-span-2 text-center'>scramble</div>
+              <MaxValue name='nurbs_random' title='lg' />
+              <MaxValue name='sorting_trigger' title='sm' />
+            </div>
             <button
               className='bg-red-900 px-1'
               onClick={() => {
@@ -327,9 +330,9 @@ export default function Scene() {
 
 function FileChooser() {
   const values = useAppStore(state => state.files)
-  const file1 = useAppStore(state => state.preset[5].video_file1)
-  const file2 = useAppStore(state => state.preset[5].video_file2)
-  const noise = useAppStore(state => state.preset[5].video_noise)
+  const file1 = useAppStore(state => state.preset[4].video_file1)
+  const file2 = useAppStore(state => state.preset[4].video_file2)
+  const noise = useAppStore(state => state.preset[4].video_noise)
   const noiseTypes = [
     'noise.perlin',
     'noise.simplex',

@@ -90,7 +90,6 @@ type MeshPresets = [
   MeshPreset,
   MeshPreset,
   MeshPreset,
-  MeshPreset,
   GlobalPreset
 ]
 
@@ -99,7 +98,7 @@ export type AppState = {
   presets: Record<string, MeshPresets>
   currentPreset: string
   files: string[]
-  index: 0 | 1 | 2 | 3 | 4
+  index: 0 | 1 | 2 | 3
   fadeTime: number
 }
 
@@ -197,12 +196,11 @@ export const initialGlobal: GlobalPreset = {
 
 const initialState: AppState = {
   preset: [
-    initialMesh,
-    initialMesh,
-    initialMesh,
-    initialMesh,
-    initialMesh,
-    initialGlobal
+    cloneDeep(initialMesh),
+    cloneDeep(initialMesh),
+    cloneDeep(initialMesh),
+    cloneDeep(initialMesh),
+    cloneDeep(initialGlobal)
   ],
   presets: {},
   currentPreset: '0',
@@ -242,10 +240,18 @@ export const setters = {
     const presets = getters.get('presets')
     const currentPreset = getters.get('preset')
     const newPreset = !presets[name]
-      ? _.cloneDeep(currentPreset)
+      ? [
+          cloneDeep(initialMesh),
+          cloneDeep(initialMesh),
+          cloneDeep(initialMesh),
+          cloneDeep(initialMesh),
+          cloneDeep(initialGlobal)
+        ]
       : presets[name]
-
-    // setters.savePreset(getters.get('currentPreset'), socket)
+    // modify(state => {
+    //   state.presets[state.currentPreset] = _.cloneDeep(state.preset)
+    //   socket.emit('savePresets', state.presets)
+    // })
 
     const thisFadeTime = getters.get('fadeTime')
     if (thisFadeTime) {
@@ -267,7 +273,7 @@ export const setters = {
         }
         setters.setPreset(
           'global',
-          { ...currentPreset[5], ...newPreset[5] },
+          { ...currentPreset[4], ...newPreset[4] },
           socket,
           { save: false }
         )
@@ -290,7 +296,7 @@ export const setters = {
       }
       setters.setPreset(
         'global',
-        { ...currentPreset[5], ...newPreset[5] },
+        { ...currentPreset[4], ...newPreset[4] },
         socket,
         { save: false }
       )
@@ -339,7 +345,7 @@ export const setters = {
           state.preset[index][key] = value
         } else if (index === 'global') {
           // global
-          state.preset[5][key] = value
+          state.preset[4][key] = value
         }
       }
       if (save) {
