@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 42.0, 123.0, 1596.0, 885.0 ],
+		"rect" : [ 57.0, 115.0, 1596.0, 857.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 42.0, 149.0, 1596.0, 859.0 ],
+						"rect" : [ 57.0, 141.0, 1596.0, 831.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3948,7 +3948,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "bang" ],
-									"patching_rect" : [ 1785.0, 1080.0, 100.0, 22.0 ],
+									"patching_rect" : [ 1785.0, 1050.0, 100.0, 22.0 ],
 									"text" : "opendialog"
 								}
 
@@ -5643,21 +5643,18 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 704.0, 1164.0, 224.0, 22.0 ],
+									"patching_rect" : [ 704.0, 1164.0, 217.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
-									"text" : "node.script server.cjs @autostart 1",
+									"text" : "node.script server.js @autostart 1",
 									"textfile" : 									{
-										"text" : "",
-										"filename" : "server.cjs.js",
+										"filename" : "server.js",
 										"flags" : 0,
-										"embed" : 1,
+										"embed" : 0,
 										"autowatch" : 1
 									}
 
@@ -7687,6 +7684,13 @@
 				"name" : "resize_n4m_monitor_patcher.js",
 				"bootpath" : "~/Documents/GitHub/vorTEX/code",
 				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "server.js",
+				"bootpath" : "~/Documents/GitHub/vorTEX/node",
+				"patcherrelativepath" : "../node",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
