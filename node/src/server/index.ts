@@ -131,8 +131,6 @@ io.on('connection', socket => {
   })
 
   socket.on('savePresets', presets => {
-    maxApi.post('saving preset:', presets['0'][5])
-
     fs.promises.writeFile(
       path.resolve(process.cwd(), 'presets.json'),
       JSON.stringify(presets)

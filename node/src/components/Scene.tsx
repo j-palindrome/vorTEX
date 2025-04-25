@@ -63,6 +63,9 @@ export default function Scene() {
     frameRef.current.addEventListener('touchmove', onTouchMove, {
       passive: false
     })
+    return () => {
+      frameRef.current.removeEventListener('touchmove', onTouchMove)
+    }
   })
 
   return (
@@ -77,7 +80,7 @@ export default function Scene() {
           <div>
             <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center'>
               <div className='flex *:w-[40px]'>
-                {_.range(5).map(x => {
+                {_.range(4).map(x => {
                   return (
                     <button
                       className={`${
@@ -87,7 +90,7 @@ export default function Scene() {
                         setters.set({ index: x })
                         socket.emit('set', '/mesh', 'spacemouse', 2)
                       }}>
-                      <span className='mix-blend-difference'>{x}</span>
+                      <span className='mix-blend-difference'>{x + 1}</span>
                     </button>
                   )
                 })}
@@ -174,9 +177,9 @@ export default function Scene() {
           </div>
           <FileChooser />
           <MaxValue name='mesh_scale' title='scale' />
-          <div className='grid grid-cols-[repeat(4,90px)] grid-rows-2 gap-1'>
+          <div className='flex space-x-2'>
             <MaxValue name='nurbs_random' title='curve' />
-
+            <MaxValue name='sorting_trigger' title='scramble' />
             <button
               className='bg-red-900 px-1'
               onClick={() => {
@@ -191,81 +194,14 @@ export default function Scene() {
             <button
               className='bg-red-900 px-1'
               onClick={() => {
-                setters.setPreset(index, { mesh_position: [0, 0, 0] }, socket)
-              }}>
-              position
-            </button>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                setters.setPreset(index, { mesh_rotatexyz: [0, 0, 0] }, socket)
-              }}>
-              rotation
-            </button>
-            <MaxValue name='sorting_trigger' title='scramble' />
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
                 setters.setPreset(
                   index,
-                  _.pick(
-                    getters.get('presets')[getters.get('currentPreset')][index],
-                    [
-                      'color_alpha',
-                      'color_brightness',
-                      'color_contrast',
-                      'color_saturation',
-                      'color_hue'
-                    ]
-                  ),
-                  socket
+                  { mesh_position: [0, 0, 0], mesh_rotatexyz: [0, 0, 0] },
+                  socket,
+                  { save: true }
                 )
               }}>
-              color
-            </button>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                setters.setPreset(
-                  index,
-                  _.pick(
-                    getters.get('presets')[getters.get('currentPreset')][index],
-                    [
-                      'nurbs_curvature',
-                      'mesh_pointSize',
-                      'mesh_drawMode',
-                      'mesh_scale',
-                      'other_dim'
-                    ]
-                  ),
-                  socket
-                )
-              }}>
-              shape
-            </button>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                setters.setPreset(
-                  index,
-                  _.pick(
-                    getters.get('presets')[getters.get('currentPreset')][index],
-                    [
-                      'warping_scale',
-                      'warping_smooth',
-                      'warping_sound',
-                      'warping_soundScale',
-                      'warping_speed',
-                      'warping_strength',
-                      'warping_type',
-                      'nurbs_scale',
-                      'nurbs_speed'
-                    ]
-                  ),
-                  socket
-                )
-              }}>
-              noise
+              CENTER
             </button>
           </div>
         </div>
@@ -488,7 +424,7 @@ function PresetInput() {
   const [index, setIndex] = useState(0)
 
   return (
-    <div className='w-[170px] h-full flex flex-col '>
+    <div className='flex flex-col h-full'>
       <div className='flex space-x-1 px-1 mb-2'>
         <button
           onClick={() => setCopy(!copy)}
@@ -505,8 +441,8 @@ function PresetInput() {
           save
         </button>
       </div>
-      <div className='flex flex-wrap *:aspect-square *:w-7 *:h-7 h-full w-full overflow-auto'>
-        {_.range(5).map(x => (
+      <div className='grid grid-cols-4 auto-rows-auto *:aspect-square *:w-8 *:h-8 h-full w-full overflow-auto'>
+        {_.range(4).map(x => (
           <button
             className={`rounded flex text-xs items-center justify-center m-0.5 ${
               index === x
@@ -516,10 +452,10 @@ function PresetInput() {
             onClick={() => {
               setIndex(x)
             }}>
-            {x + 1}
+            {['a', 'b', 'c', 'd', 'e'][x]}
           </button>
         ))}
-        {_.range(index * 80, (index + 1) * 80).map(i => (
+        {_.range(index * 64, (index + 1) * 64).map(i => (
           <button
             className={`rounded flex text-xs items-center justify-center m-0.5 ${
               currentPreset === `${i}`

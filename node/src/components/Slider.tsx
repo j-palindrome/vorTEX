@@ -30,54 +30,46 @@ export default function Slider({
 
   const divRef = useRef<HTMLDivElement>(null)
   let moved = useRef<false | number>(false)
-  useEffect(() => {
-    if (!divRef.current) return
+  const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
+    const rect = divRef.current!.getBoundingClientRect()
+    let x: number, y: number
 
-    const updateMouse = (ev: React.MouseEvent | React.TouchEvent) => {
-      const rect = divRef.current!.getBoundingClientRect()
-      let x: number, y: number
-      console.log('change')
-
-      if (ev instanceof TouchEvent) {
-        const touch = [...ev.touches].find(
-          x =>
-            x.clientX > rect.left &&
-            x.clientX < rect.right &&
-            x.clientY < rect.bottom &&
-            x.clientY > rect.top
-        )
-        if (!touch) return
-        x = (touch.clientX - rect.x) / rect.width
-        y = 1 - (touch.clientY - rect.y) / rect.height
-      } else if (ev instanceof MouseEvent) {
-        x = (ev.clientX - rect.x) / rect.width
-        y = 1 - (ev.clientY - rect.y) / rect.height
-      } else throw new Error()
-
-      place.current = { x, y }
-      onChange({ x: x ** 2, y: y ** 2 })
-      Object.assign(slider.current.style, sliderStyle({ x, y }))
-    }
-    const onMouseMove = ev => {
+    if (ev.type === 'touchmove') {
+      const touch = [...ev.touches].find(
+        x =>
+          x.clientX > rect.left &&
+          x.clientX < rect.right &&
+          x.clientY < rect.bottom &&
+          x.clientY > rect.top
+      )
+      if (!touch) return
+      x = (touch.clientX - rect.x) / rect.width
+      y = 1 - (touch.clientY - rect.y) / rect.height
+    } else if (ev.type === 'mousemove') {
       if (!ev.buttons) return
-      console.log('moved start')
-      if (moved.current) window.clearTimeout(moved.current)
-      moved.current = window.setTimeout(() => (moved.current = false), 200)
-      updateMouse(ev)
-    }
-    divRef.current.addEventListener('mousemove', onMouseMove)
-    divRef.current.addEventListener('touchmove', updateMouse)
-    return () => {
-      divRef.current?.removeEventListener('mousemove', onMouseMove)
-      divRef.current?.removeEventListener('touchmove', updateMouse)
-    }
-  }, [divRef])
+      x = (ev.clientX - rect.x) / rect.width
+      y = 1 - (ev.clientY - rect.y) / rect.height
+    } else throw new Error()
+
+    place.current = { x, y }
+    onChange({ x: x ** 2, y: y ** 2 })
+
+    Object.assign(slider.current.style, sliderStyle({ x, y }))
+  }
+  const onMouseMove = ev => {
+    if (!ev.buttons) return
+    if (moved.current) window.clearTimeout(moved.current)
+    moved.current = window.setTimeout(() => (moved.current = false), 200)
+    updateMouse(ev)
+  }
 
   const fadeTime = useAppStore(state => state.fadeTime)
   return (
     <div
       ref={divRef}
       className={`${className} relative flex overflow-hidden`}
+      onTouchMove={updateMouse}
+      onMouseMove={updateMouse}
       onMouseUp={ev => {
         if (moved.current) {
           return
