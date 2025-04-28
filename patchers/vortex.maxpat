@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 50.0, 143.0, 1000.0, 829.0 ],
+		"rect" : [ 34.0, 115.0, 1212.0, 651.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -475,7 +475,7 @@
 
 											}
  ],
-										"originid" : "pat-698"
+										"originid" : "pat-76"
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1035,7 +1035,7 @@
 
 							}
  ],
-						"originid" : "pat-696"
+						"originid" : "pat-74"
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1334,7 +1334,7 @@
 
 											}
  ],
-										"originid" : "pat-702",
+										"originid" : "pat-80",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1730,7 +1730,7 @@
 
 							}
  ],
-						"originid" : "pat-700",
+						"originid" : "pat-78",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2156,7 +2156,7 @@
 
 											}
  ],
-										"originid" : "pat-710",
+										"originid" : "pat-88",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2431,7 +2431,7 @@
 
 											}
  ],
-										"originid" : "pat-712"
+										"originid" : "pat-90"
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2668,7 +2668,7 @@
 
 											}
  ],
-										"originid" : "pat-714",
+										"originid" : "pat-92",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2980,7 +2980,7 @@
 
 							}
  ],
-						"originid" : "pat-708",
+						"originid" : "pat-86",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3542,7 +3542,7 @@
 
 							}
  ],
-						"originid" : "pat-716"
+						"originid" : "pat-94"
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 50.0, 169.0, 1000.0, 803.0 ],
+						"rect" : [ 34.0, 141.0, 1212.0, 625.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3689,6 +3689,18 @@
 						"subpatcher_template" : "Joshua",
 						"showontab" : 2,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-35",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 780.0, 600.0, 61.0, 22.0 ],
+									"text" : "list.nth 2"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-82",
 									"maxclass" : "live.text",
@@ -3724,7 +3736,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 834.0, 696.0, 191.0, 22.0 ],
+									"patching_rect" : [ 1004.0, 661.125830411911011, 191.0, 22.0 ],
 									"text" : "set \"SpaceMouse connected\""
 								}
 
@@ -3749,7 +3761,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 915.0, 570.0, 182.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 389.0, 90.0, 182.0, 20.0 ],
+									"presentation_rect" : [ 389.0, 29.5, 182.0, 20.0 ],
 									"text" : "SpaceMouse not connected"
 								}
 
@@ -4913,7 +4925,7 @@
 
 											}
  ],
-										"originid" : "pat-816",
+										"originid" : "pat-194",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5027,7 +5039,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 635.0, 2415.0, 278.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://undefined:7001/documentation"
+									"text" : ";\rmax launchbrowser http://192.168.1.68:7001/documentation"
 								}
 
 							}
@@ -5104,7 +5116,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 838.0, 2280.0, 184.0, 50.0 ],
-									"text" : ";\rmax launchbrowser http://undefined:7001"
+									"text" : ";\rmax launchbrowser http://192.168.1.68:7001"
 								}
 
 							}
@@ -5144,9 +5156,9 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 913.0, 2160.0, 285.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_linecount" : 3,
-									"presentation_rect" : [ 30.0, 165.0, 204.0, 48.0 ],
-									"text" : "Go to http://undefined:7001 from an iPad signed into same WiFi to access UI."
+									"presentation_linecount" : 4,
+									"presentation_rect" : [ 30.0, 165.0, 204.0, 62.0 ],
+									"text" : "Go to http://192.168.1.68:7001 from an iPad signed into same WiFi to access UI."
 								}
 
 							}
@@ -5698,8 +5710,6 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
-										"node_bin_path" : "",
-										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6257,7 +6267,7 @@
 
 											}
  ],
-										"originid" : "pat-942",
+										"originid" : "pat-320",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6560,6 +6570,13 @@
 							}
  ],
 						"lines" : [ 							{
+								"patchline" : 								{
+									"destination" : [ "obj-35", 0 ],
+									"source" : [ "obj-10", 1 ]
+								}
+
+							}
+, 							{
 								"patchline" : 								{
 									"destination" : [ "obj-69", 0 ],
 									"source" : [ "obj-10", 0 ]
@@ -6949,6 +6966,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-32", 0 ],
 									"source" : [ "obj-33", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-41", 0 ],
+									"source" : [ "obj-35", 0 ]
 								}
 
 							}
@@ -7364,7 +7388,7 @@
 
 							}
  ],
-						"originid" : "pat-718",
+						"originid" : "pat-96",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7650,7 +7674,7 @@
 
 			}
  ],
-		"originid" : "pat-690",
+		"originid" : "pat-68",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
