@@ -5718,7 +5718,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 704.0, 1164.0, 217.0, 22.0 ],
+									"patching_rect" : [ 713.0, 1155.0, 217.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
