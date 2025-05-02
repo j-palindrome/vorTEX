@@ -38,19 +38,9 @@ export default function Scene() {
       'set',
       '/mesh',
       'spacemouse',
-      controlBoth ? 3 : getters.get('index') + 1
+      controlBoth ? 5 : getters.get('index') + 1
     )
-  }, [controlBoth])
-
-  useEffect(() => {
-    if (!socket) return
-    socket.emit(
-      'set',
-      '/mesh',
-      'spacemouse',
-      controlBoth ? 3 : getters.get('index') + 1
-    )
-  }, [socket])
+  }, [controlBoth, socket])
 
   const fadeTime = useAppStore(state => state.fadeTime)
   // const [scrollFix, setScrollFix] = useState(false)
