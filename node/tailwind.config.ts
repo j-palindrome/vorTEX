@@ -4,7 +4,7 @@ export default {
   content: ['src/**/*.{tsx,css}', 'index.html'],
   theme: {
     fontFamily: {
-      sans: 'Andale Mono',
+      sans: 'Helvetica Neue',
       mono: 'Andale Mono'
     },
     extend: {}

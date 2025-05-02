@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1212.0, 651.0 ],
+		"rect" : [ 42.0, 123.0, 1596.0, 885.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3679,7 +3679,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 141.0, 1212.0, 625.0 ],
+						"rect" : [ 42.0, 149.0, 1596.0, 859.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3689,6 +3689,18 @@
 						"subpatcher_template" : "Joshua",
 						"showontab" : 2,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-14",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 962.875, 1335.0, 177.0, 22.0 ],
+									"text" : "route spaceMouseStrength"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-35",
 									"maxclass" : "newobj",
@@ -3762,7 +3774,7 @@
 									"patching_rect" : [ 915.0, 570.0, 182.0, 20.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 389.0, 29.5, 182.0, 20.0 ],
-									"text" : "SpaceMouse not connected"
+									"text" : "SpaceMouse connected"
 								}
 
 							}
@@ -5421,7 +5433,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 568.0, 1005.0, 96.0, 22.0 ],
+									"patching_rect" : [ 540.0, 977.0, 96.0, 22.0 ],
 									"presentation" : 1,
 									"presentation_rect" : [ 255.0, 135.0, 96.0, 22.0 ],
 									"text" : "restart server"
@@ -5465,7 +5477,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 884.0, 809.0, 112.0, 22.0 ],
+									"patching_rect" : [ 866.0, 840.0, 112.0, 22.0 ],
 									"text" : "loadmess 0.006"
 								}
 
@@ -5523,8 +5535,8 @@
 									"numinlets" : 6,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 866.0, 925.0, 226.0, 22.0 ],
-									"text" : "scale 0. 1. 0. 0.002 1.5 @classic 0."
+									"patching_rect" : [ 889.0, 930.0, 218.0, 22.0 ],
+									"text" : "scale 0. 1. 0.002 0.05 @classic 0."
 								}
 
 							}
@@ -5645,10 +5657,10 @@
 									"id" : "obj-276",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 8,
-									"outlettype" : [ "", "", "", "", "", "", "", "FullPacket" ],
-									"patching_rect" : [ 703.0, 1260.0, 266.0, 22.0 ],
-									"text" : "o.route /0 /1 /2 /3 /global /message /mesh"
+									"numoutlets" : 9,
+									"outlettype" : [ "", "", "", "", "", "", "", "", "FullPacket" ],
+									"patching_rect" : [ 703.0, 1260.0, 316.0, 22.0 ],
+									"text" : "o.route /0 /1 /2 /3 /global /message /mesh /control"
 								}
 
 							}
@@ -5659,7 +5671,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 597.0, 1065.0, 80.0, 22.0 ],
+									"patching_rect" : [ 540.0, 1035.0, 80.0, 22.0 ],
 									"text" : "script start"
 								}
 
@@ -5694,7 +5706,7 @@
 									"outlettype" : [ "bang" ],
 									"patching_rect" : [ 1043.0, 1620.0, 400.0, 220.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 165.0, 450.0, 555.0 ],
+									"presentation_rect" : [ 255.0, 165.0, 450.0, 195.0 ],
 									"viewvisibility" : 1
 								}
 
@@ -5710,6 +5722,8 @@
 									"saved_object_attributes" : 									{
 										"autostart" : 1,
 										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
 										"watch" : 0
 									}
 ,
@@ -6685,6 +6699,14 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"midpoints" : [ 972.375, 1376.6875, 1066.6484375, 1376.6875, 1066.6484375, 914.70703125, 898.5, 914.70703125 ],
+									"source" : [ "obj-14", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-137", 0 ],
 									"source" : [ "obj-141", 0 ]
 								}
@@ -6838,6 +6860,13 @@
 								"patchline" : 								{
 									"destination" : [ "obj-29", 0 ],
 									"source" : [ "obj-27", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-14", 0 ],
+									"source" : [ "obj-276", 7 ]
 								}
 
 							}

@@ -78,7 +78,7 @@ export default function Scene() {
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
           <div>
-            <div className='h-8 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center'>
+            <div className='h-10 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center mb-1'>
               <div className='flex *:w-[40px]'>
                 {_.range(4).map(x => {
                   return (
@@ -86,7 +86,7 @@ export default function Scene() {
                       key={x}
                       className={`${
                         index === x ? 'bg-gray-700 rounded-lg' : ''
-                      }`}
+                      } w-10 h-10`}
                       onClick={() => {
                         setters.set({ index: x })
                         socket.emit('set', '/mesh', 'spacemouse', x + 1)
@@ -354,6 +354,17 @@ function FileChooser() {
 
   const socket = useSocket()
 
+  const [spaceMouseStrength, setSpaceMouseStrength] = useState(0.5)
+  useEffect(() => {
+    if (!socket) return
+    socket!.emit(
+      'set',
+      '/control',
+      'spaceMouseStrength',
+      Number(spaceMouseStrength)
+    )
+  }, [spaceMouseStrength])
+
   return (
     <div className='flex'>
       <div className='w-[200px]'>
@@ -379,7 +390,7 @@ function FileChooser() {
             ))}
           </select>
         </div>
-        <div className='w-[200px] flex'>
+        <div className='w-[200px] flex mt-2'>
           <h3 className='whitespace-pre'>file 2</h3>
           <select
             className='w-full'
@@ -403,26 +414,42 @@ function FileChooser() {
         </div>
       </div>
 
-      <div className='w-[200px]'>
-        <h3>noise</h3>
-        <select
-          value={noise}
-          onChange={ev => {
-            setters.setPreset(
-              'global',
-              {
-                video_noise: ev.target.value
-              },
-              socket!
-            )
-          }}>
-          <option value=''>---</option>
-          {noiseTypes.map(val => (
-            <option key={val} value={val}>
-              {val}
-            </option>
-          ))}
-        </select>
+      <div className='flex-none w-fit ml-2'>
+        <div className='flex'>
+          <h3>spaceMouse</h3>
+          <select
+            value={spaceMouseStrength}
+            onChange={ev => {
+              setSpaceMouseStrength(parseFloat(ev.target.value))
+            }}>
+            {[0, 0.25, 0.5, 0.75, 1].map(val => (
+              <option key={val} value={val}>
+                {val}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className='flex mt-2'>
+          <h3>noise</h3>
+          <select
+            value={noise}
+            onChange={ev => {
+              setters.setPreset(
+                'global',
+                {
+                  video_noise: ev.target.value
+                },
+                socket!
+              )
+            }}>
+            <option value=''>---</option>
+            {noiseTypes.map(val => (
+              <option key={val} value={val}>
+                {val}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   )
@@ -434,11 +461,10 @@ function PresetInput() {
   const currentPreset = useAppStore(state => state.currentPreset)
 
   const socket = useSocket()!
-
   const [index, setIndex] = useState(0)
 
   return (
-    <div className='flex flex-col h-full'>
+    <div className='flex flex-col h-full mr-1'>
       <div className='flex space-x-1 px-1 mb-2'>
         <button
           onClick={() => setCopy(!copy)}
@@ -455,7 +481,7 @@ function PresetInput() {
           save
         </button>
       </div>
-      <div className='grid grid-cols-4 auto-rows-auto *:aspect-square *:w-8 *:h-8 h-full w-full overflow-auto'>
+      <div className='grid grid-cols-4 auto-rows-auto *:aspect-square *:w-10 *:h-10 h-full w-full overflow-auto'>
         {_.range(4).map(x => (
           <button
             className={`rounded flex text-xs items-center justify-center m-0.5 ${
@@ -466,7 +492,7 @@ function PresetInput() {
             onClick={() => {
               setIndex(x)
             }}>
-            {['a', 'b', 'c', 'd', 'e'][x]}
+            {['a', 'b', 'c', 'd'][x]}
           </button>
         ))}
         {_.range(index * 64, (index + 1) * 64).map(i => (

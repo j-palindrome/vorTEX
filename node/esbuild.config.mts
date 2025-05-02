@@ -8,7 +8,7 @@ const context = await esbuild.context({
   format: 'cjs',
   // target: ['node18'],
   sourcemap: 'inline',
-  external: ['max-api'],
+  external: ['max-api', 'esbuild'],
   banner: {
     js: '"use strict";'
   }
