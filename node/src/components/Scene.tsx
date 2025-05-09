@@ -58,6 +58,26 @@ export default function Scene() {
     }
   })
 
+  const enabledMeshes: boolean[] = useAppStore(state => {
+    return state.preset.slice(0, 4).map(x => x['mesh_enable'])
+  })
+
+  // const currentPreset = useAppStore(state => state.currentPreset)
+  const [mouseEnabled, setMouseEnabled] = useState([false, false, false, false])
+  useEffect(() => {
+    if (!socket) return
+
+    socket.emit(
+      'set',
+      '/mesh',
+      'spacemouse',
+      mouseEnabled.map(x => (x === false ? 0 : 1))
+    )
+  }, [mouseEnabled, socket])
+  // useEffect(() => {
+  //   mouseEnable
+  // }, [currentPreset])
+
   return (
     <>
       <div className='h-[200px] w-screen bg-gray-600'>
@@ -67,19 +87,28 @@ export default function Scene() {
         className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
-          <div>
-            <div className='h-10 border border-gray-700 rounded-lg flex *:h-full overflow-hidden items-center mb-1'>
+          <div className='*:h-10 *:flex *:items-center *:justify-end'>
+            <div>enabled</div>
+            <div>mouse</div>
+          </div>
+          <div className='border border-gray-700 rounded-lg'>
+            <div className='h-10 flex *:h-full overflow-hidden items-center'>
               <div className='flex *:w-[40px]'>
                 {_.range(4).map(x => {
                   return (
                     <button
                       key={x}
                       className={`${
-                        index === x ? 'bg-gray-700 rounded-lg' : ''
+                        enabledMeshes[x] ? 'bg-gray-700 rounded-lg' : ''
                       } w-10 h-10`}
                       onClick={() => {
-                        setters.set({ index: x })
-                        socket.emit('set', '/mesh', 'spacemouse', x + 1)
+                        setters.setPreset(
+                          x,
+                          {
+                            mesh_enable: !enabledMeshes[x]
+                          },
+                          socket
+                        )
                       }}>
                       <span className='mix-blend-difference'>{x + 1}</span>
                     </button>
@@ -87,14 +116,52 @@ export default function Scene() {
                 })}
               </div>
             </div>
-            <MaxValue name='mesh_enable' title='on/off' />
+            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+              <div className='flex *:w-[40px]'>
+                {_.range(4).map(x => {
+                  return (
+                    <button
+                      key={x}
+                      className={`${
+                        mouseEnabled[x] ? 'bg-gray-700 rounded-lg' : ''
+                      } w-10 h-10`}
+                      onClick={() => {
+                        const newMouseEnabled = [...mouseEnabled]
+                        newMouseEnabled[x] = !mouseEnabled[x]
+                        setMouseEnabled(newMouseEnabled)
+                      }}>
+                      <span className='mix-blend-difference'>{x + 1}</span>
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* <MaxValue name='mesh_enable' title='on/off' />
             <button
               className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
               onClick={() => {
                 setControlBoth(!controlBoth)
               }}>
               <span className='mix-blend-difference'>both</span>
-            </button>
+            </button> */}
+          </div>
+          <div className='border border-gray-700 rounded-lg grid grid-cols-2 *:h-full overflow-hidden items-center flex-none'>
+            {_.range(4).map(x => {
+              return (
+                <button
+                  key={x}
+                  className={`${
+                    index === x ? 'bg-gray-700 rounded-lg' : ''
+                  } w-10 h-10`}
+                  onClick={() => {
+                    setters.set({ index: x })
+                    socket.emit('set', '/mesh', 'spacemouse', x + 1)
+                  }}>
+                  <span className='mix-blend-difference'>{x + 1}</span>
+                </button>
+              )
+            })}
           </div>
           <div>
             <button
@@ -137,14 +204,6 @@ export default function Scene() {
                   if (index === 3 || controlBoth) {
                     setters.setPreset(
                       3,
-                      { color_alpha: secondOriginal * newValue },
-                      socket,
-                      { save: false }
-                    )
-                  }
-                  if (index === 4 || controlBoth) {
-                    setters.setPreset(
-                      4,
                       { color_alpha: secondOriginal * newValue },
                       socket,
                       { save: false }
