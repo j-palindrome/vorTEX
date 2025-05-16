@@ -2,12 +2,12 @@ import { ip } from 'address'
 //e.g server.js
 
 import express from 'express'
-import maxApi from 'max-api'
 import fs from 'node:fs'
 import path from 'node:path'
 import { Server as SocketServer } from 'socket.io'
 import { remove } from 'lodash'
 import ViteExpress from 'vite-express'
+import osc from 'osc'
 
 // const server = app.listen(7001, () => console.log('Server is listening...'))
 const app = express()
@@ -27,8 +27,33 @@ const server = ViteExpress.listen(app, 7001, () =>
 // And then attach the socket.io server to the HTTP server
 const io = new SocketServer<SocketEvents>(server)
 
-// Then you can use `io` to listen the `connection` event and get a socket
-// from a client
+// OSC setup
+const oscPortOut = new osc.UDPPort({
+  localAddress: 'localhost',
+  localPort: 11001, // receive from Max
+  remoteAddress: 'localhost',
+  remotePort: 11002 // send to Max
+})
+oscPortOut.open()
+
+function oscSend(address: string, ...args: any[]) {
+  oscPortOut.send({
+    address,
+    args: args
+      .map(arg => {
+        if (typeof arg === 'number') return { type: 'f', value: arg }
+        if (typeof arg === 'string') return { type: 's', value: arg }
+        if (Array.isArray(arg))
+          return arg.map(a => ({
+            type: typeof a === 'number' ? 'f' : 's',
+            value: a
+          }))
+        return { type: 's', value: String(arg) }
+      })
+      .flat()
+  })
+}
+
 const settings = {
   mediaFolder: path.join(
     process.cwd().match(/\/Users\/[^\/]+\//)![0],
@@ -40,14 +65,14 @@ const settings = {
   )
 }
 
-maxApi.post('folders', settings.mediaFolder, settings.presetBackupFolder)
+oscSend('/folders', settings.mediaFolder, settings.presetBackupFolder)
 const ipAdd = ip()
-maxApi.outlet(
+oscSend(
   '/message',
   `Go to http://${ipAdd}:7001 from an iPad signed into same WiFi to access UI.`
 )
-maxApi.outlet('/message/ip', `http://${ipAdd}:7001`)
-maxApi.outlet(
+oscSend('/message/ip', `http://${ipAdd}:7001`)
+oscSend(
   '/message/name',
   `name`,
   `presets_${new Date().toISOString().slice(0, 10).replace(/[\/:]/g, '-')}.json`
@@ -74,26 +99,35 @@ const readFiles = (socket?: any) => {
   }
 }
 
-maxApi.addHandler('spaceMouse', (...data) => {
-  io.fetchSockets().then(sockets => {
-    sockets.forEach(socket =>
-      socket.emit('getSpaceMouse', data[0], data.slice(1, 4), data.slice(4))
-    )
-  })
+oscPortOut.on('message', msg => {
+  if (msg.address === '/spaceMouse') {
+    const data = msg.args.map(a => a.value)
+    io.fetchSockets().then(sockets => {
+      sockets.forEach(socket =>
+        socket.emit('getSpaceMouse', data[0], data.slice(1, 4), data.slice(4))
+      )
+    })
+  }
 })
 
 readFiles()
 
-maxApi.addHandler('setPresetsFile', (file: string) => {
-  try {
-    maxApi.post('loading presets file', file)
-    const fileContents = fs.readFileSync(file, 'utf-8')
-    fs.writeFileSync(path.resolve(process.cwd(), 'presets.json'), fileContents)
-    io.fetchSockets().then(sockets => {
-      sockets.forEach(socket => socket.emit('setPresets', fileContents))
-    })
-  } catch (err) {
-    console.log('failed')
+oscPortOut.on('message', msg => {
+  if (msg.address === '/setPresetsFile') {
+    const file = msg.args[0].value
+    try {
+      oscSend('/post', 'loading presets file', file)
+      const fileContents = fs.readFileSync(file, 'utf-8')
+      fs.writeFileSync(
+        path.resolve(process.cwd(), 'presets.json'),
+        fileContents
+      )
+      io.fetchSockets().then(sockets => {
+        sockets.forEach(socket => socket.emit('setPresets', fileContents))
+      })
+    } catch (err) {
+      console.log('failed')
+    }
   }
 })
 
@@ -101,12 +135,12 @@ let presets: Record<string, any> = {}
 io.on('connection', socket => {
   socket.on('set', (route: string, property: string, value: any) => {
     if (value instanceof Array) {
-      maxApi.outlet(route, property, ...value)
+      oscSend(route, property, ...value)
     } else {
       if ((property === 'file1' || property === 'file2') && value) {
         value = path.resolve(settings.mediaFolder, value)
       }
-      maxApi.outlet(route, property, value)
+      oscSend(route, property, value)
     }
   })
 

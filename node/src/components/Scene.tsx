@@ -88,7 +88,7 @@ export default function Scene() {
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
           <div className='*:h-10 *:flex *:items-center *:justify-end'>
-            <div>enabled</div>
+            <div>show</div>
             <div>mouse</div>
           </div>
           <div className='border border-gray-700 rounded-lg'>
@@ -117,6 +117,7 @@ export default function Scene() {
               </div>
             </div>
             <div className='h-10 flex *:h-full overflow-hidden items-center'>
+              <div>controls</div>
               <div className='flex *:w-[40px]'>
                 {_.range(4).map(x => {
                   return (
