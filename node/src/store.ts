@@ -100,6 +100,7 @@ export type AppState = {
   files: string[]
   index: 0 | 1 | 2 | 3
   fadeTime: number
+  help: string
 }
 
 export const presetDescription: {
@@ -206,7 +207,8 @@ const initialState: AppState = {
   currentPreset: '0',
   files: [],
   index: 0,
-  fadeTime: 0
+  fadeTime: 0,
+  help: 'mouse over controls for help'
 }
 
 export const useAppStore = create<AppState>(() => initialState)
@@ -356,49 +358,6 @@ export const setters = {
       }
     })
   },
-  // setPresetByIndex: (name: string, index: number, newPreset: Partial<MeshPreset>, socket: Socket<SocketEvents>, { send: sendToMax = true, save = false } = {}) => {
-  //   if (sendToMax) {
-  //     for (let key of Object.keys(newPreset)) {
-  //       while (key === 'mesh_position' && newPreset['mesh_position']!.length < 3)
-  //         newPreset = {
-  //           ...newPreset,
-  //           mesh_position: newPreset['mesh_position']!.concat([0])
-  //         }
-  //       while (
-  //         key === 'mesh_rotatexyz' &&
-  //         newPreset['mesh_rotatexyz']!.length < 3
-  //       )
-  //         newPreset = {
-  //           ...newPreset,
-  //           mesh_rotatexyz: newPreset['mesh_position']!.concat([0])
-  //         }
-  //       if (key.includes('file') && !newPreset[key]) {
-  //         continue
-  //       }
-  //       socket.emit(
-  //         'set',
-  //         '/' + index + '/' + key.slice(0, key.indexOf('_')),
-  //         key.slice(key.indexOf('_') + 1),
-  //         newPreset[key]
-  //       )
-  //     }
-  //   }
-
-  //   modify(state => {
-  //     for (let [key, value] of Object.entries(newPreset)) {
-  //       if (typeof index === 'number') {
-  //         state.preset[index][key] = value
-  //       } else if (index === 'global') {
-  //         // global
-  //         state.preset[4][key] = value
-  //       }
-  //     }
-  //     if (save) {
-  //       state.presets[state.currentPreset] = state.preset
-  //       socket.emit('savePresets', state.presets)
-  //     }
-  //   })
-  // },
   set: (newState: Partial<AppState>) =>
     modify(state => Object.assign(state, newState)),
   modify: (modifier: (oldState: AppState) => void) => modify(modifier)

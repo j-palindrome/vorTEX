@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 5,
+			"revision" : 6,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1016.0, 901.0 ],
+		"rect" : [ 34.0, 115.0, 1461.0, 901.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -19,6 +19,38 @@
 		"subpatcher_template" : "Joshua",
 		"showontab" : 1,
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 12.0, 57.0, 320.0, 20.0 ],
+					"saved_object_attributes" : 					{
+						"allwindowsactive" : 0,
+						"appicon_mac" : "",
+						"appicon_win" : "",
+						"audiosupport" : 1,
+						"bundleidentifier" : "com.mycompany.myprogram",
+						"cantclosetoplevelpatchers" : 1,
+						"cefsupport" : 1,
+						"copysupport" : 1,
+						"database" : 0,
+						"extensions" : 1,
+						"gensupport" : 1,
+						"midisupport" : 1,
+						"noloadbangdefeating" : 0,
+						"overdrive" : 0,
+						"preffilename" : "",
+						"searchformissingfiles" : 1,
+						"statusvisible" : 1,
+						"usesearchpath" : 1
+					}
+,
+					"text" : "standalone @searchformissingfiles 1 @usesearchpath 1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
@@ -246,7 +278,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 5,
+							"revision" : 6,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -365,7 +397,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -474,8 +506,7 @@
 												}
 
 											}
- ],
-										"originid" : "pat-77"
+ ]
 									}
 ,
 									"patching_rect" : [ 285.0, 465.0, 233.0, 22.0 ],
@@ -1034,8 +1065,7 @@
 								}
 
 							}
- ],
-						"originid" : "pat-75"
+ ]
 					}
 ,
 					"patching_rect" : [ 540.0, 225.0, 92.0, 20.0 ],
@@ -1054,7 +1084,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 5,
+							"revision" : 6,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -1175,7 +1205,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -1334,7 +1364,6 @@
 
 											}
  ],
-										"originid" : "pat-81",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -1730,7 +1759,6 @@
 
 							}
  ],
-						"originid" : "pat-79",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -2022,7 +2050,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 5,
+							"revision" : 6,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -2071,7 +2099,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2156,7 +2184,6 @@
 
 											}
  ],
-										"originid" : "pat-89",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2260,7 +2287,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2430,8 +2457,7 @@
 												}
 
 											}
- ],
-										"originid" : "pat-91"
+ ]
 									}
 ,
 									"patching_rect" : [ 59.999994277954102, 110.0, 137.0, 22.0 ],
@@ -2583,7 +2609,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -2668,7 +2694,6 @@
 
 											}
  ],
-										"originid" : "pat-93",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -2980,7 +3005,6 @@
 
 							}
  ],
-						"originid" : "pat-87",
 						"styles" : [ 							{
 								"name" : "Joshua",
 								"default" : 								{
@@ -3062,7 +3086,7 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 5,
+							"revision" : 6,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -3541,8 +3565,7 @@
 								}
 
 							}
- ],
-						"originid" : "pat-95"
+ ]
 					}
 ,
 					"patching_rect" : [ 688.0, 255.0, 104.0, 20.0 ],
@@ -3673,13 +3696,13 @@
 						"appversion" : 						{
 							"major" : 9,
 							"minor" : 0,
-							"revision" : 5,
+							"revision" : 6,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 141.0, 1016.0, 875.0 ],
+						"rect" : [ 34.0, 141.0, 1461.0, 875.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3689,6 +3712,32 @@
 						"subpatcher_template" : "Joshua",
 						"showontab" : 2,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-51",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 406.0, 977.0, 44.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 375.0, 240.0, 44.0, 22.0 ],
+									"text" : "install"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-49",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 406.0, 1035.0, 113.0, 22.0 ],
+									"text" : "script npm install"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-26",
 									"maxclass" : "newobj",
@@ -3734,7 +3783,7 @@
 									"parameter_enable" : 1,
 									"patching_rect" : [ 870.198748111724854, 495.0, 104.801251888275146, 30.165606737136841 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 390.0, 52.41719663143158, 104.801251888275146, 30.165606737136841 ],
+									"presentation_rect" : [ 271.0, 53.0, 104.801251888275146, 30.165606737136841 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
 											"parameter_enum" : [ "val1", "val2" ],
@@ -3784,7 +3833,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 915.0, 570.0, 182.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 389.0, 29.5, 182.0, 20.0 ],
+									"presentation_rect" : [ 270.0, 30.0, 182.0, 20.0 ],
 									"text" : "SpaceMouse not connected"
 								}
 
@@ -4023,7 +4072,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 1815.0, 960.0, 93.0, 20.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 284.0, 29.5, 93.0, 20.0 ],
+									"presentation_rect" : [ 150.0, 29.5, 93.0, 20.0 ],
 									"text" : "Load Presets"
 								}
 
@@ -4050,7 +4099,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 1784.0, 960.0, 24.0, 24.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 284.0, 55.5, 24.0, 24.0 ]
+									"presentation_rect" : [ 150.0, 55.5, 24.0, 24.0 ]
 								}
 
 							}
@@ -4111,7 +4160,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
-									"text" : "spaceMouse 3 -0.026297 -0.042309 0.151749 0 0 0"
+									"text" : "spaceMouse 3 -0.026297 -0.042309 0.151749"
 								}
 
 							}
@@ -4139,17 +4188,16 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 34.0, 115.0, 1016.0, 901.0 ],
+										"rect" : [ 34.0, 115.0, 1461.0, 901.0 ],
 										"gridsize" : [ 15.0, 15.0 ],
 										"style" : "Joshua",
 										"subpatcher_template" : "Joshua",
-										"visible" : 1,
 										"boxes" : [ 											{
 												"box" : 												{
 													"id" : "obj-10",
@@ -5021,7 +5069,6 @@
 
 											}
  ],
-										"originid" : "pat-195",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -5055,7 +5102,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 480.0, 1395.0, 169.0, 22.0 ],
+									"patching_rect" : [ 485.5, 1395.0, 169.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"style" : "Joshua"
 									}
@@ -5136,33 +5183,6 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 635.0, 2415.0, 278.0, 50.0 ],
 									"text" : ";\rmax launchbrowser http://192.168.1.54:7001/documentation"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-134",
-									"maxclass" : "button",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "bang" ],
-									"parameter_enable" : 0,
-									"patching_rect" : [ 635.0, 2235.0, 24.0, 24.0 ],
-									"presentation" : 1,
-									"presentation_rect" : [ 150.0, 51.5, 24.0, 24.0 ]
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-132",
-									"maxclass" : "comment",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 635.0, 2205.0, 109.0, 20.0 ],
-									"presentation" : 1,
-									"presentation_rect" : [ 150.0, 29.5, 109.0, 20.0 ],
-									"text" : "documentation"
 								}
 
 							}
@@ -5482,7 +5502,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 329.0, 360.0, 68.0, 34.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 630.0, 19.0, 86.0, 20.0 ],
+									"presentation_rect" : [ 511.0, 19.0, 86.0, 20.0 ],
 									"text" : "SOUND ON"
 								}
 
@@ -5495,7 +5515,7 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 328.0, 397.0, 45.0, 45.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 630.0, 41.0, 45.0, 45.0 ]
+									"presentation_rect" : [ 511.0, 41.0, 45.0, 45.0 ]
 								}
 
 							}
@@ -5519,7 +5539,7 @@
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 540.0, 977.0, 96.0, 22.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 135.0, 96.0, 22.0 ],
+									"presentation_rect" : [ 255.0, 240.0, 96.0, 22.0 ],
 									"text" : "restart server"
 								}
 
@@ -5790,7 +5810,7 @@
 									"outlettype" : [ "bang" ],
 									"patching_rect" : [ 1043.0, 1620.0, 400.0, 220.0 ],
 									"presentation" : 1,
-									"presentation_rect" : [ 255.0, 165.0, 450.0, 195.0 ],
+									"presentation_rect" : [ 30.0, 285.0, 450.0, 195.0 ],
 									"viewvisibility" : 1
 								}
 
@@ -6074,7 +6094,7 @@
 										"appversion" : 										{
 											"major" : 9,
 											"minor" : 0,
-											"revision" : 5,
+											"revision" : 6,
 											"architecture" : "x64",
 											"modernui" : 1
 										}
@@ -6365,7 +6385,6 @@
 
 											}
  ],
-										"originid" : "pat-321",
 										"styles" : [ 											{
 												"name" : "Joshua",
 												"default" : 												{
@@ -6769,13 +6788,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-136", 0 ],
-									"source" : [ "obj-134", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-136", 1 ],
 									"source" : [ "obj-137", 0 ]
 								}
@@ -7150,6 +7162,20 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-282", 0 ],
+									"source" : [ "obj-49", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-49", 0 ],
+									"source" : [ "obj-51", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-37", 0 ],
 									"source" : [ "obj-52", 0 ]
 								}
@@ -7509,7 +7535,6 @@
 
 							}
  ],
-						"originid" : "pat-97",
 						"styles" : [ 							{
 								"name" : "Univers",
 								"default" : 								{
@@ -7795,7 +7820,6 @@
 
 			}
  ],
-		"originid" : "pat-69",
 		"parameters" : 		{
 			"obj-23" : [ "toggle", "toggle", 0 ],
 			"obj-2::obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],

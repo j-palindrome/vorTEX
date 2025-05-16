@@ -78,6 +78,7 @@ export default function Scene() {
   //   mouseEnable
   // }, [currentPreset])
 
+  const help = useAppStore(state => state.help)
   return (
     <>
       <div className='h-[200px] w-screen bg-gray-600'>
@@ -146,22 +147,25 @@ export default function Scene() {
               <span className='mix-blend-difference'>both</span>
             </button> */}
           </div>
-          <div className='border border-gray-700 rounded-lg grid grid-cols-2 *:h-full overflow-hidden items-center flex-none'>
-            {_.range(4).map(x => {
-              return (
-                <button
-                  key={x}
-                  className={`${
-                    index === x ? 'bg-gray-700 rounded-lg' : ''
-                  } w-10 h-10`}
-                  onClick={() => {
-                    setters.set({ index: x })
-                    socket.emit('set', '/mesh', 'spacemouse', x + 1)
-                  }}>
-                  <span className='mix-blend-difference'>{x + 1}</span>
-                </button>
-              )
-            })}
+          <div className='flex items-center'>
+            <div className='text-center mr-1'>control</div>
+            <div className='border border-gray-700 rounded-lg grid grid-cols-2 overflow-hidden items-center flex-none'>
+              {_.range(4).map(x => {
+                return (
+                  <button
+                    key={x}
+                    className={`${
+                      index === x ? 'bg-gray-700 rounded-lg' : ''
+                    } w-10 h-10`}
+                    onClick={() => {
+                      setters.set({ index: x as 0 | 1 | 2 | 3 })
+                      socket.emit('set', '/mesh', 'spacemouse', x + 1)
+                    }}>
+                    <span className='mix-blend-difference'>{x + 1}</span>
+                  </button>
+                )
+              })}
+            </div>
           </div>
           <div>
             <button
@@ -226,12 +230,24 @@ export default function Scene() {
             </button>
           </div>
           <FileChooser />
-          <MaxValue name='mesh_scale' title='scale' />
+          <MaxValue
+            name='mesh_scale'
+            title='scale'
+            help='Fix the scale of the mesh to match files'
+          />
           <div className='flex space-x-2'>
             <div className='grid grid-cols-2 auto-rows-auto'>
               <div className='col-span-2 text-center'>scramble</div>
-              <MaxValue name='nurbs_random' title='lg' />
-              <MaxValue name='sorting_trigger' title='sm' />
+              <MaxValue
+                name='nurbs_random'
+                title='lg'
+                help='Scramble the mesh curvature (turn up curve to see)'
+              />
+              <MaxValue
+                name='sorting_trigger'
+                title='sm'
+                help='Scramble the mesh vertices (turn up scra to see)'
+              />
             </div>
             <button
               className='bg-red-900 px-1'
@@ -268,6 +284,7 @@ export default function Scene() {
             </button>
           </div>
         </div>
+        <div className='flex w-full'>{help}</div>
 
         <div className='w-screen h-0 grow flex overflow-hidden'>
           <div className='h-full'>
@@ -275,27 +292,82 @@ export default function Scene() {
           </div>
           <div className='h-full w-0 grow *:h-1/2 *:flex *:overflow-x-auto *:overflow-y-hidden *:w-full *:*:flex-none'>
             <div className='space-x-2'>
-              <MaxValue name='color_alpha' title='alph' />
-              <MaxValue name='color_brightness' title='br' />
-              <MaxValue name='color_contrast' title='co' />
-              <MaxValue name='color_saturation' title='sat' />
-              <MaxValue name='color_hue' title='hue' />
+              <MaxValue
+                name='color_alpha'
+                title='alph'
+                help='How transparent the mesh is'
+              />
+              <MaxValue
+                name='color_brightness'
+                title='br'
+                help='How close to white the color is'
+              />
+              <MaxValue
+                name='color_contrast'
+                title='co'
+                help='The contrast in the mesh color'
+              />
+              <MaxValue
+                name='color_saturation'
+                title='sat'
+                help='The saturation of the mesh color'
+              />
+              <MaxValue
+                name='color_hue'
+                title='hue'
+                help='Rotate the hue around the color wheel'
+              />
 
-              <MaxValue name='other_dim' title='dim' />
-              <MaxValue name='nurbs_curvature' title='curve' />
-              <MaxValue name='mesh_pointSize' title='pt' />
-              <MaxValue name='sorting_scramble' title='scra' />
-              <MaxValue name='warping_smooth' title='bouba' />
-              <MaxValue name='other_source' title='source' />
-              <MaxValue name='other_source2' title='source 2' />
+              <MaxValue
+                name='other_dim'
+                title='dim'
+                help='How many vertices are in the mesh grid (1x1 -> 100x100)'
+              />
+              <MaxValue
+                name='nurbs_curvature'
+                title='curve'
+                help='How curved the mesh is (straight plane -> curved shape)'
+              />
+              <MaxValue
+                name='mesh_pointSize'
+                title='pt'
+                help='When drawing in points mode, how large each point is'
+              />
+              <MaxValue
+                name='sorting_scramble'
+                title='scra'
+                help='Scramble the vertices (straight plane -> fragmented blob)'
+              />
+              <MaxValue
+                name='warping_smooth'
+                title='bouba'
+                help='Smooth out the mesh motion'
+              />
+              <MaxValue
+                name='other_source'
+                title='source'
+                help='Switch the type of source. file1 and file2: files from the file dropdowns; colour: colour according to br/co/sat; text: the text source (in Max patcher); noise: the "noise" dropdown; colour_organ: color responding to sound.'
+              />
+              <MaxValue
+                name='other_source2'
+                title='source 2'
+                help='Switch the type of source 2 (use xfade to fade between sources, source 1 -> source 2)'
+              />
             </div>
             <div className='w-full'>
               <MaxValue
                 className='mr-2'
                 name='other_sourcefade'
                 title='xfade'
+                help='Fade between the source 1 and source 2'
               />
-              <div className='h-full w-[60px] flex flex-col mr-2'>
+              <div
+                className='h-full w-[60px] flex flex-col mr-2'
+                onMouseEnter={() =>
+                  setters.set({
+                    help: 'Change how sliders behave (immediate -> 10s fade)'
+                  })
+                }>
                 <div className='text-xs text-center'>fade</div>
                 <Slider
                   className='h-full w-full rounded-lg border border-white'
@@ -319,9 +391,20 @@ export default function Scene() {
                   className='mr-2'
                   name='nurbs_strength'
                   title='str lg'
+                  help='How much the mesh ripples'
                 />
-                <MaxValue className='mr-2' name='nurbs_speed' title='spd lg' />
-                <MaxValue className='' name='nurbs_scale' title='scl lg' />
+                <MaxValue
+                  className='mr-2'
+                  name='nurbs_speed'
+                  title='spd lg'
+                  help='How fast the mesh ripples'
+                />
+                <MaxValue
+                  className=''
+                  name='nurbs_scale'
+                  title='scl lg'
+                  help='The size of the ripple (many ripples -> one big ripple)'
+                />
               </div>
               <div className='grid grid-rows-[1fr] grid-cols-3 gap-y-2 h-full'>
                 {/* <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
@@ -333,16 +416,19 @@ export default function Scene() {
                   className='mr-2'
                   name='warping_strength'
                   title='str sm'
+                  help='How much the mesh jitters'
                 />
                 <MaxValue
                   className='mr-2'
                   name='warping_speed'
                   title='spd sm'
+                  help='How fast the mesh jitters'
                 />
                 <MaxValue
                   className='mr-2'
                   name='warping_scale'
                   title='scl sm'
+                  help='The size of the jitter (small jitters -> larger jitters)'
                 />
               </div>
               <div className='grid grid-rows-[1fr] grid-cols-2 gap-y-2 h-full'>
@@ -355,18 +441,28 @@ export default function Scene() {
                   className='mr-2'
                   name='warping_sound'
                   title='str snd'
+                  help='How much the mesh jitters in response to sound'
                 />
                 <MaxValue
                   className='mr-2'
                   name='warping_soundShape'
                   title='kiki'
+                  help='The sharpness of the sound response (curved -> sharp)'
                 />
               </div>
               <div className='h-full w-0 grow'></div>
               <div className='text-center h-full w-fit'>
                 <div className='flex *:ml-2'>
-                  <MaxValue name='warping_type' title='type' />
-                  <MaxValue name='mesh_drawMode' title='draw-mode' />
+                  <MaxValue
+                    name='warping_type'
+                    title='type'
+                    help='The type of jitter in the mesh'
+                  />
+                  <MaxValue
+                    name='mesh_drawMode'
+                    title='draw-mode'
+                    help='How the mesh is drawn (triangles, points, or lines)'
+                  />
                 </div>
               </div>
             </div>
@@ -573,11 +669,13 @@ function PresetInput() {
 function MaxValue({
   name,
   title,
-  className
+  className,
+  help
 }: {
   name: keyof MeshPreset
   title: string
   className?: string
+  help: string
 }) {
   const socket = useSocket()!
   const index = useAppStore(state => state.index)
@@ -598,6 +696,7 @@ function MaxValue({
       case 'trigger':
         return (
           <button
+            onMouseEnter={() => setters.set({ help })}
             onClick={() => {
               setters.setPreset(index, { [name]: 'bang' }, socket)
             }}
@@ -608,6 +707,7 @@ function MaxValue({
       case 'boolean':
         return (
           <button
+            onMouseEnter={() => setters.set({ help })}
             onClick={() => {
               setters.setPreset(index, { [name]: !value }, socket)
             }}
@@ -619,7 +719,9 @@ function MaxValue({
         )
       case 'string':
         return (
-          <div className='space-y-1 h-full'>
+          <div
+            className='space-y-1 h-full'
+            onMouseEnter={() => setters.set({ help })}>
             <h3>{title}</h3>
             <div className='overflow-y-auto h-full w-[120px] overflow-hidden'>
               {(description.values as string[])!.map(item => (
@@ -641,6 +743,7 @@ function MaxValue({
       case 'slider':
         return (
           <div
+            onMouseEnter={() => setters.set({ help })}
             className={`w-[60px] h-full flex flex-col items-center ${className}`}>
             <h3 className='w-full text-center text-xs whitespace-nowrap !font-sans'>
               {title.slice(0, 8) + (title.length > 8 ? '...' : '')}
@@ -661,12 +764,17 @@ function MaxValue({
         )
       case 'select':
         return (
-          <SelectComponent name={name} value={value as string} title={title} />
+          <SelectComponent
+            name={name}
+            value={value as string}
+            title={title}
+            help={help}
+          />
         )
       case 'list':
         const listValue = value as number[]
         return (
-          <div>
+          <div onMouseEnter={() => setters.set({ help })}>
             <div className='w-full text-center text-sm font-bold'>{title}</div>
             <div className='flex *:mx-2'>
               {listValue.map(value => (
@@ -685,11 +793,13 @@ function MaxValue({
 function SelectComponent({
   name,
   value,
-  title
+  title,
+  help
 }: {
   name: string
   value: string
   title: string
+  help: string
 }) {
   const values = useAppStore(state => {
     const description = presetDescription[
@@ -701,7 +811,7 @@ function SelectComponent({
   const socket = useSocket()!
 
   return (
-    <div>
+    <div onMouseEnter={() => setters.set({ help })}>
       <h3>{title}</h3>
       <select
         value={value}
