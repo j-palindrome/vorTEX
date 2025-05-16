@@ -14,6 +14,7 @@ const context = await esbuild.context({
   loader: {
     '.node': 'file'
   }
+  // external: ['lightningcss', 'esbuild']
 })
 
 // In watch mode

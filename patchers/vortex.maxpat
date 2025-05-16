@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 911.0, 226.0, 1212.0, 751.0 ],
+		"rect" : [ 34.0, 115.0, 1461.0, 901.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3659,7 +3659,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 911.0, 252.0, 1212.0, 725.0 ],
+						"rect" : [ 34.0, 141.0, 1461.0, 875.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -3670,39 +3670,53 @@
 						"showontab" : 2,
 						"boxes" : [ 							{
 								"box" : 								{
-									"id" : "obj-51",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 0,
-									"patching_rect" : [ 863.0, 1155.0, 163.0, 22.0 ],
-									"text" : "udpsend localhost 11001"
-								}
-
-							}
-, 							{
-								"box" : 								{
-									"id" : "obj-45",
-									"maxclass" : "newobj",
-									"numinlets" : 1,
-									"numoutlets" : 1,
-									"outlettype" : [ "" ],
-									"patching_rect" : [ 709.0, 1155.0, 119.0, 22.0 ],
-									"text" : "udpreceive 11002"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"id" : "obj-90",
 									"linecount" : 3,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 428.5, 90.0, 150.0, 48.0 ],
+									"patching_rect" : [ 375.0, 105.0, 150.0, 48.0 ],
 									"presentation" : 1,
 									"presentation_linecount" : 2,
 									"presentation_rect" : [ 375.0, 100.0, 165.0, 34.0 ],
 									"text" : "Press install when starting for the first time"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-76",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 420.0, 1050.0, 113.0, 22.0 ],
+									"text" : "script npm install"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-49",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 435.0, 975.0, 44.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 375.0, 135.0, 44.0, 22.0 ],
+									"text" : "install"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-26",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 570.0, 1155.0, 36.0, 22.0 ],
+									"text" : "print"
 								}
 
 							}
@@ -5386,7 +5400,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "int" ],
-									"patching_rect" : [ 1290.0, 1080.0, 173.0, 22.0 ],
+									"patching_rect" : [ 1425.0, 1125.0, 173.0, 22.0 ],
 									"text" : "conformpath native boot"
 								}
 
@@ -5398,7 +5412,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "bang" ],
-									"patching_rect" : [ 1290.0, 1050.0, 112.0, 22.0 ],
+									"patching_rect" : [ 1425.0, 1095.0, 112.0, 22.0 ],
 									"text" : "savedialog json"
 								}
 
@@ -5410,7 +5424,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 1290.0, 1110.0, 169.0, 22.0 ],
+									"patching_rect" : [ 1425.0, 1155.0, 169.0, 22.0 ],
 									"text" : "prepend savePresetsFile"
 								}
 
@@ -5543,6 +5557,20 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 852.0, 1965.0, 96.0, 22.0 ],
 									"text" : "s file2-source"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-101",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 540.0, 977.0, 96.0, 22.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 255.0, 135.0, 96.0, 22.0 ],
+									"text" : "restart server"
 								}
 
 							}
@@ -5767,6 +5795,80 @@
 									"outlettype" : [ "", "", "", "", "", "", "", "", "FullPacket" ],
 									"patching_rect" : [ 703.0, 1260.0, 316.0, 22.0 ],
 									"text" : "o.route /0 /1 /2 /3 /global /message /mesh /control"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-278",
+									"maxclass" : "message",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 540.0, 1035.0, 80.0, 22.0 ],
+									"text" : "script start"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-280",
+									"maxclass" : "newobj",
+									"numinlets" : 3,
+									"numoutlets" : 3,
+									"outlettype" : [ "", "", "" ],
+									"patching_rect" : [ 911.0, 1200.0, 145.0, 22.0 ],
+									"text" : "route running stdout"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"bgmode" : 0,
+									"border" : 0,
+									"clickthrough" : 0,
+									"enablehscroll" : 0,
+									"enablevscroll" : 0,
+									"id" : "obj-281",
+									"lockeddragscroll" : 0,
+									"lockedsize" : 0,
+									"maxclass" : "bpatcher",
+									"name" : "n4m.monitor.maxpat",
+									"numinlets" : 1,
+									"numoutlets" : 1,
+									"offset" : [ 0.0, 0.0 ],
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 1035.0, 1410.0, 400.0, 220.0 ],
+									"presentation" : 1,
+									"presentation_rect" : [ 255.0, 165.0, 450.0, 195.0 ],
+									"viewvisibility" : 1
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-282",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "" ],
+									"patching_rect" : [ 713.0, 1155.0, 217.0, 22.0 ],
+									"saved_object_attributes" : 									{
+										"autostart" : 1,
+										"defer" : 0,
+										"node_bin_path" : "",
+										"npm_bin_path" : "",
+										"watch" : 0
+									}
+,
+									"text" : "node.script server.js @autostart 1",
+									"textfile" : 									{
+										"filename" : "server.js",
+										"flags" : 0,
+										"embed" : 0,
+										"autowatch" : 1
+									}
+
 								}
 
 							}
@@ -6637,6 +6739,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-278", 0 ],
+									"source" : [ "obj-101", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-107", 0 ],
 									"source" : [ "obj-102", 0 ]
 								}
@@ -6746,7 +6855,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-13", 1 ],
-									"order" : 1,
+									"order" : 0,
 									"source" : [ "obj-154", 4 ]
 								}
 
@@ -6755,6 +6864,14 @@
 								"patchline" : 								{
 									"destination" : [ "obj-140", 0 ],
 									"source" : [ "obj-154", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-282", 0 ],
+									"order" : 1,
+									"source" : [ "obj-154", 4 ]
 								}
 
 							}
@@ -6769,14 +6886,6 @@
 								"patchline" : 								{
 									"destination" : [ "obj-39", 0 ],
 									"source" : [ "obj-154", 3 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-51", 0 ],
-									"order" : 0,
-									"source" : [ "obj-154", 4 ]
 								}
 
 							}
@@ -6945,8 +7054,53 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-282", 0 ],
+									"source" : [ "obj-278", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-37", 1 ],
 									"source" : [ "obj-28", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-281", 0 ],
+									"source" : [ "obj-280", 2 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-154", 2 ],
+									"order" : 1,
+									"source" : [ "obj-282", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-26", 0 ],
+									"order" : 2,
+									"source" : [ "obj-282", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-276", 0 ],
+									"order" : 0,
+									"source" : [ "obj-282", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-280", 0 ],
+									"source" : [ "obj-282", 1 ]
 								}
 
 							}
@@ -7038,24 +7192,15 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-154", 2 ],
-									"order" : 1,
-									"source" : [ "obj-45", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-276", 0 ],
-									"order" : 0,
-									"source" : [ "obj-45", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-43", 0 ],
 									"source" : [ "obj-48", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-76", 0 ],
+									"source" : [ "obj-49", 0 ]
 								}
 
 							}
@@ -7159,7 +7304,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-51", 0 ],
+									"destination" : [ "obj-282", 0 ],
 									"source" : [ "obj-65", 0 ]
 								}
 
@@ -7254,6 +7399,13 @@
 							}
 , 							{
 								"patchline" : 								{
+									"destination" : [ "obj-282", 0 ],
+									"source" : [ "obj-76", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-50", 0 ],
 									"source" : [ "obj-77", 0 ]
 								}
@@ -7289,7 +7441,7 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-51", 0 ],
+									"destination" : [ "obj-282", 0 ],
 									"source" : [ "obj-84", 0 ]
 								}
 
@@ -7786,6 +7938,13 @@
 				"implicit" : 1
 			}
 , 			{
+				"name" : "fit_jweb_to_bounds.js",
+				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "fluid.melbands~.mxo",
 				"type" : "iLaX"
 			}
@@ -7794,8 +7953,29 @@
 				"type" : "iLaX"
 			}
 , 			{
+				"name" : "n4m.monitor.maxpat",
+				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
 				"name" : "o.route.mxo",
 				"type" : "iLaX"
+			}
+, 			{
+				"name" : "resize_n4m_monitor_patcher.js",
+				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"patcherrelativepath" : "../code",
+				"type" : "TEXT",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "server.js",
+				"bootpath" : "~/Documents/GitHub/vorTEX/node",
+				"patcherrelativepath" : "../node",
+				"type" : "TEXT",
+				"implicit" : 1
 			}
 , 			{
 				"name" : "sigmund~.mxo",

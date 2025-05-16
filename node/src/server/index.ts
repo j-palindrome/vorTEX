@@ -54,16 +54,20 @@ function oscSend(address: string, ...args: any[]) {
   })
 }
 
+// Get the user's home directory
+const homeDir = process.env.HOME || process.env.USERPROFILE || '/'
+
 const settings = {
-  mediaFolder: path.join(
-    process.cwd().match(/\/Users\/[^\/]+\//)![0],
-    '/Documents/VorTEX_media'
-  ),
-  presetBackupFolder: path.join(
-    process.cwd().match(/\/Users\/[^\/]+\//)![0],
-    '/Documents/VorTEX_presets'
-  )
+  mediaFolder: path.join(homeDir, 'Documents/VorTEX_media'),
+  presetBackupFolder: path.join(homeDir, 'Documents/VorTEX_presets')
 }
+fs.readdir(path.join(homeDir, 'Documents/VorTEX_media'), (err, files) => {
+  files.forEach(file => {
+    console.log(file)
+  })
+})
+console.log(`media folder: ${settings.mediaFolder}`)
+console.log(`preset backup folder: ${settings.presetBackupFolder}`)
 
 oscSend('/folders', settings.mediaFolder, settings.presetBackupFolder)
 const ipAdd = ip()
