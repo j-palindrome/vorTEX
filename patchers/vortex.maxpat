@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 115.0, 1461.0, 901.0 ],
+		"rect" : [ 1321.0, -101.0, 661.0, 859.0 ],
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
 		"gridsize" : [ 15.0, 15.0 ],
@@ -3702,7 +3702,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 34.0, 141.0, 1461.0, 875.0 ],
+						"rect" : [ 1321.0, -75.0, 661.0, 833.0 ],
 						"openinpresentation" : 1,
 						"default_fontsize" : 14.0,
 						"default_fontname" : "Univers LT Std 55 Roman",
@@ -4160,7 +4160,7 @@
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
 									"patching_rect" : [ 406.0, 1620.0, 184.0, 36.0 ],
-									"text" : "spaceMouse 3 -0.026297 -0.042309 0.151749"
+									"text" : "spaceMouse 0 0 0 0 0.25 0 0.25"
 								}
 
 							}
@@ -7833,20 +7833,20 @@
 			"obj-2::obj-219" : [ "mc.live.gain~", "video vol", 0 ],
 			"obj-2::obj-27" : [ "live.slider", "font size", 0 ],
 			"obj-2::obj-30" : [ "umenu[3]", "umenu[3]", 0 ],
-			"obj-2::obj-38::obj-38::obj-17::obj-23" : [ "gswitch2[9]", "gswitch2", 0 ],
+			"obj-2::obj-38::obj-38::obj-17::obj-23" : [ "gswitch2[12]", "gswitch2", 0 ],
 			"obj-2::obj-38::obj-38::obj-2" : [ "range[5]", "range", 0 ],
-			"obj-2::obj-38::obj-38::obj-51" : [ "pictctrl[4]", "pictctrl[1]", 0 ],
-			"obj-2::obj-38::obj-38::obj-56::obj-23" : [ "gswitch2[8]", "gswitch2", 0 ],
-			"obj-2::obj-38::obj-38::obj-6" : [ "crossfade[3]", "Crossfade", 0 ],
-			"obj-2::obj-39::obj-38::obj-17::obj-23" : [ "gswitch2[11]", "gswitch2", 0 ],
-			"obj-2::obj-39::obj-38::obj-2" : [ "range[6]", "range", 0 ],
-			"obj-2::obj-39::obj-38::obj-51" : [ "pictctrl[5]", "pictctrl[1]", 0 ],
-			"obj-2::obj-39::obj-38::obj-56::obj-23" : [ "gswitch2[10]", "gswitch2", 0 ],
-			"obj-2::obj-39::obj-38::obj-6" : [ "crossfade[4]", "Crossfade", 0 ],
-			"obj-2::obj-63::obj-38::obj-17::obj-23" : [ "gswitch2[4]", "gswitch2", 0 ],
-			"obj-2::obj-63::obj-38::obj-2" : [ "range[1]", "range", 0 ],
-			"obj-2::obj-63::obj-38::obj-51" : [ "pictctrl[2]", "pictctrl[1]", 0 ],
-			"obj-2::obj-63::obj-38::obj-56::obj-23" : [ "gswitch2[3]", "gswitch2", 0 ],
+			"obj-2::obj-38::obj-38::obj-51" : [ "pictctrl[5]", "pictctrl[1]", 0 ],
+			"obj-2::obj-38::obj-38::obj-56::obj-23" : [ "gswitch2[7]", "gswitch2", 0 ],
+			"obj-2::obj-38::obj-38::obj-6" : [ "crossfade[6]", "Crossfade", 0 ],
+			"obj-2::obj-39::obj-38::obj-17::obj-23" : [ "gswitch2[4]", "gswitch2", 0 ],
+			"obj-2::obj-39::obj-38::obj-2" : [ "range[10]", "range", 0 ],
+			"obj-2::obj-39::obj-38::obj-51" : [ "pictctrl[4]", "pictctrl[1]", 0 ],
+			"obj-2::obj-39::obj-38::obj-56::obj-23" : [ "gswitch2[3]", "gswitch2", 0 ],
+			"obj-2::obj-39::obj-38::obj-6" : [ "crossfade[5]", "Crossfade", 0 ],
+			"obj-2::obj-63::obj-38::obj-17::obj-23" : [ "gswitch2[9]", "gswitch2", 0 ],
+			"obj-2::obj-63::obj-38::obj-2" : [ "range[6]", "range", 0 ],
+			"obj-2::obj-63::obj-38::obj-51" : [ "pictctrl[6]", "pictctrl[1]", 0 ],
+			"obj-2::obj-63::obj-38::obj-56::obj-23" : [ "gswitch2[8]", "gswitch2", 0 ],
 			"obj-2::obj-63::obj-38::obj-6" : [ "crossfade[1]", "Crossfade", 0 ],
 			"obj-2::obj-68" : [ "number[19]", "number[19]", 0 ],
 			"obj-2::obj-82" : [ "live.text", "live.text", 0 ],
@@ -7861,23 +7861,23 @@
 ,
 			"parameter_overrides" : 			{
 				"obj-2::obj-38::obj-38::obj-51" : 				{
-					"parameter_longname" : "pictctrl[4]"
-				}
-,
-				"obj-2::obj-38::obj-38::obj-6" : 				{
-					"parameter_longname" : "crossfade[3]"
-				}
-,
-				"obj-2::obj-39::obj-38::obj-51" : 				{
 					"parameter_longname" : "pictctrl[5]"
 				}
 ,
+				"obj-2::obj-38::obj-38::obj-6" : 				{
+					"parameter_longname" : "crossfade[6]"
+				}
+,
+				"obj-2::obj-39::obj-38::obj-51" : 				{
+					"parameter_longname" : "pictctrl[4]"
+				}
+,
 				"obj-2::obj-39::obj-38::obj-6" : 				{
-					"parameter_longname" : "crossfade[4]"
+					"parameter_longname" : "crossfade[5]"
 				}
 ,
 				"obj-2::obj-63::obj-38::obj-51" : 				{
-					"parameter_longname" : "pictctrl[2]"
+					"parameter_longname" : "pictctrl[6]"
 				}
 ,
 				"obj-2::obj-63::obj-38::obj-6" : 				{

@@ -12,12 +12,13 @@ import ViteExpress from 'vite-express'
 // const server = app.listen(7001, () => console.log('Server is listening...'))
 const app = express()
 
-const server = ViteExpress.listen(app, 7001, () =>
-  console.log('Server is listening...')
-)
+// const server = ViteExpress.listen(app, 7001, () =>
+//   console.log('Server is listening...')
+// )
+const server = app.listen(7001)
 
 // Serve static files from public folder
-// app.use(express.static(path.join(process.cwd(), 'dist')))
+app.use(express.static(path.join(process.cwd(), 'dist')))
 
 // Serve index.html at the root route
 // app.get('/', (req, res) => {

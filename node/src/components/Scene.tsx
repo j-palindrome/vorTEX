@@ -79,6 +79,17 @@ export default function Scene() {
   // }, [currentPreset])
 
   const help = useAppStore(state => state.help)
+  const [spaceMouseStrength, setSpaceMouseStrength] = useState(0.5)
+  useEffect(() => {
+    if (!socket) return
+    socket!.emit(
+      'set',
+      '/control',
+      'spaceMouseStrength',
+      Number(spaceMouseStrength)
+    )
+  }, [spaceMouseStrength])
+
   return (
     <>
       <div className='h-[200px] w-screen bg-gray-600'>
@@ -88,12 +99,13 @@ export default function Scene() {
         className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
-          <div className='*:h-10 *:flex *:items-center *:justify-end'>
+          <div className='*:h-7 *:text-right'>
             <div>enabled</div>
             <div>mouse</div>
+            <div>control</div>
           </div>
-          <div className='border border-gray-700 rounded-lg'>
-            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+          <div className='border border-gray-700 rounded-lg h-fit'>
+            <div className='h-7 flex *:h-full overflow-hidden items-center'>
               <div className='flex *:w-[40px]'>
                 {_.range(4).map(x => {
                   return (
@@ -101,7 +113,7 @@ export default function Scene() {
                       key={x}
                       className={`${
                         enabledMeshes[x] ? 'bg-gray-700 rounded-lg' : ''
-                      } w-10 h-10`}
+                      } w-10 h-full`}
                       onClick={() => {
                         setters.setPreset(
                           x,
@@ -117,7 +129,7 @@ export default function Scene() {
                 })}
               </div>
             </div>
-            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+            <div className='h-7 flex *:h-full overflow-hidden items-center'>
               <div className='flex *:w-[40px]'>
                 {_.range(4).map(x => {
                   return (
@@ -125,7 +137,7 @@ export default function Scene() {
                       key={x}
                       className={`${
                         mouseEnabled[x] ? 'bg-gray-700 rounded-lg' : ''
-                      } w-10 h-10`}
+                      } w-10 h-full`}
                       onClick={() => {
                         const newMouseEnabled = [...mouseEnabled]
                         newMouseEnabled[x] = !mouseEnabled[x]
@@ -137,36 +149,26 @@ export default function Scene() {
                 })}
               </div>
             </div>
-
-            {/* <MaxValue name='mesh_enable' title='on/off' />
-            <button
-              className={`${controlBoth ? 'bg-gray-700 rounded-lg' : ''} px-1`}
-              onClick={() => {
-                setControlBoth(!controlBoth)
-              }}>
-              <span className='mix-blend-difference'>both</span>
-            </button> */}
-          </div>
-          <div className='flex items-center'>
-            <div className='text-center mr-1'>control</div>
-            <div className='border border-gray-700 rounded-lg grid grid-cols-2 overflow-hidden items-center flex-none'>
-              {_.range(4).map(x => {
-                return (
-                  <button
-                    key={x}
-                    className={`${
-                      index === x ? 'bg-gray-700 rounded-lg' : ''
-                    } w-10 h-10`}
-                    onClick={() => {
-                      setters.set({ index: x as 0 | 1 | 2 | 3 })
-                      socket.emit('set', '/mesh', 'spacemouse', x + 1)
-                    }}>
-                    <span className='mix-blend-difference'>{x + 1}</span>
-                  </button>
-                )
-              })}
+            <div className='h-7 flex *:h-full overflow-hidden items-center'>
+              <div className='flex *:w-[40px]'>
+                {_.range(4).map(x => {
+                  return (
+                    <button
+                      key={x}
+                      className={`${
+                        index === x ? 'bg-yellow-500 rounded-lg' : ''
+                      } w-10 h-full`}
+                      onClick={() => {
+                        setters.set({ index: x as 0 | 1 | 2 | 3 })
+                      }}>
+                      <span className='mix-blend-difference'>{x + 1}</span>
+                    </button>
+                  )
+                })}
+              </div>
             </div>
           </div>
+
           <div>
             <button
               className={`px-1 block`}
@@ -230,12 +232,29 @@ export default function Scene() {
             </button>
           </div>
           <FileChooser />
-          <MaxValue
-            name='mesh_scale'
-            title='scale'
-            help='Fix the scale of the mesh to match files'
-          />
+
           <div className='flex space-x-2'>
+            <div className='flex-none w-fit ml-2'>
+              <div className='flex'>
+                <h3>spaceMouse</h3>
+                <select
+                  value={spaceMouseStrength}
+                  onChange={ev => {
+                    setSpaceMouseStrength(parseFloat(ev.target.value))
+                  }}>
+                  {[0, 0.25, 0.5, 0.75, 1].map(val => (
+                    <option key={val} value={val}>
+                      {val}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <MaxValue
+                name='mesh_scale'
+                title='scale'
+                help='Fix the scale of the mesh to match files'
+              />
+            </div>
             <div className='grid grid-cols-2 auto-rows-auto'>
               <div className='col-span-2 text-center'>scramble</div>
               <MaxValue
@@ -321,7 +340,7 @@ export default function Scene() {
               <MaxValue
                 name='other_dim'
                 title='dim'
-                help='How many vertices are in the mesh grid (1x1 -> 100x100)'
+                help='How many vertices are in the mesh grid (1x1 -> 500x500)'
               />
               <MaxValue
                 name='nurbs_curvature'
@@ -499,17 +518,6 @@ function FileChooser() {
 
   const socket = useSocket()
 
-  const [spaceMouseStrength, setSpaceMouseStrength] = useState(0.5)
-  useEffect(() => {
-    if (!socket) return
-    socket!.emit(
-      'set',
-      '/control',
-      'spaceMouseStrength',
-      Number(spaceMouseStrength)
-    )
-  }, [spaceMouseStrength])
-
   return (
     <div className='flex'>
       <div className='w-[200px]'>
@@ -551,23 +559,6 @@ function FileChooser() {
             }}>
             <option value=''>---</option>
             {values.map(val => (
-              <option key={val} value={val}>
-                {val}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
-
-      <div className='flex-none w-fit ml-2'>
-        <div className='flex'>
-          <h3>spaceMouse</h3>
-          <select
-            value={spaceMouseStrength}
-            onChange={ev => {
-              setSpaceMouseStrength(parseFloat(ev.target.value))
-            }}>
-            {[0, 0.25, 0.5, 0.75, 1].map(val => (
               <option key={val} value={val}>
                 {val}
               </option>
@@ -811,7 +802,7 @@ function SelectComponent({
   const socket = useSocket()!
 
   return (
-    <div onMouseEnter={() => setters.set({ help })}>
+    <div onMouseEnter={() => setters.set({ help })} className='flex'>
       <h3>{title}</h3>
       <select
         value={value}
