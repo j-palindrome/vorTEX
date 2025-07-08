@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 41.0, 154.0, 764.0, 856.0 ],
+		"rect" : [ 44.0, 124.0, 1117.0, 828.0 ],
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
@@ -2385,8 +2385,6 @@
 					"saved_object_attributes" : 					{
 						"autostart" : 1,
 						"defer" : 0,
-						"node_bin_path" : "",
-						"npm_bin_path" : "",
 						"watch" : 0
 					}
 ,
@@ -3460,12 +3458,11 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 41.0, 154.0, 764.0, 856.0 ],
+						"rect" : [ 41.0, 182.0, 1464.0, 828.0 ],
 						"gridonopen" : 2,
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 2,
 						"objectsnaponopen" : 0,
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-38",
@@ -4267,14 +4264,13 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 41.0, 154.0, 1114.0, 856.0 ],
+						"rect" : [ 41.0, 182.0, 1464.0, 828.0 ],
 						"default_fontsize" : 10.0,
 						"default_fontname" : "PT Mono",
 						"gridsize" : [ 15.0, 15.0 ],
 						"gridsnaponopen" : 2,
 						"style" : "Joshua",
 						"subpatcher_template" : "Joshua",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"id" : "obj-11",
@@ -7943,21 +7939,21 @@
 			"obj-132" : [ "live.text[6]", "live.text[6]", 0 ],
 			"obj-133" : [ "live.text[7]", "live.text[7]", 0 ],
 			"obj-134" : [ "live.text[8]", "live.text[8]", 0 ],
-			"obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[8]", "gswitch2", 0 ],
+			"obj-140::obj-38::obj-17::obj-23" : [ "gswitch2[4]", "gswitch2", 0 ],
 			"obj-140::obj-38::obj-2" : [ "range[4]", "range", 0 ],
 			"obj-140::obj-38::obj-51" : [ "pictctrl[1]", "pictctrl[1]", 0 ],
 			"obj-140::obj-38::obj-56::obj-23" : [ "gswitch2[2]", "gswitch2", 0 ],
 			"obj-140::obj-38::obj-6" : [ "crossfade", "Crossfade", 0 ],
-			"obj-169::obj-38::obj-17::obj-23" : [ "gswitch2[6]", "gswitch2", 0 ],
-			"obj-169::obj-38::obj-2" : [ "range[8]", "range", 0 ],
-			"obj-169::obj-38::obj-51" : [ "pictctrl[4]", "pictctrl[1]", 0 ],
-			"obj-169::obj-38::obj-56::obj-23" : [ "gswitch2[5]", "gswitch2", 0 ],
-			"obj-169::obj-38::obj-6" : [ "crossfade[4]", "Crossfade", 0 ],
-			"obj-170::obj-38::obj-17::obj-23" : [ "gswitch2[9]", "gswitch2", 0 ],
-			"obj-170::obj-38::obj-2" : [ "range[9]", "range", 0 ],
-			"obj-170::obj-38::obj-51" : [ "pictctrl[5]", "pictctrl[1]", 0 ],
-			"obj-170::obj-38::obj-56::obj-23" : [ "gswitch2[7]", "gswitch2", 0 ],
-			"obj-170::obj-38::obj-6" : [ "crossfade[5]", "Crossfade", 0 ],
+			"obj-169::obj-38::obj-17::obj-23" : [ "gswitch2[13]", "gswitch2", 0 ],
+			"obj-169::obj-38::obj-2" : [ "range[11]", "range", 0 ],
+			"obj-169::obj-38::obj-51" : [ "pictctrl[7]", "pictctrl[1]", 0 ],
+			"obj-169::obj-38::obj-56::obj-23" : [ "gswitch2[12]", "gswitch2", 0 ],
+			"obj-169::obj-38::obj-6" : [ "crossfade[7]", "Crossfade", 0 ],
+			"obj-170::obj-38::obj-17::obj-23" : [ "gswitch2[3]", "gswitch2", 0 ],
+			"obj-170::obj-38::obj-2" : [ "range[1]", "range", 0 ],
+			"obj-170::obj-38::obj-51" : [ "pictctrl[2]", "pictctrl[1]", 0 ],
+			"obj-170::obj-38::obj-56::obj-23" : [ "gswitch2[14]", "gswitch2", 0 ],
+			"obj-170::obj-38::obj-6" : [ "crossfade[1]", "Crossfade", 0 ],
 			"obj-193" : [ "number[23]", "number[23]", 0 ],
 			"obj-205" : [ "umenu[3]", "umenu[3]", 0 ],
 			"obj-207" : [ "live.slider", "font size", 0 ],
@@ -7981,19 +7977,19 @@
 ,
 			"parameter_overrides" : 			{
 				"obj-169::obj-38::obj-51" : 				{
-					"parameter_longname" : "pictctrl[4]"
+					"parameter_longname" : "pictctrl[7]"
 				}
 ,
 				"obj-169::obj-38::obj-6" : 				{
-					"parameter_longname" : "crossfade[4]"
+					"parameter_longname" : "crossfade[7]"
 				}
 ,
 				"obj-170::obj-38::obj-51" : 				{
-					"parameter_longname" : "pictctrl[5]"
+					"parameter_longname" : "pictctrl[2]"
 				}
 ,
 				"obj-170::obj-38::obj-6" : 				{
-					"parameter_longname" : "crossfade[5]"
+					"parameter_longname" : "crossfade[1]"
 				}
 ,
 				"obj-63::obj-38::obj-51" : 				{
@@ -8011,21 +8007,21 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "brcosa.genjit",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gJIT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "data-handler.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "fit_jweb_to_bounds.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
@@ -8040,7 +8036,7 @@
 			}
 , 			{
 				"name" : "n4m.monitor.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
@@ -8055,14 +8051,14 @@
 			}
 , 			{
 				"name" : "resize_n4m_monitor_patcher.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "server.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/node",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/node",
 				"patcherrelativepath" : "../node",
 				"type" : "TEXT",
 				"implicit" : 1
@@ -8073,70 +8069,70 @@
 			}
 , 			{
 				"name" : "spacemouse.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "video-handler.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vizzie-datatexconvert.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vizzie-global.js",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vortex-mesh-process.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vortex-movie.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vz.xfadr.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vzgl-object.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "vzgl-outputdim.maxpat",
-				"bootpath" : "~/Documents/GitHub/vorTEX/patchers",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/patchers",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "xfade.genjit",
-				"bootpath" : "~/Documents/GitHub/vorTEX/code",
+				"bootpath" : "~/Documents/GitHub/vorTEXT/code",
 				"patcherrelativepath" : "../code",
 				"type" : "gJIT",
 				"implicit" : 1
