@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
-import { getters, useAppStore } from '../store'
+import { useEffect, useRef } from 'react'
 import { lerp } from 'three/src/math/MathUtils'
+import { useAppStore } from '../store'
 
 /**
  * onChange returns style which is applied to the slider
@@ -11,20 +11,24 @@ export default function Slider({
   innerClassName,
   onChange,
   values,
-  sliderStyle
+  sliderStyle,
+  exponential = false
 }: React.PropsWithChildren & {
   className?: string
   innerClassName?: string
   sliderStyle: ({ x, y }: { x: number; y: number }) => React.CSSProperties
   onChange: ({ x, y }: { x: number; y: number }, end?: boolean) => void
   values: { x: number; y: number }
+  exponential?: boolean
 }) {
   const slider = useRef<HTMLDivElement>(null!)
   const place = useRef<{ x: number; y: number }>(values)
 
   useEffect(() => {
     if (!slider.current) return
-    place.current = { x: values.x ** 0.5, y: values.y ** 0.5 }
+    place.current = exponential
+      ? { x: values.x ** 0.5, y: values.y ** 0.5 }
+      : { x: values.x, y: values.y }
     Object.assign(slider.current.style, sliderStyle(place.current))
   }, [values])
 
@@ -52,15 +56,13 @@ export default function Slider({
     } else throw new Error()
 
     place.current = { x, y }
-    onChange({ x: x ** 2, y: y ** 2 })
+    if (exponential) {
+      onChange({ x: x ** 2, y: y ** 2 })
+    } else {
+      onChange({ x: x, y: y })
+    }
 
     Object.assign(slider.current.style, sliderStyle({ x, y }))
-  }
-  const onMouseMove = ev => {
-    if (!ev.buttons) return
-    if (moved.current) window.clearTimeout(moved.current)
-    moved.current = window.setTimeout(() => (moved.current = false), 200)
-    updateMouse(ev)
   }
 
   const fadeTime = useAppStore(state => state.fadeTime)
@@ -93,7 +95,11 @@ export default function Slider({
         if (fadeTime > 0) {
           const transitionTo = (progress: number) => {
             const thisY = lerp(lastY, y, progress)
-            onChange({ x: place.current.x ** 2, y: thisY ** 2 }, true)
+            if (exponential) {
+              onChange({ x: place.current.x ** 2, y: thisY ** 2 }, true)
+            } else {
+              onChange({ x: place.current.x, y: thisY }, true)
+            }
 
             if (progress < 1) {
               requestAnimationFrame(() =>
@@ -103,7 +109,11 @@ export default function Slider({
           }
           transitionTo(0)
         } else {
-          onChange({ x: place.current.x ** 2, y: place.current.y ** 2 }, true)
+          if (exponential) {
+            onChange({ x: place.current.x ** 2, y: place.current.y ** 2 }, true)
+          } else {
+            onChange({ x: place.current.x, y: place.current.y }, true)
+          }
         }
       }}>
       <div className={`${innerClassName} absolute`} ref={slider}></div>

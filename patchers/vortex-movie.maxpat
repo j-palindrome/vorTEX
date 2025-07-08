@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 9,
 			"minor" : 0,
-			"revision" : 5,
+			"revision" : 7,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 42.0, 123.0, 1356.0, 736.0 ],
+		"rect" : [ 41.0, 98.0, 1598.0, 912.0 ],
 		"openinpresentation" : 1,
 		"default_fontsize" : 10.0,
 		"default_fontname" : "PT Mono",
@@ -54,7 +54,7 @@
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 344.0, 525.0, 80.0, 33.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 180.0, 195.0, 80.0, 33.0 ]
+					"presentation_rect" : [ 180.0, 120.0, 80.0, 33.0 ]
 				}
 
 			}
@@ -67,7 +67,7 @@
 					"outlettype" : [ "jit_matrix", "" ],
 					"patching_rect" : [ 240.0, 525.0, 80.0, 60.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 30.0, 150.0, 135.0, 105.0 ],
+					"presentation_rect" : [ 30.0, 120.0, 135.0, 105.0 ],
 					"sync" : 1
 				}
 
@@ -79,24 +79,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_gl_texture", "" ],
-					"patching_rect" : [ 292.0, 480.0, 206.0, 20.0 ],
-					"text" : "jit.gl.texture VORTEX @name #1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontface" : 0,
-					"fontname" : "PT Mono",
-					"fontsize" : 10.0,
-					"id" : "obj-20",
-					"maxclass" : "jit.fpsgui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 460.0, 420.0, 80.0, 33.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 180.0, 150.0, 80.0, 33.0 ]
+					"patching_rect" : [ 292.0, 480.0, 254.0, 20.0 ],
+					"text" : "jit.gl.texture VORTEX @name #1 @flip 1"
 				}
 
 			}
@@ -120,7 +104,7 @@
 					"numoutlets" : 0,
 					"patching_rect" : [ 65.0, 60.0, 150.0, 18.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 30.0, 0.0, 150.0, 18.0 ],
+					"presentation_rect" : [ 30.0, 30.0, 150.0, 18.0 ],
 					"text" : "file1"
 				}
 
@@ -128,12 +112,15 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-8",
+					"linecount" : 4,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 335.0, 100.0, 150.0, 18.0 ],
+					"patching_rect" : [ 335.0, 100.0, 150.0, 51.0 ],
 					"presentation" : 1,
-					"presentation_rect" : [ 30.0, 38.0, 150.0, 18.0 ]
+					"presentation_linecount" : 3,
+					"presentation_rect" : [ 30.0, 68.0, 230.0, 40.0 ],
+					"text" : "/Users/jpalindrome/Documents/VorTEX_media/Screenshot 2025-04-18 at 4.03.00 AM.png"
 				}
 
 			}
@@ -146,21 +133,6 @@
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 335.0, 70.0, 44.0, 20.0 ],
 					"text" : "set $1"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-66",
-					"linecount" : 3,
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 50.0, 400.0, 140.0, 40.0 ],
-					"presentation" : 1,
-					"presentation_linecount" : 3,
-					"presentation_rect" : [ 195.0, 60.0, 140.0, 40.0 ],
-					"text" : "AUTO-SIZER:\nEnter video dimensions\n(copy from display)"
 				}
 
 			}
@@ -259,6 +231,18 @@
 				}
 
 			}
+, 			{
+				"box" : 				{
+					"id" : "obj-2",
+					"maxclass" : "panel",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 90.0, 240.0, 128.0, 128.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 15.0, 15.0, 255.0, 225.0 ]
+				}
+
+			}
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
@@ -341,16 +325,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-20", 0 ],
-					"order" : 0,
-					"source" : [ "obj-7", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-26", 0 ],
-					"order" : 2,
+					"order" : 1,
 					"source" : [ "obj-7", 2 ]
 				}
 
@@ -358,7 +334,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 0 ],
-					"order" : 3,
+					"order" : 2,
 					"source" : [ "obj-7", 2 ]
 				}
 
@@ -366,7 +342,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-28", 0 ],
-					"order" : 1,
+					"order" : 0,
 					"source" : [ "obj-7", 2 ]
 				}
 
@@ -379,7 +355,6 @@
 
 			}
  ],
-		"originid" : "pat-544",
 		"styles" : [ 			{
 				"name" : "Joshua",
 				"default" : 				{
@@ -435,7 +410,8 @@
 				"parentstyle" : "",
 				"multi" : 0
 			}
- ]
+ ],
+		"oscsendudpport" : 7001
 	}
 
 }

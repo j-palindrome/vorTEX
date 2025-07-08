@@ -1,9 +1,9 @@
 {
-	"name" : "vorTEX",
+	"name" : "vorTEXT",
 	"version" : 1,
 	"creationdate" : 3807309942,
-	"modificationdate" : 3830943361,
-	"viewrect" : [ 1287.0, -101.0, 1161.0, 859.0 ],
+	"modificationdate" : 3834848619,
+	"viewrect" : [ 7.0, 182.0, 1532.0, 828.0 ],
 	"autoorganize" : 0,
 	"hideprojectwindow" : 0,
 	"showdependencies" : 1,
@@ -57,7 +57,7 @@
 ,
 	"searchpath" : 	{
 		"0" : 		{
-			"bootpath" : "~/Documents/GitHub/vorTEX/node",
+			"bootpath" : "~/Documents/GitHub/vorTEXT/node",
 			"projectrelativepath" : "./node",
 			"label" : "",
 			"recursive" : 1,

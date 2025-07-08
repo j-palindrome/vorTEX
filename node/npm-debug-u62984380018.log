@@ -1,0 +1,38 @@
+npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @typescript-eslint/eslint-plugin@6.18.1
+npm ERR! Found: eslint@9.26.0
+npm ERR! node_modules/eslint
+npm ERR!   dev eslint@"^9.25.1" from the root project
+npm ERR!   peer eslint@"^6.0.0 || ^7.0.0 || >=8.0.0" from @eslint-community/eslint-utils@4.4.0
+npm ERR!   node_modules/@eslint-community/eslint-utils
+npm ERR!     @eslint-community/eslint-utils@"^4.4.0" from @typescript-eslint/utils@6.18.1
+npm ERR!     node_modules/@typescript-eslint/eslint-plugin/node_modules/@typescript-eslint/utils
+npm ERR!       @typescript-eslint/utils@"6.18.1" from @typescript-eslint/eslint-plugin@6.18.1
+npm ERR!       node_modules/@typescript-eslint/eslint-plugin
+npm ERR!         dev @typescript-eslint/eslint-plugin@"^6.14.0" from the root project
+npm ERR!       1 more (@typescript-eslint/type-utils)
+npm ERR!     @eslint-community/eslint-utils@"^4.2.0" from eslint@9.26.0
+npm ERR!   1 more (eslint-plugin-react-refresh)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer eslint@"^7.0.0 || ^8.0.0" from @typescript-eslint/eslint-plugin@6.18.1
+npm ERR! node_modules/@typescript-eslint/eslint-plugin
+npm ERR!   dev @typescript-eslint/eslint-plugin@"^6.14.0" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: eslint@8.57.1
+npm ERR! node_modules/eslint
+npm ERR!   peer eslint@"^7.0.0 || ^8.0.0" from @typescript-eslint/eslint-plugin@6.18.1
+npm ERR!   node_modules/@typescript-eslint/eslint-plugin
+npm ERR!     dev @typescript-eslint/eslint-plugin@"^6.14.0" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /Users/jpalindrome/.npm/_logs/2025-07-08T18_00_40_893Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /Users/jpalindrome/.npm/_logs/2025-07-08T18_00_40_893Z-debug-0.log

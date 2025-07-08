@@ -10,24 +10,7 @@ import {
   useAppStore
 } from '../store'
 import Slider from './Slider'
-
-const helpInfos = {
-  start: 'Click on "help" above a control to view a guide on how to use it.',
-  meshes: 'Switch to Mesh 1 or 2 to have ALL controls pertain to that mesh.',
-  files:
-    'Files are configured globally; "file1" and "file2" are available in Source selection to be used by either mesh in COLOR.\n "noise" is also available as a source.',
-  presets:
-    'Dark grey: unused slot.\n Light grey: used slot.\n Gold: active slot.\n Click "save" to save the current settings to the selected slot (saves both meshes and global settings).\n Click "delete" to free up the selected slot, turning it dark grey.\n Use "SAVE PRESETS" in the Max window to export the current preset file, and drop an external file on to "Presets File" to import an external preset file.',
-  color:
-    'a: alpha, br: brightness, co: contrast, sat: saturation, hue: hue.\n Select 2 sources to crossfade between them in the same mesh with "xfade."',
-  shape:
-    'dim: the amount of resolution on the NURBS mesh.\n curve: the strength of the curve.\n pt-size: when in POINTS or LINES draw mode, how thick points or lines are.\n scramble: amount of randomization on the position of points in the mesh.\n Click "Scramble" to randomize the curve or order of points again.\n draw-mode: How the mesh is rendered.\n scale: stretch the mesh to fit media.',
-  noise:
-    'nurbs: larger warping on the NURBS mesh, covering bigger curves. \nvertices: smaller warping on individual points. type is the type of noise generated. \nsound: amount that sound affects the warping of vertices in the mesh.'
-}
-
 export default function Scene() {
-  const [helpInfo, setHelpInfo] = useState<keyof typeof helpInfos | null>(null)
   const index = useAppStore(state => state.index)
   const socket = useSocket()!
   const [controlBoth, setControlBoth] = useState(false)
@@ -99,14 +82,19 @@ export default function Scene() {
         className={`h-screen w-screen p-2 pb-5 flex flex-col overflow-hidden`}
         ref={frameRef}>
         <div className='flex w-full overflow-x-auto overflow-y-hidden *:mx-1 pt-1 p-2 backdrop-blur rounded-lg'>
-          <div className='*:h-7 *:text-right'>
+          <div className='*:h-10 *:text-right'>
             <div>enabled</div>
             <div>mouse</div>
-            <div>control</div>
           </div>
           <div className='border border-gray-700 rounded-lg h-fit'>
-            <div className='h-7 flex *:h-full overflow-hidden items-center'>
-              <div className='flex *:w-[40px]'>
+            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+              <div
+                className='flex *:w-[40px]'
+                onMouseEnter={() =>
+                  setters.set({
+                    help: 'Enable (grey) or disable the meshes, showing or hiding them.'
+                  })
+                }>
                 {_.range(4).map(x => {
                   return (
                     <button
@@ -129,8 +117,14 @@ export default function Scene() {
                 })}
               </div>
             </div>
-            <div className='h-7 flex *:h-full overflow-hidden items-center'>
-              <div className='flex *:w-[40px]'>
+            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+              <div
+                className='flex *:w-[40px]'
+                onMouseEnter={() =>
+                  setters.set({
+                    help: 'Choose which meshes respond to the SpaceMouse.'
+                  })
+                }>
                 {_.range(4).map(x => {
                   return (
                     <button
@@ -149,8 +143,17 @@ export default function Scene() {
                 })}
               </div>
             </div>
-            <div className='h-7 flex *:h-full overflow-hidden items-center'>
-              <div className='flex *:w-[40px]'>
+          </div>
+          <div>
+            <div>control</div>
+            <div className='h-10 flex *:h-full overflow-hidden items-center'>
+              <div
+                className='flex *:w-[40px]'
+                onMouseEnter={() =>
+                  setters.set({
+                    help: 'Choose which mesh you are controlling in the sliders below.'
+                  })
+                }>
                 {_.range(4).map(x => {
                   return (
                     <button
@@ -169,73 +172,17 @@ export default function Scene() {
             </div>
           </div>
 
-          <div>
-            <button
-              className={`px-1 block`}
-              onClick={() => {
-                let newValue = 1
-                const fadeFrame = 1 / (fadeTime * 60)
-
-                const currentPreset = getters.get('preset')
-                const firstOriginal = currentPreset[0].color_alpha
-                const secondOriginal = currentPreset[1].color_alpha
-                const fade = () => {
-                  newValue -= fadeFrame
-                  const index = getters.get('index')
-
-                  if (index === 0 || controlBoth) {
-                    setters.setPreset(
-                      0,
-                      { color_alpha: firstOriginal * newValue },
-                      socket,
-                      { save: false }
-                    )
-                  }
-                  if (index === 1 || controlBoth) {
-                    setters.setPreset(
-                      1,
-                      { color_alpha: secondOriginal * newValue },
-                      socket,
-                      { save: false }
-                    )
-                  }
-                  if (index === 2 || controlBoth) {
-                    setters.setPreset(
-                      2,
-                      { color_alpha: secondOriginal * newValue },
-                      socket,
-                      { save: false }
-                    )
-                  }
-                  if (index === 3 || controlBoth) {
-                    setters.setPreset(
-                      3,
-                      { color_alpha: secondOriginal * newValue },
-                      socket,
-                      { save: false }
-                    )
-                  }
-                  if (newValue > 0) {
-                    requestAnimationFrame(fade)
-                  }
-                }
-                fade()
-              }}>
-              <span className='mix-blend-difference'>fadeout</span>
-            </button>
-            <button
-              className='px-1 block'
-              onClick={() => {
-                socket.emit('getFiles')
-              }}>
-              reload
-            </button>
-          </div>
           <FileChooser />
 
           <div className='flex space-x-2'>
             <div className='flex-none w-fit ml-2'>
-              <div className='flex'>
+              <div
+                className='flex'
+                onMouseEnter={() => {
+                  setters.set({
+                    help: 'Control the SpaceMouse speed. 0 = slow control, 1 = fast control'
+                  })
+                }}>
                 <h3>spaceMouse</h3>
                 <select
                   value={spaceMouseStrength}
@@ -254,56 +201,156 @@ export default function Scene() {
                 title='scale'
                 help='Fix the scale of the mesh to match files'
               />
-            </div>
-            <div className='grid grid-cols-2 auto-rows-auto'>
-              <div className='col-span-2 text-center'>scramble</div>
               <MaxValue
-                name='nurbs_random'
-                title='lg'
-                help='Scramble the mesh curvature (turn up curve to see)'
-              />
-              <MaxValue
-                name='sorting_trigger'
-                title='sm'
-                help='Scramble the mesh vertices (turn up scra to see)'
+                name='nurbs_shape'
+                title='shape'
+                help='Choose the shape of the mesh'
               />
             </div>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                setters.setPreset(
-                  index,
-                  getters.get('presets')[getters.get('currentPreset')][index],
-                  socket
-                )
-              }}>
-              RESET
-            </button>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                setters.setPreset(
-                  index,
-                  { mesh_position: [0, 0, 0], mesh_rotatexyz: [0, 0, 0] },
-                  socket,
-                  { save: true }
-                )
-              }}>
-              CENTER
-            </button>
-            <button
-              className='bg-red-900 px-1'
-              onClick={() => {
-                for (let i = 0; i < 4; i++) {
-                  setters.setPreset(index, { mesh_enable: false }, socket)
-                  socket.emit('set', '/global/volume', '', 0)
-                }
-              }}>
-              CUT
-            </button>
+            <div>
+              <div className='flex space-x-1 justify-center items-center'>
+                <button
+                  className='bg-red-900 px-1'
+                  onClick={() => {
+                    setters.setPreset(
+                      index,
+                      getters.get('presets')[getters.get('currentPreset')][
+                        index
+                      ],
+                      socket
+                    )
+                  }}>
+                  RESET
+                </button>
+                <button
+                  className='bg-red-900 px-1'
+                  onClick={() => {
+                    setters.setPreset(
+                      index,
+                      {
+                        mesh_position: [0, 0, 0],
+                        mesh_rotatexyz: [0, 0, 0],
+                        nurbs_strength: 0,
+                        nurbs_speed: 0,
+                        nurbs_scale: 0,
+                        warping_strength: 0,
+                        warping_speed: 0,
+                        warping_scale: 0,
+                        warping_sound: 0,
+                        warping_soundShape: 0,
+                        color_alpha: 1,
+                        color_brightness: 0.5,
+                        color_contrast: 0.5,
+                        color_hue: 0.5,
+                        color_saturation: 0.5
+                      },
+                      socket
+                    )
+                  }}>
+                  COLOR
+                </button>
+                <button
+                  className='bg-red-900 px-1'
+                  onClick={() => {
+                    setters.setPreset(
+                      index,
+                      { mesh_position: [0, 0, 0], mesh_rotatexyz: [0, 0, 0] },
+                      socket,
+                      { save: true }
+                    )
+                  }}>
+                  CENTER
+                </button>
+                <button
+                  className='bg-red-900 px-1'
+                  onClick={() => {
+                    for (let i = 0; i < 4; i++) {
+                      setters.setPreset(index, { mesh_enable: false }, socket)
+                      socket.emit('set', '/global/volume', '', 0)
+                    }
+                  }}>
+                  CUT
+                </button>
+              </div>
+              <div className='flex space-x-1 justify-center items-center'>
+                <div className='col-span-2 text-center'>scramble</div>
+                <MaxValue
+                  name='nurbs_random'
+                  title='lg'
+                  help='Scramble the mesh curvature (turn up curve to see)'
+                />
+                <MaxValue
+                  name='sorting_trigger'
+                  title='sm'
+                  help='Scramble the mesh vertices (turn up scra to see)'
+                />
+              </div>
+              <div className='flex items-center justify-center space-x-2 *:px-4'>
+                <button
+                  className={`px-1 block`}
+                  onClick={() => {
+                    let newValue = 1
+                    const fadeFrame = 1 / (fadeTime * 60)
+
+                    const currentPreset = getters.get('preset')
+                    const firstOriginal = currentPreset[0].color_alpha
+                    const secondOriginal = currentPreset[1].color_alpha
+                    const fade = () => {
+                      newValue -= fadeFrame
+                      const index = getters.get('index')
+
+                      if (index === 0 || controlBoth) {
+                        setters.setPreset(
+                          0,
+                          { color_alpha: firstOriginal * newValue },
+                          socket,
+                          { save: false }
+                        )
+                      }
+                      if (index === 1 || controlBoth) {
+                        setters.setPreset(
+                          1,
+                          { color_alpha: secondOriginal * newValue },
+                          socket,
+                          { save: false }
+                        )
+                      }
+                      if (index === 2 || controlBoth) {
+                        setters.setPreset(
+                          2,
+                          { color_alpha: secondOriginal * newValue },
+                          socket,
+                          { save: false }
+                        )
+                      }
+                      if (index === 3 || controlBoth) {
+                        setters.setPreset(
+                          3,
+                          { color_alpha: secondOriginal * newValue },
+                          socket,
+                          { save: false }
+                        )
+                      }
+                      if (newValue > 0) {
+                        requestAnimationFrame(fade)
+                      }
+                    }
+                    fade()
+                  }}>
+                  fadeout
+                </button>
+                <button
+                  className='px-1 block'
+                  onClick={() => {
+                    socket.emit('getFiles')
+                  }}>
+                  reload
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className='flex w-full'>{help}</div>
+        <div className='flex w-full h-[52px] overflow-hidden'>{help}</div>
 
         <div className='w-screen h-0 grow flex overflow-hidden'>
           <div className='h-full'>
@@ -336,7 +383,7 @@ export default function Scene() {
                 title='hue'
                 help='Rotate the hue around the color wheel'
               />
-
+              <div className='h-full w-3 flex-none'></div>
               <MaxValue
                 name='other_dim'
                 title='dim'
@@ -425,7 +472,7 @@ export default function Scene() {
                   help='The size of the ripple (many ripples -> one big ripple)'
                 />
               </div>
-              <div className='grid grid-rows-[1fr] grid-cols-3 gap-y-2 h-full'>
+              <div className='grid grid-rows-[1fr] grid-cols-3 gap-y-2 h-full ml-5'>
                 {/* <div className='text-center text-xs col-span-3 flex items-center space-x-2'>
                   <div className='grow border-b border-white py-1'></div>
                   <div className='w-fit h-[.8em]'>vertices</div>
@@ -520,9 +567,15 @@ function FileChooser() {
 
   return (
     <div className='flex'>
-      <div className='w-[200px]'>
+      <div
+        className='w-[200px]'
+        onMouseEnter={() =>
+          setters.set({
+            help: `These allow you to set global color sources.Change color source per mesh in the "source" and "source 2" controls below.`
+          })
+        }>
         <div className='w-[200px] flex'>
-          <h3 className='whitespace-pre'>file 1</h3>
+          <h3 className='whitespace-pre'>file1</h3>
           <select
             className='w-full'
             value={file1}
@@ -544,7 +597,7 @@ function FileChooser() {
           </select>
         </div>
         <div className='w-[200px] flex mt-2'>
-          <h3 className='whitespace-pre'>file 2</h3>
+          <h3 className='whitespace-pre'>file2</h3>
           <select
             className='w-full'
             value={file2}
@@ -633,7 +686,7 @@ function PresetInput() {
         ))}
         {_.range(index * 64, (index + 1) * 64).map(i => (
           <button
-            className={`rounded flex text-xs items-center justify-center m-0.5 ${
+            className={`rounded flex text-xs items-center justify-center mx-0.5 ${
               currentPreset === `${i}`
                 ? 'bg-yellow-500 text-black'
                 : allPresets[i]
@@ -750,6 +803,7 @@ function MaxValue({
               })}
               innerClassName='w-full bg-white bottom-0 left-0 rounded-t-lg'
               values={{ x: 0, y: value as number }}
+              exponential={name.includes('color') ? false : true}
             />
           </div>
         )

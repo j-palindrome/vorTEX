@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.PNG'],
   build: {
+    sourcemap: 'inline',
     rollupOptions: {
       output: {
         entryFileNames: '[name].js',

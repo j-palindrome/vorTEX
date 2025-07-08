@@ -51,6 +51,7 @@ export type MeshPreset = {
   nurbs_scale: PresetValue<'slider'>
   nurbs_curvature: PresetValue<'slider'>
   nurbs_random: PresetValue<'trigger'>
+  nurbs_shape: PresetValue<'select'>
   mesh_pointSize: PresetValue<'slider'>
   mesh_enable: PresetValue<'boolean'>
   mesh_drawMode: PresetValue<'string'>
@@ -116,6 +117,11 @@ export const presetDescription: {
   nurbs_scale: { type: 'slider', default: 0 },
   nurbs_random: { type: 'trigger', default: 'bang' },
   mesh_pointSize: { type: 'slider', default: 0 },
+  nurbs_shape: {
+    type: 'select',
+    default: 'plane',
+    values: () => ['sphere', 'torus', 'plane', 'circle', 'cone', 'capsule']
+  },
   mesh_drawMode: {
     type: 'string',
     values: [
